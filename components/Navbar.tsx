@@ -109,7 +109,7 @@ export default function Navbar() {
                 )
               )}
               <Link
-                href="/contact"
+                href="/become-member"
                 className="ml-3 btn-theme btn-theme-secondary text-sm"
               >
                 Support Us
@@ -164,7 +164,7 @@ export default function Navbar() {
               )
             )}
             <Link
-              href="/contact"
+              href="/become-member"
               onClick={() => setIsOpen(false)}
               className="block mt-2 btn-theme btn-theme-secondary text-center text-sm"
             >

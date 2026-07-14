@@ -76,7 +76,7 @@ export default function HomePage() {
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 leading-tight uppercase">
             LOVE Ka, Dahil Ikaw Ka
           </h1>
-          <p className="text-white/70 text-lg max-w-2xl mx-auto mb-4 leading-relaxed font-cursive text-xl">
+          <p className="text-white/70 max-w-2xl mx-auto mb-4 leading-relaxed font-cursive text-2xl md:text-3xl">
             Your identity is your power. Stand tall, speak loud, and let the
             world know who you are. You are not alone — we are here, we are
             proud, and we stand with you. Together, we create a world where
