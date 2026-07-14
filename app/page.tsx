@@ -71,7 +71,7 @@ export default function HomePage() {
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
           <p className="text-[#fcb315] uppercase tracking-widest mb-4 text-sm font-semibold">
-            Welcome To LGBTQIA++ Silbi
+            Welcome To LGBTQIA++ Silbi Kumintang Ilaya
           </p>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 leading-tight uppercase">
             LOVE Ka, Dahil Ikaw Ka!
@@ -219,7 +219,7 @@ export default function HomePage() {
 
       {/* Blog Section */}
       <section className="section-padding bg-[#f7f7f7]">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between mb-12">
             <h2 className="section-heading text-2xl">
               Mga Balita at Updates

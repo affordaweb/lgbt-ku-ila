@@ -42,7 +42,7 @@ export default function AboutPage() {
 
       {/* Mission & Vision */}
       <section className="section-padding bg-[#f7f7f7]">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-8">
           <div className="bg-white p-8 border border-[#e4e4e4] text-center">
             <div className="w-16 h-16 rounded-full bg-[#e85242]/10 flex items-center justify-center mx-auto mb-6">
               <Target className="w-8 h-8 text-[#e85242]" />
