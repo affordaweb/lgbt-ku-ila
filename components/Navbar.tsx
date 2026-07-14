@@ -9,8 +9,7 @@ import FacebookIcon from "./FacebookIcon";
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About", hasDropdown: true },
-  { href: "/members", label: "Members" },
-  { href: "/become-member", label: "Become a Member" },
+  { href: "/members", label: "Members", hasDropdown: true },
   { href: "/gallery", label: "Gallery" },
   { href: "/events", label: "Events" },
   { href: "/blog", label: "Blog" },
@@ -20,6 +19,11 @@ const navLinks = [
 const aboutDropdown = [
   { href: "/about", label: "About Us" },
   { href: "/transparency", label: "Transparency" },
+];
+
+const membersDropdown = [
+  { href: "/members", label: "All Members" },
+  { href: "/become-member", label: "Become a Member" },
 ];
 
 export default function Navbar() {
@@ -76,8 +80,14 @@ export default function Navbar() {
             </Link>
 
             <nav className="hidden lg:flex items-center gap-1">
-              {navLinks.map((link) =>
-                link.hasDropdown ? (
+              {navLinks.map((link) => {
+                const dropdownItems = link.label === "About" 
+                  ? aboutDropdown 
+                  : link.label === "Members" 
+                    ? membersDropdown 
+                    : null;
+
+                return link.hasDropdown ? (
                   <div key={link.href} className="relative group">
                     <Link
                       href={link.href}
@@ -87,7 +97,7 @@ export default function Navbar() {
                       <ChevronDown className="w-3 h-3" />
                     </Link>
                     <div className="absolute top-full left-0 bg-white border border-[#e4e4e4] shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all min-w-[180px] z-50">
-                      {aboutDropdown.map((item) => (
+                      {dropdownItems?.map((item) => (
                         <Link
                           key={item.href}
                           href={item.href}
@@ -106,8 +116,8 @@ export default function Navbar() {
                   >
                     {link.label}
                   </Link>
-                )
-              )}
+                );
+              })}
               <Link
                 href="/become-member"
                 className="ml-3 btn-theme btn-theme-secondary text-sm"
@@ -131,8 +141,14 @@ export default function Navbar() {
       {isOpen && (
         <div className="lg:hidden bg-white border-t border-[#e4e4e4]">
           <div className="px-4 py-3 space-y-1">
-            {navLinks.map((link) =>
-              link.hasDropdown ? (
+            {navLinks.map((link) => {
+              const dropdownItems = link.label === "About" 
+                ? aboutDropdown 
+                : link.label === "Members" 
+                  ? membersDropdown 
+                  : null;
+
+              return link.hasDropdown ? (
                 <div key={link.href}>
                   <Link
                     href={link.href}
@@ -141,7 +157,7 @@ export default function Navbar() {
                   >
                     {link.label}
                   </Link>
-                  {aboutDropdown.map((item) => (
+                  {dropdownItems?.map((item) => (
                     <Link
                       key={item.href}
                       href={item.href}
@@ -161,8 +177,8 @@ export default function Navbar() {
                 >
                   {link.label}
                 </Link>
-              )
-            )}
+              );
+            })}
             <Link
               href="/become-member"
               onClick={() => setIsOpen(false)}
