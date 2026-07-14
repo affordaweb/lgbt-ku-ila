@@ -151,22 +151,22 @@ html {
 }
 
 .service-card-red {
-  background-color: rgba(232, 82, 66, 0.85);
+  background-color: #e85242;
   color: white;
 }
 
 .service-card-orange {
-  background-color: rgba(243, 112, 43, 0.85);
+  background-color: #f3702b;
   color: white;
 }
 
 .service-card-yellow {
-  background-color: rgba(252, 179, 21, 0.85);
+  background-color: #fcb315;
   color: white;
 }
 
 .service-card-teal-bg {
-  background-color: rgba(3, 168, 203, 0.85);
+  background-color: #03a8cb;
   color: white;
 }
 

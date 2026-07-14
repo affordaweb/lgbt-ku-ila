@@ -63,15 +63,13 @@ export default function HomePage() {
             Welcome To LGBTQIA++ Kumintang Ilaya
           </p>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 leading-tight uppercase">
-            Become The Change
-            <br />
-            You Want To See
+            Sino Ka Man, Dito Ka
           </h1>
           <p className="text-white/70 text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
-            Empowering the community through love, solidarity, advocacy, and human rights.
+            Kahit sino ka, tanggap ka dito. Walang mali sa pagiging ikaw.
           </p>
           <Link href="/contact" className="btn-theme btn-theme-primary inline-block">
-            Be Proud!
+            Maging Proud!
           </Link>
         </div>
       </section>
@@ -106,22 +104,19 @@ export default function HomePage() {
           </div>
           <div>
             <h2 className="section-heading text-2xl">
-              What is LGBTQIA++ Ku-Ila
+              Ano ang LGBTQIA++ Ku-Ila
             </h2>
             <p className="text-[#787878] leading-relaxed mb-4">
-              The Center is committed to a policy of non-discrimination in
-              employment and in the provision of all services.
+              Ang Kumintang Ilaya ay may pusong tunay. Walang kinikilingan,
+              walang pinipiling tao. Lahat ay tanggap dito.
             </p>
             <p className="text-[#787878] leading-relaxed mb-8">
-              The mission of LGBTQIA++ Kumintang Ilaya is to enhance and sustain
-              the health and well-being of the lesbian, gay, bisexual,
-              transgender and HIV communities by providing activities, programs
-              and services that create community. Empower community members;
-              provide essential resources; advocate for civil and human rights;
-              and embrace, promote and support our cultural diversity.
+              Ang aming misyon ay palakasin ang kalusugan at kagalingan ng
+              LGBTQIA++ komunidad sa pamamagitan ng mga programa at serbisyo.
+              Tayo'y magkaisa, walang agwat. Sama-sama, tayo'y magiging lakas.
             </p>
             <Link href="/about" className="btn-theme btn-theme-primary inline-block">
-              Read More
+              Basahin Pa
             </Link>
           </div>
         </div>
@@ -136,7 +131,7 @@ export default function HomePage() {
             </h2>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {members.slice(0, 8).map((member) => (
+            {members.filter(m => m.role !== "Member").map((member) => (
               <MemberCard
                 key={member.slug}
                 name={member.name}

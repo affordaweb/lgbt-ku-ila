@@ -6,25 +6,28 @@ import FacebookIcon from "./FacebookIcon";
 export default function Footer() {
   return (
     <footer className="text-white">
-      {/* Newsletter Bar - orange */}
+      {/* Support Us Bar - orange */}
       <div className="bg-[#f3702b] py-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
-            <h3 className="text-xl font-bold">Join Our Newsletter</h3>
+            <h3 className="text-xl font-bold">Support Us</h3>
             <p className="text-white/80 text-sm">
-              Stay updated with our latest news and events
+              Your support helps us build a more inclusive community
             </p>
           </div>
-          <form className="flex w-full md:w-auto">
-            <input
-              type="email"
-              placeholder="Your Email Address"
-              className="flex-1 md:w-72 px-4 py-3 text-sm text-gray-800 outline-none"
-            />
-            <button type="submit" className="btn-theme btn-theme-primary text-sm whitespace-nowrap">
-              Subscribe
-            </button>
-          </form>
+          <div className="flex items-center gap-4">
+            <div className="bg-white p-3 rounded-lg">
+              <div className="w-24 h-24 bg-gray-200 flex items-center justify-center text-gray-400 text-xs text-center">
+                GCash QR
+                <br />
+                Coming Soon
+              </div>
+            </div>
+            <div className="text-white text-sm">
+              <p className="font-bold">GCash</p>
+              <p className="text-white/80">Scan to donate</p>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -75,7 +78,7 @@ export default function Footer() {
                 </li>
                 <li className="flex items-start gap-3">
                   <Mail className="w-5 h-5 text-[#fcb315] mt-0.5 shrink-0" />
-                  <span>info@lgbt-ku-ila.vercel.app</span>
+                  <span>lgbtkuila@outlook.com</span>
                 </li>
               </ul>
             </div>
@@ -128,6 +131,17 @@ export default function Footer() {
           <p className="text-gray-500 text-xs">
             &copy; {new Date().getFullYear()} LGBTQIA++ Kumintang Ilaya. All
             rights reserved.
+          </p>
+          <p className="text-gray-500 text-xs">
+            Made with <span className="text-[#e85242]">&#10084;</span> love for the{" "}
+            <a
+              href="https://www.affordawebsolutions.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#fcb315] transition-colors underline"
+            >
+              Community
+            </a>
           </p>
           <div className="flex gap-4 text-xs text-gray-500">
             <Link href="/about" className="hover:text-[#fcb315] transition-colors">

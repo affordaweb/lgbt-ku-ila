@@ -22,60 +22,42 @@ const recentPosts = [
   "Cultural Night Photo Gallery",
 ];
 
-const events = [
+const pastEvents = [
   {
     id: 1,
-    title: "Pride Month Celebration",
-    image: "/images/events/event-01.jpg",
-    date: "June 15, 2026",
+    title: "11th Batangan Pride Parade",
+    image: "/images/events/733802303_122101099587380675_4257770319116326264_n.jpg",
+    date: "June 16, 2026",
     description:
-      "A vibrant celebration of identity, love, and equality featuring performances, speakers, and community activities.",
-    location: "Laguna Provincial Park",
+      "Sumali ang LGBTQIA++ Kumintang Ilaya sa 11th Batangan Pride Parade na ginanap sa Batangas Provincial Capitol. Isang masayang pagdiriwang ng pagkakaisa, pagmamahal, at pagtanggap sa lahi at kasarian.",
+    location: "Batangas Provincial Capitol",
   },
   {
     id: 2,
-    title: "Community Health Day",
-    image: "/images/events/event-02.jpg",
-    date: "May 20, 2026",
+    title: "2nd Citywide Pride Celebration",
+    image: "/images/events/734768224_2070636277142827_2921723697569089008_n.jpg",
+    date: "June 29, 2026",
     description:
-      "Free health screenings, consultations, and wellness workshops open to all community members.",
-    location: "Ku-Ila Community Center",
+      "Nakiisa ang Ku-Ila sa 2nd Citywide Pride Celebration na inorganisa ng LASO, SILBI, at CSWDO. Nagsimula sa Plaza Mabini at nagtapos sa Batangas City Convention Center.",
+    location: "Plaza Mabini to Batangas City Convention Center",
   },
   {
     id: 3,
-    title: "Legal Aid Workshop",
-    image: "/images/events/event-03.jpg",
-    date: "April 12, 2026",
+    title: "Pride Month Kickoff Walk",
+    image: "/images/events/731788066_2070636043809517_8341410874233716056_n.jpg",
+    date: "June 11, 2026",
     description:
-      "Learn about your legal rights and access free legal consultations with experienced advocates.",
-    location: "Laguna Town Hall",
+      "Ang kauna-unahang Pride Month Celebration sa Batangas City na may temang 'Rampa Na: Kahit Ano Ka, Love Ka!' Mula Provincial Capitol patungo sa Batangas City Convention Center.",
+    location: "Provincial Capitol to Batangas City Convention Center",
   },
   {
     id: 4,
-    title: "Youth Empowerment Summit",
-    image: "/images/events/event-04.jpg",
-    date: "March 28, 2026",
+    title: "Hair & Makeup Competition",
+    image: "/images/events/734756136_2070636173809504_5831640839771367381_n.jpg",
+    date: "June 11, 2026",
     description:
-      "A summit dedicated to empowering LGBTQIA++ youth through mentorship, skill-building, and leadership development.",
-    location: "University of Laguna Auditorium",
-  },
-  {
-    id: 5,
-    title: "Advocacy Training",
-    image: "/images/events/event-05.jpg",
-    date: "March 5, 2026",
-    description:
-      "Hands-on training sessions for aspiring advocates on policy, campaigning, and community organizing.",
-    location: "Ku-Ila Training Hall",
-  },
-  {
-    id: 6,
-    title: "Cultural Night",
-    image: "/images/events/event-06.jpg",
-    date: "February 20, 2026",
-    description:
-      "An evening of music, dance, and art celebrating the rich cultural heritage of the LGBTQIA++ community.",
-    location: "Calamba Cultural Center",
+      "Nagpamalas ng talento ang mga miyembro ng Ku-Ila sa Hair and Makeup Competition na bahagi ng Pride Month Celebration sa Batangas City.",
+    location: "Batangas City Convention Center",
   },
 ];
 
@@ -83,7 +65,7 @@ export default function EventsPage() {
   return (
     <main>
       <HeroSection
-        title="Events & Activities"
+        title="Mga Kaganapan"
         subtitle="Home / Events"
         backgroundImage="/images/stock/stock-06.jpg"
       />
@@ -153,10 +135,13 @@ export default function EventsPage() {
               </div>
             </aside>
 
-            {/* Events Grid */}
+            {/* Past Events Grid */}
             <div className="lg:col-span-2 order-1 lg:order-2">
+              <h2 className="section-heading text-2xl mb-8">
+                Past Events
+              </h2>
               <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
-                {events.map((event) => (
+                {pastEvents.map((event) => (
                   <div
                     key={event.id}
                     className="overflow-hidden bg-white border border-[#e4e4e4] group"
