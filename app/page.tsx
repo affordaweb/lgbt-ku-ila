@@ -142,7 +142,7 @@ export default function HomePage() {
             </p>
             <p className="text-[#787878] leading-relaxed mb-8">
               Sama-sama tayong magkaisa — walang agwat, walang hatulan.
-              Join us and be part of the movement for a more inclusive Batangas.
+              Join us and be part of the movement for a more inclusive Kumintang Ilaya.
             </p>
             <Link href="/about" className="btn-theme btn-theme-primary inline-block">
               Basahin Pa
