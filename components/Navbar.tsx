@@ -3,18 +3,23 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X, MapPin, Mail } from "lucide-react";
+import { Menu, X, MapPin, Mail, ChevronDown } from "lucide-react";
 import FacebookIcon from "./FacebookIcon";
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
+  { href: "/about", label: "About", hasDropdown: true },
   { href: "/members", label: "Members" },
   { href: "/become-member", label: "Become a Member" },
   { href: "/gallery", label: "Gallery" },
   { href: "/events", label: "Events" },
   { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
+];
+
+const aboutDropdown = [
+  { href: "/about", label: "About Us" },
+  { href: "/transparency", label: "Transparency" },
 ];
 
 export default function Navbar() {
@@ -71,15 +76,38 @@ export default function Navbar() {
             </Link>
 
             <nav className="hidden lg:flex items-center gap-1">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="px-4 py-2 text-sm font-medium text-[#787878] hover:text-[#e85242] transition-colors uppercase tracking-wide"
-                >
-                  {link.label}
-                </Link>
-              ))}
+              {navLinks.map((link) =>
+                link.hasDropdown ? (
+                  <div key={link.href} className="relative group">
+                    <Link
+                      href={link.href}
+                      className="px-4 py-2 text-sm font-medium text-[#787878] hover:text-[#e85242] transition-colors uppercase tracking-wide inline-flex items-center gap-1"
+                    >
+                      {link.label}
+                      <ChevronDown className="w-3 h-3" />
+                    </Link>
+                    <div className="absolute top-full left-0 bg-white border border-[#e4e4e4] shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all min-w-[180px] z-50">
+                      {aboutDropdown.map((item) => (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          className="block px-4 py-3 text-sm text-[#787878] hover:text-[#e85242] hover:bg-[#f7f7f7] transition-colors"
+                        >
+                          {item.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                ) : (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="px-4 py-2 text-sm font-medium text-[#787878] hover:text-[#e85242] transition-colors uppercase tracking-wide"
+                  >
+                    {link.label}
+                  </Link>
+                )
+              )}
               <Link
                 href="/contact"
                 className="ml-3 btn-theme btn-theme-secondary text-sm"
@@ -103,16 +131,38 @@ export default function Navbar() {
       {isOpen && (
         <div className="lg:hidden bg-white border-t border-[#e4e4e4]">
           <div className="px-4 py-3 space-y-1">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setIsOpen(false)}
-                className="block px-4 py-3 text-sm font-medium text-[#787878] hover:text-[#e85242] transition-colors uppercase tracking-wide"
-              >
-                {link.label}
-              </Link>
-            ))}
+            {navLinks.map((link) =>
+              link.hasDropdown ? (
+                <div key={link.href}>
+                  <Link
+                    href={link.href}
+                    onClick={() => setIsOpen(false)}
+                    className="block px-4 py-3 text-sm font-medium text-[#787878] hover:text-[#e85242] transition-colors uppercase tracking-wide"
+                  >
+                    {link.label}
+                  </Link>
+                  {aboutDropdown.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      onClick={() => setIsOpen(false)}
+                      className="block pl-8 pr-4 py-2 text-sm text-[#787878] hover:text-[#e85242] transition-colors"
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              ) : (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setIsOpen(false)}
+                  className="block px-4 py-3 text-sm font-medium text-[#787878] hover:text-[#e85242] transition-colors uppercase tracking-wide"
+                >
+                  {link.label}
+                </Link>
+              )
+            )}
             <Link
               href="/contact"
               onClick={() => setIsOpen(false)}

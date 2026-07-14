@@ -77,7 +77,10 @@ export default function HomePage() {
             LOVE Ka, Dahil Ikaw Ka
           </h1>
           <p className="text-white/70 text-lg max-w-2xl mx-auto mb-4 leading-relaxed font-cursive text-xl">
-            Your identity is your power. Stand tall, speak loud, and let the world know who you are.
+            Your identity is your power. Stand tall, speak loud, and let the
+            world know who you are. You are not alone — we are here, we are
+            proud, and we stand with you. Together, we create a world where
+            everyone is seen, heard, and celebrated.
           </p>
           <p className="text-[#fcb315] text-sm uppercase tracking-widest mb-10">
             Kumintang Ilaya
