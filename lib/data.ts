@@ -49,12 +49,6 @@ export const galleryImages = [
   { src: "/images/events/736845534_122100813849380675_8484641132398570078_n.jpg", alt: "Solidarity Gathering" },
   { src: "/images/events/736065685_122101691037380675_675168795837495272_n.jpg", alt: "Ku-Ila Program" },
   { src: "/images/events/736966547_122101103409380675_3652929604956128964_n.jpg", alt: "Community Program" },
-  { src: "/images/stock/stock-02.jpg", alt: "Community Support" },
-  { src: "/images/stock/stock-03.jpg", alt: "Together in Pride" },
-  { src: "/images/stock/stock-04.jpg", alt: "Equality For All" },
-  { src: "/images/stock/stock-05.jpg", alt: "Love is Love" },
-  { src: "/images/stock/stock-06.jpg", alt: "Standing Strong" },
-  { src: "/images/stock/stock-07.jpg", alt: "Celebrating Diversity" },
 ];
 
 export const eventImages = galleryImages;

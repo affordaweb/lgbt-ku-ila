@@ -45,7 +45,7 @@ export default function Navbar() {
             </span>
             <span className="flex items-center gap-1.5">
               <Mail className="w-3 h-3 text-[#fcb315]" />
-              info@lgbt-ku-ila.vercel.app
+              lgbtkuila@outlook.com
             </span>
           </div>
         </div>

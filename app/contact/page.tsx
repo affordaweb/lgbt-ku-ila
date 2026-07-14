@@ -2,7 +2,6 @@ import { Metadata } from "next";
 import {
   MapPin,
   Mail,
-  Phone,
   Clock,
 } from "lucide-react";
 import FacebookIcon from "@/components/FacebookIcon";
@@ -25,14 +24,8 @@ const contactInfo = [
   {
     icon: Mail,
     label: "Email",
-    value: "info@lgbt-ku-ila.vercel.app",
-    href: "mailto:info@lgbt-ku-ila.vercel.app",
-  },
-  {
-    icon: Phone,
-    label: "Phone",
-    value: "+63 XXX XXX XXXX",
-    href: "tel:+639123456789",
+    value: "lgbtkuila@outlook.com",
+    href: "mailto:lgbtkuila@outlook.com",
   },
   {
     icon: FacebookIcon,
