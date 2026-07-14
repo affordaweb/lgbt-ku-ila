@@ -18,7 +18,7 @@ export default function ThankYouPage() {
           <div className="inline-flex items-center gap-2 px-4 py-1.5 border border-[#D4AF37]/30 text-[#D4AF37] text-xs uppercase tracking-[0.2em] mb-6">
             Success
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-[#1A1A2E] mb-4 font-[var(--font-playfair)]">
+          <h1 className="text-4xl md:text-5xl font-bold text-[#1A1A2E] mb-4">
             Thank You!
           </h1>
           <p className="text-[#6B7280] text-lg mb-2">

@@ -52,3 +52,56 @@ export const galleryImages = [
 ];
 
 export const eventImages = galleryImages;
+
+export interface Event {
+  id: number;
+  title: string;
+  slug: string;
+  image: string;
+  date: string;
+  description: string;
+  location: string;
+}
+
+export const pastEvents: Event[] = [
+  {
+    id: 1,
+    title: "11th Batangan Pride Parade",
+    slug: "11th-batangan-pride-parade",
+    image: "/images/events/733802303_122101099587380675_4257770319116326264_n.jpg",
+    date: "June 16, 2026",
+    description:
+      "Sumali ang LGBTQIA++ Kumintang Ilaya sa 11th Batangan Pride Parade na ginanap sa Batangas Provincial Capitol. Isang masayang pagdiriwang ng pagkakaisa, pagmamahal, at pagtanggap sa lahi at kasarian.",
+    location: "Batangas Provincial Capitol",
+  },
+  {
+    id: 2,
+    title: "2nd Citywide Pride Celebration",
+    slug: "2nd-citywide-pride-celebration",
+    image: "/images/events/734768224_2070636277142827_2921723697569089008_n.jpg",
+    date: "June 29, 2026",
+    description:
+      "Nakiisa ang Ku-Ila sa 2nd Citywide Pride Celebration na inorganisa ng LASO, SILBI, at CSWDO. Nagsimula sa Plaza Mabini at nagtapos sa Batangas City Convention Center.",
+    location: "Plaza Mabini to Batangas City Convention Center",
+  },
+  {
+    id: 3,
+    title: "Pride Month Kickoff Walk",
+    slug: "pride-month-kickoff-walk",
+    image: "/images/events/731788066_2070636043809517_8341410874233716056_n.jpg",
+    date: "June 11, 2026",
+    description:
+      "Ang kauna-unahang Pride Month Celebration sa Batangas City na may temang 'Rampa Na: Kahit Ano Ka, Love Ka!' Mula Provincial Capitol patungo sa Batangas City Convention Center.",
+    location: "Provincial Capitol to Batangas City Convention Center",
+  },
+  {
+    id: 4,
+    title: "Hair & Makeup Competition",
+    slug: "hair-makeup-competition",
+    image: "/images/events/734756136_2070636173809504_5831640839771367381_n.jpg",
+    date: "June 11, 2026",
+    description:
+      "Nagpamalas ng talento ang mga miyembro ng Ku-Ila sa Hair and Makeup Competition na bahagi ng Pride Month Celebration sa Batangas City.",
+    location: "Batangas City Convention Center",
+  },
+];

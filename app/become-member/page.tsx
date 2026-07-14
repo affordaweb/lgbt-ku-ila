@@ -32,7 +32,7 @@ export default function BecomeMemberPage() {
             {/* Form */}
             <div>
               <p className="text-[#D4AF37] text-xs uppercase tracking-[0.2em] mb-4 font-medium">Join Us</p>
-              <h2 className="section-heading text-3xl font-[var(--font-playfair)]">
+              <h2 className="section-heading text-3xl">
                 Membership Application
               </h2>
               <MembershipForm />
@@ -41,17 +41,17 @@ export default function BecomeMemberPage() {
             {/* Info Sidebar */}
             <div className="space-y-10">
               <div>
-                <h3 className="text-lg font-bold text-[#1A1A2E] mb-4 uppercase tracking-wider font-[var(--font-playfair)]">
+                <h3 className="text-lg font-bold text-[#1A1A2E] mb-4 uppercase tracking-wider">
                   Membership Fee
                 </h3>
                 <div className="bg-gradient-to-br from-[#FAF8F5] to-white border border-[#E5DDD3] p-8 text-center">
-                  <p className="text-5xl font-bold text-[#D4AF37] mb-2 font-[var(--font-playfair)]">300 PHP</p>
+                  <p className="text-5xl font-bold text-[#D4AF37] mb-2">300 PHP</p>
                   <p className="text-sm text-[#6B7280]">One-time membership fee</p>
                 </div>
               </div>
 
               <div>
-                <h3 className="text-lg font-bold text-[#1A1A2E] mb-4 uppercase tracking-wider font-[var(--font-playfair)]">
+                <h3 className="text-lg font-bold text-[#1A1A2E] mb-4 uppercase tracking-wider">
                   How to Pay
                 </h3>
                 <ol className="space-y-4 text-sm text-[#6B7280]">
@@ -79,7 +79,7 @@ export default function BecomeMemberPage() {
               </div>
 
               <div>
-                <h3 className="text-lg font-bold text-[#1A1A2E] mb-4 uppercase tracking-wider font-[var(--font-playfair)]">
+                <h3 className="text-lg font-bold text-[#1A1A2E] mb-4 uppercase tracking-wider">
                   GCash QR Code
                 </h3>
                 <div className="bg-[#FAF8F5] border border-[#E5DDD3] p-8 flex items-center justify-center">
@@ -92,7 +92,7 @@ export default function BecomeMemberPage() {
               </div>
 
               <div>
-                <h3 className="text-lg font-bold text-[#1A1A2E] mb-4 uppercase tracking-wider font-[var(--font-playfair)]">
+                <h3 className="text-lg font-bold text-[#1A1A2E] mb-4 uppercase tracking-wider">
                   Membership Benefits
                 </h3>
                 <ul className="space-y-3 text-sm text-[#6B7280]">

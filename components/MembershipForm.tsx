@@ -2,7 +2,7 @@
 
 import { useState, FormEvent, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
-import { Send, User, Mail, Phone, FileText } from "lucide-react";
+import { Send, User, Mail, Phone, FileText, Upload, AlertCircle, Check } from "lucide-react";
 import Script from "next/script";
 
 declare global {
@@ -19,8 +19,15 @@ export default function MembershipForm() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [scriptReady, setScriptReady] = useState(false);
+  const [gcashRef, setGcashRef] = useState("");
+  const [refError, setRefError] = useState("");
+  const [refChecking, setRefChecking] = useState(false);
+  const [refVerified, setRefVerified] = useState(false);
+  const [screenshotFile, setScreenshotFile] = useState<File | null>(null);
+  const [screenshotPreview, setScreenshotPreview] = useState<string | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const widgetIdRef = useRef<string | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const renderWidget = () => {
     if (!window.turnstile || !containerRef.current) {
@@ -46,14 +53,82 @@ export default function MembershipForm() {
     };
   }, [scriptReady]);
 
+  const checkReference = async (ref: string) => {
+    if (ref.length < 5) {
+      setRefError("");
+      setRefVerified(false);
+      return;
+    }
+    setRefChecking(true);
+    setRefError("");
+    try {
+      const res = await fetch("/api/gcash/check", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ reference: ref }),
+      });
+      const data = await res.json();
+      if (data.exists) {
+        setRefError("This reference number has already been used.");
+        setRefVerified(false);
+      } else {
+        setRefError("");
+        setRefVerified(true);
+      }
+    } catch {
+      setRefError("Unable to verify reference. Please try again.");
+      setRefVerified(false);
+    } finally {
+      setRefChecking(false);
+    }
+  };
+
+  const handleRefChange = (value: string) => {
+    setGcashRef(value);
+    setRefVerified(false);
+    setRefError("");
+  };
+
+  const handleRefBlur = () => {
+    if (gcashRef.length >= 5) {
+      checkReference(gcashRef);
+    }
+  };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      setScreenshotFile(file);
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setScreenshotPreview(reader.result as string);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (!screenshotFile) return;
+
     setLoading(true);
 
     const form = e.currentTarget;
     const formData = new FormData(form);
+    formData.append("screenshot", screenshotFile);
 
     try {
+      await fetch("/api/gcash/store", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          reference: gcashRef.trim(),
+          name: formData.get("full_name"),
+          email: formData.get("email"),
+        }),
+      });
+
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         body: formData,
@@ -68,6 +143,8 @@ export default function MembershipForm() {
       setLoading(false);
     }
   };
+
+  const canSubmit = screenshotFile !== null && gcashRef.trim().length >= 5 && refVerified && !refChecking;
 
   return (
     <>
@@ -206,13 +283,91 @@ export default function MembershipForm() {
               id="gcashRef"
               name="gcash_reference"
               required
-              className="input-luxury pl-10"
+              value={gcashRef}
+              onChange={(e) => handleRefChange(e.target.value)}
+              onBlur={handleRefBlur}
+              className={`input-luxury pl-10 pr-10 ${
+                refError ? "border-red-400 focus:border-red-400 focus:shadow-red-100" : ""
+              } ${refVerified ? "border-green-400 focus:border-green-400" : ""}`}
               placeholder="e.g. 1234567890123"
             />
+            {refChecking && (
+              <div className="absolute right-3 top-3">
+                <div className="w-4 h-4 border-2 border-[#D4AF37] border-t-transparent rounded-full animate-spin" />
+              </div>
+            )}
+            {refVerified && !refChecking && (
+              <Check className="absolute right-3 top-3.5 w-4 h-4 text-green-500" />
+            )}
+            {refError && !refChecking && (
+              <AlertCircle className="absolute right-3 top-3.5 w-4 h-4 text-red-400" />
+            )}
           </div>
+          {refError && (
+            <p className="mt-1 text-xs text-red-400">{refError}</p>
+          )}
+          {refVerified && (
+            <p className="mt-1 text-xs text-green-500">Reference number verified</p>
+          )}
           <p className="mt-1 text-xs text-[#6B7280]">
             Enter the reference number from your GCash payment confirmation
           </p>
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium text-[#1A1A2E] mb-2 uppercase tracking-wider">
+            GCash Screenshot *
+          </label>
+          <div
+            onClick={() => fileInputRef.current?.click()}
+            className={`border-2 border-dashed p-8 text-center cursor-pointer transition-colors ${
+              screenshotFile
+                ? "border-green-300 bg-green-50/50"
+                : "border-[#E5DDD3] hover:border-[#D4AF37] bg-[#FAF8F5]"
+            }`}
+          >
+            {screenshotPreview ? (
+              <div className="space-y-3">
+                <img
+                  src={screenshotPreview}
+                  alt="GCash Screenshot Preview"
+                  className="max-h-48 mx-auto object-contain"
+                />
+                <p className="text-xs text-green-600 font-medium">
+                  Screenshot uploaded: {screenshotFile?.name}
+                </p>
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setScreenshotFile(null);
+                    setScreenshotPreview(null);
+                    if (fileInputRef.current) fileInputRef.current.value = "";
+                  }}
+                  className="text-xs text-red-400 hover:text-red-500 underline"
+                >
+                  Remove
+                </button>
+              </div>
+            ) : (
+              <div className="space-y-3">
+                <Upload className="w-10 h-10 text-[#6B7280] mx-auto" />
+                <p className="text-sm text-[#6B7280]">
+                  Click to upload your GCash payment screenshot
+                </p>
+                <p className="text-xs text-[#9CA3AF]">
+                  PNG, JPG or JPEG (max 5MB)
+                </p>
+              </div>
+            )}
+          </div>
+          <input
+            ref={fileInputRef}
+            type="file"
+            accept="image/png,image/jpeg,image/jpg"
+            onChange={handleFileChange}
+            className="hidden"
+          />
         </div>
 
         <div className="bg-[#FAF8F5] border border-[#E5DDD3] p-5">
@@ -220,7 +375,7 @@ export default function MembershipForm() {
             <strong>Membership Fee:</strong> 300 PHP (one-time)
           </p>
           <p className="text-xs text-[#6B7280] mt-1">
-            After submitting this form, please send your payment via GCash. Your membership will be activated once payment is verified and you will be added to our Members page.
+            After submitting this form, your application will be reviewed. Your membership will be activated once payment is verified.
           </p>
         </div>
 
@@ -228,8 +383,10 @@ export default function MembershipForm() {
 
         <button
           type="submit"
-          disabled={loading}
-          className="btn-luxury btn-luxury-primary disabled:opacity-50"
+          disabled={loading || !canSubmit}
+          className={`btn-luxury w-full disabled:opacity-40 disabled:cursor-not-allowed ${
+            canSubmit ? "btn-luxury-primary" : "bg-gray-300 text-gray-500"
+          }`}
         >
           {loading ? (
             "Submitting..."

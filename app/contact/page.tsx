@@ -102,7 +102,7 @@ export default function ContactPage() {
           <div className="grid grid-cols-1 gap-16 lg:grid-cols-2">
             <div>
               <p className="text-[#D4AF37] text-xs uppercase tracking-[0.2em] mb-4 font-medium">Let&apos;s Talk</p>
-              <h2 className="section-heading text-3xl font-[var(--font-playfair)]">
+              <h2 className="section-heading text-3xl">
                 Do You Need Help?
               </h2>
               <p className="text-[#6B7280] mb-8">
@@ -113,7 +113,7 @@ export default function ContactPage() {
 
             <div>
               <p className="text-[#D4AF37] text-xs uppercase tracking-[0.2em] mb-4 font-medium">Reach Out</p>
-              <h2 className="section-heading text-3xl font-[var(--font-playfair)]">
+              <h2 className="section-heading text-3xl">
                 Get In Touch
               </h2>
               <p className="text-[#6B7280] mb-8">

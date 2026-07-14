@@ -32,7 +32,7 @@ export default function HeroSection({
             {subtitle}
           </p>
         )}
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 font-[var(--font-playfair)] leading-tight">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
           {title}
         </h1>
         {description && (

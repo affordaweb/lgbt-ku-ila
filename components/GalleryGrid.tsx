@@ -66,7 +66,7 @@ export default function GalleryGrid({ images, categories = [] }: GalleryGridProp
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A2E]/80 via-[#1A1A2E]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <div className="absolute bottom-0 left-0 right-0 p-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-y-2 group-hover:translate-y-0">
-              <h3 className="font-bold text-sm font-[var(--font-playfair)]">{image.alt}</h3>
+              <h3 className="font-bold text-sm">{image.alt}</h3>
             </div>
           </button>
         ))}

@@ -10,7 +10,7 @@ export default function Footer() {
       <div className="bg-gradient-to-r from-[#7B2D8E] to-[#9B4DAC] py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
-            <h3 className="text-2xl font-bold font-[var(--font-playfair)] tracking-wide">Support Us</h3>
+            <h3 className="text-2xl font-bold tracking-wide">Support Us</h3>
             <p className="text-white/70 text-sm mt-1 max-w-md">
               Bawat piso mo, pag-asa at lakas ang naibibigay sa komunidad. Mag-donate na!
             </p>
@@ -46,7 +46,7 @@ export default function Footer() {
                   className="rounded-full object-cover ring-2 ring-[#D4AF37]/30"
                 />
                 <div>
-                  <h3 className="text-lg font-bold font-[var(--font-playfair)] tracking-wide">LGBTQIA++ Ku-Ila</h3>
+                  <h3 className="text-lg font-bold tracking-wide">LGBTQIA++ Ku-Ila</h3>
                   <p className="text-xs text-[#D4AF37]">Kumintang Ilaya</p>
                 </div>
               </Link>
@@ -70,7 +70,7 @@ export default function Footer() {
 
             {/* Our Contacts */}
             <div>
-              <h3 className="text-lg font-bold mb-6 font-[var(--font-playfair)] tracking-wide">Our Contacts</h3>
+              <h3 className="text-lg font-bold mb-6 tracking-wide">Our Contacts</h3>
               <ul className="space-y-4 text-gray-500 text-sm">
                 <li className="flex items-start gap-3">
                   <MapPin className="w-5 h-5 text-[#D4AF37] mt-0.5 shrink-0" />
@@ -83,41 +83,30 @@ export default function Footer() {
               </ul>
             </div>
 
-            {/* Recent Blogs */}
+            {/* Quick Links */}
             <div>
-              <h3 className="text-lg font-bold mb-6 font-[var(--font-playfair)] tracking-wide">Recent Blogs</h3>
-              <ul className="space-y-4">
-                <li className="flex gap-3">
-                  <div className="w-16 h-16 shrink-0 relative overflow-hidden rounded-sm">
-                    <Image
-                      src="/images/stock/stock-03.jpg"
-                      alt="Blog"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div>
-                    <Link href="/blog" className="text-sm text-white hover:text-[#D4AF37] transition-colors leading-snug block">
-                      Creating Spaces for Queer Families
-                    </Link>
-                    <span className="text-xs text-gray-600">Jan 17, 2018</span>
-                  </div>
+              <h3 className="text-lg font-bold mb-6 font-[var(--font-inter)] tracking-wide">Quick Links</h3>
+              <ul className="space-y-3 text-sm">
+                <li>
+                  <Link href="/" className="text-gray-500 hover:text-[#D4AF37] transition-colors">Home</Link>
                 </li>
-                <li className="flex gap-3">
-                  <div className="w-16 h-16 shrink-0 relative overflow-hidden rounded-sm">
-                    <Image
-                      src="/images/stock/stock-04.jpg"
-                      alt="Blog"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div>
-                    <Link href="/blog" className="text-sm text-white hover:text-[#D4AF37] transition-colors leading-snug block">
-                      Holiday Resources for LGBT Families
-                    </Link>
-                    <span className="text-xs text-gray-600">Jan 17, 2018</span>
-                  </div>
+                <li>
+                  <Link href="/about" className="text-gray-500 hover:text-[#D4AF37] transition-colors">About Us</Link>
+                </li>
+                <li>
+                  <Link href="/members" className="text-gray-500 hover:text-[#D4AF37] transition-colors">Members</Link>
+                </li>
+                <li>
+                  <Link href="/gallery" className="text-gray-500 hover:text-[#D4AF37] transition-colors">Gallery</Link>
+                </li>
+                <li>
+                  <Link href="/events" className="text-gray-500 hover:text-[#D4AF37] transition-colors">Events</Link>
+                </li>
+                <li>
+                  <Link href="/contact" className="text-gray-500 hover:text-[#D4AF37] transition-colors">Contact</Link>
+                </li>
+                <li>
+                  <Link href="/become-member" className="text-gray-500 hover:text-[#D4AF37] transition-colors">Become a Member</Link>
                 </li>
               </ul>
             </div>

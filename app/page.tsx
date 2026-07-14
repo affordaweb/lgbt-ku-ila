@@ -30,28 +30,24 @@ const programs = [
     title: "Community Support",
     description:
       "Pagsasama-sama at pagtutulungan. May mga support groups at activities para sa lahat ng miyembro ng LGBTQIA++ komunidad.",
-    color: "red" as const,
   },
   {
     icon: Shield,
     title: "Legal Assistance",
     description:
       "Tulong sa mga dokumento at pag-unawa sa inyong mga karapatan. Gabay para sa mga LGBTQIA++ na humaharap sa diskriminasyon.",
-    color: "orange" as const,
   },
   {
     icon: Users,
     title: "Youth Empowerment",
     description:
       "Mga programa para sa kabataan — mentoring, workshops, at activities na nagpapalakas ng kumpiyansa at pagkakaisa.",
-    color: "yellow" as const,
   },
   {
     icon: Leaf,
     title: "Health & Wellness",
     description:
       "Mental health support, wellness activities, at connections sa healthcare services para sa komunidad.",
-    color: "teal" as const,
   },
 ];
 
@@ -65,11 +61,11 @@ export default function HomePage() {
           <div className="inline-flex items-center gap-2 px-4 py-1.5 border border-[#D4AF37]/30 text-[#D4AF37] text-xs uppercase tracking-[0.2em] mb-6">
             Welcome To LGBTQIA++ Silbi Kumintang Ilaya
           </div>
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-8 leading-tight font-[var(--font-playfair)]">
+          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-8 leading-tight">
             LOVE Ka,<br />
             <span className="text-gradient">Dahil Ikaw Ka!</span>
           </h1>
-          <p className="text-white/60 max-w-2xl mx-auto mb-6 leading-relaxed text-lg font-[var(--font-cormorant)] italic">
+          <p className="text-white/60 max-w-2xl mx-auto mb-6 leading-relaxed text-lg">
             Your identity is your power. Stand tall, speak loud, and let the
             world know who you are. You are not alone — we are here, we are
             proud, and we stand with you.
@@ -98,7 +94,6 @@ export default function HomePage() {
                 icon={program.icon}
                 title={program.title}
                 description={program.description}
-                color={program.color}
               />
             ))}
           </div>
@@ -119,7 +114,7 @@ export default function HomePage() {
           </div>
           <div>
             <p className="text-[#D4AF37] text-xs uppercase tracking-[0.2em] mb-4 font-medium">About Us</p>
-            <h2 className="section-heading text-3xl font-[var(--font-playfair)]">
+            <h2 className="section-heading text-3xl">
               Ano ang LGBTQIA++ Ku-Ila?
             </h2>
             <p className="text-[#6B7280] leading-relaxed mb-4">
@@ -150,7 +145,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <p className="text-[#D4AF37] text-xs uppercase tracking-[0.2em] mb-4 font-medium">Our Team</p>
-            <h2 className="section-heading section-heading-center text-3xl inline-block font-[var(--font-playfair)]">
+            <h2 className="section-heading section-heading-center text-3xl inline-block">
               Leaders of Our Community
             </h2>
           </div>
@@ -179,7 +174,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <p className="text-[#D4AF37] text-xs uppercase tracking-[0.2em] mb-4 font-medium">Events</p>
-            <h2 className="section-heading section-heading-center text-3xl inline-block font-[var(--font-playfair)]">
+            <h2 className="section-heading section-heading-center text-3xl inline-block">
               Mga Kaganapan at Aktibidad
             </h2>
             <p className="text-[#6B7280] mt-4 max-w-2xl mx-auto">
@@ -204,79 +199,11 @@ export default function HomePage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A2E]/80 via-transparent to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-5 text-white">
-                    <h3 className="font-bold text-sm font-[var(--font-playfair)]">{image.alt}</h3>
+                    <h3 className="font-bold text-sm">{image.alt}</h3>
                   </div>
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Blog Section */}
-      <section className="section-padding bg-[#FAF8F5]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-end justify-between mb-12">
-            <div>
-              <p className="text-[#D4AF37] text-xs uppercase tracking-[0.2em] mb-4 font-medium">Blog</p>
-              <h2 className="section-heading text-3xl font-[var(--font-playfair)]">
-                Mga Balita at Updates
-              </h2>
-            </div>
-            <Link href="/blog" className="text-[#7B2D8E] hover:text-[#9B4DAC] text-sm font-semibold uppercase tracking-wider transition-colors hidden sm:inline-flex items-center gap-1">
-              View More <ArrowRight className="w-3 h-3" />
-            </Link>
-          </div>
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-white border border-[#E5DDD3] overflow-hidden card-luxury">
-              <div className="relative h-52 overflow-hidden">
-                <Image
-                  src="/images/stock/stock-03.jpg"
-                  alt="Blog post"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-              </div>
-              <div className="p-8">
-                <p className="text-xs text-[#D4AF37] uppercase tracking-wider mb-1">
-                  <span className="font-semibold">Community</span> | January 17, 2018
-                </p>
-                <h3 className="text-xl font-bold text-[#1A1A2E] mb-3 font-[var(--font-playfair)]">
-                  Creating Spaces for Queer Families
-                </h3>
-                <p className="text-[#6B7280] text-sm leading-relaxed">
-                  Building inclusive environments where LGBTQIA++ families can thrive and
-                  feel accepted in their communities.
-                </p>
-              </div>
-            </div>
-            <div className="bg-white border border-[#E5DDD3] overflow-hidden card-luxury">
-              <div className="relative h-52 overflow-hidden">
-                <Image
-                  src="/images/stock/stock-04.jpg"
-                  alt="Blog post"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-              </div>
-              <div className="p-8">
-                <p className="text-xs text-[#D4AF37] uppercase tracking-wider mb-1">
-                  <span className="font-semibold">Services</span> | January 17, 2018
-                </p>
-                <h3 className="text-xl font-bold text-[#1A1A2E] mb-3 font-[var(--font-playfair)]">
-                  Holiday Resources for LGBT Families
-                </h3>
-                <p className="text-[#6B7280] text-sm leading-relaxed">
-                  Essential resources and support for LGBTQIA++ families during
-                  the holiday season and beyond.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="text-center mt-10 sm:hidden">
-            <Link href="/blog" className="btn-luxury btn-luxury-primary inline-flex items-center gap-2 text-sm">
-              View More <ArrowRight className="w-4 h-4" />
-            </Link>
           </div>
         </div>
       </section>
@@ -296,7 +223,7 @@ export default function HomePage() {
           <div className="inline-flex items-center gap-2 px-4 py-1.5 border border-[#D4AF37]/30 text-[#D4AF37] text-xs uppercase tracking-[0.2em] mb-6">
             Contact Us
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 font-[var(--font-playfair)]">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             May Tanong? Kailangan ng Tulong?
           </h2>
           <p className="text-white/60 text-lg max-w-2xl mx-auto mb-10 leading-relaxed">

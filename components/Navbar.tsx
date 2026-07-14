@@ -12,7 +12,6 @@ const navLinks = [
   { href: "/members", label: "Members", hasDropdown: true },
   { href: "/gallery", label: "Gallery" },
   { href: "/events", label: "Events" },
-  { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -70,7 +69,7 @@ export default function Navbar() {
                 className="rounded-full object-cover ring-2 ring-[#D4AF37]/30"
               />
               <div className="flex flex-col">
-                <span className="text-lg font-bold text-[#1A1A2E] leading-tight font-[var(--font-playfair)] tracking-wide">
+                <span className="text-lg font-bold text-[#1A1A2E] leading-tight tracking-wide">
                   LGBTQIA++ SILBI
                 </span>
                 <span className="text-xs font-medium text-[#D4AF37]">
@@ -121,7 +120,7 @@ export default function Navbar() {
                 );
               })}
               <Link
-                href="/become-member"
+                href="/support"
                 className="ml-3 btn-luxury btn-luxury-secondary text-xs"
               >
                 Support Us
@@ -182,7 +181,7 @@ export default function Navbar() {
               );
             })}
             <Link
-              href="/become-member"
+              href="/support"
               onClick={() => setIsOpen(false)}
               className="block mt-2 btn-luxury btn-luxury-secondary text-center text-sm"
             >

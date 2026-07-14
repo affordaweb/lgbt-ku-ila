@@ -26,11 +26,11 @@ export default function TransparencyPage() {
           <div className="inline-flex items-center gap-2 px-4 py-1.5 border border-[#D4AF37]/30 text-[#D4AF37] text-xs uppercase tracking-[0.2em] mb-6">
             Accountability
           </div>
-          <h2 className="section-heading section-heading-center text-3xl inline-block font-[var(--font-playfair)] mb-8">
+          <h2 className="section-heading section-heading-center text-3xl inline-block mb-8">
             Transparency Report
           </h2>
           <div className="bg-[#FAF8F5] border border-[#E5DDD3] p-10 mb-10 text-left">
-            <p className="text-[#6B7280] leading-relaxed text-lg mb-6 font-[var(--font-playfair)] italic">
+            <p className="text-[#6B7280] leading-relaxed text-lg mb-6 italic">
               We value transparency and accountability in everything we do.
             </p>
             <p className="text-[#6B7280] leading-relaxed mb-6">

@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Pencil } from "lucide-react";
 import FacebookIcon from "@/components/FacebookIcon";
 import HeroSection from "@/components/HeroSection";
 import { members } from "@/lib/data";
@@ -70,27 +70,37 @@ export default async function MemberPage({
               <div className="inline-flex items-center gap-2 px-4 py-1.5 border border-[#D4AF37]/30 text-[#D4AF37] text-xs uppercase tracking-[0.2em] mb-4">
                 Member Profile
               </div>
-              <h1 className="text-4xl font-bold text-[#1A1A2E] mb-2 font-[var(--font-playfair)]">
+              <h1 className="text-4xl font-bold text-[#1A1A2E] mb-2">
                 {member.name}
               </h1>
               <p className="text-[#D4AF37] font-semibold text-lg mb-8 uppercase tracking-wider">
                 {member.role}
               </p>
 
-              {member.facebookUrl && (
-                <a
-                  href={member.facebookUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 btn-luxury btn-luxury-primary text-sm mb-8 w-fit"
+              <div className="flex flex-wrap gap-3 mb-8">
+                {member.facebookUrl && (
+                  <a
+                    href={member.facebookUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 btn-luxury btn-luxury-primary text-sm"
+                  >
+                    <FacebookIcon className="h-4 w-4" />
+                    Facebook Profile
+                  </a>
+                )}
+                <Link
+                  href={`/contact?subject=Profile%20Update%20Request%20-%20${encodeURIComponent(member.name)}`}
+                  className="inline-flex items-center gap-2 btn-luxury btn-luxury-outline text-sm"
+                  style={{ color: '#6B7280', borderColor: '#E5DDD3' }}
                 >
-                  <FacebookIcon className="h-4 w-4" />
-                  Facebook Profile
-                </a>
-              )}
+                  <Pencil className="w-4 h-4" />
+                  Edit Profile
+                </Link>
+              </div>
 
               <div className="border-t border-[#E5DDD3] pt-8">
-                <h2 className="section-heading text-2xl font-[var(--font-playfair)]">
+                <h2 className="section-heading text-2xl">
                   Programs &amp; Services
                 </h2>
                 <p className="text-[#6B7280] leading-relaxed mb-6">

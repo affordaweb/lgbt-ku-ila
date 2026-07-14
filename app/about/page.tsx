@@ -47,7 +47,7 @@ export default function AboutPage() {
             <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#7B2D8E]/10 to-[#D4AF37]/10 flex items-center justify-center mx-auto mb-6">
               <Target className="w-8 h-8 text-[#7B2D8E]" />
             </div>
-            <h3 className="text-2xl font-bold text-[#1A1A2E] mb-4 font-[var(--font-playfair)]">
+            <h3 className="text-2xl font-bold text-[#1A1A2E] mb-4">
               Aming Misyon
             </h3>
             <div className="w-12 h-0.5 bg-gradient-to-r from-[#D4AF37] to-transparent mx-auto mb-4" />
@@ -63,7 +63,7 @@ export default function AboutPage() {
             <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#D4AF37]/10 to-[#7B2D8E]/10 flex items-center justify-center mx-auto mb-6">
               <Eye className="w-8 h-8 text-[#D4AF37]" />
             </div>
-            <h3 className="text-2xl font-bold text-[#1A1A2E] mb-4 font-[var(--font-playfair)]">
+            <h3 className="text-2xl font-bold text-[#1A1A2E] mb-4">
               Aming Bisyon
             </h3>
             <div className="w-12 h-0.5 bg-gradient-to-r from-[#D4AF37] to-transparent mx-auto mb-4" />
@@ -91,7 +91,7 @@ export default function AboutPage() {
           </div>
           <div>
             <p className="text-[#D4AF37] text-xs uppercase tracking-[0.2em] mb-4 font-medium">About</p>
-            <h2 className="section-heading text-3xl font-[var(--font-playfair)]">
+            <h2 className="section-heading text-3xl">
               Ano ang LGBTQIA++ Ku-Ila?
             </h2>
             <p className="text-[#6B7280] leading-relaxed mb-4">
@@ -123,7 +123,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <p className="text-[#D4AF37] text-xs uppercase tracking-[0.2em] mb-4 font-medium">Our Values</p>
-            <h2 className="section-heading section-heading-center text-3xl inline-block font-[var(--font-playfair)]">
+            <h2 className="section-heading section-heading-center text-3xl inline-block">
               Aming mga Pagpapahalaga
             </h2>
             <p className="text-[#6B7280] mt-4 max-w-2xl mx-auto">
@@ -140,7 +140,7 @@ export default function AboutPage() {
                 <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#D4AF37]/10 to-[#7B2D8E]/10 flex items-center justify-center mx-auto mb-6">
                   <value.icon className="w-8 h-8 text-[#D4AF37]" />
                 </div>
-                <h3 className="text-xl font-bold text-[#1A1A2E] mb-3 font-[var(--font-playfair)]">
+                <h3 className="text-xl font-bold text-[#1A1A2E] mb-3">
                   {value.title}
                 </h3>
                 <div className="w-10 h-0.5 bg-gradient-to-r from-[#D4AF37] to-transparent mx-auto mb-4" />
@@ -168,7 +168,7 @@ export default function AboutPage() {
           <div className="inline-flex items-center gap-2 px-4 py-1.5 border border-[#D4AF37]/30 text-[#D4AF37] text-xs uppercase tracking-[0.2em] mb-6">
             Get Involved
           </div>
-          <h2 className="text-4xl font-bold text-white mb-6 font-[var(--font-playfair)]">
+          <h2 className="text-4xl font-bold text-white mb-6">
             Ready to Make a Difference?
           </h2>
           <p className="text-white/60 text-lg max-w-2xl mx-auto mb-10">

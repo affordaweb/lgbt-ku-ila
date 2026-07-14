@@ -32,7 +32,7 @@ export default function MemberCard({
       </Link>
       <div className="p-5">
         <Link href={`/members/${slug}`}>
-          <h3 className="font-bold text-[#1A1A2E] text-lg hover:text-[#7B2D8E] transition-colors font-[var(--font-playfair)]">
+          <h3 className="font-bold text-[#1A1A2E] text-lg hover:text-[#7B2D8E] transition-colors">
             {name}
           </h3>
         </Link>
