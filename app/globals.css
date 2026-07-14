@@ -29,6 +29,7 @@
   --color-border: var(--color-border);
   --font-sans: var(--font-open-sans);
   --font-heading: var(--font-poppins);
+  --font-cursive: var(--font-cursive);
 }
 
 body {
@@ -127,6 +128,10 @@ h1, h2, h3, h4, h5, h6 {
 
 html {
   scroll-behavior: smooth;
+}
+
+.font-cursive {
+  font-family: var(--font-cursive), cursive;
 }
 
 .section-heading {

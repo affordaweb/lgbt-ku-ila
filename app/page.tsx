@@ -63,14 +63,19 @@ export default function HomePage() {
             Welcome To LGBTQIA++ Kumintang Ilaya
           </p>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 leading-tight uppercase">
-            Sino Ka Man, Dito Ka
+            LOVE Ka, Dahil Ikaw Ka
           </h1>
-          <p className="text-white/70 text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
-            Kahit sino ka, tanggap ka dito. Walang mali sa pagiging ikaw.
+          <p className="text-white/70 text-lg max-w-2xl mx-auto mb-10 leading-relaxed font-cursive text-xl">
+            Your identity is your power. Stand tall, speak loud, and let the world know who you are.
           </p>
-          <Link href="/contact" className="btn-theme btn-theme-primary inline-block">
-            Maging Proud!
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/become-member" className="btn-theme btn-theme-primary inline-block">
+              Become a Member
+            </Link>
+            <Link href="/about" className="btn-theme btn-theme-secondary inline-block">
+              Learn More
+            </Link>
+          </div>
         </div>
       </section>
 
