@@ -55,7 +55,7 @@ export default function AboutPage() {
               komunidad sa pamamagitan ng komprehensibong suporta, adbokasiya
               para sa equal rights, at pagbuo ng kultura ng pagtanggap at
               kapangyarihan. Layunin naming bigyan ng boses ang bawat miyembro
-              ng komunidad sa Batangas at sa buong Pilipinas.
+              ng komunidad sa Kumintang Ilaya.
             </p>
           </div>
           <div className="bg-white p-8 border border-[#e4e4e4] text-center">
