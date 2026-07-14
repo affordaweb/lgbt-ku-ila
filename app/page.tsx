@@ -61,7 +61,7 @@ export default function HomePage() {
       <section className="relative min-h-[600px] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/stock/stock-01.jpg"
+            src="/images/events/734896841_1747334810026168_6985617327012982623_n.jpg"
             alt="LGBTQIA++ Kumintang Ilaya"
             fill
             className="object-cover"
@@ -115,7 +115,7 @@ export default function HomePage() {
 
       {/* About Section */}
       <section className="section-padding bg-white">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
           <div className="relative h-80 md:h-[480px]">
             <Image
               src="/images/stock/stock-02.jpg"
@@ -153,7 +153,7 @@ export default function HomePage() {
 
       {/* Team Section */}
       <section className="section-padding bg-[#f7f7f7]">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="section-heading text-2xl inline-block text-left">
               Leaders of Our Community
@@ -181,7 +181,7 @@ export default function HomePage() {
 
       {/* Events Section */}
       <section className="section-padding bg-white">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="section-heading text-2xl inline-block text-left">
               Mga Kaganapan at Aktibidad
