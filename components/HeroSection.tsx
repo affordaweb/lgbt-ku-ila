@@ -23,23 +23,24 @@ export default function HeroSection({
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-[#3a3d44]/75" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#1A1A2E]/90 via-[#1A1A2E]/75 to-[#0F0F1A]/80" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center w-full">
-        <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 uppercase tracking-wide">
-          {title}
-        </h1>
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
         {subtitle && (
-          <p className="text-white/70 text-sm uppercase tracking-widest">
+          <p className="text-[#D4AF37] text-xs uppercase tracking-[0.2em] mb-4 font-medium">
             {subtitle}
           </p>
         )}
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 font-[var(--font-playfair)] leading-tight">
+          {title}
+        </h1>
         {description && (
-          <p className="text-white/70 text-base max-w-2xl mx-auto mt-4 leading-relaxed">
+          <p className="text-white/60 text-base max-w-2xl leading-relaxed">
             {description}
           </p>
         )}
+        <div className="w-20 h-0.5 bg-gradient-to-r from-[#D4AF37] to-transparent mt-6" />
       </div>
     </section>
   );

@@ -19,13 +19,14 @@ export default function MembersPage() {
       />
 
       <section className="section-padding bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="mb-12">
-            <h2 className="section-heading text-2xl">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-14">
+            <p className="text-[#D4AF37] text-xs uppercase tracking-[0.2em] mb-4 font-medium">Team</p>
+            <h2 className="section-heading text-3xl font-[var(--font-playfair)]">
               Leaders of Our Community
             </h2>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
             {members.map((member) => (
               <MemberCard
                 key={member.slug}

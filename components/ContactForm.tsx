@@ -1,42 +1,50 @@
 "use client";
 
-import { useState, FormEvent, useEffect } from "react";
-import { Send, CheckCircle } from "lucide-react";
+import { useState, FormEvent, useEffect, useRef } from "react";
+import { useRouter } from "next/navigation";
+import { Send } from "lucide-react";
+import Script from "next/script";
 
 declare global {
   interface Window {
     turnstile: {
-      render: (selector: string, options: { sitekey: string }) => string;
+      render: (container: string | HTMLElement, options: { sitekey: string }) => string;
       reset: (widgetId: string) => void;
+      remove: (widgetId: string) => void;
     };
   }
 }
 
 export default function ContactForm() {
-  const [submitted, setSubmitted] = useState(false);
+  const router = useRouter();
   const [loading, setLoading] = useState(false);
-  const [widgetId, setWidgetId] = useState<string | null>(null);
+  const [scriptReady, setScriptReady] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const widgetIdRef = useRef<string | null>(null);
+
+  const renderWidget = () => {
+    if (!window.turnstile || !containerRef.current) {
+      setTimeout(renderWidget, 200);
+      return;
+    }
+    containerRef.current.innerHTML = "";
+    const id = window.turnstile.render(containerRef.current, {
+      sitekey: "0x4AAAAAAD1eyvfBA4B79lOA",
+    });
+    widgetIdRef.current = id;
+  };
 
   useEffect(() => {
-    const loadTurnstile = () => {
-      if (window.turnstile) {
-        const id = window.turnstile.render(".cf-turnstile", {
-          sitekey: "0x4AAAAAAD1eyvfBA4B79lOA",
-        });
-        setWidgetId(id);
+    if (scriptReady) {
+      renderWidget();
+    }
+    return () => {
+      if (widgetIdRef.current && window.turnstile) {
+        window.turnstile.remove(widgetIdRef.current);
+        widgetIdRef.current = null;
       }
     };
-
-    const script = document.createElement("script");
-    script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js";
-    script.async = true;
-    script.onload = loadTurnstile;
-    document.body.appendChild(script);
-
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
+  }, [scriptReady]);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -52,8 +60,7 @@ export default function ContactForm() {
       });
       const data = await response.json();
       if (data.success) {
-        setSubmitted(true);
-        form.reset();
+        router.push("/thank-you");
       }
     } catch {
       // Handle error silently
@@ -62,129 +69,118 @@ export default function ContactForm() {
     }
   };
 
-  if (submitted) {
-    return (
-      <div className="text-center py-12">
-        <CheckCircle className="w-16 h-16 text-[#e85242] mx-auto mb-4" />
-        <h3 className="text-2xl font-bold text-[#3a3d44] mb-2">Message Sent!</h3>
-        <p className="text-[#787878]">
-          Thank you for reaching out. We&apos;ll get back to you soon.
-        </p>
-        <button
-          onClick={() => setSubmitted(false)}
-          className="mt-6 btn-theme btn-theme-primary text-sm"
-        >
-          Send Another Message
-        </button>
-      </div>
-    );
-  }
-
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
-      <input
-        type="hidden"
-        name="access_key"
-        value="0x4AAAAAAD1eyvfBA4B79lOA"
+    <>
+      <Script
+        src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
+        strategy="afterInteractive"
+        onLoad={() => setScriptReady(true)}
       />
-      <input
-        type="hidden"
-        name="subject"
-        value="New Contact from LGBTQIA++ Ku-Ila Website"
-      />
-      <input
-        type="hidden"
-        name="from_name"
-        value="LGBTQIA++ Ku-Ila Website"
-      />
-      <div className="honeypot" style={{ display: "none" }}>
-        <input type="checkbox" name="botcheck" />
-      </div>
+      <form onSubmit={handleSubmit} className="space-y-6">
+        <input
+          type="hidden"
+          name="access_key"
+          value="0x4AAAAAAD1eyvfBA4B79lOA"
+        />
+        <input
+          type="hidden"
+          name="subject"
+          value="New Contact from LGBTQIA++ Ku-Ila Website"
+        />
+        <input
+          type="hidden"
+          name="from_name"
+          value="LGBTQIA++ Ku-Ila Website"
+        />
+        <div className="honeypot" style={{ display: "none" }}>
+          <input type="checkbox" name="botcheck" />
+        </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label
+              htmlFor="name"
+              className="block text-sm font-medium text-[#1A1A2E] mb-2 uppercase tracking-wider"
+            >
+              Your Name *
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              className="input-luxury"
+              placeholder="Your full name"
+            />
+          </div>
+          <div>
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium text-[#1A1A2E] mb-2 uppercase tracking-wider"
+            >
+              Your Email *
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              className="input-luxury"
+              placeholder="your@email.com"
+            />
+          </div>
+        </div>
+
         <div>
           <label
-            htmlFor="name"
-            className="block text-sm font-medium text-[#3a3d44] mb-2"
+            htmlFor="subject"
+            className="block text-sm font-medium text-[#1A1A2E] mb-2 uppercase tracking-wider"
           >
-            Your Name *
+            Subject
           </label>
           <input
             type="text"
-            id="name"
-            name="name"
-            required
-            className="w-full px-4 py-3 border border-[#e4e4e4] focus:border-[#e85242] outline-none transition-all text-[#3a3d44]"
-            placeholder="Your full name"
+            id="subject"
+            name="subject_form"
+            className="input-luxury"
+            placeholder="How can we help?"
           />
         </div>
+
         <div>
           <label
-            htmlFor="email"
-            className="block text-sm font-medium text-[#3a3d44] mb-2"
+            htmlFor="message"
+            className="block text-sm font-medium text-[#1A1A2E] mb-2 uppercase tracking-wider"
           >
-            Your Email *
+            Message *
           </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
+          <textarea
+            id="message"
+            name="message"
             required
-            className="w-full px-4 py-3 border border-[#e4e4e4] focus:border-[#e85242] outline-none transition-all text-[#3a3d44]"
-            placeholder="your@email.com"
+            rows={5}
+            className="input-luxury resize-none"
+            placeholder="Write your message here..."
           />
         </div>
-      </div>
 
-      <div>
-        <label
-          htmlFor="subject"
-          className="block text-sm font-medium text-[#3a3d44] mb-2"
+        <div ref={containerRef} className="cf-turnstile" />
+
+        <button
+          type="submit"
+          disabled={loading}
+          className="btn-luxury btn-luxury-primary disabled:opacity-50"
         >
-          Subject
-        </label>
-        <input
-          type="text"
-          id="subject"
-          name="subject_form"
-          className="w-full px-4 py-3 border border-[#e4e4e4] focus:border-[#e85242] outline-none transition-all text-[#3a3d44]"
-          placeholder="How can we help?"
-        />
-      </div>
-
-      <div>
-        <label
-          htmlFor="message"
-          className="block text-sm font-medium text-[#3a3d44] mb-2"
-        >
-          Message *
-        </label>
-        <textarea
-          id="message"
-          name="message"
-          required
-          rows={5}
-          className="w-full px-4 py-3 border border-[#e4e4e4] focus:border-[#e85242] outline-none transition-all text-[#3a3d44] resize-none"
-          placeholder="Write your message here..."
-        />
-      </div>
-
-      <div className="cf-turnstile" />
-
-      <button
-        type="submit"
-        disabled={loading}
-        className="btn-theme btn-theme-primary disabled:opacity-50"
-      >
-        {loading ? (
-          "Sending..."
-        ) : (
-          <>
-            Send Message
-            <Send className="w-4 h-4" />
-          </>
-        )}
-      </button>
-    </form>
+          {loading ? (
+            "Sending..."
+          ) : (
+            <>
+              Send Message
+              <Send className="w-4 h-4" />
+            </>
+          )}
+        </button>
+      </form>
+    </>
   );
 }

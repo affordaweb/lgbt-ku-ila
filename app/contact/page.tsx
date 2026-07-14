@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import {
   MapPin,
   Mail,
+  ArrowRight,
 } from "lucide-react";
 import FacebookIcon from "@/components/FacebookIcon";
 import HeroSection from "@/components/HeroSection";
@@ -43,22 +44,22 @@ export default function ContactPage() {
         backgroundImage="/images/stock/stock-08.jpg"
       />
 
-      {/* Contact Info Cards - dark background like demo */}
-      <section className="bg-[#3a3d44] py-12">
+      {/* Contact Info Cards */}
+      <section className="bg-[#1A1A2E] py-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {contactInfo.map((item) => {
               const Icon = item.icon;
               const content = (
-                <div className="flex items-center gap-4 p-4">
-                  <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center bg-[#fcb315]">
-                    <Icon className="h-5 w-5 text-white" />
+                <div className="flex items-center gap-5 p-6">
+                  <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center bg-gradient-to-br from-[#D4AF37] to-[#E8C84A]">
+                    <Icon className="h-6 w-6 text-[#1A1A2E]" />
                   </div>
                   <div>
-                    <h3 className="text-xs font-semibold text-white/60 uppercase tracking-wide">
+                    <h3 className="text-xs font-semibold text-white/50 uppercase tracking-wider">
                       {item.label}
                     </h3>
-                    <p className="text-sm font-medium text-white">
+                    <p className="text-sm font-medium text-white mt-0.5">
                       {item.value}
                     </p>
                   </div>
@@ -78,7 +79,7 @@ export default function ContactPage() {
                         ? "noopener noreferrer"
                         : undefined
                     }
-                    className="block bg-white/5 hover:bg-white/10 transition-colors"
+                    className="block bg-white/5 hover:bg-white/10 transition-all border border-white/10 hover:border-[#D4AF37]/30"
                   >
                     {content}
                   </a>
@@ -86,7 +87,7 @@ export default function ContactPage() {
               }
 
               return (
-                <div key={item.label} className="bg-white/5">
+                <div key={item.label} className="bg-white/5 border border-white/10">
                   {content}
                 </div>
               );
@@ -95,25 +96,27 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Contact Form Section - white background like demo */}
+      {/* Contact Form Section */}
       <section className="section-padding bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
+          <div className="grid grid-cols-1 gap-16 lg:grid-cols-2">
             <div>
-              <h2 className="section-heading text-2xl">
+              <p className="text-[#D4AF37] text-xs uppercase tracking-[0.2em] mb-4 font-medium">Let&apos;s Talk</p>
+              <h2 className="section-heading text-3xl font-[var(--font-playfair)]">
                 Do You Need Help?
               </h2>
-              <p className="text-[#787878] mb-8">
+              <p className="text-[#6B7280] mb-8">
                 Contact us and we will help you to solve any of your problems. Fill out the form below and we&apos;ll get back to you as soon as possible.
               </p>
               <ContactForm />
             </div>
 
             <div>
-              <h2 className="section-heading text-2xl">
+              <p className="text-[#D4AF37] text-xs uppercase tracking-[0.2em] mb-4 font-medium">Reach Out</p>
+              <h2 className="section-heading text-3xl font-[var(--font-playfair)]">
                 Get In Touch
               </h2>
-              <p className="text-[#787878] mb-8">
+              <p className="text-[#6B7280] mb-8">
                 Have questions or want to get involved? Reach out to us through any of the channels below.
               </p>
 
@@ -121,15 +124,15 @@ export default function ContactPage() {
                 {contactInfo.map((item) => {
                   const Icon = item.icon;
                   const content = (
-                    <div className="flex items-start gap-4 p-4 bg-[#f7f7f7]">
-                      <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center bg-[#e85242]">
-                        <Icon className="h-5 w-5 text-white" />
+                    <div className="flex items-start gap-5 p-5 bg-[#FAF8F5] border border-[#E5DDD3]">
+                      <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center bg-gradient-to-br from-[#7B2D8E] to-[#9B4DAC]">
+                        <Icon className="h-6 w-6 text-white" />
                       </div>
-                      <div>
-                        <h3 className="text-sm font-semibold text-[#3a3d44] uppercase">
+                      <div className="pt-1">
+                        <h3 className="text-sm font-semibold text-[#1A1A2E] uppercase tracking-wider">
                           {item.label}
                         </h3>
-                        <p className="text-sm text-[#787878]">
+                        <p className="text-sm text-[#6B7280] mt-0.5">
                           {item.value}
                         </p>
                       </div>
@@ -149,7 +152,7 @@ export default function ContactPage() {
                             ? "noopener noreferrer"
                             : undefined
                         }
-                        className="block hover:shadow-md transition-shadow"
+                        className="block hover:shadow-lg transition-all"
                       >
                         {content}
                       </a>

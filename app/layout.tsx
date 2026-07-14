@@ -1,25 +1,25 @@
 import type { Metadata } from "next";
-import { Poppins, Open_Sans, Dancing_Script } from "next/font/google";
+import { Playfair_Display, Inter, Cormorant_Garamond } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import "./globals.css";
 
-const poppins = Poppins({
-  variable: "--font-poppins",
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700", "800", "900"],
 });
 
-const openSans = Open_Sans({
-  variable: "--font-open-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
-const dancingScript = Dancing_Script({
-  variable: "--font-cursive",
+const cormorant = Cormorant_Garamond({
+  variable: "--font-cormorant",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     template: "%s | LGBTQIA++ Ku-Ila",
   },
   description:
-    "LGBTQIA++ Kumintang Ilaya (Ku-Ila) - Empowering the LGBTQIA++ community through love, solidarity, advocacy, and human rights. Join us in building a more inclusive world.",
+    "LGBTQIA++ Kumintang Ilaya (Ku-Ila) — Empowering the LGBTQIA++ community through love, solidarity, advocacy, and human rights. Join us in building a more inclusive world.",
   keywords: [
     "LGBTQIA",
     "LGBTQIA++",
@@ -108,7 +108,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${poppins.variable} ${openSans.variable} ${dancingScript.variable} h-full antialiased`}
+      className={`${playfair.variable} ${inter.variable} ${cormorant.variable} h-full antialiased`}
     >
       <head>
         <link rel="canonical" href="https://lgbt-ku-ila.vercel.app" />

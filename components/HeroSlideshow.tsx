@@ -40,7 +40,7 @@ export default function HeroSlideshow() {
           />
         </div>
       ))}
-      <div className="absolute inset-0 bg-[#3a3d44]/70" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#1A1A2E]/85 via-[#1A1A2E]/60 to-[#0F0F1A]/80" />
     </div>
   );
 }

@@ -33,17 +33,16 @@ export default function GalleryGrid({ images, categories = [] }: GalleryGridProp
 
   return (
     <>
-      {/* Filter Buttons */}
       {filters.length > 1 && (
-        <div className="flex flex-wrap gap-2 mb-8 justify-center">
+        <div className="flex flex-wrap gap-3 mb-10 justify-center">
           {filters.map((filter) => (
             <button
               key={filter}
               onClick={() => setActiveFilter(filter)}
-              className={`px-5 py-2 text-sm font-medium uppercase tracking-wide transition-colors ${
+              className={`px-6 py-2.5 text-sm font-medium uppercase tracking-wider transition-all duration-300 ${
                 activeFilter === filter
-                  ? "bg-[#e85242] text-white"
-                  : "bg-[#f7f7f7] text-[#787878] hover:bg-[#e85242] hover:text-white"
+                  ? "bg-[#7B2D8E] text-white shadow-lg shadow-[#7B2D8E]/20"
+                  : "bg-[#FAF8F5] text-[#6B7280] hover:bg-[#7B2D8E] hover:text-white border border-[#E5DDD3]"
               }`}
             >
               {filter}
@@ -52,8 +51,7 @@ export default function GalleryGrid({ images, categories = [] }: GalleryGridProp
         </div>
       )}
 
-      {/* Gallery Tiles */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
         {images.map((image, index) => (
           <button
             key={index}
@@ -64,25 +62,24 @@ export default function GalleryGrid({ images, categories = [] }: GalleryGridProp
               src={image.src}
               alt={image.alt}
               fill
-              className="object-cover group-hover:scale-110 transition-transform duration-500"
+              className="object-cover group-hover:scale-110 transition-transform duration-700"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            <div className="absolute bottom-0 left-0 right-0 p-3 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <h3 className="font-bold text-sm">{image.alt}</h3>
+            <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A2E]/80 via-[#1A1A2E]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="absolute bottom-0 left-0 right-0 p-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-y-2 group-hover:translate-y-0">
+              <h3 className="font-bold text-sm font-[var(--font-playfair)]">{image.alt}</h3>
             </div>
           </button>
         ))}
       </div>
 
-      {/* Lightbox */}
       {selectedIndex !== null && (
         <div
-          className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
+          className="fixed inset-0 z-50 bg-[#0F0F1A]/95 flex items-center justify-center p-4"
           onClick={closeLightbox}
         >
           <button
             onClick={closeLightbox}
-            className="absolute top-4 right-4 text-white/80 hover:text-white z-10"
+            className="absolute top-6 right-6 text-white/60 hover:text-white z-10 transition-colors"
           >
             <X className="w-8 h-8" />
           </button>
@@ -91,12 +88,12 @@ export default function GalleryGrid({ images, categories = [] }: GalleryGridProp
               e.stopPropagation();
               prevImage();
             }}
-            className="absolute left-4 text-white/80 hover:text-white z-10"
+            className="absolute left-6 text-white/60 hover:text-white z-10 transition-colors"
           >
             <ChevronLeft className="w-10 h-10" />
           </button>
           <div
-            className="relative max-w-4xl max-h-[80vh] w-full aspect-video"
+            className="relative max-w-5xl max-h-[85vh] w-full aspect-video"
             onClick={(e) => e.stopPropagation()}
           >
             <Image
@@ -111,11 +108,11 @@ export default function GalleryGrid({ images, categories = [] }: GalleryGridProp
               e.stopPropagation();
               nextImage();
             }}
-            className="absolute right-4 text-white/80 hover:text-white z-10"
+            className="absolute right-6 text-white/60 hover:text-white z-10 transition-colors"
           >
             <ChevronRight className="w-10 h-10" />
           </button>
-          <div className="absolute bottom-4 text-white/70 text-sm">
+          <div className="absolute bottom-6 text-white/50 text-sm tracking-wider">
             {selectedIndex + 1} / {images.length}
           </div>
         </div>
