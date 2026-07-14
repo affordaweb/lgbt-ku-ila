@@ -143,14 +143,6 @@ export default function Footer() {
               Community
             </a>
           </p>
-          <div className="flex gap-4 text-xs text-gray-500">
-            <Link href="/about" className="hover:text-[#fcb315] transition-colors">
-              Privacy Policy
-            </Link>
-            <Link href="/about" className="hover:text-[#fcb315] transition-colors">
-              Terms of Service
-            </Link>
-          </div>
         </div>
       </div>
     </footer>
