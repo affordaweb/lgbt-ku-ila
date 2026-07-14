@@ -71,7 +71,7 @@ export default function Navbar() {
               />
               <div className="flex flex-col">
                 <span className="text-xl font-bold text-[#3a3d44] leading-tight">
-                  LGBTQIA++ Ku-Ila
+                  LGBTQIA++ SILBI
                 </span>
                 <span className="text-xs text-[#e85242] font-medium">
                   Kumintang Ilaya

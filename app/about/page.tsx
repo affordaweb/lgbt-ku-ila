@@ -77,7 +77,7 @@ export default function AboutPage() {
 
       {/* About Section */}
       <section className="section-padding bg-white">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
           <div className="relative h-80 md:h-[400px]">
             <Image
               src="/images/stock/stock-02.jpg"
@@ -116,7 +116,7 @@ export default function AboutPage() {
 
       {/* Values */}
       <section className="section-padding bg-[#f7f7f7]">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="section-heading text-2xl inline-block text-left">
               Aming mga Pagpapahalaga

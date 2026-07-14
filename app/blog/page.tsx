@@ -69,7 +69,7 @@ export default function BlogPage() {
       />
 
       <section className="section-padding bg-white">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-10 lg:grid-cols-3">
             {/* Sidebar */}
             <aside className="space-y-8 lg:col-span-1 order-2 lg:order-1">

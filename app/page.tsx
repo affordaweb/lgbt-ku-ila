@@ -5,6 +5,7 @@ import { Heart, Shield, Users, Leaf } from "lucide-react";
 import { members, galleryImages } from "@/lib/data";
 import ServiceCard from "@/components/ServiceCard";
 import MemberCard from "@/components/MemberCard";
+import HeroSlideshow from "@/components/HeroSlideshow";
 
 export const metadata: Metadata = {
   title: "LGBTQIA++ Kumintang Ilaya | LGBTQIA Community Organization in Batangas",
@@ -59,16 +60,7 @@ export default function HomePage() {
     <main>
       {/* Hero Section */}
       <section className="relative min-h-[600px] flex items-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/images/events/734896841_1747334810026168_6985617327012982623_n.jpg"
-            alt="LGBTQIA++ Kumintang Ilaya"
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-[#3a3d44]/70" />
-        </div>
+        <HeroSlideshow />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
           <p className="text-[#fcb315] uppercase tracking-widest mb-4 text-sm font-semibold">
             Welcome To LGBTQIA++ Silbi Kumintang Ilaya
