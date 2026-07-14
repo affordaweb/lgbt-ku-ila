@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X, MapPin, Mail, Clock } from "lucide-react";
+import { Menu, X, MapPin, Mail } from "lucide-react";
 import FacebookIcon from "./FacebookIcon";
 
 const navLinks = [
@@ -36,10 +36,6 @@ export default function Navbar() {
             </a>
           </div>
           <div className="flex items-center gap-6">
-            <span className="flex items-center gap-1.5">
-              <Clock className="w-3 h-3 text-[#fcb315]" />
-              Mon - Sat, 8:00 AM - 5:00 PM
-            </span>
             <span className="flex items-center gap-1.5">
               <MapPin className="w-3 h-3 text-[#fcb315]" />
               Kumintang Ilaya, Batangas City

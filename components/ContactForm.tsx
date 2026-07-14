@@ -1,11 +1,42 @@
 "use client";
 
-import { useState, FormEvent } from "react";
+import { useState, FormEvent, useEffect } from "react";
 import { Send, CheckCircle } from "lucide-react";
+
+declare global {
+  interface Window {
+    turnstile: {
+      render: (selector: string, options: { sitekey: string }) => string;
+      reset: (widgetId: string) => void;
+    };
+  }
+}
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [widgetId, setWidgetId] = useState<string | null>(null);
+
+  useEffect(() => {
+    const loadTurnstile = () => {
+      if (window.turnstile) {
+        const id = window.turnstile.render(".cf-turnstile", {
+          sitekey: "0x4AAAAAAD1eyvfBA4B79lOA",
+        });
+        setWidgetId(id);
+      }
+    };
+
+    const script = document.createElement("script");
+    script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js";
+    script.async = true;
+    script.onload = loadTurnstile;
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -138,10 +169,12 @@ export default function ContactForm() {
         />
       </div>
 
+      <div className="cf-turnstile" />
+
       <button
         type="submit"
         disabled={loading}
-        className="btn-theme btn-theme-primary inline-flex items-center justify-center gap-2 disabled:opacity-50"
+        className="btn-theme btn-theme-primary disabled:opacity-50"
       >
         {loading ? (
           "Sending..."

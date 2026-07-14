@@ -1,11 +1,31 @@
 "use client";
 
-import { useState, FormEvent } from "react";
+import { useState, FormEvent, useEffect } from "react";
 import { Send, CheckCircle, User, Mail, Phone, FileText } from "lucide-react";
 
 export default function MembershipForm() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const loadTurnstile = () => {
+      if (window.turnstile) {
+        window.turnstile.render(".cf-turnstile-membership", {
+          sitekey: "0x4AAAAAAD1eyvfBA4B79lOA",
+        });
+      }
+    };
+
+    const script = document.createElement("script");
+    script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js";
+    script.async = true;
+    script.onload = loadTurnstile;
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -201,10 +221,12 @@ export default function MembershipForm() {
         </p>
       </div>
 
+      <div className="cf-turnstile-membership" />
+
       <button
         type="submit"
         disabled={loading}
-        className="btn-theme btn-theme-primary inline-flex items-center justify-center gap-2 disabled:opacity-50"
+        className="btn-theme btn-theme-primary disabled:opacity-50"
       >
         {loading ? (
           "Submitting..."

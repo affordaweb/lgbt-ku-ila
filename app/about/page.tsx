@@ -5,9 +5,9 @@ import { Target, Eye, Equal, Heart, Users } from "lucide-react";
 import HeroSection from "@/components/HeroSection";
 
 export const metadata: Metadata = {
-  title: "About Us",
+  title: "Tungkol sa Amin | LGBTQIA++ Kumintang Ilaya",
   description:
-    "Learn about LGBTQIA++ Kumintang Ilaya — our mission, vision, history, and the values that drive us to build a more inclusive world.",
+    "Alamin ang tungkol sa LGBTQIA++ Kumintang Ilaya — ang aming misyon, bisyon, kasaysayan, at mgaValues na nagtutulak sa amin na magbigay ng ligtas na espasyo para sa LGBTQIA++ komunidad sa Batangas.",
 };
 
 const values = [
@@ -48,13 +48,14 @@ export default function AboutPage() {
               <Target className="w-8 h-8 text-[#e85242]" />
             </div>
             <h3 className="text-2xl font-bold text-[#3a3d44] mb-4 uppercase">
-              Our Mission
+              Aming Misyon
             </h3>
             <p className="text-[#787878] leading-relaxed">
-              To enhance and sustain the health and well-being of the LGBTQIA++
-              community by providing comprehensive support services, advocating
-              for equal rights, and fostering a culture of acceptance and
-              empowerment.
+              Palakasin at pangalagaan ang kalusugan at kagalingan ng LGBTQIA++
+              komunidad sa pamamagitan ng komprehensibong suporta, adbokasiya
+              para sa equal rights, at pagbuo ng kultura ng pagtanggap at
+              kapangyarihan. Layunin naming bigyan ng boses ang bawat miyembro
+              ng komunidad sa Batangas at sa buong Pilipinas.
             </p>
           </div>
           <div className="bg-white p-8 border border-[#e4e4e4] text-center">
@@ -62,12 +63,13 @@ export default function AboutPage() {
               <Eye className="w-8 h-8 text-[#03a8cb]" />
             </div>
             <h3 className="text-2xl font-bold text-[#3a3d44] mb-4 uppercase">
-              Our Vision
+              Aming Bisyon
             </h3>
             <p className="text-[#787878] leading-relaxed">
-              A society where every LGBTQIA++ individual lives freely and
-              authentically, fully embraced by their communities, with equitable
-              access to opportunities, resources, and the dignity they deserve.
+              Isang lipunan kung saan bawat LGBTQIA++ indibidwal ay nabubuhay
+              nang malaya at totoo, ganap na tinatanggap ng kanilang mga komunidad,
+              na may pantay na access sa mga oportunidad, resources, at dignidad
+              na karapat-dapat sa kanila.
             </p>
           </div>
         </div>
@@ -79,29 +81,34 @@ export default function AboutPage() {
           <div className="relative h-80 md:h-[400px]">
             <Image
               src="/images/stock/stock-02.jpg"
-              alt="About Kumintang Ilaya"
+              alt="LGBTQIA++ Kumintang Ilaya Community Center sa Batangas City"
               fill
               className="object-cover"
             />
           </div>
           <div>
             <h2 className="section-heading text-2xl">
-              What is LGBTQIA++ Ku-Ila
+              Ano ang LGBTQIA++ Ku-Ila?
             </h2>
             <p className="text-[#787878] leading-relaxed mb-4">
-              The Center is committed to a policy of non-discrimination in
-              employment and in the provision of all services.
+              Ang LGBTQIA++ Kumintang Ilaya ay isang community-based organization
+              na nakatuon sa pagbibigay ng comprehensive support services para sa
+              lesbian, gay, bisexual, transgender, queer, intersex, asexual, at
+              iba pang mga kasarian sa Batangas City.
+            </p>
+            <p className="text-[#787878] leading-relaxed mb-4">
+              Kami ay nag-aalok ng mga programa at serbisyo na lumilikha ng
+              komunidad, nagpapalakas sa mga miyembro, nagbibigay ng mahahalagang
+              resources, nagtataguyod ng civil at human rights, at niyayakap ang
+              cultural diversity ng aming mga kasamahan.
             </p>
             <p className="text-[#787878] leading-relaxed mb-8">
-              The mission of LGBTQIA++ Kumintang Ilaya is to enhance and sustain
-              the health and well-being of the lesbian, gay, bisexual,
-              transgender and HIV communities by providing activities, programs
-              and services that create community. Empower community members;
-              provide essential resources; advocate for civil and human rights;
-              and embrace, promote and support our cultural diversity.
+              Walang diskriminasyon sa aming organisasyon — pareho sa employment
+              at sa pagbibigay ng lahat ng serbisyo. Lahat ay welcome, lahat ay
+              tanggap, at lahat ay may karapatang mabuhay nang may dignidad.
             </p>
             <Link href="/contact" className="btn-theme btn-theme-primary inline-block">
-              Contact Us
+              Makipag-ugnayan sa Amin
             </Link>
           </div>
         </div>
@@ -112,8 +119,12 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="section-heading text-2xl inline-block text-left">
-              Our Values
+              Aming mga Pagpapahalaga
             </h2>
+            <p className="text-[#787878] mt-4 max-w-2xl mx-auto">
+              Ito ang mga prinsipyo na gabay sa aming lahat ng gawain at programa
+              para sa komunidad.
+            </p>
           </div>
           <div className="grid sm:grid-cols-3 gap-8">
             {values.map((value) => (

@@ -7,9 +7,20 @@ import ServiceCard from "@/components/ServiceCard";
 import MemberCard from "@/components/MemberCard";
 
 export const metadata: Metadata = {
-  title: "LGBTQIA++ Kumintang Ilaya",
+  title: "LGBTQIA++ Kumintang Ilaya | LGBTQIA Community Organization in Batangas",
   description:
-    "Empowering the LGBTQIA++ community. Building an inclusive world where everyone is celebrated for who they are.",
+    "Ang LGBTQIA++ Kumintang Ilaya (Ku-Ila) ay isang komunidad na nakatuon sa pagbibigay ng suporta, adbokasiya, at ligtas na espasyo para sa lahat ng LGBTQIA++ individuals sa Batangas City at sa buong Pilipinas. Sali na sa amin!",
+  keywords: [
+    "LGBTQIA++ Batangas",
+    "LGBTQ community Batangas City",
+    "Kumintang Ilaya",
+    "Ku-Ila",
+    "Pride Philippines",
+    "LGBTQ organization Batangas",
+    "equality Philippines",
+    "LGBT support group",
+    "community center Batangas",
+  ],
 };
 
 const programs = [
@@ -17,28 +28,28 @@ const programs = [
     icon: Heart,
     title: "Community Support",
     description:
-      "Creating safe spaces and fostering a supportive network where every individual feels valued and accepted.",
+      "Pagsasama-sama at pagtutulungan. May mga support groups at activities para sa lahat ng miyembro ng LGBTQIA++ komunidad.",
     color: "red" as const,
   },
   {
     icon: Shield,
     title: "Legal Assistance",
     description:
-      "Providing legal guidance and advocacy to protect the rights and dignity of LGBTQIA++ individuals.",
+      "Tulong sa mga dokumento at pag-unawa sa inyong mga karapatan. Gabay para sa mga LGBTQIA++ na humaharap sa diskriminasyon.",
     color: "orange" as const,
   },
   {
     icon: Users,
     title: "Youth Empowerment",
     description:
-      "Equipping young LGBTQIA++ individuals with the resources, mentorship, and confidence to thrive.",
+      "Mga programa para sa kabataan — mentoring, workshops, at activities na nagpapalakas ng kumpiyansa at pagkakaisa.",
     color: "yellow" as const,
   },
   {
     icon: Leaf,
     title: "Health & Wellness",
     description:
-      "Promoting holistic well-being through access to healthcare, mental health support, and wellness programs.",
+      "Mental health support, wellness activities, at connections sa healthcare services para sa komunidad.",
     color: "teal" as const,
   },
 ];
@@ -60,13 +71,16 @@ export default function HomePage() {
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
           <p className="text-[#fcb315] uppercase tracking-widest mb-4 text-sm font-semibold">
-            Welcome To LGBTQIA++ Kumintang Ilaya
+            Welcome To LGBTQIA++ Silbi
           </p>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 leading-tight uppercase">
             LOVE Ka, Dahil Ikaw Ka
           </h1>
-          <p className="text-white/70 text-lg max-w-2xl mx-auto mb-10 leading-relaxed font-cursive text-xl">
+          <p className="text-white/70 text-lg max-w-2xl mx-auto mb-4 leading-relaxed font-cursive text-xl">
             Your identity is your power. Stand tall, speak loud, and let the world know who you are.
+          </p>
+          <p className="text-[#fcb315] text-sm uppercase tracking-widest mb-10">
+            Kumintang Ilaya
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/become-member" className="btn-theme btn-theme-primary inline-block">
@@ -102,23 +116,30 @@ export default function HomePage() {
           <div className="relative h-80 md:h-[480px]">
             <Image
               src="/images/stock/stock-02.jpg"
-              alt="About Kumintang Ilaya"
+              alt="LGBTQIA++ Kumintang Ilaya Community - Batangas City"
               fill
               className="object-cover"
             />
           </div>
           <div>
             <h2 className="section-heading text-2xl">
-              Ano ang LGBTQIA++ Ku-Ila
+              Ano ang LGBTQIA++ Ku-Ila?
             </h2>
             <p className="text-[#787878] leading-relaxed mb-4">
-              Ang Kumintang Ilaya ay may pusong tunay. Walang kinikilingan,
-              walang pinipiling tao. Lahat ay tanggap dito.
+              Ang LGBTQIA++ Kumintang Ilaya ay isang community-based organization
+              na nagbibigay ng safe space para sa lahat ng LGBTQIA++ individuals
+              sa Batangas City. Dito, everyone is welcome — walang judgment,
+              walang discrimination. Lahat ay tanggap at may boses.
+            </p>
+            <p className="text-[#787878] leading-relaxed mb-4">
+              Kasama sa aming mga programa ang support groups, legal assistance,
+              health and wellness activities, at youth empowerment programs.
+              Together, we work towards equality and acceptance para sa lahat
+              ng miyembro ng komunidad.
             </p>
             <p className="text-[#787878] leading-relaxed mb-8">
-              Ang aming misyon ay palakasin ang kalusugan at kagalingan ng
-              LGBTQIA++ komunidad sa pamamagitan ng mga programa at serbisyo.
-              Tayo'y magkaisa, walang agwat. Sama-sama, tayo'y magiging lakas.
+              Sama-sama tayong magkaisa — walang agwat, walang hatulan.
+              Join us and be part of the movement for a more inclusive Batangas.
             </p>
             <Link href="/about" className="btn-theme btn-theme-primary inline-block">
               Basahin Pa
@@ -160,8 +181,12 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="section-heading text-2xl inline-block text-left">
-              Our Events
+              Mga Kaganapan at Aktibidad
             </h2>
+            <p className="text-[#787878] mt-4 max-w-2xl mx-auto">
+              Sali sa aming mga events, pride marches, outreach programs, at iba pang
+              activities na nagtataguyod ng pagkakaisa at pagmamahalan sa LGBTQIA++ komunidad ng Batangas.
+            </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
             {galleryImages.slice(0, 8).map((image, index) => (
@@ -194,7 +219,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-between mb-12">
             <h2 className="section-heading text-2xl">
-              Our Fresh Blog Posts
+              Mga Balita at Updates
             </h2>
             <Link href="/blog" className="text-[#e85242] hover:underline text-sm font-semibold uppercase">
               View More
@@ -254,7 +279,7 @@ export default function HomePage() {
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/stock/stock-05.jpg"
-            alt="Contact us"
+            alt="Contact LGBTQIA++ Kumintang Ilaya"
             fill
             className="object-cover"
           />
@@ -262,13 +287,14 @@ export default function HomePage() {
         </div>
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold text-white mb-6">
-            Do You Need Help?
+            May Tanong? Kailangan ng Tulong?
           </h2>
           <p className="text-white/70 text-lg max-w-2xl mx-auto mb-10">
-            Contact us and we will help you to solve any of your problems.
+            Kahit anong tanong mo, nandito kami para sayo. Mag-message lang sa amin
+            at sasagutin namin kayo sa lalong madaling panahon.
           </p>
           <Link href="/contact" className="btn-theme btn-theme-primary inline-block">
-            Contact Us
+            Mag-Message Ngayon
           </Link>
         </div>
       </section>

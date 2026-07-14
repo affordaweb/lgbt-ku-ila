@@ -12,7 +12,7 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-bold">Support Us</h3>
             <p className="text-white/80 text-sm">
-              Your support helps us build a more inclusive community
+              Bawat piso mo, pag-asa at lakas ang naibibigay sa komunidad. Mag-donate na!
             </p>
           </div>
           <div className="flex items-center gap-4">

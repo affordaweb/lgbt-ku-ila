@@ -2,7 +2,6 @@ import { Metadata } from "next";
 import {
   MapPin,
   Mail,
-  Clock,
 } from "lucide-react";
 import FacebookIcon from "@/components/FacebookIcon";
 import HeroSection from "@/components/HeroSection";
@@ -32,12 +31,6 @@ const contactInfo = [
     label: "Facebook",
     value: "Ku-Ila LGBTQIA++",
     href: "https://www.facebook.com/profile.php?id=61591420257367",
-  },
-  {
-    icon: Clock,
-    label: "Operating Hours",
-    value: "Mon - Sat, 9:00 AM - 5:00 PM",
-    href: null,
   },
 ];
 
