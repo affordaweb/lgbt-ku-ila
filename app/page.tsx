@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { Heart, Shield, Users, Leaf, ArrowRight } from "lucide-react";
+import { Heart, UserPlus, Phone, HeartHandshake, ArrowRight } from "lucide-react";
 import { members, galleryImages } from "@/lib/data";
 import ServiceCard from "@/components/ServiceCard";
 import MemberCard from "@/components/MemberCard";
@@ -30,24 +30,28 @@ const programs = [
     title: "Community Support",
     description:
       "Pagsasama-sama at pagtutulungan. May mga support groups at activities para sa lahat ng miyembro ng LGBTQIA++ komunidad.",
+    bg: "bg-[#e85242]",
   },
   {
-    icon: Shield,
-    title: "Legal Assistance",
+    icon: UserPlus,
+    title: "Become a Member",
     description:
-      "Tulong sa mga dokumento at pag-unawa sa inyong mga karapatan. Gabay para sa mga LGBTQIA++ na humaharap sa diskriminasyon.",
+      "Sumali sa aming komunidad at maging bahagi ng adbokasiya para sa pagkakapantay-pantay at pagtanggap.",
+    bg: "bg-[#fcb315]",
   },
   {
-    icon: Users,
-    title: "Youth Empowerment",
+    icon: Phone,
+    title: "Contact Us",
     description:
-      "Mga programa para sa kabataan — mentoring, workshops, at activities na nagpapalakas ng kumpiyansa at pagkakaisa.",
+      "Makipag-ugnayan sa amin para sa mga katanungan, suhestiyon, o anumang tulong na kailangan mo.",
+    bg: "bg-[#03a8cb]",
   },
   {
-    icon: Leaf,
-    title: "Health & Wellness",
+    icon: HeartHandshake,
+    title: "Support Us",
     description:
-      "Mental health support, wellness activities, at connections sa healthcare services para sa komunidad.",
+      "Tulungan kaming patuloy na magbigay ng serbisyo at suporta sa LGBTQIA++ komunidad.",
+    bg: "bg-[#22c55e]",
   },
 ];
 
@@ -65,10 +69,8 @@ export default function HomePage() {
             LOVE Ka,<br />
             <span className="text-gradient">Dahil Ikaw Ka!</span>
           </h1>
-          <p className="text-white/60 max-w-2xl mx-auto mb-6 leading-relaxed text-lg">
-            Your identity is your power. Stand tall, speak loud, and let the
-            world know who you are. You are not alone — we are here, we are
-            proud, and we stand with you.
+          <p className="text-white/70 max-w-3xl mx-auto mb-6 leading-relaxed text-2xl font-[var(--font-caveat)]">
+            Your identity is your power. Stand tall, speak loud, and let the world know who you are. You are not alone — we are here, we are proud, and we stand with you. Every color of your truth matters, every story deserves to be heard. In Kumintang Ilaya, you are seen, you are loved — exactly as you are.
           </p>
           <p className="text-[#f3702b] text-xs uppercase tracking-[0.25em] mb-10">
             Kumintang Ilaya
@@ -94,6 +96,7 @@ export default function HomePage() {
                 icon={program.icon}
                 title={program.title}
                 description={program.description}
+                bg={program.bg}
               />
             ))}
           </div>
