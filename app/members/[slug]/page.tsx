@@ -27,7 +27,7 @@ export async function generateMetadata({
 
   return {
     title: member.name,
-    description: `Learn more about ${member.name}, ${member.role} at LGBT Ku-Ila.`,
+    description: `Learn more about ${member.name}, ${member.role} at LGBTQIA++ SILBI Kumintang Ilaya.`,
   };
 }
 

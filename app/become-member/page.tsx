@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 };
 
 const benefits = [
-  "Official LGBTQIA++ Ku-Ila member",
+  "Official LGBTQIA++ SILBI Kumintang Ilaya member",
   "Listed on our Members page",
   "Access to community events and programs",
   "Legal assistance and advocacy support",

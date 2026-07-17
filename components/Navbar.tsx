@@ -63,7 +63,7 @@ export default function Navbar() {
             <Link href="/" className="flex items-center gap-3">
               <Image
                 src="/images/logo/731350583_10238772116515608_5057049016834242279_n.jpg"
-                alt="LGBTQIA++ Ku-Ila Logo"
+                alt="LGBTQIA++ SILBI Kumintang Ilaya Logo"
                 width={50}
                 height={50}
                 className="rounded-full object-cover ring-2 ring-[#f3702b]/30"

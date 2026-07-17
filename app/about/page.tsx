@@ -92,7 +92,7 @@ export default function AboutPage() {
           <div>
             <p className="text-[#f3702b] text-xs uppercase tracking-[0.2em] mb-4 font-medium">About</p>
             <h2 className="section-heading text-3xl">
-              Ano ang LGBTQIA++ Ku-Ila?
+              Ano ang LGBTQIA++ SILBI Kumintang Ilaya?
             </h2>
             <p className="text-[#787878] leading-relaxed mb-4">
               Ang LGBTQIA++ Kumintang Ilaya ay isang community-based organization

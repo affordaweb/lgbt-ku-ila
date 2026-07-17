@@ -6,7 +6,7 @@ import { galleryImages } from "@/lib/data";
 export const metadata: Metadata = {
   title: "Gallery",
   description:
-    "Browse photos and memories from LGBT Ku-Ila events, gatherings, and celebrations.",
+    "Browse photos and memories from LGBTQIA++ SILBI Kumintang Ilaya events, gatherings, and celebrations.",
 };
 
 const categories = ["Gallery", "Community", "Health", "Advocacy"];

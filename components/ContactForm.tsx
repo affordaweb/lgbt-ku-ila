@@ -85,12 +85,12 @@ export default function ContactForm() {
         <input
           type="hidden"
           name="subject"
-          value="New Contact from LGBTQIA++ Ku-Ila Website"
+          value="New Contact from LGBTQIA++ SILBI Kumintang Ilaya Website"
         />
         <input
           type="hidden"
           name="from_name"
-          value="LGBTQIA++ Ku-Ila Website"
+          value="LGBTQIA++ SILBI Kumintang Ilaya Website"
         />
         <div className="honeypot" style={{ display: "none" }}>
           <input type="checkbox" name="botcheck" />

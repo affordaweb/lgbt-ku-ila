@@ -6,7 +6,7 @@ import { members } from "@/lib/data";
 export const metadata: Metadata = {
   title: "Our Members",
   description:
-    "Meet the dedicated and passionate members of the LGBT Ku-Ila team.",
+    "Meet the dedicated and passionate members of the LGBTQIA++ SILBI Kumintang Ilaya team.",
 };
 
 export default function MembersPage() {

@@ -40,13 +40,13 @@ export default function Footer() {
               <Link href="/" className="flex items-center gap-3 mb-6">
                 <Image
                   src="/images/logo/731350583_10238772116515608_5057049016834242279_n.jpg"
-                  alt="LGBTQIA++ Ku-Ila Logo"
+                  alt="LGBTQIA++ SILBI Kumintang Ilaya Logo"
                   width={48}
                   height={48}
                   className="rounded-full object-cover ring-2 ring-[#f3702b]/30"
                 />
                 <div>
-                  <h3 className="text-lg font-bold tracking-wide">LGBTQIA++ Ku-Ila</h3>
+                  <h3 className="text-lg font-bold tracking-wide">LGBTQIA++ SILBI Kumintang Ilaya</h3>
                   <p className="text-xs text-[#f3702b]">Kumintang Ilaya</p>
                 </div>
               </Link>

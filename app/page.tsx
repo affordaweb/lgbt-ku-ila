@@ -72,17 +72,7 @@ export default function HomePage() {
           <p className="text-white/70 max-w-3xl mx-auto mb-6 leading-relaxed text-2xl font-[var(--font-caveat)]">
             Your identity is your power. Stand tall, speak loud, and let the world know who you are. You are not alone — we are here, we are proud, and we stand with you. Every color of your truth matters, every story deserves to be heard. In Kumintang Ilaya, you are seen, you are loved — exactly as you are.
           </p>
-          <p className="text-[#f3702b] text-xs uppercase tracking-[0.25em] mb-10">
-            Kumintang Ilaya
-          </p>
-          <div className="flex flex-col sm:flex-row gap-5 justify-center">
-            <Link href="/become-member" className="btn-theme btn-theme-primary inline-block">
-              Become a Member
-            </Link>
-            <Link href="/about" className="btn-theme btn-theme-outline inline-flex items-center gap-2">
-              Learn More <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
+
         </div>
       </section>
 
@@ -118,7 +108,7 @@ export default function HomePage() {
           <div>
             <p className="text-[#f3702b] text-xs uppercase tracking-[0.2em] mb-4 font-medium">About Us</p>
             <h2 className="section-heading text-3xl">
-              Ano ang LGBTQIA++ Ku-Ila?
+              Ano ang LGBTQIA++ SILBI Kumintang Ilaya?
             </h2>
             <p className="text-[#787878] leading-relaxed mb-4">
               Ang LGBTQIA++ Kumintang Ilaya ay isang community-based organization

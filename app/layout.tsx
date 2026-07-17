@@ -31,7 +31,7 @@ const pacifico = Pacifico({
 export const metadata: Metadata = {
   title: {
     default: "LGBTQIA++ Kumintang Ilaya | Empowering the Community",
-    template: "%s | LGBTQIA++ Ku-Ila",
+    template: "%s | LGBTQIA++ SILBI Kumintang Ilaya",
   },
   description:
     "LGBTQIA++ Kumintang Ilaya (Ku-Ila) — Empowering the LGBTQIA++ community through love, solidarity, advocacy, and human rights. Join us in building a more inclusive world.",

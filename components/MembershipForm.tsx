@@ -162,12 +162,12 @@ export default function MembershipForm() {
         <input
           type="hidden"
           name="subject"
-          value="New Membership Application - LGBTQIA++ Ku-Ila"
+          value="New Membership Application - LGBTQIA++ SILBI Kumintang Ilaya"
         />
         <input
           type="hidden"
           name="from_name"
-          value="LGBTQIA++ Ku-Ila Website"
+          value="LGBTQIA++ SILBI Kumintang Ilaya Website"
         />
         <div className="honeypot" style={{ display: "none" }}>
           <input type="checkbox" name="botcheck" />
