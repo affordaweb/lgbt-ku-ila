@@ -62,7 +62,7 @@ export default function HomePage() {
       <section className="relative min-h-[700px] flex items-center overflow-hidden">
         <HeroSlideshow />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 border border-[#f3702b]/30 text-[#f3702b] text-xs uppercase tracking-[0.2em] mb-6">
+          <div className="inline-flex items-center gap-2 px-5 py-2 bg-[#f3702b]/15 border border-[#f3702b]/40 text-white text-sm uppercase tracking-[0.2em] mb-6 backdrop-blur-sm">
             Welcome To LGBTQIA++ Silbi Kumintang Ilaya
           </div>
           <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-8 leading-tight">
