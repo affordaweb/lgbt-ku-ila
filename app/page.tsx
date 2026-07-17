@@ -66,8 +66,8 @@ export default function HomePage() {
             Welcome To LGBTQIA++ Silbi Kumintang Ilaya
           </div>
           <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-8 leading-tight">
-            LOVE Ka,<br />
-            <span className="text-gradient">Dahil Ikaw Ka!</span>
+            <span className="font-[var(--font-pacifico)]">LOVE</span> Ka,<br />
+            <span className="text-gradient">Dahil <span className="font-[var(--font-pacifico)]">Ikaw</span> Ka!</span>
           </h1>
           <p className="text-white/70 max-w-3xl mx-auto mb-6 leading-relaxed text-2xl font-[var(--font-caveat)]">
             Your identity is your power. Stand tall, speak loud, and let the world know who you are. You are not alone — we are here, we are proud, and we stand with you. Every color of your truth matters, every story deserves to be heard. In Kumintang Ilaya, you are seen, you are loved — exactly as you are.
