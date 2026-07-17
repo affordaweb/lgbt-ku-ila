@@ -21,7 +21,7 @@ export default function MembersPage() {
       <section className="section-padding bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-14">
-            <p className="text-[#D4AF37] text-xs uppercase tracking-[0.2em] mb-4 font-medium">Team</p>
+            <p className="text-[#f3702b] text-xs uppercase tracking-[0.2em] mb-4 font-medium">Team</p>
             <h2 className="section-heading text-3xl">
               Leaders of Our Community
             </h2>

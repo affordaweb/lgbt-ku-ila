@@ -41,8 +41,8 @@ export default function GalleryGrid({ images, categories = [] }: GalleryGridProp
               onClick={() => setActiveFilter(filter)}
               className={`px-6 py-2.5 text-sm font-medium uppercase tracking-wider transition-all duration-300 ${
                 activeFilter === filter
-                  ? "bg-[#7B2D8E] text-white shadow-lg shadow-[#7B2D8E]/20"
-                  : "bg-[#FAF8F5] text-[#6B7280] hover:bg-[#7B2D8E] hover:text-white border border-[#E5DDD3]"
+                  ? "bg-[#e85242] text-white shadow-lg shadow-[#e85242]/20"
+                  : "bg-[#f7f7f7] text-[#787878] hover:bg-[#f3702b] hover:text-white border border-[#e4e4e4]"
               }`}
             >
               {filter}
@@ -64,7 +64,7 @@ export default function GalleryGrid({ images, categories = [] }: GalleryGridProp
               fill
               className="object-cover group-hover:scale-110 transition-transform duration-700"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A2E]/80 via-[#1A1A2E]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#3a3d44]/80 via-[#3a3d44]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <div className="absolute bottom-0 left-0 right-0 p-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-y-2 group-hover:translate-y-0">
               <h3 className="font-bold text-sm">{image.alt}</h3>
             </div>
@@ -74,7 +74,7 @@ export default function GalleryGrid({ images, categories = [] }: GalleryGridProp
 
       {selectedIndex !== null && (
         <div
-          className="fixed inset-0 z-50 bg-[#0F0F1A]/95 flex items-center justify-center p-4"
+          className="fixed inset-0 z-50 bg-[#1f222b]/95 flex items-center justify-center p-4"
           onClick={closeLightbox}
         >
           <button

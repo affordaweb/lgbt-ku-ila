@@ -54,7 +54,7 @@ export default async function EventPage({
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-12">
             <div className="relative h-80 md:h-[480px] overflow-hidden">
-              <div className="absolute inset-0 border border-[#D4AF37]/20 z-10 m-5" />
+              <div className="absolute inset-0 border border-[#f3702b]/20 z-10 m-5" />
               <Image
                 src={event.image}
                 alt={event.title}
@@ -64,34 +64,34 @@ export default async function EventPage({
             </div>
 
             <div>
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 border border-[#D4AF37]/30 text-[#D4AF37] text-xs uppercase tracking-[0.2em] mb-4">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 border border-[#f3702b]/30 text-[#f3702b] text-xs uppercase tracking-[0.2em] mb-4">
                 Event Details
               </div>
-              <h1 className="text-4xl font-bold text-[#1A1A2E] mb-6">
+              <h1 className="text-4xl font-bold text-[#3a3d44] mb-6">
                 {event.title}
               </h1>
 
               <div className="flex flex-wrap gap-6 mb-8">
-                <div className="flex items-center gap-2 text-[#6B7280]">
-                  <Calendar className="w-4 h-4 text-[#D4AF37]" />
+                <div className="flex items-center gap-2 text-[#787878]">
+                  <Calendar className="w-4 h-4 text-[#f3702b]" />
                   <span className="text-sm">{event.date}</span>
                 </div>
-                <div className="flex items-center gap-2 text-[#6B7280]">
-                  <MapPin className="w-4 h-4 text-[#D4AF37]" />
+                <div className="flex items-center gap-2 text-[#787878]">
+                  <MapPin className="w-4 h-4 text-[#f3702b]" />
                   <span className="text-sm">{event.location}</span>
                 </div>
               </div>
 
-              <div className="w-16 h-0.5 bg-gradient-to-r from-[#D4AF37] to-transparent mb-6" />
+              <div className="w-16 h-0.5 bg-gradient-to-r from-[#f3702b] to-transparent mb-6" />
 
-              <p className="text-[#6B7280] leading-relaxed text-lg">
+              <p className="text-[#787878] leading-relaxed text-lg">
                 {event.description}
               </p>
             </div>
           </div>
 
           <div className="mt-16 text-center">
-            <Link href="/events" className="btn-luxury btn-luxury-outline inline-flex items-center gap-2" style={{ color: '#1A1A2E', borderColor: '#E5DDD3' }}>
+            <Link href="/events" className="btn-theme btn-theme-outline inline-flex items-center gap-2" style={{ color: '#3a3d44', borderColor: '#e4e4e4' }}>
               <ArrowLeft className="w-4 h-4" />
               Back to Events
             </Link>

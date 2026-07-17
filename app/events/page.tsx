@@ -37,26 +37,26 @@ export default function EventsPage() {
           <div className="grid grid-cols-1 gap-10 lg:grid-cols-3">
             {/* Sidebar */}
             <aside className="space-y-8 lg:col-span-1 order-2 lg:order-1">
-              <div className="bg-[#FAF8F5] p-6 border border-[#E5DDD3]">
-                <h3 className="mb-4 text-md font-bold text-[#1A1A2E] uppercase tracking-wider">Search</h3>
+              <div className="bg-[#f7f7f7] p-6 border border-[#e4e4e4]">
+                <h3 className="mb-4 text-md font-bold text-[#3a3d44] uppercase tracking-wider">Search</h3>
                 <div className="relative">
                   <input
                     type="text"
                     placeholder="Search events..."
-                    className="w-full border border-[#E5DDD3] py-2.5 pl-10 pr-4 text-sm focus:border-[#D4AF37] outline-none bg-white transition-colors"
+                    className="w-full border border-[#e4e4e4] py-2.5 pl-10 pr-4 text-sm focus:border-[#f3702b] outline-none bg-white transition-colors"
                   />
-                  <Search className="absolute left-3 top-3 h-4 w-4 text-[#6B7280]" />
+                  <Search className="absolute left-3 top-3 h-4 w-4 text-[#787878]" />
                 </div>
               </div>
 
-              <div className="bg-[#FAF8F5] p-6 border border-[#E5DDD3]">
-                <h3 className="mb-4 text-md font-bold text-[#1A1A2E] uppercase tracking-wider">Categories</h3>
+              <div className="bg-[#f7f7f7] p-6 border border-[#e4e4e4]">
+                <h3 className="mb-4 text-md font-bold text-[#3a3d44] uppercase tracking-wider">Categories</h3>
                 <ul className="space-y-2">
                   {categories.map((cat) => (
                     <li key={cat}>
                       <a
                         href="#"
-                        className="text-sm text-[#6B7280] transition hover:text-[#7B2D8E]"
+                        className="text-sm text-[#787878] transition hover:text-[#f3702b]"
                       >
                         {cat}
                       </a>
@@ -65,14 +65,14 @@ export default function EventsPage() {
                 </ul>
               </div>
 
-              <div className="bg-[#FAF8F5] p-6 border border-[#E5DDD3]">
-                <h3 className="mb-4 text-md font-bold text-[#1A1A2E] uppercase tracking-wider">Tags</h3>
+              <div className="bg-[#f7f7f7] p-6 border border-[#e4e4e4]">
+                <h3 className="mb-4 text-md font-bold text-[#3a3d44] uppercase tracking-wider">Tags</h3>
                 <div className="flex flex-wrap gap-2">
                   {tags.map((tag) => (
                     <a
                       key={tag}
                       href="#"
-                      className="px-3 py-1.5 text-xs text-[#6B7280] bg-white border border-[#E5DDD3] hover:bg-[#7B2D8E] hover:text-white hover:border-[#7B2D8E] transition-colors"
+                      className="px-3 py-1.5 text-xs text-[#787878] bg-white border border-[#e4e4e4] hover:bg-[#f3702b] hover:text-white hover:border-[#f3702b] transition-colors"
                     >
                       {tag}
                     </a>
@@ -80,14 +80,14 @@ export default function EventsPage() {
                 </div>
               </div>
 
-              <div className="bg-[#FAF8F5] p-6 border border-[#E5DDD3]">
-                <h3 className="mb-4 text-md font-bold text-[#1A1A2E] uppercase tracking-wider">Recent Posts</h3>
+              <div className="bg-[#f7f7f7] p-6 border border-[#e4e4e4]">
+                <h3 className="mb-4 text-md font-bold text-[#3a3d44] uppercase tracking-wider">Recent Posts</h3>
                 <ul className="space-y-2">
                   {recentPosts.map((post) => (
                     <li key={post}>
                       <a
                         href="#"
-                        className="text-sm text-[#6B7280] transition hover:text-[#7B2D8E]"
+                        className="text-sm text-[#787878] transition hover:text-[#f3702b]"
                       >
                         {post}
                       </a>
@@ -99,7 +99,7 @@ export default function EventsPage() {
 
             {/* Past Events Grid */}
             <div className="lg:col-span-2 order-1 lg:order-2">
-              <p className="text-[#D4AF37] text-xs uppercase tracking-[0.2em] mb-4 font-medium">Events</p>
+              <p className="text-[#f3702b] text-xs uppercase tracking-[0.2em] mb-4 font-medium">Events</p>
               <h2 className="section-heading text-3xl">
                 Past Events
               </h2>
@@ -107,7 +107,7 @@ export default function EventsPage() {
                 {pastEvents.map((event) => (
                   <div
                     key={event.id}
-                    className="overflow-hidden bg-white border border-[#E5DDD3] group card-luxury"
+                    className="overflow-hidden bg-white border border-[#e4e4e4] group card-hover"
                   >
                     <Link href={`/events/${event.slug}`}>
                       <div className="relative h-52 w-full overflow-hidden">
@@ -117,23 +117,23 @@ export default function EventsPage() {
                           fill
                           className="object-cover group-hover:scale-105 transition-transform duration-700"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A2E]/70 via-transparent to-transparent" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#3a3d44]/70 via-transparent to-transparent" />
                         <div className="absolute bottom-4 left-4 right-4">
                           <h3 className="text-lg font-bold text-white">{event.title}</h3>
                         </div>
                       </div>
                     </Link>
                     <div className="p-6">
-                      <p className="mb-1 text-sm font-semibold text-[#D4AF37]">
+                      <p className="mb-1 text-sm font-semibold text-[#f3702b]">
                         {event.date}
                       </p>
-                      <p className="mb-3 text-xs text-[#6B7280]">
+                      <p className="mb-3 text-xs text-[#787878]">
                         {event.location}
                       </p>
-                      <p className="text-sm text-[#6B7280] mb-5 leading-relaxed">{event.description}</p>
+                      <p className="text-sm text-[#787878] mb-5 leading-relaxed">{event.description}</p>
                       <Link
                         href={`/events/${event.slug}`}
-                        className="btn-luxury btn-luxury-primary text-xs inline-flex items-center gap-2"
+                        className="btn-theme btn-theme-primary text-xs inline-flex items-center gap-2"
                       >
                         Learn More <ArrowRight className="w-3 h-3" />
                       </Link>

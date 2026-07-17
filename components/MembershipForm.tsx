@@ -177,12 +177,12 @@ export default function MembershipForm() {
           <div>
             <label
               htmlFor="fullName"
-              className="block text-sm font-medium text-[#1A1A2E] mb-2 uppercase tracking-wider"
+              className="block text-sm font-medium text-[#3a3d44] mb-2 uppercase tracking-wider"
             >
               Full Name *
             </label>
             <div className="relative">
-              <User className="absolute left-3 top-3.5 w-4 h-4 text-[#6B7280]" />
+              <User className="absolute left-3 top-3.5 w-4 h-4 text-[#787878]" />
               <input
                 type="text"
                 id="fullName"
@@ -196,12 +196,12 @@ export default function MembershipForm() {
           <div>
             <label
               htmlFor="email"
-              className="block text-sm font-medium text-[#1A1A2E] mb-2 uppercase tracking-wider"
+              className="block text-sm font-medium text-[#3a3d44] mb-2 uppercase tracking-wider"
             >
               Email Address *
             </label>
             <div className="relative">
-              <Mail className="absolute left-3 top-3.5 w-4 h-4 text-[#6B7280]" />
+              <Mail className="absolute left-3 top-3.5 w-4 h-4 text-[#787878]" />
               <input
                 type="email"
                 id="email"
@@ -218,12 +218,12 @@ export default function MembershipForm() {
           <div>
             <label
               htmlFor="phone"
-              className="block text-sm font-medium text-[#1A1A2E] mb-2 uppercase tracking-wider"
+              className="block text-sm font-medium text-[#3a3d44] mb-2 uppercase tracking-wider"
             >
               Phone Number *
             </label>
             <div className="relative">
-              <Phone className="absolute left-3 top-3.5 w-4 h-4 text-[#6B7280]" />
+              <Phone className="absolute left-3 top-3.5 w-4 h-4 text-[#787878]" />
               <input
                 type="tel"
                 id="phone"
@@ -237,7 +237,7 @@ export default function MembershipForm() {
           <div>
             <label
               htmlFor="address"
-              className="block text-sm font-medium text-[#1A1A2E] mb-2 uppercase tracking-wider"
+              className="block text-sm font-medium text-[#3a3d44] mb-2 uppercase tracking-wider"
             >
               Address *
             </label>
@@ -255,7 +255,7 @@ export default function MembershipForm() {
         <div>
           <label
             htmlFor="facebook"
-            className="block text-sm font-medium text-[#1A1A2E] mb-2 uppercase tracking-wider"
+            className="block text-sm font-medium text-[#3a3d44] mb-2 uppercase tracking-wider"
           >
             Facebook Profile URL *
           </label>
@@ -272,12 +272,12 @@ export default function MembershipForm() {
         <div>
           <label
             htmlFor="gcashRef"
-            className="block text-sm font-medium text-[#1A1A2E] mb-2 uppercase tracking-wider"
+            className="block text-sm font-medium text-[#3a3d44] mb-2 uppercase tracking-wider"
           >
             GCash Reference Number *
           </label>
           <div className="relative">
-            <FileText className="absolute left-3 top-3.5 w-4 h-4 text-[#6B7280]" />
+            <FileText className="absolute left-3 top-3.5 w-4 h-4 text-[#787878]" />
             <input
               type="text"
               id="gcashRef"
@@ -293,7 +293,7 @@ export default function MembershipForm() {
             />
             {refChecking && (
               <div className="absolute right-3 top-3">
-                <div className="w-4 h-4 border-2 border-[#D4AF37] border-t-transparent rounded-full animate-spin" />
+                <div className="w-4 h-4 border-2 border-[#f3702b] border-t-transparent rounded-full animate-spin" />
               </div>
             )}
             {refVerified && !refChecking && (
@@ -309,13 +309,13 @@ export default function MembershipForm() {
           {refVerified && (
             <p className="mt-1 text-xs text-green-500">Reference number verified</p>
           )}
-          <p className="mt-1 text-xs text-[#6B7280]">
+          <p className="mt-1 text-xs text-[#787878]">
             Enter the reference number from your GCash payment confirmation
           </p>
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-[#1A1A2E] mb-2 uppercase tracking-wider">
+          <label className="block text-sm font-medium text-[#3a3d44] mb-2 uppercase tracking-wider">
             GCash Screenshot *
           </label>
           <div
@@ -323,7 +323,7 @@ export default function MembershipForm() {
             className={`border-2 border-dashed p-8 text-center cursor-pointer transition-colors ${
               screenshotFile
                 ? "border-green-300 bg-green-50/50"
-                : "border-[#E5DDD3] hover:border-[#D4AF37] bg-[#FAF8F5]"
+                : "border-[#e4e4e4] hover:border-[#f3702b] bg-[#f7f7f7]"
             }`}
           >
             {screenshotPreview ? (
@@ -351,8 +351,8 @@ export default function MembershipForm() {
               </div>
             ) : (
               <div className="space-y-3">
-                <Upload className="w-10 h-10 text-[#6B7280] mx-auto" />
-                <p className="text-sm text-[#6B7280]">
+                <Upload className="w-10 h-10 text-[#787878] mx-auto" />
+                <p className="text-sm text-[#787878]">
                   Click to upload your GCash payment screenshot
                 </p>
                 <p className="text-xs text-[#9CA3AF]">
@@ -370,11 +370,11 @@ export default function MembershipForm() {
           />
         </div>
 
-        <div className="bg-[#FAF8F5] border border-[#E5DDD3] p-5">
-          <p className="text-sm text-[#1A1A2E]">
+        <div className="bg-[#f7f7f7] border border-[#e4e4e4] p-5">
+          <p className="text-sm text-[#3a3d44]">
             <strong>Membership Fee:</strong> 300 PHP (one-time)
           </p>
-          <p className="text-xs text-[#6B7280] mt-1">
+          <p className="text-xs text-[#787878] mt-1">
             After submitting this form, your application will be reviewed. Your membership will be activated once payment is verified.
           </p>
         </div>
@@ -384,8 +384,8 @@ export default function MembershipForm() {
         <button
           type="submit"
           disabled={loading || !canSubmit}
-          className={`btn-luxury w-full disabled:opacity-40 disabled:cursor-not-allowed ${
-            canSubmit ? "btn-luxury-primary" : "bg-gray-300 text-gray-500"
+          className={`btn-theme w-full disabled:opacity-40 disabled:cursor-not-allowed ${
+            canSubmit ? "btn-theme-primary" : "bg-gray-300 text-gray-500"
           }`}
         >
           {loading ? (

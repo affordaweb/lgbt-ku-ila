@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <footer className="text-white">
       {/* Support Us - Gold accent bar */}
-      <div className="bg-gradient-to-r from-[#7B2D8E] to-[#9B4DAC] py-12">
+      <div className="bg-gradient-to-r from-[#e85242] to-[#f3702b] py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
             <h3 className="text-2xl font-bold tracking-wide">Support Us</h3>
@@ -24,7 +24,7 @@ export default function Footer() {
               </div>
             </div>
             <div className="text-white text-sm">
-              <p className="font-bold text-[#D4AF37]">GCash</p>
+              <p className="font-bold text-[#f3702b]">GCash</p>
               <p className="text-white/60">Scan to donate</p>
             </div>
           </div>
@@ -32,7 +32,7 @@ export default function Footer() {
       </div>
 
       {/* Main Footer - dark */}
-      <div className="bg-[#1A1A2E]">
+      <div className="bg-[#3a3d44]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {/* About */}
@@ -43,11 +43,11 @@ export default function Footer() {
                   alt="LGBTQIA++ Ku-Ila Logo"
                   width={48}
                   height={48}
-                  className="rounded-full object-cover ring-2 ring-[#D4AF37]/30"
+                  className="rounded-full object-cover ring-2 ring-[#f3702b]/30"
                 />
                 <div>
                   <h3 className="text-lg font-bold tracking-wide">LGBTQIA++ Ku-Ila</h3>
-                  <p className="text-xs text-[#D4AF37]">Kumintang Ilaya</p>
+                  <p className="text-xs text-[#f3702b]">Kumintang Ilaya</p>
                 </div>
               </Link>
               <p className="text-gray-500 text-sm leading-relaxed mb-6">
@@ -60,7 +60,7 @@ export default function Footer() {
                   href="https://www.facebook.com/profile.php?id=61591420257367"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full border border-gray-600 flex items-center justify-center hover:border-[#D4AF37] hover:text-[#D4AF37] transition-colors"
+                  className="w-10 h-10 rounded-full border border-gray-600 flex items-center justify-center hover:border-[#f3702b] hover:text-[#f3702b] transition-colors"
                   aria-label="Facebook"
                 >
                   <FacebookIcon className="w-5 h-5" />
@@ -73,11 +73,11 @@ export default function Footer() {
               <h3 className="text-lg font-bold mb-6 tracking-wide">Our Contacts</h3>
               <ul className="space-y-4 text-gray-500 text-sm">
                 <li className="flex items-start gap-3">
-                  <MapPin className="w-5 h-5 text-[#D4AF37] mt-0.5 shrink-0" />
+                  <MapPin className="w-5 h-5 text-[#f3702b] mt-0.5 shrink-0" />
                   <span>Kumintang Ilaya, Batangas City, Philippines</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <Mail className="w-5 h-5 text-[#D4AF37] mt-0.5 shrink-0" />
+                  <Mail className="w-5 h-5 text-[#f3702b] mt-0.5 shrink-0" />
                   <span>lgbtkuila@outlook.com</span>
                 </li>
               </ul>
@@ -85,28 +85,28 @@ export default function Footer() {
 
             {/* Quick Links */}
             <div>
-              <h3 className="text-lg font-bold mb-6 font-[var(--font-inter)] tracking-wide">Quick Links</h3>
+              <h3 className="text-lg font-bold mb-6 font-[var(--font-open-sans)] tracking-wide">Quick Links</h3>
               <ul className="space-y-3 text-sm">
                 <li>
-                  <Link href="/" className="text-gray-500 hover:text-[#D4AF37] transition-colors">Home</Link>
+                  <Link href="/" className="text-gray-500 hover:text-[#f3702b] transition-colors">Home</Link>
                 </li>
                 <li>
-                  <Link href="/about" className="text-gray-500 hover:text-[#D4AF37] transition-colors">About Us</Link>
+                  <Link href="/about" className="text-gray-500 hover:text-[#f3702b] transition-colors">About Us</Link>
                 </li>
                 <li>
-                  <Link href="/members" className="text-gray-500 hover:text-[#D4AF37] transition-colors">Members</Link>
+                  <Link href="/members" className="text-gray-500 hover:text-[#f3702b] transition-colors">Members</Link>
                 </li>
                 <li>
-                  <Link href="/gallery" className="text-gray-500 hover:text-[#D4AF37] transition-colors">Gallery</Link>
+                  <Link href="/gallery" className="text-gray-500 hover:text-[#f3702b] transition-colors">Gallery</Link>
                 </li>
                 <li>
-                  <Link href="/events" className="text-gray-500 hover:text-[#D4AF37] transition-colors">Events</Link>
+                  <Link href="/events" className="text-gray-500 hover:text-[#f3702b] transition-colors">Events</Link>
                 </li>
                 <li>
-                  <Link href="/contact" className="text-gray-500 hover:text-[#D4AF37] transition-colors">Contact</Link>
+                  <Link href="/contact" className="text-gray-500 hover:text-[#f3702b] transition-colors">Contact</Link>
                 </li>
                 <li>
-                  <Link href="/become-member" className="text-gray-500 hover:text-[#D4AF37] transition-colors">Become a Member</Link>
+                  <Link href="/become-member" className="text-gray-500 hover:text-[#f3702b] transition-colors">Become a Member</Link>
                 </li>
               </ul>
             </div>
@@ -115,19 +115,19 @@ export default function Footer() {
       </div>
 
       {/* Copyright - darker */}
-      <div className="bg-[#0F0F1A]">
+      <div className="bg-[#1f222b]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col md:flex-row items-center justify-between gap-3">
           <p className="text-gray-600 text-xs">
             &copy; {new Date().getFullYear()} LGBTQIA++ Kumintang Ilaya. All
             rights reserved.
           </p>
           <p className="text-gray-600 text-xs">
-            Made with <Heart className="w-3 h-3 inline text-[#D4AF37]" /> for the{" "}
+            Made with <Heart className="w-3 h-3 inline text-[#f3702b]" /> for the{" "}
             <a
               href="https://www.affordawebsolutions.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-[#D4AF37] transition-colors underline"
+              className="hover:text-[#f3702b] transition-colors underline"
             >
               Community
             </a>

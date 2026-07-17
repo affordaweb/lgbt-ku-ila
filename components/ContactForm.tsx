@@ -100,7 +100,7 @@ export default function ContactForm() {
           <div>
             <label
               htmlFor="name"
-              className="block text-sm font-medium text-[#1A1A2E] mb-2 uppercase tracking-wider"
+              className="block text-sm font-medium text-[#3a3d44] mb-2 uppercase tracking-wider"
             >
               Your Name *
             </label>
@@ -116,7 +116,7 @@ export default function ContactForm() {
           <div>
             <label
               htmlFor="email"
-              className="block text-sm font-medium text-[#1A1A2E] mb-2 uppercase tracking-wider"
+              className="block text-sm font-medium text-[#3a3d44] mb-2 uppercase tracking-wider"
             >
               Your Email *
             </label>
@@ -134,7 +134,7 @@ export default function ContactForm() {
         <div>
           <label
             htmlFor="subject"
-            className="block text-sm font-medium text-[#1A1A2E] mb-2 uppercase tracking-wider"
+            className="block text-sm font-medium text-[#3a3d44] mb-2 uppercase tracking-wider"
           >
             Subject
           </label>
@@ -150,7 +150,7 @@ export default function ContactForm() {
         <div>
           <label
             htmlFor="message"
-            className="block text-sm font-medium text-[#1A1A2E] mb-2 uppercase tracking-wider"
+            className="block text-sm font-medium text-[#3a3d44] mb-2 uppercase tracking-wider"
           >
             Message *
           </label>
@@ -169,7 +169,7 @@ export default function ContactForm() {
         <button
           type="submit"
           disabled={loading}
-          className="btn-luxury btn-luxury-primary disabled:opacity-50"
+          className="btn-theme btn-theme-primary disabled:opacity-50"
         >
           {loading ? (
             "Sending..."
