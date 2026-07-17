@@ -2,7 +2,7 @@
 
 :root {
   --color-primary: #e85242;
-  --color-secondary: #f3702b;
+  --color-secondary: #e85242;
   --color-accent: #fcb315;
   --color-teal: #03a8cb;
   --color-dark: #3a3d44;
@@ -103,7 +103,7 @@ html {
 }
 
 .btn-theme-secondary:hover {
-  background-color: #e0621f;
+  background-color: #d44133;
   color: white;
 }
 
@@ -171,7 +171,7 @@ html {
 }
 
 .service-card-orange {
-  background-color: #f3702b;
+  background-color: #e85242;
   color: white;
 }
 
@@ -219,7 +219,7 @@ html {
 }
 
 .text-gradient {
-  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -238,7 +238,7 @@ html {
 
 .input-luxury:focus {
   border-color: var(--color-secondary);
-  box-shadow: 0 0 0 3px rgba(243, 112, 43, 0.1);
+  box-shadow: 0 0 0 3px rgba(232, 82, 66, 0.1);
 }
 
 .input-luxury::placeholder {

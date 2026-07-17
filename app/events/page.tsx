@@ -43,7 +43,7 @@ export default function EventsPage() {
                   <input
                     type="text"
                     placeholder="Search events..."
-                    className="w-full border border-[#e4e4e4] py-2.5 pl-10 pr-4 text-sm focus:border-[#f3702b] outline-none bg-white transition-colors"
+                    className="w-full border border-[#e4e4e4] py-2.5 pl-10 pr-4 text-sm focus:border-[#e85242] outline-none bg-white transition-colors"
                   />
                   <Search className="absolute left-3 top-3 h-4 w-4 text-[#787878]" />
                 </div>
@@ -56,7 +56,7 @@ export default function EventsPage() {
                     <li key={cat}>
                       <a
                         href="#"
-                        className="text-sm text-[#787878] transition hover:text-[#f3702b]"
+                        className="text-sm text-[#787878] transition hover:text-[#e85242]"
                       >
                         {cat}
                       </a>
@@ -72,7 +72,7 @@ export default function EventsPage() {
                     <a
                       key={tag}
                       href="#"
-                      className="px-3 py-1.5 text-xs text-[#787878] bg-white border border-[#e4e4e4] hover:bg-[#f3702b] hover:text-white hover:border-[#f3702b] transition-colors"
+                      className="px-3 py-1.5 text-xs text-[#787878] bg-white border border-[#e4e4e4] hover:bg-[#e85242] hover:text-white hover:border-[#e85242] transition-colors"
                     >
                       {tag}
                     </a>
@@ -87,7 +87,7 @@ export default function EventsPage() {
                     <li key={post}>
                       <a
                         href="#"
-                        className="text-sm text-[#787878] transition hover:text-[#f3702b]"
+                        className="text-sm text-[#787878] transition hover:text-[#e85242]"
                       >
                         {post}
                       </a>
@@ -99,7 +99,7 @@ export default function EventsPage() {
 
             {/* Past Events Grid */}
             <div className="lg:col-span-2 order-1 lg:order-2">
-              <p className="text-[#f3702b] text-xs uppercase tracking-[0.2em] mb-4 font-medium">Events</p>
+              <p className="text-[#e85242] text-xs uppercase tracking-[0.2em] mb-4 font-medium">Events</p>
               <h2 className="section-heading text-3xl">
                 Past Events
               </h2>
@@ -124,7 +124,7 @@ export default function EventsPage() {
                       </div>
                     </Link>
                     <div className="p-6">
-                      <p className="mb-1 text-sm font-semibold text-[#f3702b]">
+                      <p className="mb-1 text-sm font-semibold text-[#e85242]">
                         {event.date}
                       </p>
                       <p className="mb-3 text-xs text-[#787878]">

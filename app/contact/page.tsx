@@ -52,7 +52,7 @@ export default function ContactPage() {
               const Icon = item.icon;
               const content = (
                 <div className="flex items-center gap-5 p-6">
-                  <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center bg-gradient-to-br from-[#f3702b] to-[#fcb315]">
+                  <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center bg-gradient-to-br from-[#e85242] to-[#fcb315]">
                     <Icon className="h-6 w-6 text-[#3a3d44]" />
                   </div>
                   <div>
@@ -79,7 +79,7 @@ export default function ContactPage() {
                         ? "noopener noreferrer"
                         : undefined
                     }
-                    className="block bg-white/5 hover:bg-white/10 transition-all border border-white/10 hover:border-[#f3702b]/30"
+                    className="block bg-white/5 hover:bg-white/10 transition-all border border-white/10 hover:border-[#e85242]/30"
                   >
                     {content}
                   </a>
@@ -101,7 +101,7 @@ export default function ContactPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-16 lg:grid-cols-2">
             <div>
-              <p className="text-[#f3702b] text-xs uppercase tracking-[0.2em] mb-4 font-medium">Let&apos;s Talk</p>
+              <p className="text-[#e85242] text-xs uppercase tracking-[0.2em] mb-4 font-medium">Let&apos;s Talk</p>
               <h2 className="section-heading text-3xl">
                 Do You Need Help?
               </h2>
@@ -112,7 +112,7 @@ export default function ContactPage() {
             </div>
 
             <div>
-              <p className="text-[#f3702b] text-xs uppercase tracking-[0.2em] mb-4 font-medium">Reach Out</p>
+              <p className="text-[#e85242] text-xs uppercase tracking-[0.2em] mb-4 font-medium">Reach Out</p>
               <h2 className="section-heading text-3xl">
                 Get In Touch
               </h2>
@@ -125,7 +125,7 @@ export default function ContactPage() {
                   const Icon = item.icon;
                   const content = (
                     <div className="flex items-start gap-5 p-5 bg-[#f7f7f7] border border-[#e4e4e4]">
-                      <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center bg-gradient-to-br from-[#e85242] to-[#f3702b]">
+                      <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center bg-gradient-to-br from-[#e85242] to-[#e85242]">
                         <Icon className="h-6 w-6 text-white" />
                       </div>
                       <div className="pt-1">

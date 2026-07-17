@@ -56,7 +56,7 @@ export default async function MemberPage({
           <div className="grid grid-cols-1 gap-16 lg:grid-cols-2">
             {/* Photo */}
             <div className="relative aspect-square lg:aspect-[4/5] overflow-hidden">
-              <div className="absolute inset-0 border border-[#f3702b]/20 z-10 m-5" />
+              <div className="absolute inset-0 border border-[#e85242]/20 z-10 m-5" />
               <Image
                 src={member.image}
                 alt={member.name}
@@ -67,13 +67,13 @@ export default async function MemberPage({
 
             {/* Details */}
             <div className="flex flex-col justify-center">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 border border-[#f3702b]/30 text-[#f3702b] text-xs uppercase tracking-[0.2em] mb-4">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 border border-[#e85242]/30 text-[#e85242] text-xs uppercase tracking-[0.2em] mb-4">
                 Member Profile
               </div>
               <h1 className="text-4xl font-bold text-[#3a3d44] mb-2">
                 {member.name}
               </h1>
-              <p className="text-[#f3702b] font-semibold text-lg mb-8 uppercase tracking-wider">
+              <p className="text-[#e85242] font-semibold text-lg mb-8 uppercase tracking-wider">
                 {member.role}
               </p>
 
@@ -114,15 +114,15 @@ export default async function MemberPage({
                     Community Support &amp; Safe Spaces
                   </li>
                   <li className="flex items-center gap-3">
-                    <span className="w-2 h-2 bg-[#f3702b] rounded-full shrink-0"></span>
+                    <span className="w-2 h-2 bg-[#e85242] rounded-full shrink-0"></span>
                     Legal Assistance &amp; Advocacy
                   </li>
                   <li className="flex items-center gap-3">
-                    <span className="w-2 h-2 bg-[#f3702b] rounded-full shrink-0"></span>
+                    <span className="w-2 h-2 bg-[#e85242] rounded-full shrink-0"></span>
                     Youth Empowerment Programs
                   </li>
                   <li className="flex items-center gap-3">
-                    <span className="w-2 h-2 bg-gradient-to-r from-[#e85242] to-[#f3702b] rounded-full shrink-0"></span>
+                    <span className="w-2 h-2 bg-gradient-to-r from-[#e85242] to-[#e85242] rounded-full shrink-0"></span>
                     Health &amp; Wellness Initiatives
                   </li>
                 </ul>

@@ -54,7 +54,7 @@ export default async function EventPage({
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-12">
             <div className="relative h-80 md:h-[480px] overflow-hidden">
-              <div className="absolute inset-0 border border-[#f3702b]/20 z-10 m-5" />
+              <div className="absolute inset-0 border border-[#e85242]/20 z-10 m-5" />
               <Image
                 src={event.image}
                 alt={event.title}
@@ -64,7 +64,7 @@ export default async function EventPage({
             </div>
 
             <div>
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 border border-[#f3702b]/30 text-[#f3702b] text-xs uppercase tracking-[0.2em] mb-4">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 border border-[#e85242]/30 text-[#e85242] text-xs uppercase tracking-[0.2em] mb-4">
                 Event Details
               </div>
               <h1 className="text-4xl font-bold text-[#3a3d44] mb-6">
@@ -73,16 +73,16 @@ export default async function EventPage({
 
               <div className="flex flex-wrap gap-6 mb-8">
                 <div className="flex items-center gap-2 text-[#787878]">
-                  <Calendar className="w-4 h-4 text-[#f3702b]" />
+                  <Calendar className="w-4 h-4 text-[#e85242]" />
                   <span className="text-sm">{event.date}</span>
                 </div>
                 <div className="flex items-center gap-2 text-[#787878]">
-                  <MapPin className="w-4 h-4 text-[#f3702b]" />
+                  <MapPin className="w-4 h-4 text-[#e85242]" />
                   <span className="text-sm">{event.location}</span>
                 </div>
               </div>
 
-              <div className="w-16 h-0.5 bg-gradient-to-r from-[#f3702b] to-transparent mb-6" />
+              <div className="w-16 h-0.5 bg-gradient-to-r from-[#e85242] to-transparent mb-6" />
 
               <p className="text-[#787878] leading-relaxed text-lg">
                 {event.description}

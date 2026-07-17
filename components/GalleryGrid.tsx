@@ -42,7 +42,7 @@ export default function GalleryGrid({ images, categories = [] }: GalleryGridProp
               className={`px-6 py-2.5 text-sm font-medium uppercase tracking-wider transition-all duration-300 ${
                 activeFilter === filter
                   ? "bg-[#e85242] text-white shadow-lg shadow-[#e85242]/20"
-                  : "bg-[#f7f7f7] text-[#787878] hover:bg-[#f3702b] hover:text-white border border-[#e4e4e4]"
+                  : "bg-[#f7f7f7] text-[#787878] hover:bg-[#e85242] hover:text-white border border-[#e4e4e4]"
               }`}
             >
               {filter}

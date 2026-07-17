@@ -62,7 +62,7 @@ export default function HomePage() {
       <section className="relative min-h-[700px] flex items-center overflow-hidden">
         <HeroSlideshow />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
-          <div className="inline-flex items-center gap-2 px-5 py-2 bg-[#f3702b]/15 border border-[#f3702b]/40 text-white text-sm uppercase tracking-[0.2em] mb-6 backdrop-blur-sm">
+          <div className="inline-flex items-center gap-2 px-5 py-2 bg-[#e85242]/15 border border-[#e85242]/40 text-white text-sm uppercase tracking-[0.2em] mb-6 backdrop-blur-sm">
             Welcome To LGBTQIA++ Silbi Kumintang Ilaya
           </div>
           <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-8 leading-tight">
@@ -97,7 +97,7 @@ export default function HomePage() {
       <section className="section-padding bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-16 items-center">
           <div className="relative h-80 md:h-[520px] overflow-hidden">
-            <div className="absolute inset-0 border border-[#f3702b]/20 z-10 m-6" />
+            <div className="absolute inset-0 border border-[#e85242]/20 z-10 m-6" />
             <Image
               src="/images/stock/stock-02.jpg"
               alt="LGBTQIA++ Kumintang Ilaya Community - Batangas City"
@@ -106,7 +106,7 @@ export default function HomePage() {
             />
           </div>
           <div>
-            <p className="text-[#f3702b] text-xs uppercase tracking-[0.2em] mb-4 font-medium">About Us</p>
+            <p className="text-[#e85242] text-xs uppercase tracking-[0.2em] mb-4 font-medium">About Us</p>
             <h2 className="section-heading text-3xl">
               Ano ang LGBTQIA++ SILBI Kumintang Ilaya?
             </h2>
@@ -137,7 +137,7 @@ export default function HomePage() {
       <section className="section-padding bg-[#f7f7f7]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <p className="text-[#f3702b] text-xs uppercase tracking-[0.2em] mb-4 font-medium">Our Team</p>
+            <p className="text-[#e85242] text-xs uppercase tracking-[0.2em] mb-4 font-medium">Our Team</p>
             <h2 className="section-heading section-heading-center text-3xl inline-block">
               Leaders of Our Community
             </h2>
@@ -166,7 +166,7 @@ export default function HomePage() {
       <section className="section-padding bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <p className="text-[#f3702b] text-xs uppercase tracking-[0.2em] mb-4 font-medium">Events</p>
+            <p className="text-[#e85242] text-xs uppercase tracking-[0.2em] mb-4 font-medium">Events</p>
             <h2 className="section-heading section-heading-center text-3xl inline-block">
               Mga Kaganapan at Aktibidad
             </h2>
@@ -213,7 +213,7 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-gradient-to-r from-[#3a3d44]/90 via-[#3a3d44]/75 to-[#1f222b]/85" />
         </div>
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 border border-[#f3702b]/30 text-[#f3702b] text-xs uppercase tracking-[0.2em] mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 border border-[#e85242]/30 text-[#e85242] text-xs uppercase tracking-[0.2em] mb-6">
             Contact Us
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">

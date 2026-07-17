@@ -12,10 +12,10 @@ export default function ThankYouPage() {
     <main>
       <section className="min-h-[70vh] flex items-center justify-center bg-white">
         <div className="max-w-lg mx-auto px-4 text-center">
-          <div className="w-24 h-24 rounded-full bg-gradient-to-br from-[#f3702b]/10 to-[#e85242]/10 flex items-center justify-center mx-auto mb-8">
-            <CheckCircle className="w-12 h-12 text-[#f3702b]" />
+          <div className="w-24 h-24 rounded-full bg-gradient-to-br from-[#e85242]/10 to-[#e85242]/10 flex items-center justify-center mx-auto mb-8">
+            <CheckCircle className="w-12 h-12 text-[#e85242]" />
           </div>
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 border border-[#f3702b]/30 text-[#f3702b] text-xs uppercase tracking-[0.2em] mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 border border-[#e85242]/30 text-[#e85242] text-xs uppercase tracking-[0.2em] mb-6">
             Success
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-[#3a3d44] mb-4">
@@ -27,7 +27,7 @@ export default function ThankYouPage() {
           <p className="text-[#787878] mb-10">
             We appreciate you reaching out to LGBTQIA++ Kumintang Ilaya. Our team will review your message and get back to you as soon as possible.
           </p>
-          <div className="w-20 h-0.5 bg-gradient-to-r from-[#f3702b] to-transparent mx-auto mb-10" />
+          <div className="w-20 h-0.5 bg-gradient-to-r from-[#e85242] to-transparent mx-auto mb-10" />
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/" className="btn-theme btn-theme-primary inline-flex items-center gap-2">
               <Home className="w-4 h-4" />

@@ -293,7 +293,7 @@ export default function MembershipForm() {
             />
             {refChecking && (
               <div className="absolute right-3 top-3">
-                <div className="w-4 h-4 border-2 border-[#f3702b] border-t-transparent rounded-full animate-spin" />
+                <div className="w-4 h-4 border-2 border-[#e85242] border-t-transparent rounded-full animate-spin" />
               </div>
             )}
             {refVerified && !refChecking && (
@@ -323,7 +323,7 @@ export default function MembershipForm() {
             className={`border-2 border-dashed p-8 text-center cursor-pointer transition-colors ${
               screenshotFile
                 ? "border-green-300 bg-green-50/50"
-                : "border-[#e4e4e4] hover:border-[#f3702b] bg-[#f7f7f7]"
+                : "border-[#e4e4e4] hover:border-[#e85242] bg-[#f7f7f7]"
             }`}
           >
             {screenshotPreview ? (

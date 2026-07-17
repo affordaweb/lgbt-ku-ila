@@ -32,18 +32,18 @@ export default function MemberCard({
       </Link>
       <div className="p-5">
         <Link href={`/members/${slug}`}>
-          <h3 className="font-bold text-[#3a3d44] text-lg hover:text-[#f3702b] transition-colors">
+          <h3 className="font-bold text-[#3a3d44] text-lg hover:text-[#e85242] transition-colors">
             {name}
           </h3>
         </Link>
-        <p className="text-xs text-[#f3702b] uppercase tracking-wider mt-1 font-medium">{role}</p>
+        <p className="text-xs text-[#e85242] uppercase tracking-wider mt-1 font-medium">{role}</p>
         {facebookUrl && (
           <div className="flex justify-center gap-3 mt-4">
             <a
               href={facebookUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-8 h-8 rounded-full border border-[#e4e4e4] flex items-center justify-center hover:border-[#f3702b] hover:text-[#f3702b] transition-colors text-[#787878]"
+              className="w-8 h-8 rounded-full border border-[#e4e4e4] flex items-center justify-center hover:border-[#e85242] hover:text-[#e85242] transition-colors text-[#787878]"
             >
               <FacebookIcon className="w-4 h-4" />
             </a>

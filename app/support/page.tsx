@@ -20,10 +20,10 @@ export default function SupportPage() {
       <section className="section-padding bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#f3702b]/10 to-[#e85242]/10 flex items-center justify-center mx-auto mb-6">
-              <Heart className="w-8 h-8 text-[#f3702b]" />
+            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#e85242]/10 to-[#e85242]/10 flex items-center justify-center mx-auto mb-6">
+              <Heart className="w-8 h-8 text-[#e85242]" />
             </div>
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 border border-[#f3702b]/30 text-[#f3702b] text-xs uppercase tracking-[0.2em] mb-4">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 border border-[#e85242]/30 text-[#e85242] text-xs uppercase tracking-[0.2em] mb-4">
               Make a Difference
             </div>
             <h1 className="text-4xl md:text-5xl font-bold text-[#3a3d44] mb-4">
@@ -55,30 +55,30 @@ export default function SupportPage() {
             <div className="space-y-8">
               <div>
                 <h2 className="text-xl font-bold text-[#3a3d44] mb-4 flex items-center gap-3">
-                  <span className="w-8 h-8 rounded-full bg-[#f3702b]/10 flex items-center justify-center">
-                    <Gift className="w-4 h-4 text-[#f3702b]" />
+                  <span className="w-8 h-8 rounded-full bg-[#e85242]/10 flex items-center justify-center">
+                    <Gift className="w-4 h-4 text-[#e85242]" />
                   </span>
                   How to Donate via GCash
                 </h2>
                 <ol className="space-y-4 text-sm text-[#787878]">
                   <li className="flex gap-4">
-                    <span className="font-bold text-[#f3702b] text-lg leading-none shrink-0">1</span>
+                    <span className="font-bold text-[#e85242] text-lg leading-none shrink-0">1</span>
                     Open the GCash app on your phone
                   </li>
                   <li className="flex gap-4">
-                    <span className="font-bold text-[#f3702b] text-lg leading-none shrink-0">2</span>
+                    <span className="font-bold text-[#e85242] text-lg leading-none shrink-0">2</span>
                     Tap &quot;Scan QR&quot; and scan the QR code above
                   </li>
                   <li className="flex gap-4">
-                    <span className="font-bold text-[#f3702b] text-lg leading-none shrink-0">3</span>
+                    <span className="font-bold text-[#e85242] text-lg leading-none shrink-0">3</span>
                     Enter the amount you wish to donate
                   </li>
                   <li className="flex gap-4">
-                    <span className="font-bold text-[#f3702b] text-lg leading-none shrink-0">4</span>
+                    <span className="font-bold text-[#e85242] text-lg leading-none shrink-0">4</span>
                     Tap &quot;Send&quot; to complete your donation
                   </li>
                   <li className="flex gap-4">
-                    <span className="font-bold text-[#f3702b] text-lg leading-none shrink-0">5</span>
+                    <span className="font-bold text-[#e85242] text-lg leading-none shrink-0">5</span>
                     Save the reference number as proof of donation
                   </li>
                 </ol>
@@ -86,7 +86,7 @@ export default function SupportPage() {
 
               <div className="bg-[#f7f7f7] border border-[#e4e4e4] p-6">
                 <div className="flex items-start gap-3">
-                  <Shield className="w-5 h-5 text-[#f3702b] mt-0.5 shrink-0" />
+                  <Shield className="w-5 h-5 text-[#e85242] mt-0.5 shrink-0" />
                   <div>
                     <h3 className="text-sm font-bold text-[#3a3d44] mb-1">Secure Donation</h3>
                     <p className="text-xs text-[#787878] leading-relaxed">

@@ -20,10 +20,10 @@ export default function TransparencyPage() {
 
       <section className="section-padding bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#f3702b]/10 to-[#e85242]/10 flex items-center justify-center mx-auto mb-6">
-            <Shield className="w-8 h-8 text-[#f3702b]" />
+          <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#e85242]/10 to-[#e85242]/10 flex items-center justify-center mx-auto mb-6">
+            <Shield className="w-8 h-8 text-[#e85242]" />
           </div>
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 border border-[#f3702b]/30 text-[#f3702b] text-xs uppercase tracking-[0.2em] mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 border border-[#e85242]/30 text-[#e85242] text-xs uppercase tracking-[0.2em] mb-6">
             Accountability
           </div>
           <h2 className="section-heading section-heading-center text-3xl inline-block mb-8">

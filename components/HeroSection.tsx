@@ -28,7 +28,7 @@ export default function HeroSection({
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
         {subtitle && (
-          <p className="text-[#f3702b] text-xs uppercase tracking-[0.2em] mb-4 font-medium">
+          <p className="text-[#e85242] text-xs uppercase tracking-[0.2em] mb-4 font-medium">
             {subtitle}
           </p>
         )}
@@ -40,7 +40,7 @@ export default function HeroSection({
             {description}
           </p>
         )}
-        <div className="w-20 h-0.5 bg-gradient-to-r from-[#f3702b] to-transparent mt-6" />
+        <div className="w-20 h-0.5 bg-gradient-to-r from-[#e85242] to-transparent mt-6" />
       </div>
     </section>
   );
