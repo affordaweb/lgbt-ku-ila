@@ -36,6 +36,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# Windows Zone Identifier
+*:Zone.Identifier
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
