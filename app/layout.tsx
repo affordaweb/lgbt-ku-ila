@@ -1,31 +1,19 @@
 import type { Metadata } from "next";
-import { Poppins, Open_Sans, Caveat, Pacifico } from "next/font/google";
+import { DM_Serif_Display, Outfit } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import "./globals.css";
 
-const poppins = Poppins({
-  variable: "--font-poppins",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
-});
-
-const openSans = Open_Sans({
-  variable: "--font-open-sans",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-});
-
-const caveat = Caveat({
-  variable: "--font-caveat",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
-
-const pacifico = Pacifico({
-  variable: "--font-pacifico",
+const dmSerifDisplay = DM_Serif_Display({
+  variable: "--font-dm-serif",
   subsets: ["latin"],
   weight: ["400"],
+});
+
+const outfit = Outfit({
+  variable: "--font-outfit",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -114,7 +102,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${poppins.variable} ${openSans.variable} ${caveat.variable} ${pacifico.variable} h-full antialiased`}
+      className={`${dmSerifDisplay.variable} ${outfit.variable} antialiased`}
     >
       <head>
         <link rel="canonical" href="https://lgbt-ku-ila.vercel.app" />

@@ -1,133 +1,116 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Mail, MapPin, Heart } from "lucide-react";
+import { Mail, MapPin, Heart, ArrowRight } from "lucide-react";
 import FacebookIcon from "./FacebookIcon";
 
 export default function Footer() {
   return (
-    <footer className="text-white">
-      {/* Support Us - Gold accent bar */}
-      <div className="bg-gradient-to-r from-[#e85242] to-[#e85242] py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
-          <div>
-            <h3 className="text-2xl font-bold tracking-wide">Support Us</h3>
-            <p className="text-white/70 text-sm mt-1 max-w-md">
-              Bawat piso mo, pag-asa at lakas ang naibibigay sa komunidad. Mag-donate na!
+    <footer className="bg-[#1F2937] text-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16">
+          <div className="lg:col-span-1">
+            <Link href="/" className="flex items-center gap-3 mb-5">
+              <Image
+                src="/images/logo/731350583_10238772116515608_5057049016834242279_n.jpg"
+                alt="LGBTQIA++ SILBI Kumintang Ilaya Logo"
+                width={44}
+                height={44}
+                className="rounded-full object-cover ring-2 ring-[#F15A4A]/30"
+              />
+              <div>
+                <h3 className="text-base font-semibold leading-tight">LGBTQIA++ SILBI</h3>
+                <p className="text-[10px] font-medium text-[#F15A4A] tracking-wider uppercase">Kumintang Ilaya</p>
+              </div>
+            </Link>
+            <p className="text-gray-400 text-sm leading-relaxed mb-6 max-w-xs">
+              Empowering the LGBTQIA++ community through love, solidarity, advocacy, and human rights. Together, we build a more inclusive Kumintang Ilaya.
             </p>
-          </div>
-          <div className="flex items-center gap-4">
-            <div className="bg-white/10 backdrop-blur-sm p-3 rounded-lg border border-white/20">
-              <div className="w-24 h-24 flex items-center justify-center text-white/50 text-xs text-center">
-                GCash QR
-                <br />
-                Coming Soon
-              </div>
-            </div>
-            <div className="text-white text-sm">
-              <p className="font-bold text-[#e85242]">GCash</p>
-              <p className="text-white/60">Scan to donate</p>
+            <div className="flex gap-3">
+              <a
+                href="https://www.facebook.com/profile.php?id=61591420257367"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full border border-gray-600 flex items-center justify-center hover:border-[#F15A4A] hover:text-[#F15A4A] transition-all hover:bg-[#F15A4A]/10"
+                aria-label="Facebook"
+              >
+                <FacebookIcon className="w-4 h-4" />
+              </a>
             </div>
           </div>
-        </div>
-      </div>
 
-      {/* Main Footer - dark */}
-      <div className="bg-[#3a3d44]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            {/* About */}
-            <div>
-              <Link href="/" className="flex items-center gap-3 mb-6">
-                <Image
-                  src="/images/logo/731350583_10238772116515608_5057049016834242279_n.jpg"
-                  alt="LGBTQIA++ SILBI Kumintang Ilaya Logo"
-                  width={48}
-                  height={48}
-                  className="rounded-full object-cover ring-2 ring-[#e85242]/30"
+          <div>
+            <h4 className="text-sm font-semibold uppercase tracking-wider mb-6 text-gray-300">Quick Links</h4>
+            <ul className="space-y-3">
+              {[
+                { href: "/", label: "Home" },
+                { href: "/about", label: "About Us" },
+                { href: "/members", label: "Members" },
+                { href: "/events", label: "Events" },
+                { href: "/gallery", label: "Gallery" },
+              ].map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-gray-400 text-sm hover:text-[#F15A4A] transition-colors inline-flex items-center gap-2"
+                  >
+                    <ArrowRight className="w-3 h-3" />
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-sm font-semibold uppercase tracking-wider mb-6 text-gray-300">Programs</h4>
+            <ul className="space-y-3 text-gray-400 text-sm">
+              {["Community Support", "Mental Health", "Legal Assistance", "Youth Leadership", "Advocacy"].map((program) => (
+                <li key={program}>{program}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-sm font-semibold uppercase tracking-wider mb-6 text-gray-300">Get in Touch</h4>
+            <ul className="space-y-4 text-gray-400 text-sm">
+              <li className="flex items-start gap-3">
+                <MapPin className="w-4 h-4 text-[#F15A4A] mt-0.5 shrink-0" />
+                <span>Kumintang Ilaya, Batangas City, Philippines</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <Mail className="w-4 h-4 text-[#F15A4A] mt-0.5 shrink-0" />
+                <span>lgbtkuila@outlook.com</span>
+              </li>
+            </ul>
+            <div className="mt-6">
+              <h5 className="text-xs font-semibold uppercase tracking-wider text-gray-300 mb-3">Newsletter</h5>
+              <div className="flex">
+                <input
+                  type="email"
+                  placeholder="Your email"
+                  className="bg-gray-700/50 border border-gray-600 text-sm px-4 py-2.5 rounded-l-full outline-none focus:border-[#F15A4A] transition-colors w-full text-white placeholder-gray-500"
                 />
-                <div>
-                  <h3 className="text-lg font-bold tracking-wide">LGBTQIA++ SILBI Kumintang Ilaya</h3>
-                  <p className="text-xs text-[#e85242]">Kumintang Ilaya</p>
-                </div>
-              </Link>
-              <p className="text-gray-500 text-sm leading-relaxed mb-6">
-                The mission of our community center is to enhance and sustain the
-                health and well-being of the LGBTQIA++ community through programs
-                and services that create community and empower individuals.
-              </p>
-              <div className="flex gap-3">
-                <a
-                  href="https://www.facebook.com/profile.php?id=61591420257367"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full border border-gray-600 flex items-center justify-center hover:border-[#e85242] hover:text-[#e85242] transition-colors"
-                  aria-label="Facebook"
-                >
-                  <FacebookIcon className="w-5 h-5" />
-                </a>
+                <button className="bg-[#F15A4A] px-4 rounded-r-full hover:bg-[#d94a3a] transition-colors shrink-0">
+                  <ArrowRight className="w-4 h-4" />
+                </button>
               </div>
-            </div>
-
-            {/* Our Contacts */}
-            <div>
-              <h3 className="text-lg font-bold mb-6 tracking-wide">Our Contacts</h3>
-              <ul className="space-y-4 text-gray-500 text-sm">
-                <li className="flex items-start gap-3">
-                  <MapPin className="w-5 h-5 text-[#e85242] mt-0.5 shrink-0" />
-                  <span>Kumintang Ilaya, Batangas City, Philippines</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Mail className="w-5 h-5 text-[#e85242] mt-0.5 shrink-0" />
-                  <span>lgbtkuila@outlook.com</span>
-                </li>
-              </ul>
-            </div>
-
-            {/* Quick Links */}
-            <div>
-              <h3 className="text-lg font-bold mb-6 font-[var(--font-open-sans)] tracking-wide">Quick Links</h3>
-              <ul className="space-y-3 text-sm">
-                <li>
-                  <Link href="/" className="text-gray-500 hover:text-[#e85242] transition-colors">Home</Link>
-                </li>
-                <li>
-                  <Link href="/about" className="text-gray-500 hover:text-[#e85242] transition-colors">About Us</Link>
-                </li>
-                <li>
-                  <Link href="/members" className="text-gray-500 hover:text-[#e85242] transition-colors">Members</Link>
-                </li>
-                <li>
-                  <Link href="/gallery" className="text-gray-500 hover:text-[#e85242] transition-colors">Gallery</Link>
-                </li>
-                <li>
-                  <Link href="/events" className="text-gray-500 hover:text-[#e85242] transition-colors">Events</Link>
-                </li>
-                <li>
-                  <Link href="/contact" className="text-gray-500 hover:text-[#e85242] transition-colors">Contact</Link>
-                </li>
-                <li>
-                  <Link href="/become-member" className="text-gray-500 hover:text-[#e85242] transition-colors">Become a Member</Link>
-                </li>
-              </ul>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Copyright - darker */}
-      <div className="bg-[#1f222b]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col md:flex-row items-center justify-between gap-3">
-          <p className="text-gray-600 text-xs">
-            &copy; {new Date().getFullYear()} LGBTQIA++ Kumintang Ilaya. All
-            rights reserved.
+      <div className="border-t border-gray-700/50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-gray-500 text-xs">
+            &copy; {new Date().getFullYear()} LGBTQIA++ Kumintang Ilaya. All rights reserved.
           </p>
-          <p className="text-gray-600 text-xs">
-            Made with <Heart className="w-3 h-3 inline text-[#e85242]" /> for the{" "}
+          <p className="text-gray-500 text-xs flex items-center gap-1">
+            Made with <Heart className="w-3 h-3 text-[#F15A4A]" /> for the{" "}
             <a
               href="https://www.affordawebsolutions.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-[#e85242] transition-colors underline"
+              className="hover:text-[#F15A4A] transition-colors underline"
             >
               Community
             </a>
