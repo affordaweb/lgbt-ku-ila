@@ -292,11 +292,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .heroSlide { animation: none; opacity: 0; transform: translate(-50%, -50%) translate(0, 28px) scale(1); }
-  .heroSlide:first-child { z-index: 3; opacity: 1; }
-}
-
-@media (prefers-reduced-motion: reduce) {
   .page *, .page *::before, .page *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
   .memberTrack, .galleryTrack { animation: none; }
 }
