@@ -1,150 +1,25 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowRight, CalendarDays, Heart, MapPin, Sparkles, Users } from "lucide-react";
 import HeroSection from "@/components/HeroSection";
-import { Search, ArrowRight } from "lucide-react";
+import InnerCta from "@/components/InnerCta";
+import styles from "@/components/InnerPage.module.css";
 import { pastEvents } from "@/lib/data";
 
-export const metadata: Metadata = {
-  title: "Events",
-  description:
-    "Join Ku-Ila's events and activities that promote LGBTQIA++ rights, community building, health awareness, and cultural celebration.",
-};
-
-const categories = ["Advocacy", "Community", "Health", "Education", "Fundraiser"];
-
-const tags = ["Pride", "Health", "Legal", "Youth", "Culture", "Workshop"];
-
-const recentPosts = [
-  "Pride Month Kicked Off with a Bang",
-  "Legal Aid Workshop Highlights",
-  "Community Health Day Recap",
-  "Youth Summit Success Story",
-  "Cultural Night Photo Gallery",
+export const metadata: Metadata = { title: "Events", description: "Join Ku-Ila events and activities for connection, advocacy, and celebration." };
+const initiatives = [
+  { title: "Community Support", text: "Safe spaces, peer connection, and practical support for our community.", icon: Heart },
+  { title: "Upcoming Events", text: "Gatherings that bring people together in dignity, joy, and shared purpose.", icon: CalendarDays },
+  { title: "Advocacy Programs", text: "Learning and action that advance LGBTQIA++ rights in our city.", icon: Sparkles },
+  { title: "Become a Member", text: "A meaningful way to belong, participate, and help shape what comes next.", icon: Users },
 ];
 
-export default function EventsPage() {
-  return (
-    <main>
-      <HeroSection
-        title="Mga Kaganapan"
-        subtitle="Home / Events"
-        backgroundImage="/images/stock/stock-06.jpg"
-      />
-
-      <section className="section-padding bg-white">
-        <div className="max-w-[1300px] mx-auto px-6 lg:px-10">
-          <div className="grid grid-cols-1 gap-10 lg:grid-cols-3">
-            {/* Sidebar */}
-            <aside className="space-y-8 lg:col-span-1 order-2 lg:order-1">
-              <div className="bg-[#f7f7f7] p-6 border border-[#e4e4e4]">
-                <h3 className="mb-4 text-md font-bold text-[#3a3d44] uppercase tracking-wider">Search</h3>
-                <div className="relative">
-                  <input
-                    type="text"
-                    placeholder="Search events..."
-                    className="w-full border border-[#e4e4e4] py-2.5 pl-10 pr-4 text-sm focus:border-[#e85242] outline-none bg-white transition-colors"
-                  />
-                  <Search className="absolute left-3 top-3 h-4 w-4 text-[#787878]" />
-                </div>
-              </div>
-
-              <div className="bg-[#f7f7f7] p-6 border border-[#e4e4e4]">
-                <h3 className="mb-4 text-md font-bold text-[#3a3d44] uppercase tracking-wider">Categories</h3>
-                <ul className="space-y-2">
-                  {categories.map((cat) => (
-                    <li key={cat}>
-                      <a
-                        href="#"
-                        className="text-sm text-[#787878] transition hover:text-[#e85242]"
-                      >
-                        {cat}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="bg-[#f7f7f7] p-6 border border-[#e4e4e4]">
-                <h3 className="mb-4 text-md font-bold text-[#3a3d44] uppercase tracking-wider">Tags</h3>
-                <div className="flex flex-wrap gap-2">
-                  {tags.map((tag) => (
-                    <a
-                      key={tag}
-                      href="#"
-                      className="px-3 py-1.5 text-xs text-[#787878] bg-white border border-[#e4e4e4] hover:bg-[#e85242] hover:text-white hover:border-[#e85242] transition-colors"
-                    >
-                      {tag}
-                    </a>
-                  ))}
-                </div>
-              </div>
-
-              <div className="bg-[#f7f7f7] p-6 border border-[#e4e4e4]">
-                <h3 className="mb-4 text-md font-bold text-[#3a3d44] uppercase tracking-wider">Recent Posts</h3>
-                <ul className="space-y-2">
-                  {recentPosts.map((post) => (
-                    <li key={post}>
-                      <a
-                        href="#"
-                        className="text-sm text-[#787878] transition hover:text-[#e85242]"
-                      >
-                        {post}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </aside>
-
-            {/* Past Events Grid */}
-            <div className="lg:col-span-2 order-1 lg:order-2">
-              <p className="text-[#e85242] text-xs uppercase tracking-[0.2em] mb-4 font-medium">Events</p>
-              <h2 className="section-heading text-3xl">
-                Past Events
-              </h2>
-              <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
-                {pastEvents.map((event) => (
-                  <div
-                    key={event.id}
-                    className="overflow-hidden bg-white border border-[#e4e4e4] group card-hover"
-                  >
-                    <Link href={`/events/${event.slug}`}>
-                      <div className="relative h-52 w-full overflow-hidden">
-                        <Image
-                          src={event.image}
-                          alt={event.title}
-                          fill
-                          className="object-cover group-hover:scale-105 transition-transform duration-700"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#3a3d44]/70 via-transparent to-transparent" />
-                        <div className="absolute bottom-4 left-4 right-4">
-                          <h3 className="text-lg font-bold text-white">{event.title}</h3>
-                        </div>
-                      </div>
-                    </Link>
-                    <div className="p-6">
-                      <p className="mb-1 text-sm font-semibold text-[#e85242]">
-                        {event.date}
-                      </p>
-                      <p className="mb-3 text-xs text-[#787878]">
-                        {event.location}
-                      </p>
-                      <p className="text-sm text-[#787878] mb-5 leading-relaxed">{event.description}</p>
-                      <Link
-                        href={`/events/${event.slug}`}
-                        className="btn-theme btn-theme-primary text-xs inline-flex items-center gap-2"
-                      >
-                        Learn More <ArrowRight className="w-3 h-3" />
-                      </Link>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-  );
-}
+export default function EventsPage() { return <main>
+  <HeroSection title="Mga Kaganapan" subtitle="Home / Events" description="Stories, celebrations, and shared moments that make our community stronger." backgroundImage="/images/events/batangas-city-queen-screening.jpeg" />
+  <section className={`${styles.section} ${styles.cream}`}><div className={styles.wrap}><div className={styles.sectionHead}><div><p className={styles.eyebrow}>How we gather</p><h2 className={styles.heading}>Programs rooted in care and <em>connection.</em></h2></div><p className={styles.lead}>From creative celebrations to support-led initiatives, every program is designed to make belonging visible.</p></div>
+    <div className={styles.programRows}>{initiatives.map(({title,text,icon:Icon}, index) => <Link href={title === "Become a Member" ? "/become-member" : "/"} className={styles.programRow} key={title}><span className={styles.rowNumber}>0{index+1}</span><Icon className={styles.rowIcon} size={22}/><h3>{title}</h3><p>{text}</p><span className={styles.rowArrow}><ArrowRight size={17}/></span></Link>)}</div>
+  </div></section>
+  <section className={styles.section}><div className={styles.wrap}><div className={styles.sectionHead}><div><p className={styles.eyebrow}>Community journal</p><h2 className={styles.heading}>Moments that move<br />our story forward.</h2></div><p className={styles.lead}>Explore the events, competitions, and community days that have brought Ku-Ila together.</p></div><div className={styles.cards}>{pastEvents.map((event) => <Link className={styles.imageCard} href={`/events/${event.slug}`} key={event.id}><figure><Image src={event.image} alt={event.title} fill sizes="(max-width: 820px) 90vw, 30vw" /></figure><p className={styles.tag}>{event.date}</p><h3>{event.title}</h3><p><MapPin size={13} style={{display:"inline", marginRight:5}} />{event.location}</p></Link>)}</div></div></section>
+  <InnerCta label="Come as you are" title={<>Find your people,<br />make <em>the moment.</em></>} description="There is always room for another voice, another story, and another reason to gather." primaryHref="/become-member" primaryLabel="Join Ku-Ila" secondaryHref="/contact" secondaryLabel="Ask a question" />
+</main>; }

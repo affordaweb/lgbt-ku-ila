@@ -1,55 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import FacebookIcon from "./FacebookIcon";
 
-interface MemberCardProps {
-  name: string;
-  image: string;
-  role?: string;
-  facebookUrl?: string;
-  slug: string;
-}
-
-export default function MemberCard({
-  name,
-  image,
-  role = "Member",
-  facebookUrl,
-  slug,
-}: MemberCardProps) {
-  return (
-    <div className="bg-white border border-[#e4e4e4] text-center group card-hover">
-      <Link href={`/members/${slug}`}>
-        <div className="relative aspect-square overflow-hidden">
-          <Image
-            src={image}
-            alt={name}
-            fill
-            className="object-cover group-hover:scale-105 transition-transform duration-700"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#3a3d44]/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-        </div>
-      </Link>
-      <div className="p-5">
-        <Link href={`/members/${slug}`}>
-          <h3 className="font-bold text-[#3a3d44] text-lg hover:text-[#e85242] transition-colors">
-            {name}
-          </h3>
-        </Link>
-        <p className="text-xs text-[#e85242] uppercase tracking-wider mt-1 font-medium">{role}</p>
-        {facebookUrl && (
-          <div className="flex justify-center gap-3 mt-4">
-            <a
-              href={facebookUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-8 h-8 rounded-full border border-[#e4e4e4] flex items-center justify-center hover:border-[#e85242] hover:text-[#e85242] transition-colors text-[#787878]"
-            >
-              <FacebookIcon className="w-4 h-4" />
-            </a>
-          </div>
-        )}
-      </div>
-    </div>
-  );
+interface MemberCardProps { name: string; image: string; role?: string; facebookUrl?: string; slug: string; }
+export default function MemberCard({ name, image, role = "Member", facebookUrl, slug }: MemberCardProps) {
+  return <article className="group"><Link href={`/members/${slug}`} className="relative block aspect-[.88] overflow-hidden rounded-[18px] shadow-[0_16px_36px_rgba(0,0,0,.13),0_5px_14px_rgba(0,0,0,.07)] transition duration-500 hover:-translate-y-1 hover:shadow-[0_22px_45px_rgba(0,0,0,.17)]"><Image src={image} alt={name} fill sizes="(max-width: 768px) 45vw, 24vw" className="object-cover transition duration-700 group-hover:scale-[1.035]" /><span className="absolute inset-0 bg-[#0a1d4a]/0 transition duration-300 group-hover:bg-[#0a1d4a]/20" /><span className="absolute bottom-4 right-4 grid h-10 w-10 translate-y-2 place-items-center rounded-full bg-[#f15a24] text-white opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100"><ArrowUpRight size={18}/></span></Link><div className="pt-4"><Link href={`/members/${slug}`}><h3 className="font-[family-name:var(--font-heading)] text-xl font-medium leading-tight text-[#0a1d4a] transition hover:text-[#f15a24]">{name}</h3></Link><p className="mt-2 text-[9px] font-bold uppercase leading-relaxed tracking-[.15em] text-[#f15a24]">{role}</p>{facebookUrl ? <a href={facebookUrl} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex h-8 w-8 items-center justify-center rounded-full border border-[#0a1d4a]/15 text-[#0a1d4a] transition hover:border-[#f15a24] hover:text-[#f15a24]" aria-label={`${name} on Facebook`}><FacebookIcon className="h-3.5 w-3.5" /></a> : null}</div></article>;
 }

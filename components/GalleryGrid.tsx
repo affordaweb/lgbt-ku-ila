@@ -34,15 +34,15 @@ export default function GalleryGrid({ images, categories = [] }: GalleryGridProp
   return (
     <>
       {filters.length > 1 && (
-        <div className="flex flex-wrap gap-3 mb-10 justify-center">
+        <div className="flex flex-wrap gap-3 mb-12 justify-center">
           {filters.map((filter) => (
             <button
               key={filter}
               onClick={() => setActiveFilter(filter)}
               className={`px-6 py-2.5 text-sm font-medium uppercase tracking-wider transition-all duration-300 ${
                 activeFilter === filter
-                  ? "bg-[#e85242] text-white shadow-lg shadow-[#e85242]/20"
-                  : "bg-[#f7f7f7] text-[#787878] hover:bg-[#e85242] hover:text-white border border-[#e4e4e4]"
+                  ? "rounded-full bg-[#f15a24] text-white shadow-lg shadow-[#f15a24]/20"
+                  : "rounded-full border border-[#0a1d4a]/15 bg-transparent text-[#0a1d4a] hover:border-[#f15a24] hover:bg-[#f15a24] hover:text-white"
               }`}
             >
               {filter}
@@ -51,12 +51,12 @@ export default function GalleryGrid({ images, categories = [] }: GalleryGridProp
         </div>
       )}
 
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
         {images.map((image, index) => (
           <button
             key={index}
             onClick={() => openLightbox(index)}
-            className="relative aspect-square overflow-hidden group cursor-pointer"
+            className="relative aspect-square overflow-hidden rounded-[18px] shadow-[0_14px_30px_rgba(0,0,0,.12)] group cursor-pointer transition duration-500 hover:-translate-y-1 hover:shadow-[0_22px_42px_rgba(0,0,0,.16)]"
           >
             <Image
               src={image.src}
@@ -64,7 +64,7 @@ export default function GalleryGrid({ images, categories = [] }: GalleryGridProp
               fill
               className="object-cover group-hover:scale-110 transition-transform duration-700"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#3a3d44]/80 via-[#3a3d44]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0a1d4a]/80 via-[#0a1d4a]/15 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <div className="absolute bottom-0 left-0 right-0 p-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-y-2 group-hover:translate-y-0">
               <h3 className="font-bold text-sm">{image.alt}</h3>
             </div>

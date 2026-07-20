@@ -1,185 +1,46 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import Image from "next/image";
-import { Target, Eye, Equal, Heart, Users, ArrowRight } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, Equal, Eye, Heart, Target, Users } from "lucide-react";
 import HeroSection from "@/components/HeroSection";
+import InnerCta from "@/components/InnerCta";
+import styles from "@/components/InnerPage.module.css";
 
-export const metadata: Metadata = {
-  title: "Tungkol sa Amin | LGBTQIA++ Kumintang Ilaya",
-  description:
-    "Alamin ang tungkol sa LGBTQIA++ Kumintang Ilaya — ang aming misyon, bisyon, kasaysayan, at mga pagpapahalaga na nagtutulak sa amin na magbigay ng ligtas na espasyo para sa LGBTQIA++ komunidad sa Batangas.",
-};
+export const metadata: Metadata = { title: "Tungkol sa Amin | LGBTQIA++ Kumintang Ilaya", description: "Alamin ang misyon, bisyon, kasaysayan, at mga pagpapahalaga ng LGBTQIA++ SILBI Kumintang Ilaya." };
 
 const values = [
-  {
-    icon: Equal,
-    title: "Equality",
-    description:
-      "We believe in a world where every person is treated with equal dignity and respect, regardless of their sexual orientation or gender identity.",
-  },
-  {
-    icon: Heart,
-    title: "Love",
-    description:
-      "Love is at the heart of everything we do. We celebrate all forms of love and foster a culture of compassion and acceptance.",
-  },
-  {
-    icon: Users,
-    title: "Community",
-    description:
-      "We are stronger together. We build meaningful connections and create safe spaces where everyone belongs.",
-  },
+  { icon: Equal, title: "Equality", description: "Pantay na dignidad, paggalang, at pagkakataon para sa bawat isa." },
+  { icon: Heart, title: "Love", description: "Pagmamalasakit at pagtanggap ang nasa puso ng bawat gawaing sama-sama naming binubuo." },
+  { icon: Users, title: "Community", description: "Mas malakas tayo kapag may ligtas na espasyong bukas para sa lahat." },
 ];
 
 export default function AboutPage() {
-  return (
-    <main>
-      <HeroSection
-        title="About Us"
-        subtitle="Home / About Us"
-        backgroundImage="/images/stock/stock-03.jpg"
-      />
+  return <main>
+    <HeroSection title="About Us" subtitle="Home / About Us" description="A community-led home for dignity, connection, and the freedom to live truthfully in Kumintang Ilaya." backgroundImage="/images/events/glow-beyond-limits.jpeg" />
 
-      {/* Mission & Vision */}
-      <section className="section-padding bg-[#f7f7f7]">
-        <div className="max-w-[1300px] mx-auto px-6 lg:px-10 grid md:grid-cols-2 gap-8">
-          <div className="bg-white p-10 border border-[#e4e4e4] text-center card-hover">
-            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#e85242]/10 to-[#e85242]/10 flex items-center justify-center mx-auto mb-6">
-              <Target className="w-8 h-8 text-[#e85242]" />
-            </div>
-            <h3 className="text-2xl font-bold text-[#3a3d44] mb-4">
-              Aming Misyon
-            </h3>
-            <div className="w-12 h-0.5 bg-gradient-to-r from-[#e85242] to-transparent mx-auto mb-4" />
-            <p className="text-[#787878] leading-relaxed">
-              Palakasin at pangalagaan ang kalusugan at kagalingan ng LGBTQIA++
-              komunidad sa pamamagitan ng komprehensibong suporta, adbokasiya
-              para sa equal rights, at pagbuo ng kultura ng pagtanggap at
-              kapangyarihan. Layunin naming bigyan ng boses ang bawat miyembro
-              ng komunidad sa Kumintang Ilaya.
-            </p>
-          </div>
-          <div className="bg-white p-10 border border-[#e4e4e4] text-center card-hover">
-            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#e85242]/10 to-[#e85242]/10 flex items-center justify-center mx-auto mb-6">
-              <Eye className="w-8 h-8 text-[#e85242]" />
-            </div>
-            <h3 className="text-2xl font-bold text-[#3a3d44] mb-4">
-              Aming Bisyon
-            </h3>
-            <div className="w-12 h-0.5 bg-gradient-to-r from-[#e85242] to-transparent mx-auto mb-4" />
-            <p className="text-[#787878] leading-relaxed">
-              Isang lipunan kung saan bawat LGBTQIA++ indibidwal ay nabubuhay
-              nang malaya at totoo, ganap na tinatanggap ng kanilang mga komunidad,
-              na may pantay na access sa mga oportunidad, resources, at dignidad
-              na karapat-dapat sa kanila.
-            </p>
-          </div>
+    <section className={styles.section}><div className={styles.wrap}><div className={styles.intro}>
+      <div className={styles.copy}>
+        <p className={styles.eyebrow}>Our community</p>
+        <h2 className={styles.heading}>A place to be seen, supported, and <em>celebrated.</em></h2>
+        <p>Ang LGBTQIA++ SILBI Kumintang Ilaya ay isang community-based organization na nagbibigay ng support, resources, at mas ligtas na espasyo para sa LGBTQIA++ community sa Batangas City.</p>
+        <p>Nagkakaisa kami sa pagbuo ng mga programang may malasakit, adbokasiyang may boses, at mga pagkakataong magpapalakas sa bawat miyembro.</p>
+        <div className={styles.featureList}>
+          <div className={styles.feature}><span className={styles.featureIcon}><Target size={18} /></span><div><b>Aming misyon</b>Palakasin ang kalusugan, kagalingan, at boses ng LGBTQIA++ community.</div></div>
+          <div className={styles.feature}><span className={styles.featureIcon}><Eye size={18} /></span><div><b>Aming bisyon</b>Isang lipunang malaya, pantay, at may tunay na pagtanggap para sa lahat.</div></div>
         </div>
-      </section>
+        <div className={styles.actions}><Link href="/contact" className={styles.primaryButton}>Makipag-ugnayan <ArrowRight size={16} /></Link></div>
+      </div>
+      <div className={styles.visual}>
+        <div className={styles.primaryVisual}><Image src="/images/events/king-and-queen-of-pride-parade.jpeg" alt="Kumintang Ilaya community celebration" fill sizes="(max-width: 820px) 82vw, 520px" /></div>
+        <div className={styles.secondaryVisual}><Image src="/images/events/batangas-city-queen.jpeg" alt="Community member at a Ku-Ila event" fill sizes="235px" /></div>
+      </div>
+    </div></div></section>
 
-      {/* About Section */}
-      <section className="section-padding bg-white">
-        <div className="max-w-[1300px] mx-auto px-6 lg:px-10 grid md:grid-cols-2 gap-16 items-center">
-          <div className="relative h-80 md:h-[440px] overflow-hidden">
-            <div className="absolute inset-0 border border-[#e85242]/20 z-10 m-5" />
-            <Image
-              src="/images/stock/stock-02.jpg"
-              alt="LGBTQIA++ Kumintang Ilaya Community Center sa Batangas City"
-              fill
-              className="object-cover"
-            />
-          </div>
-          <div>
-            <p className="text-[#e85242] text-xs uppercase tracking-[0.2em] mb-4 font-medium">About</p>
-            <h2 className="section-heading text-3xl">
-              Ano ang LGBTQIA++ SILBI Kumintang Ilaya?
-            </h2>
-            <p className="text-[#787878] leading-relaxed mb-4">
-              Ang LGBTQIA++ Kumintang Ilaya ay isang community-based organization
-              na nakatuon sa pagbibigay ng comprehensive support services para sa
-              lesbian, gay, bisexual, transgender, queer, intersex, asexual, at
-              iba pang mga kasarian sa Batangas City.
-            </p>
-            <p className="text-[#787878] leading-relaxed mb-4">
-              Kami ay nag-aalok ng mga programa at serbisyo na lumilikha ng
-              komunidad, nagpapalakas sa mga miyembro, nagbibigay ng mahahalagang
-              resources, nagtataguyod ng civil at human rights, at niyayakap ang
-              cultural diversity ng aming mga kasamahan.
-            </p>
-            <p className="text-[#787878] leading-relaxed mb-8">
-              Walang diskriminasyon sa aming organisasyon — pareho sa employment
-              at sa pagbibigay ng lahat ng serbisyo. Lahat ay welcome, lahat ay
-              tanggap, at lahat ay may karapatang mabuhay nang may dignidad.
-            </p>
-            <Link href="/contact" className="btn-theme btn-theme-primary inline-flex items-center gap-2">
-              Makipag-ugnayan sa Amin <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-        </div>
-      </section>
+    <section className={`${styles.section} ${styles.cream}`}><div className={styles.wrap}>
+      <p className={styles.eyebrow}>What guides us</p><h2 className={styles.heading}>Values we carry<br />into every room.</h2><p className={styles.lead}>Our work begins with people—listening closely, showing up consistently, and making room for every identity to thrive.</p>
+      <div className={styles.values}>{values.map(({ icon: Icon, title, description }) => <article className={styles.value} key={title}><Icon size={30} strokeWidth={1.5} /><h3>{title}</h3><p>{description}</p></article>)}</div>
+    </div></section>
 
-      {/* Values */}
-      <section className="section-padding bg-[#f7f7f7]">
-        <div className="max-w-[1300px] mx-auto px-6 lg:px-10">
-          <div className="text-center mb-14">
-            <p className="text-[#e85242] text-xs uppercase tracking-[0.2em] mb-4 font-medium">Our Values</p>
-            <h2 className="section-heading section-heading-center text-3xl inline-block">
-              Aming mga Pagpapahalaga
-            </h2>
-            <p className="text-[#787878] mt-4 max-w-2xl mx-auto">
-              Ito ang mga prinsipyo na gabay sa aming lahat ng gawain at programa
-              para sa komunidad.
-            </p>
-          </div>
-          <div className="grid sm:grid-cols-3 gap-8">
-            {values.map((value) => (
-              <div
-                key={value.title}
-                className="bg-white p-10 border border-[#e4e4e4] text-center card-hover"
-              >
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#e85242]/10 to-[#e85242]/10 flex items-center justify-center mx-auto mb-6">
-                  <value.icon className="w-8 h-8 text-[#e85242]" />
-                </div>
-                <h3 className="text-xl font-bold text-[#3a3d44] mb-3">
-                  {value.title}
-                </h3>
-                <div className="w-10 h-0.5 bg-gradient-to-r from-[#e85242] to-transparent mx-auto mb-4" />
-                <p className="text-[#787878] leading-relaxed">
-                  {value.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="relative py-24">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/images/stock/stock-05.jpg"
-            alt="Contact us"
-            fill
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#3a3d44]/90 via-[#3a3d44]/75 to-[#1f222b]/85" />
-        </div>
-        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 border border-[#e85242]/30 text-[#e85242] text-xs uppercase tracking-[0.2em] mb-6">
-            Get Involved
-          </div>
-          <h2 className="text-4xl font-bold text-white mb-6">
-            Ready to Make a Difference?
-          </h2>
-          <p className="text-white/60 text-lg max-w-2xl mx-auto mb-10">
-            Whether you want to volunteer, seek support, or simply learn more,
-            we would love to hear from you.
-          </p>
-          <Link href="/contact" className="btn-theme btn-theme-secondary inline-flex items-center gap-2">
-            Get in Touch <ArrowRight className="w-4 h-4" />
-          </Link>
-        </div>
-      </section>
-    </main>
-  );
+    <InnerCta label="Join the movement" title={<>There is room<br />for <em>everyone.</em></>} description="Whether you need support, want to volunteer, or simply want to connect, we would love to welcome you." primaryHref="/become-member" primaryLabel="Become a member" secondaryHref="/contact" secondaryLabel="Talk with us" />
+  </main>;
 }
