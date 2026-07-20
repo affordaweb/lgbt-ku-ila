@@ -48,7 +48,7 @@
 .eyebrow { color: var(--orange); }
 .eyebrow::before, .sectionTag::before, .sectionTagDark::before { content: ""; width: 34px; height: 1px; background: currentColor; }
 .heroTitle {
-  max-width: 680px;
+  max-width: 800px;
   margin: 0;
   font-size: clamp(3.5rem, 5.7vw, 6.15rem);
   font-weight: 500;
@@ -128,7 +128,7 @@
 
 .about { padding-block: 75px; display: grid; grid-template-columns: .92fr 1.08fr; gap: clamp(60px, 8vw, 120px); align-items: center; background: white; box-shadow: 0 0 0 100vmax white; clip-path: inset(0 -100vmax); }
 .sectionTag { color: var(--orange); }
-.about h2, .sectionHeading h2, .leaders h2, .events h2, .preFooter h2 { margin: 0; color: var(--ink); font-size: clamp(2.7rem, 4.4vw, 4.7rem); line-height: 1.03; letter-spacing: -.03em; }
+.about h2, .sectionHeading h2, .leaders h2, .events h2, .preFooter h2 { max-width: 860px; margin: 0; color: var(--ink); font-size: clamp(2.7rem, 4.4vw, 4.7rem); line-height: 1.03; letter-spacing: -.03em; }
 .about .lead { margin-top: 32px; color: var(--ink); font-size: 1.25rem; line-height: 1.65; }
 .aboutCopy > p:not(.sectionTag):not(.lead) { color: rgba(10,29,74,.64); line-height: 1.8; max-width: 600px; }
 .aboutFooter { margin-top: 38px; display: flex; align-items: center; gap: 34px; }
@@ -312,7 +312,7 @@
 @media (max-width: 680px) {
   .hero { min-height: auto; }
   .heroContent { padding-block: 160px 70px; gap: 38px; }
-  .heroTitle { max-width: 12ch; font-size: clamp(3.1rem, 14vw, 4.2rem); }
+  .heroTitle { max-width: 100%; font-size: clamp(2.7rem, 11.5vw, 3.9rem); }
   .heroGallery { min-height: 335px; }
   .heroSlide { width: min(90%, 380px); }
   .heroSlide img { border-radius: 14px; }
