@@ -26,9 +26,9 @@ const slides = [
     surname: "Morales",
     award: "4th Placer — Commercial Makeup",
     badge: "4th Placer",
-    representation: "LGBTQIA++ SILBI Batangas City · LGBTQIA++ SILBI Kumintang Ilaya",
+    representation: "LGBTQIA++ SILBI Kumintang Ilaya",
     paragraphs: [
-      "Angel Morales proudly represented LGBTQIA++ SILBI Batangas City and LGBTQIA++ SILBI Kumintang Ilaya, earning 4th Place in the Commercial Makeup category.",
+      "Angel Morales proudly represented LGBTQIA++ SILBI Kumintang Ilaya, earning 4th Place in the Commercial Makeup category.",
       "This achievement reflects talent, hard work, and a strong commitment to creative expression.",
     ],
   },
@@ -151,8 +151,7 @@ export default function AchievementSection() {
           <div className={styles.achievementDetails} key={slide.image}>
             <p className={styles.achievementKicker}>Congratulations</p>
             <h3 className={styles.achievementName}>
-              <span>{slide.firstName}</span><br />
-              <em>{slide.surname}</em>
+              <span>{slide.firstName}</span>{" "}<em>{slide.surname}</em>
             </h3>
             <p className={styles.achievementAward}>{slide.award}</p>
             <span className={styles.achievementBadge}>{slide.badge} · Commercial Makeup</span>
