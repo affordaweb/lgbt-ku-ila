@@ -6,8 +6,16 @@ const hotspots = [
   [379, 88],
   [437, 153],
   [350, 234],
-  [225, 218],
-  [118, 159],
+  [170, 210],
+];
+
+const connections = [
+  "M145 84 Q218 70 286 160",
+  "M235 76 Q268 104 286 160",
+  "M379 88 Q332 109 286 160",
+  "M437 153 Q360 125 286 160",
+  "M350 234 Q321 192 286 160",
+  "M170 210 Q236 207 286 160",
 ];
 
 export default function AboutVisual() {
@@ -20,28 +28,31 @@ export default function AboutVisual() {
           className={styles.mapBoundary}
           d="M35 55 136 31 205 40 244 29 382 30 397 57 431 71 452 102 492 115 510 154 489 183 501 212 472 260 423 278 391 270 346 284 289 268 233 279 185 245 139 235 118 207 74 204 42 176 48 144 25 117Z"
         />
-        <g className={styles.mapStreets}>
-          <path d="M48 97C104 105 156 119 205 110S295 69 377 74 448 111 491 132" />
-          <path d="M55 156C113 140 165 162 215 152S294 125 350 144 438 178 485 175" />
-          <path d="M117 207C169 187 225 188 275 201S372 236 471 224" />
-          <path d="M136 32C154 89 162 129 145 184S157 227 185 245" />
-          <path d="M244 29C251 81 252 116 235 166S239 224 233 279" />
-          <path d="M382 30C357 86 356 118 382 166S393 232 391 270" />
-        </g>
         <g className={styles.mapConnections}>
-          {hotspots.map(([x, y]) => <line key={`${x}-${y}`} x1="286" y1="160" x2={x} y2={y} />)}
+          {connections.map((path, index) => <path key={path} d={path} className={styles[`purok${index + 1}`]} />)}
         </g>
-        <text className={styles.mapTitle} x="286" y="146">KUMINTANG</text>
-        <text className={styles.mapTitle} x="286" y="164">ILAYA</text>
         {hotspots.map(([cx, cy], index) => (
           <g key={`${cx}-${cy}`} className={`${styles.purokHotspot} ${styles[`purok${index + 1}`]}`}>
             <circle className={styles.mapPulseRing} cx={cx} cy={cy} r="10" />
             <circle cx={cx} cy={cy} r="8" />
           </g>
         ))}
+        {connections.map((path, index) => (
+          <circle key={`flow-${path}`} className={`${styles.flowDot} ${styles[`purok${index + 1}`]}`} r="4">
+            <animateMotion dur={`${2.7 + index * .18}s`} repeatCount="indefinite" path={path} />
+          </circle>
+        ))}
         <g className={styles.purokHub}>
-          <circle cx="286" cy="160" r="12" />
+          <circle className={styles.hubPulse} cx="286" cy="160" r="19" />
+          <image
+            href="/images/logo/731350583_10238772116515608_5057049016834242279_n.jpg"
+            x="271" y="145" width="30" height="30"
+            preserveAspectRatio="xMidYMid slice"
+            clipPath="url(#hub-logo-clip)"
+          />
+          <circle cx="286" cy="160" r="16" />
         </g>
+        <defs><clipPath id="hub-logo-clip"><circle cx="286" cy="160" r="15" /></clipPath></defs>
       </svg>
     </div>
   );
