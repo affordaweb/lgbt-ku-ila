@@ -10,12 +10,13 @@ import {
   MapPin,
   Users,
 } from "lucide-react";
-import { galleryImages, pastEvents } from "@/lib/data";
+import { communityResources, galleryImages, pastEvents } from "@/lib/data";
 import AboutVisual from "@/components/AboutVisual";
 import AchievementSection from "@/components/AchievementSection";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/" },
   title: "LGBTQIA++ Kumintang Ilaya | A Community Where Everyone Belongs",
   description:
     "LGBTQIA++ SILBI Kumintang Ilaya creates safe spaces, support, opportunity, and belonging for the LGBTQIA++ community in Batangas City.",
@@ -320,6 +321,38 @@ export default function HomePage() {
               </Link>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className={styles.resources} aria-labelledby="community-resources-title">
+        <div className={styles.sectionHeading}>
+          <div>
+            <p className={styles.sectionTag}>Community resources</p>
+            <h2 id="community-resources-title">Knowledge that helps<br /><em>our community thrive.</em></h2>
+          </div>
+          <p className={styles.resourcesLead}>A curated collection of free-to-read resources from trusted organizations. Each link opens on the publisher&apos;s website.</p>
+        </div>
+        <div className={styles.resourceGrid}>
+          {communityResources.map((resource, index) => (
+            <a
+              className={styles.resourceCard}
+              href={resource.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              key={resource.url}
+              aria-label={`Read ${resource.title} on ${resource.source} (opens in a new tab)`}
+            >
+              <span className={styles.resourceNumber}>0{index + 1}</span>
+              <p className={styles.resourceSource}>{resource.source}</p>
+              <h3>{resource.title}</h3>
+              <p className={styles.resourceDescription}>{resource.description}</p>
+              <div className={styles.resourceKeywords}>
+                <span>Focus: {resource.focusKeyword}</span>
+                {resource.relatedKeywords.map(keyword => <small key={keyword}>{keyword}</small>)}
+              </div>
+              <span className={styles.resourceLink}>Read source <ExternalLink aria-hidden="true" /></span>
+            </a>
+          ))}
         </div>
       </section>
 

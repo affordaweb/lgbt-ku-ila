@@ -5,8 +5,9 @@ import { ArrowRight, Equal, Eye, Heart, Target, Users } from "lucide-react";
 import HeroSection from "@/components/HeroSection";
 import InnerCta from "@/components/InnerCta";
 import styles from "@/components/InnerPage.module.css";
+import { pageSeo } from "@/lib/seo";
 
-export const metadata: Metadata = { title: "Tungkol sa Amin | LGBTQIA++ Kumintang Ilaya", description: "Alamin ang misyon, bisyon, kasaysayan, at mga pagpapahalaga ng LGBTQIA++ SILBI Kumintang Ilaya." };
+export const metadata: Metadata = pageSeo({ title: "About LGBTQIA++ Kumintang Ilaya", description: "Learn about the mission, values, and community work of LGBTQIA++ SILBI Kumintang Ilaya in Batangas City.", path: "/about", image: "/images/stock/stock-01.jpg" });
 
 const values = [
   { icon: Equal, title: "Equality", description: "Pantay na dignidad, paggalang, at pagkakataon para sa bawat isa." },

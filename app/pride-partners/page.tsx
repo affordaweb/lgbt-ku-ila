@@ -4,9 +4,10 @@ import Link from "next/link";
 import { ArrowRight, HeartHandshake, Shirt } from "lucide-react";
 import SponsorshipInquiryForm from "@/components/SponsorshipInquiryForm";
 import { pridePartners } from "@/lib/data";
+import { pageSeo } from "@/lib/seo";
 import styles from "./pride-partners.module.css";
 
-export const metadata: Metadata = { title: "Pride Partners", description: "Meet the community partners and contributors whose support helped bring the Pride March celebration to life in Batangas City." };
+export const metadata: Metadata = pageSeo({ title: "Pride Partners", description: "Meet the community partners and contributors who helped bring the Pride March celebration to life in Batangas City.", path: "/pride-partners", image: "/images/events/734896841_1747334810026168_6985617327012982623_n.jpg" });
 
 const majorPartners = pridePartners.filter(partner => partner.isPublished && partner.partnerLevel === "major-partner").sort((a, b) => a.displayOrder - b.displayOrder);
 const communityPartners = pridePartners.filter(partner => partner.isPublished && partner.partnerLevel === "community-partner").sort((a, b) => a.displayOrder - b.displayOrder);

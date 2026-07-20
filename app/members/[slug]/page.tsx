@@ -8,9 +8,10 @@ import InnerCta from "@/components/InnerCta";
 import ProfileUpdateRequestModal from "@/components/ProfileUpdateRequestModal";
 import styles from "@/components/InnerPage.module.css";
 import { members } from "@/lib/data";
+import { pageSeo } from "@/lib/seo";
 
 export function generateStaticParams(){ return members.map(member => ({ slug: member.slug })); }
-export async function generateMetadata({params}:{params:Promise<{slug:string}>}):Promise<Metadata>{ const {slug}=await params; const member=members.find(item=>item.slug===slug); return member?{title:member.profile?.displayName ?? member.name,description:`Learn more about ${member.name}, ${member.role} at LGBTQIA++ SILBI Kumintang Ilaya.`}:{title:"Member Not Found"}; }
+export async function generateMetadata({params}:{params:Promise<{slug:string}>}):Promise<Metadata>{ const {slug}=await params; const member=members.find(item=>item.slug===slug); return member?pageSeo({title:member.profile?.displayName ?? member.name,description:`Learn more about ${member.name}, ${member.role} at LGBTQIA++ SILBI Kumintang Ilaya.`,path:`/members/${member.slug}`,image:member.image}):{title:"Member Not Found",robots:{index:false,follow:false}}; }
 
 function List({ title, items, icon: Icon }: { title: string; items?: string[]; icon: typeof Sparkles }) { if (!items?.length) return null; return <section className={styles.profileSection}><div className={styles.profileSectionTitle}><Icon size={20}/><h2>{title}</h2></div><ul>{items.map(item=><li key={item}>{item}</li>)}</ul></section>; }
 

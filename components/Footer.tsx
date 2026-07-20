@@ -43,6 +43,10 @@ export default function Footer() {
                 <FacebookIcon className="w-4 h-4" />
               </a>
             </div>
+            <a href="/" className="mt-8 inline-flex items-center gap-3 rounded-2xl border border-white/15 bg-white/5 p-3 text-left transition hover:border-[#F15A24]/70 hover:bg-white/10" aria-label="Share this website with the Ku-Ila QR code">
+              <img src="/share-qr" width="88" height="88" alt="QR code for the LGBTQIA++ SILBI Kumintang Ilaya website" className="h-[88px] w-[88px] rounded-lg bg-white p-1" />
+              <span className="max-w-[120px] text-sm font-semibold leading-snug text-white">Share this<br /><em className="font-[family-name:var(--font-pacifico)] text-base font-normal text-[#F4A137]">website</em></span>
+            </a>
           </div>
 
           <div className="lg:col-span-2 lg:pl-16">

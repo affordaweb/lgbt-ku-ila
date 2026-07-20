@@ -79,6 +79,51 @@ export const galleryImages = [
 
 export const eventImages = galleryImages;
 
+export interface CommunityResource {
+  title: string;
+  source: string;
+  url: string;
+  description: string;
+  focusKeyword: string;
+  relatedKeywords: string[];
+}
+
+/** Curated third-party learning links. Content remains with its original publisher. */
+export const communityResources: CommunityResource[] = [
+  {
+    title: "How LGBTIQ+ students and schools are building more welcoming campuses together",
+    source: "UNESCO",
+    url: "https://www.unesco.org/en/articles/how-lgbtiq-students-and-their-schools-are-building-more-welcoming-campuses-together",
+    description: "A Philippines-connected story on youth-led action, trusted support systems, and more inclusive learning spaces.",
+    focusKeyword: "LGBTQIA+ safe spaces Philippines",
+    relatedKeywords: ["LGBTQ youth support", "inclusive schools", "SOGIESC inclusion Philippines"],
+  },
+  {
+    title: "Safe, seen and included",
+    source: "UNESCO",
+    url: "https://www.unesco.org/en/articles/safe-seen-and-included-report-school-based-sexuality-education",
+    description: "A practical look at how inclusive education can help learners feel safe, seen, and supported.",
+    focusKeyword: "inclusive sexuality education",
+    relatedKeywords: ["safe learning environments", "LGBTQIA+ student wellbeing"],
+  },
+  {
+    title: "Positive learning for learners living with HIV",
+    source: "UNESCO",
+    url: "https://www.unesco.org/en/articles/positive-learning-how-education-sector-can-meet-needs-learners-living-hiv-0",
+    description: "Guidance on stigma-free learning environments, health information, and support for young people living with HIV.",
+    focusKeyword: "HIV support for LGBTQIA+ youth",
+    relatedKeywords: ["HIV awareness Philippines", "stigma-free education", "youth health support"],
+  },
+  {
+    title: "Equality and non-discrimination",
+    source: "United Nations Human Rights",
+    url: "https://www.ohchr.org/sites/default/files/Documents/Issues/Discrimination/LGBT/FactSheets/unfe-25-UN_Fact_Sheets_Equalitynondisc_English.pdf",
+    description: "A concise reference on equality, non-discrimination, and human rights protections for LGBT people.",
+    focusKeyword: "LGBTQIA+ equality and rights",
+    relatedKeywords: ["anti-discrimination", "SOGIE equality", "inclusive communities"],
+  },
+];
+
 export type PridePartnerLevel = "major-partner" | "community-partner" | "event-contributor";
 
 export interface PridePartner {

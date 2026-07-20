@@ -6,8 +6,9 @@ import HeroSection from "@/components/HeroSection";
 import InnerCta from "@/components/InnerCta";
 import styles from "@/components/InnerPage.module.css";
 import { pastEvents } from "@/lib/data";
+import { pageSeo } from "@/lib/seo";
 
-export const metadata: Metadata = { title: "Events", description: "Join Ku-Ila events and activities for connection, advocacy, and celebration." };
+export const metadata: Metadata = pageSeo({ title: "LGBTQIA++ Events in Batangas City", description: "Join Ku-Ila events in Batangas City for connection, advocacy, creativity, and community celebration.", path: "/events", image: "/images/stock/stock-05.jpg" });
 const initiatives = [
   { title: "Community Support", text: "Safe spaces, peer connection, and practical support for our community.", icon: Heart, href: "/contact" },
   { title: "Upcoming Events", text: "Gatherings that bring people together in dignity, joy, and shared purpose.", icon: CalendarDays, href: "/events" },

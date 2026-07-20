@@ -5,8 +5,9 @@ import { ArrowRight, Gift, Shield } from "lucide-react";
 import HeroSection from "@/components/HeroSection";
 import InnerCta from "@/components/InnerCta";
 import styles from "@/components/InnerPage.module.css";
+import { pageSeo } from "@/lib/seo";
 
-export const metadata: Metadata = { title: "Support Us | LGBTQIA++ Kumintang Ilaya", description: "Support LGBTQIA++ Kumintang Ilaya through GCash donations." };
+export const metadata: Metadata = pageSeo({ title: "Support LGBTQIA++ Kumintang Ilaya", description: "Support LGBTQIA++ SILBI Kumintang Ilaya and help sustain care, advocacy, and community programs in Batangas City.", path: "/support", image: "/images/stock/stock-11.jpg" });
 
 export default function SupportPage() { return <main>
   <HeroSection title="Support Us" subtitle="Home / Support Us" description="Every contribution becomes practical care, joyful gathering, and stronger support for our community." backgroundImage="/images/stock/stock-11.jpg" />

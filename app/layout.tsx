@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { Fraunces, Inter, Pacifico } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -69,10 +70,10 @@ export const metadata: Metadata = {
       "Empowering the LGBTQIA++ community through love, solidarity, advocacy, and human rights.",
     images: [
       {
-        url: "/images/stock/stock-01.jpg",
+        url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "LGBTQIA++ Kumintang Ilaya",
+        alt: "LGBTQIA++ SILBI Kumintang Ilaya — Kahit ano ka, Love ka!",
       },
     ],
   },
@@ -81,7 +82,7 @@ export const metadata: Metadata = {
     title: "LGBTQIA++ Kumintang Ilaya",
     description:
       "Empowering the LGBTQIA++ community through love, solidarity, advocacy, and human rights.",
-    images: ["/images/stock/stock-01.jpg"],
+    images: ["/opengraph-image"],
   },
   robots: {
     index: true,
@@ -93,6 +94,9 @@ export const metadata: Metadata = {
       "max-image-preview": "large",
       "max-snippet": -1,
     },
+  },
+  verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION,
   },
 };
 
@@ -132,7 +136,6 @@ export default function RootLayout({
       className={`${fraunces.variable} ${inter.variable} ${pacifico.variable} antialiased`}
     >
       <head>
-        <link rel="canonical" href="https://lgbt-ku-ila.vercel.app" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -143,6 +146,7 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <Footer />
         <PwaServiceWorker />
+        {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ? <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} /> : null}
       </body>
     </html>
   );
