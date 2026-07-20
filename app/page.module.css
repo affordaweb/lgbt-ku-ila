@@ -15,28 +15,26 @@
   align-items: center;
   color: white;
   isolation: isolate;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 78% 25%, rgba(241, 90, 36, .42), transparent 28%),
+    radial-gradient(circle at 20% 95%, rgba(58, 112, 203, .34), transparent 35%),
+    linear-gradient(125deg, #071426 0%, #0a1d4a 54%, #1a3e7c 100%);
 }
 
-.heroImage, .coverImage { object-fit: cover; }
-.heroImage { z-index: -3; object-position: center 44%; }
-.heroShade {
-  position: absolute;
-  inset: 0;
-  z-index: -2;
-  background: linear-gradient(90deg, rgba(6, 20, 36, .95) 0%, rgba(8, 24, 40, .8) 44%, rgba(8, 23, 38, .28) 78%, rgba(8, 23, 38, .55) 100%), linear-gradient(0deg, rgba(4, 13, 24, .75), transparent 48%);
-}
-.heroShade::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 75% 30%, rgba(241, 90, 36, .15), transparent 25%);
-}
+.coverImage { object-fit: cover; }
 .heroContent, .about, .programs, .events, .preFooterGrid {
   width: min(100%, 1300px);
   margin-inline: auto;
   padding-inline: clamp(24px, 3.08vw, 40px);
 }
-.heroContent { padding-block: 150px 130px; }
+.heroContent {
+  display: grid;
+  grid-template-columns: minmax(0, .95fr) minmax(420px, .85fr);
+  align-items: center;
+  gap: clamp(44px, 7vw, 100px);
+  padding-block: 130px 105px;
+}
 .eyebrow, .sectionTag, .sectionTagDark {
   display: flex;
   align-items: center;
@@ -50,11 +48,11 @@
 .eyebrow { color: var(--orange); }
 .eyebrow::before, .sectionTag::before, .sectionTagDark::before { content: ""; width: 34px; height: 1px; background: currentColor; }
 .heroTitle {
-  max-width: 760px;
+  max-width: 680px;
   margin: 0;
-  font-size: clamp(2.6rem, 4.2vw, 3.5rem);
+  font-size: clamp(3.5rem, 5.7vw, 6.15rem);
   font-weight: 500;
-  line-height: 1.06;
+  line-height: .98;
   letter-spacing: -.022em;
   text-wrap: balance;
 }
@@ -66,6 +64,21 @@
 .heroTitle em, .leaders h2 em, .preFooter h2 em, .about h2 em { color: var(--orange); font-style: italic; font-weight: 400; }
 .heroCopy { max-width: 650px; margin: 30px 0 38px; color: rgba(255,255,255,.76); font-size: clamp(1rem, 1.35vw, 1.2rem); line-height: 1.7; }
 .heroActions, .preFooterActions { display: flex; flex-wrap: wrap; align-items: center; gap: 28px; }
+.heroGallery { position: relative; justify-self: end; width: min(100%, 550px); min-height: 470px; }
+.heroSlide {
+  position: absolute;
+  overflow: hidden;
+  width: min(88%, 460px);
+  aspect-ratio: 1.16;
+  border: 9px solid rgba(255,255,255,.96);
+  border-radius: 20px;
+  background: var(--paper);
+  box-shadow: 0 28px 55px rgba(1, 10, 30, .38);
+}
+.heroSlide img { object-fit: cover; }
+.heroSlide:nth-child(1) { z-index: 3; right: 0; top: 68px; transform: rotate(2deg); }
+.heroSlide:nth-child(2) { z-index: 2; left: 8px; top: 24px; transform: rotate(-5deg); opacity: .9; }
+.heroSlide:nth-child(3) { z-index: 1; right: 32px; bottom: 0; transform: rotate(6deg); opacity: .78; }
 .primaryButton, .darkButton, .outlineButtonLight {
   min-height: 58px;
   display: inline-flex;
@@ -197,6 +210,9 @@
 
 @media (max-width: 960px) {
   .heroContent, .about, .programs, .events, .preFooterGrid { width: 100%; padding-inline: 24px; }
+  .hero { min-height: auto; }
+  .heroContent { grid-template-columns: 1fr; padding-block: 120px 90px; }
+  .heroGallery { justify-self: center; width: min(100%, 580px); }
   .about, .leaderIntro, .editorialGrid, .preFooterGrid { grid-template-columns: 1fr; }
   .aboutVisual { min-height: 560px; }
   .programRow { grid-template-columns: 42px 52px 1fr 46px; }
@@ -206,9 +222,11 @@
 }
 
 @media (max-width: 680px) {
-  .hero { min-height: 760px; }
-  .heroContent { padding-block: 145px 120px; }
-  .heroTitle { max-width: 12ch; font-size: clamp(2.35rem, 11vw, 3.25rem); }
+  .hero { min-height: auto; }
+  .heroContent { padding-block: 110px 70px; gap: 38px; }
+  .heroTitle { max-width: 12ch; font-size: clamp(3.1rem, 14vw, 4.2rem); }
+  .heroGallery { min-height: 335px; }
+  .heroSlide { width: min(90%, 380px); border-width: 6px; border-radius: 14px; }
   .scrollCue { display: none; }
   .about, .programs, .leaders, .events { padding-block: 82px; }
   .aboutVisual { min-height: 440px; }

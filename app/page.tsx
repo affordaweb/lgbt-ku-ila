@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import {
-  ArrowDown,
   ArrowRight,
   ExternalLink,
   GraduationCap,
@@ -57,42 +56,47 @@ const programs = [
 const leaders = members.filter((member) => member.role !== "Member").slice(0, 6);
 const featuredEvent = pastEvents[0];
 const eventList = pastEvents.slice(1, 4);
+const heroSlides = [galleryImages[0]!, galleryImages[3]!, galleryImages[5]!];
 
 export default function HomePage() {
   return (
     <div className={styles.page}>
       <section className={styles.hero} aria-labelledby="hero-title">
-        <Image
-          src={galleryImages[1]?.src || "/images/stock/stock-01.jpg"}
-          alt="The LGBTQIA++ SILBI Kumintang Ilaya community gathered together"
-          fill
-          priority
-          sizes="100vw"
-          className={styles.heroImage}
-        />
-        <div className={styles.heroShade} />
         <div className={styles.heroContent}>
-          <p className={styles.eyebrow}>Love · solidarity · belonging</p>
-          <h1 id="hero-title" className={styles.heroTitle}>
-            Kahit <span className={styles.scriptAccent}>ano</span> ka, {" "}
-            <span className={styles.scriptAccent}>Love</span> ka!
-          </h1>
-          <p className={styles.heroCopy}>
-            Building a safer, kinder, and more inclusive Batangas—one voice,
-            one story, and one act of courage at a time.
-          </p>
-          <div className={styles.heroActions}>
-            <Link href="/become-member" className={styles.primaryButton}>
-              Join our community <ArrowRight aria-hidden="true" />
-            </Link>
-            <Link href="/about" className={styles.textLinkLight}>
-              Discover our story <ArrowRight aria-hidden="true" />
-            </Link>
+          <div className={styles.heroText}>
+            <p className={styles.eyebrow}>Love · solidarity · belonging</p>
+            <h1 id="hero-title" className={styles.heroTitle}>
+              Kahit <span className={styles.scriptAccent}>ano</span> ka,
+              <br />
+              <span className={styles.scriptAccent}>Love</span> ka!
+            </h1>
+            <p className={styles.heroCopy}>
+              Building a safer, kinder, and more inclusive Batangas—one voice,
+              one story, and one act of courage at a time.
+            </p>
+            <div className={styles.heroActions}>
+              <Link href="/become-member" className={styles.primaryButton}>
+                Join our community <ArrowRight aria-hidden="true" />
+              </Link>
+              <Link href="/about" className={styles.textLinkLight}>
+                Discover our story <ArrowRight aria-hidden="true" />
+              </Link>
+            </div>
+          </div>
+          <div className={styles.heroGallery} aria-label="Ku-Ila event highlights">
+            {heroSlides.map((image, index) => (
+              <div className={styles.heroSlide} key={image.src}>
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  fill
+                  priority={index === 0}
+                  sizes="(max-width: 960px) 90vw, 42vw"
+                />
+              </div>
+            ))}
           </div>
         </div>
-        <a href="#about" className={styles.scrollCue} aria-label="Scroll to learn more">
-          Scroll down <ArrowDown aria-hidden="true" />
-        </a>
       </section>
 
       <section id="about" className={styles.about}>
