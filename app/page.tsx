@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { galleryImages, pastEvents } from "@/lib/data";
 import AboutVisual from "@/components/AboutVisual";
+import AchievementSection from "@/components/AchievementSection";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -321,6 +322,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <AchievementSection />
 
       <section className={styles.galleryBand} aria-label="Community gallery highlights">
         <div className={styles.galleryFade} />
