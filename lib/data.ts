@@ -1,9 +1,36 @@
+export interface MemberProfile {
+  displayName?: string;
+  nickname?: string;
+  pronouns?: string;
+  orientation?: string[];
+  genderIdentity?: string[];
+  identityDescription?: string;
+  previousRoles?: string[];
+  chapter?: string;
+  yearJoined?: string;
+  committees?: string[];
+  work?: string[];
+  skills?: string[];
+  businessName?: string;
+  businessUrl?: string;
+  biography?: string;
+  story?: string;
+  advocacy?: string[];
+  contributions?: string[];
+  achievements?: string[];
+  quote?: string;
+  publicEmail?: string;
+  publicPhone?: string;
+  socialLinks?: Partial<Record<"facebook" | "instagram" | "tiktok" | "youtube" | "linkedin" | "other", string>>;
+}
+
 export interface Member {
   name: string;
   slug: string;
   image: string;
   role: string;
   facebookUrl: string;
+  profile?: MemberProfile;
 }
 
 export const members: Member[] = [

@@ -1,57 +1,22 @@
 "use client";
 
-import { useState, FormEvent, useEffect, useRef } from "react";
-import { useRouter } from "next/navigation";
+import { useState, FormEvent, useRef } from "react";
 import { Send, User, Mail, Phone, FileText, Upload, AlertCircle, Check } from "lucide-react";
-import Script from "next/script";
-
-declare global {
-  interface Window {
-    turnstile: {
-      render: (container: string | HTMLElement, options: { sitekey: string }) => string;
-      reset: (widgetId: string) => void;
-      remove: (widgetId: string) => void;
-    };
-  }
-}
+import TurnstileField from "./TurnstileField";
+import { submitContactForm } from "@/lib/contactForm";
 
 export default function MembershipForm() {
-  const router = useRouter();
   const [loading, setLoading] = useState(false);
-  const [scriptReady, setScriptReady] = useState(false);
+  const [turnstileToken, setTurnstileToken] = useState("");
+  const [submitError, setSubmitError] = useState("");
+  const [submitted, setSubmitted] = useState(false);
   const [gcashRef, setGcashRef] = useState("");
   const [refError, setRefError] = useState("");
   const [refChecking, setRefChecking] = useState(false);
   const [refVerified, setRefVerified] = useState(false);
   const [screenshotFile, setScreenshotFile] = useState<File | null>(null);
   const [screenshotPreview, setScreenshotPreview] = useState<string | null>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const widgetIdRef = useRef<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
-
-  const renderWidget = () => {
-    if (!window.turnstile || !containerRef.current) {
-      setTimeout(renderWidget, 200);
-      return;
-    }
-    containerRef.current.innerHTML = "";
-    const id = window.turnstile.render(containerRef.current, {
-      sitekey: "0x4AAAAAAD1eyvfBA4B79lOA",
-    });
-    widgetIdRef.current = id;
-  };
-
-  useEffect(() => {
-    if (scriptReady) {
-      renderWidget();
-    }
-    return () => {
-      if (widgetIdRef.current && window.turnstile) {
-        window.turnstile.remove(widgetIdRef.current);
-        widgetIdRef.current = null;
-      }
-    };
-  }, [scriptReady]);
 
   const checkReference = async (ref: string) => {
     if (ref.length < 5) {
@@ -116,9 +81,20 @@ export default function MembershipForm() {
 
     const form = e.currentTarget;
     const formData = new FormData(form);
-    formData.append("screenshot", screenshotFile);
+    setSubmitError("");
 
     try {
+      const result = await submitContactForm({
+        formType: "membership",
+        subject: "New Membership Request — Ku-ila Website",
+        name: String(formData.get("full_name")),
+        email: String(formData.get("email")),
+        message: `Membership application from ${String(formData.get("full_name"))}. GCash reference: ${gcashRef.trim()}.`,
+        turnstileToken,
+        fields: { phone: String(formData.get("phone")), address: String(formData.get("address")), facebookUrl: String(formData.get("facebook_url")), gcashReference: gcashRef.trim() },
+        files: [screenshotFile],
+      });
+      if (!result.ok) { setSubmitError(result.message); return; }
       await fetch("/api/gcash/store", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -129,49 +105,22 @@ export default function MembershipForm() {
         }),
       });
 
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: formData,
-      });
-      const data = await response.json();
-      if (data.success) {
-        router.push("/thank-you");
-      }
+      setSubmitted(true);
     } catch {
-      // Handle error silently
+      setSubmitError("We could not send your request. Please try again shortly.");
     } finally {
       setLoading(false);
     }
   };
 
-  const canSubmit = screenshotFile !== null && gcashRef.trim().length >= 5 && refVerified && !refChecking;
+  const canSubmit = screenshotFile !== null && gcashRef.trim().length >= 5 && refVerified && !refChecking && (!process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || Boolean(turnstileToken));
+
+  if (submitted) return <div className="rounded-[18px] bg-[#f7f5f0] p-8 text-center" role="status"><Check className="mx-auto mb-3 text-[#f15a24]"/><h3 className="font-[family-name:var(--font-heading)] text-2xl text-[#0a1d4a]">Application received</h3><p className="mt-2 text-sm leading-relaxed text-[#0a1d4a]/65">Thank you. Your membership request will be reviewed after payment verification.</p></div>;
 
   return (
     <>
-      <Script
-        src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
-        strategy="afterInteractive"
-        onLoad={() => setScriptReady(true)}
-      />
       <form onSubmit={handleSubmit} className="space-y-6">
-        <input
-          type="hidden"
-          name="access_key"
-          value="0x4AAAAAAD1eyvfBA4B79lOA"
-        />
-        <input
-          type="hidden"
-          name="subject"
-          value="New Membership Application - LGBTQIA++ SILBI Kumintang Ilaya"
-        />
-        <input
-          type="hidden"
-          name="from_name"
-          value="LGBTQIA++ SILBI Kumintang Ilaya Website"
-        />
-        <div className="honeypot" style={{ display: "none" }}>
-          <input type="checkbox" name="botcheck" />
-        </div>
+        <div className="sr-only" aria-hidden="true"><label>Leave this blank<input name="_honeypot" tabIndex={-1} autoComplete="off" /></label></div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
@@ -379,7 +328,8 @@ export default function MembershipForm() {
           </p>
         </div>
 
-        <div ref={containerRef} className="cf-turnstile-membership" />
+        <TurnstileField onToken={setTurnstileToken} />
+        {submitError ? <p role="alert" className="text-sm text-red-700">{submitError}</p> : null}
 
         <button
           type="submit"

@@ -97,8 +97,8 @@ const leadershipMembers = [
   },
   {
     firstName: "Bela",
-    surname: "Cula",
-    profileSlug: "bela-cula",
+    surname: "Culla",
+    profileSlug: "bela-culla",
     image: "/images/members/Bela.webp",
     role: "LGBTQIA++ Kumintang Ilaya Member",
     textFirst: false,
