@@ -16,7 +16,7 @@ const initiatives = [
 ];
 
 export default function EventsPage() { return <main>
-  <HeroSection title="Mga Kaganapan" subtitle="Home / Events" description="Stories, celebrations, and shared moments that make our community stronger." backgroundImage="/images/events/batangas-city-queen-screening.jpeg" />
+  <HeroSection title="Mga Kaganapan" subtitle="Home / Events" description="Stories, celebrations, and shared moments that make our community stronger." backgroundImage="/images/stock/stock-05.jpg" />
   <section className={`${styles.section} ${styles.cream}`}><div className={styles.wrap}><div className={styles.sectionHead}><div><p className={styles.eyebrow}>How we gather</p><h2 className={styles.heading}>Programs rooted in care and <em>connection.</em></h2></div><p className={styles.lead}>From creative celebrations to support-led initiatives, every program is designed to make belonging visible.</p></div>
     <div className={styles.programRows}>{initiatives.map(({title,text,icon:Icon}, index) => <Link href={title === "Become a Member" ? "/become-member" : "/"} className={styles.programRow} key={title}><span className={styles.rowNumber}>0{index+1}</span><Icon className={styles.rowIcon} size={22}/><h3>{title}</h3><p>{text}</p><span className={styles.rowArrow}><ArrowRight size={17}/></span></Link>)}</div>
   </div></section>

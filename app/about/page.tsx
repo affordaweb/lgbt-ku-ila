@@ -16,7 +16,7 @@ const values = [
 
 export default function AboutPage() {
   return <main>
-    <HeroSection title="About Us" subtitle="Home / About Us" description="A community-led home for dignity, connection, and the freedom to live truthfully in Kumintang Ilaya." backgroundImage="/images/events/glow-beyond-limits.jpeg" />
+    <HeroSection title="About Us" subtitle="Home / About Us" description="A community-led home for dignity, connection, and the freedom to live truthfully in Kumintang Ilaya." backgroundImage="/images/stock/stock-01.jpg" />
 
     <section className={styles.section}><div className={styles.wrap}><div className={styles.intro}>
       <div className={styles.copy}>
@@ -31,8 +31,8 @@ export default function AboutPage() {
         <div className={styles.actions}><Link href="/contact" className={styles.primaryButton}>Makipag-ugnayan <ArrowRight size={16} /></Link></div>
       </div>
       <div className={styles.visual}>
-        <div className={styles.primaryVisual}><Image src="/images/events/king-and-queen-of-pride-parade.jpeg" alt="Kumintang Ilaya community celebration" fill sizes="(max-width: 820px) 82vw, 520px" /></div>
-        <div className={styles.secondaryVisual}><Image src="/images/events/batangas-city-queen.jpeg" alt="Community member at a Ku-Ila event" fill sizes="235px" /></div>
+        <div className={styles.primaryVisual}><Image src="/images/stock/stock-02.jpg" alt="Hands holding LGBTQIA++ letters" fill sizes="(max-width: 820px) 82vw, 520px" /></div>
+        <div className={styles.secondaryVisual}><Image src="/images/stock/stock-03.jpg" alt="Pride flag in the sunlight" fill sizes="235px" /></div>
       </div>
     </div></div></section>
 
