@@ -56,7 +56,11 @@ const programs = [
 const leaders = members.filter((member) => member.role !== "Member").slice(0, 6);
 const featuredEvent = pastEvents[0];
 const eventList = pastEvents.slice(1, 4);
-const heroSlides = [galleryImages[10]!, galleryImages[11]!, galleryImages[0]!];
+const heroSlides = [
+  { ...galleryImages[10]!, width: 2048, height: 1366 },
+  { ...galleryImages[11]!, width: 1198, height: 540 },
+  { ...galleryImages[0]!, width: 791, height: 540 },
+];
 
 export default function HomePage() {
   return (
@@ -89,7 +93,8 @@ export default function HomePage() {
                 <Image
                   src={image.src}
                   alt={image.alt}
-                  fill
+                  width={image.width}
+                  height={image.height}
                   priority={index === 0}
                   sizes="(max-width: 960px) 90vw, 42vw"
                 />
