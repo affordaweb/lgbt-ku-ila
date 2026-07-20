@@ -139,29 +139,28 @@
 .location strong { color: var(--ink); }
 .aboutVisual { position: relative; display: grid; min-height: 650px; place-items: center; }
 .illustratedMap { width: 100%; height: auto; overflow: visible; }
-.mapCanvas { fill: #071426; stroke: rgba(241,90,36,.5); stroke-width: 1; }
-.mapBoundary { fill: rgba(241,90,36,.08); stroke: #f15a24; stroke-width: 2.5; stroke-linejoin: round; }
-.mapStreets path { fill: none; stroke: rgba(255,255,255,.28); stroke-width: 1.2; stroke-linecap: round; stroke-dasharray: 2 4; }
-.mapConnections line { stroke: rgba(255,255,255,.82); stroke-width: 1.35; stroke-dasharray: 4 6; animation: mapConnectionPulse 2.5s linear infinite; }
-.mapConnections line:nth-child(2) { animation-delay: -.35s; }
-.mapConnections line:nth-child(3) { animation-delay: -.7s; }
-.mapConnections line:nth-child(4) { animation-delay: -1.05s; }
-.mapConnections line:nth-child(5) { animation-delay: -1.4s; }
-.mapConnections line:nth-child(6) { animation-delay: -1.75s; }
-.mapConnections line:nth-child(7) { animation-delay: -2.1s; }
-.mapTitle { font-family: var(--font-sans); font-size: 12px; font-weight: 800; letter-spacing: .2em; fill: white; text-anchor: middle; }
-.purokHotspot, .purokHub { transform-box: fill-box; transform-origin: center; animation: hotspotPulse 2.3s ease-out infinite; }
-.purokHotspot circle { stroke: white; stroke-width: 3; filter: drop-shadow(0 3px 8px rgba(0,0,0,.36)); }
-.purok1 circle { fill: #f15a24; animation-delay: 0s; }
-.purok2 circle { fill: #f6c445; animation-delay: -.3s; }
-.purok3 circle { fill: #df4a8b; animation-delay: -.6s; }
-.purok4 circle { fill: #19a7a8; animation-delay: -.9s; }
-.purok5 circle { fill: #8765d1; animation-delay: -1.2s; }
-.purok6 circle { fill: #70b84c; animation-delay: -1.5s; }
-.purok7 circle { fill: #24a3df; animation-delay: -1.8s; }
-.purokHub circle { fill: var(--ink); stroke: var(--orange); stroke-width: 5; filter: drop-shadow(0 3px 9px rgba(0,0,0,.4)); }
-@keyframes hotspotPulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: .7; transform: scale(1.32); } }
-@keyframes mapConnectionPulse { to { stroke-dashoffset: -35; } }
+.mapBoundary { fill: #fff; stroke: #f15a24; stroke-width: 2.5; stroke-linejoin: round; filter: drop-shadow(0 18px 24px rgba(7,20,38,.2)); }
+.mapStreets path { fill: none; stroke: rgba(10,29,74,.26); stroke-width: 1.2; stroke-linecap: round; stroke-dasharray: 2 4; }
+.mapConnections line { stroke: rgba(10,29,74,.38); stroke-width: 1.35; stroke-dasharray: 4 6; }
+.mapTitle { font-family: var(--font-sans); font-size: 12px; font-weight: 800; letter-spacing: .2em; fill: var(--ink); text-anchor: middle; }
+.purokHotspot, .purokHub { transform-box: fill-box; transform-origin: center; }
+.purokHotspot > circle:last-child { fill: currentColor; stroke: white; stroke-width: 3; filter: drop-shadow(0 3px 8px rgba(0,0,0,.22)); }
+.mapPulseRing { fill: none; stroke: currentColor; stroke-width: 2; animation: hotspotRing 2.8s ease-out infinite; }
+.purok1 { color: #f15a24; }
+.purok2 { color: #f6c445; }
+.purok3 { color: #df4a8b; }
+.purok4 { color: #19a7a8; }
+.purok5 { color: #8765d1; }
+.purok6 { color: #70b84c; }
+.purok7 { color: #24a3df; }
+.purok2 .mapPulseRing { animation-delay: -.4s; }
+.purok3 .mapPulseRing { animation-delay: -.8s; }
+.purok4 .mapPulseRing { animation-delay: -1.2s; }
+.purok5 .mapPulseRing { animation-delay: -1.6s; }
+.purok6 .mapPulseRing { animation-delay: -2s; }
+.purok7 .mapPulseRing { animation-delay: -2.4s; }
+.purokHub circle { fill: var(--ink); stroke: var(--orange); stroke-width: 5; filter: drop-shadow(0 3px 9px rgba(0,0,0,.25)); }
+@keyframes hotspotRing { 0% { opacity: .75; transform: scale(.6); } 70%, 100% { opacity: 0; transform: scale(1.8); } }
 
 .programs { padding-block: 125px 170px; }
 .sectionHeading { display: flex; justify-content: space-between; align-items: end; gap: 50px; margin-bottom: 55px; }

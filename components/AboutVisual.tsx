@@ -16,7 +16,6 @@ export default function AboutVisual() {
       <svg className={styles.illustratedMap} viewBox="0 0 560 320" role="img" aria-labelledby="map-title map-description">
         <title id="map-title">Kumintang Ilaya community map</title>
         <desc id="map-description">An illustrated outline of Kumintang Ilaya with seven colorful pulsing purok hotspots connected to a central hub.</desc>
-        <rect className={styles.mapCanvas} x="10" y="10" width="540" height="300" rx="18" />
         <path
           className={styles.mapBoundary}
           d="M35 55 136 31 205 40 244 29 382 30 397 57 431 71 452 102 492 115 510 154 489 183 501 212 472 260 423 278 391 270 346 284 289 268 233 279 185 245 139 235 118 207 74 204 42 176 48 144 25 117Z"
@@ -36,6 +35,7 @@ export default function AboutVisual() {
         <text className={styles.mapTitle} x="286" y="164">ILAYA</text>
         {hotspots.map(([cx, cy], index) => (
           <g key={`${cx}-${cy}`} className={`${styles.purokHotspot} ${styles[`purok${index + 1}`]}`}>
+            <circle className={styles.mapPulseRing} cx={cx} cy={cy} r="10" />
             <circle cx={cx} cy={cy} r="8" />
           </g>
         ))}
