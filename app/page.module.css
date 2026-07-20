@@ -67,18 +67,27 @@
 .heroGallery { position: relative; justify-self: end; width: min(100%, 550px); min-height: 470px; }
 .heroSlide {
   position: absolute;
+  inset: 0;
   overflow: hidden;
   width: min(88%, 460px);
+  margin: auto;
   aspect-ratio: 1.16;
   border: 9px solid rgba(255,255,255,.96);
   border-radius: 20px;
   background: var(--paper);
   box-shadow: 0 28px 55px rgba(1, 10, 30, .38);
+  opacity: 0;
+  animation: heroSlideCycle 12s ease-in-out infinite;
 }
 .heroSlide img { object-fit: cover; }
-.heroSlide:nth-child(1) { z-index: 3; right: 0; top: 68px; transform: rotate(2deg); }
-.heroSlide:nth-child(2) { z-index: 2; left: 8px; top: 24px; transform: rotate(-5deg); opacity: .9; }
-.heroSlide:nth-child(3) { z-index: 1; right: 32px; bottom: 0; transform: rotate(6deg); opacity: .78; }
+.heroSlide:nth-child(1) { animation-delay: 0s; }
+.heroSlide:nth-child(2) { animation-delay: -4s; }
+.heroSlide:nth-child(3) { animation-delay: -8s; }
+@keyframes heroSlideCycle {
+  0%, 29% { opacity: 1; transform: translateY(0) scale(1); }
+  33%, 96% { opacity: 0; transform: translateY(12px) scale(.96); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
 .primaryButton, .darkButton, .outlineButtonLight {
   min-height: 58px;
   display: inline-flex;
@@ -246,6 +255,11 @@
   .storyList { padding-bottom: 0; }
   .contactDetails { grid-template-columns: 1fr; }
   .preFooterGrid { gap: 50px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroSlide { animation: none; opacity: 0; }
+  .heroSlide:first-child { opacity: 1; }
 }
 
 @media (prefers-reduced-motion: reduce) {

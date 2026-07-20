@@ -56,7 +56,7 @@ const programs = [
 const leaders = members.filter((member) => member.role !== "Member").slice(0, 6);
 const featuredEvent = pastEvents[0];
 const eventList = pastEvents.slice(1, 4);
-const heroSlides = [galleryImages[0]!, galleryImages[3]!, galleryImages[5]!];
+const heroSlides = [galleryImages[10]!, galleryImages[11]!, galleryImages[0]!];
 
 export default function HomePage() {
   return (
