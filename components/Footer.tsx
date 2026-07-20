@@ -43,33 +43,6 @@ export default function Footer() {
                 <FacebookIcon className="w-4 h-4" />
               </a>
             </div>
-            <a href="/" className="mt-8 inline-flex items-center gap-3 rounded-2xl border border-white/15 bg-white/5 p-3 text-left transition hover:border-[#F15A24]/70 hover:bg-white/10" aria-label="Share this website with the Ku-Ila QR code">
-              <img src="/share-qr" width="88" height="88" alt="QR code for the LGBTQIA++ SILBI Kumintang Ilaya website" className="h-[88px] w-[88px] rounded-lg bg-white p-1" />
-              <span className="max-w-[120px] text-sm font-semibold leading-snug text-white">Share this<br /><em className="font-[family-name:var(--font-pacifico)] text-base font-normal text-[#F4A137]">website</em></span>
-            </a>
-          </div>
-
-          <div className="lg:col-span-2 lg:pl-16">
-            <h4 className="text-sm font-semibold uppercase tracking-wider mb-6 text-white/80">Quick Links</h4>
-            <ul className="space-y-3">
-              {[
-                { href: "/", label: "Home" },
-                { href: "/about", label: "About Us" },
-                { href: "/members", label: "Members" },
-                { href: "/events", label: "Events" },
-                { href: "/gallery", label: "Gallery" },
-              ].map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-white/60 text-sm hover:text-[#F15A24] transition-colors inline-flex items-center gap-2"
-                  >
-                    <ArrowRight className="w-3 h-3" />
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
           </div>
 
           <div>
@@ -93,6 +66,37 @@ export default function Footer() {
                 <span>lgbtkuila@outlook.com</span>
               </li>
             </ul>
+          </div>
+
+          <div>
+            <h4 className="text-sm font-semibold uppercase tracking-wider mb-6 text-white/80">Quick Links</h4>
+            <ul className="space-y-3">
+              {[
+                { href: "/", label: "Home" },
+                { href: "/about", label: "About Us" },
+                { href: "/members", label: "Members" },
+                { href: "/events", label: "Events" },
+                { href: "/gallery", label: "Gallery" },
+              ].map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-white/60 text-sm hover:text-[#F15A24] transition-colors inline-flex items-center gap-2"
+                  >
+                    <ArrowRight className="w-3 h-3" />
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="lg:justify-self-end">
+            <h4 className="text-sm font-semibold uppercase tracking-wider mb-6 text-white/80">Share this website</h4>
+            <a href="/" className="inline-flex items-center gap-3 rounded-2xl border border-white/15 bg-white/5 p-3 text-left transition hover:border-[#F15A24]/70 hover:bg-white/10" aria-label="Share this website with the Ku-Ila QR code">
+              <img src="/share-qr" width="96" height="96" alt="QR code for the LGBTQIA++ SILBI Kumintang Ilaya website" className="h-24 w-24 rounded-lg bg-white p-1" />
+              <span className="hidden max-w-[98px] text-sm font-semibold leading-snug text-white xl:inline">Scan to<br /><em className="font-[family-name:var(--font-pacifico)] text-base font-normal text-[#F4A137]">share</em></span>
+            </a>
           </div>
         </div>
 
