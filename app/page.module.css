@@ -139,7 +139,7 @@
 .location strong { color: var(--ink); }
 .aboutVisual { position: relative; display: grid; min-height: 650px; place-items: center; }
 .illustratedMap { width: 112%; max-width: none; height: auto; overflow: visible; }
-.mapBoundary { fill: #fff; stroke: #f15a24; stroke-width: 2.5; stroke-linejoin: round; filter: drop-shadow(0 20px 28px rgba(7,20,38,.4)); }
+.mapBoundary { fill: #fff; stroke: #f15a24; stroke-width: 2.5; stroke-linejoin: round; }
 .mapConnections path { fill: none; stroke: rgba(10,29,74,.34); stroke-width: 1.45; stroke-linecap: round; stroke-dasharray: 4 6; }
 .mapTitle { font-family: var(--font-sans); font-size: 12px; font-weight: 800; letter-spacing: .2em; fill: var(--ink); text-anchor: middle; }
 .purokHotspot, .purokHub { transform-box: fill-box; transform-origin: center; }

@@ -26,6 +26,7 @@ export default function AboutVisual() {
         <desc id="map-description">An illustrated outline of Kumintang Ilaya with seven colorful pulsing purok hotspots connected to a central hub.</desc>
         <path
           className={styles.mapBoundary}
+          filter="url(#map-soft-shadow)"
           d="M24 68 34 38 104 52 160 58 219 64 287 62 340 54 403 41 415 56 404 76 416 90 446 101 456 139 502 156 511 193 545 212 520 236 527 269 498 302 449 284 413 290 357 261 307 245 249 231 191 215 148 202 138 181 107 168 112 147 21 168 19 123 30 100Z"
         />
         <g className={styles.mapConnections}>
@@ -54,7 +55,12 @@ export default function AboutVisual() {
             clipPath="url(#hub-logo-clip)"
           />
         </g>
-        <defs><clipPath id="hub-logo-clip"><circle cx="286" cy="160" r="20" /></clipPath></defs>
+        <defs>
+          <filter id="map-soft-shadow" x="-40" y="-40" width="640" height="400" filterUnits="userSpaceOnUse">
+            <feDropShadow dx="0" dy="8" stdDeviation="6" floodColor="#071426" floodOpacity=".15" />
+          </filter>
+          <clipPath id="hub-logo-clip"><circle cx="286" cy="160" r="20" /></clipPath>
+        </defs>
       </svg>
     </div>
   );
