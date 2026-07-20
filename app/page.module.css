@@ -33,7 +33,7 @@
   grid-template-columns: minmax(0, .95fr) minmax(420px, .85fr);
   align-items: center;
   gap: clamp(44px, 7vw, 100px);
-  padding-block: 130px 105px;
+  padding-block: 180px 105px;
 }
 .eyebrow, .sectionTag, .sectionTagDark {
   display: flex;
@@ -263,7 +263,7 @@
   .heroContent, .about, .programs, .events, .preFooterGrid { width: 100%; padding-inline: 24px; }
   .illustratedMap { width: 100%; }
   .hero { min-height: auto; }
-  .heroContent { grid-template-columns: 1fr; padding-block: 120px 90px; }
+  .heroContent { grid-template-columns: 1fr; padding-block: 170px 90px; }
   .heroGallery { justify-self: center; width: min(100%, 580px); }
   .about, .leaderIntro, .editorialGrid, .preFooterGrid { grid-template-columns: 1fr; }
   .featureStory { position: static; }
@@ -276,7 +276,7 @@
 
 @media (max-width: 680px) {
   .hero { min-height: auto; }
-  .heroContent { padding-block: 110px 70px; gap: 38px; }
+  .heroContent { padding-block: 160px 70px; gap: 38px; }
   .heroTitle { max-width: 12ch; font-size: clamp(3.1rem, 14vw, 4.2rem); }
   .heroGallery { min-height: 335px; }
   .heroSlide { width: min(90%, 380px); }
