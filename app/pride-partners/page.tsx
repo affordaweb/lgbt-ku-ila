@@ -1,0 +1,31 @@
+import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight, HeartHandshake, Shirt } from "lucide-react";
+import SponsorshipInquiryForm from "@/components/SponsorshipInquiryForm";
+import { pridePartners } from "@/lib/data";
+import styles from "./pride-partners.module.css";
+
+export const metadata: Metadata = { title: "Pride Partners", description: "Meet the community partners and contributors whose support helped bring the Pride March celebration to life in Batangas City." };
+
+const majorPartners = pridePartners.filter(partner => partner.isPublished && partner.partnerLevel === "major-partner").sort((a, b) => a.displayOrder - b.displayOrder);
+const communityPartners = pridePartners.filter(partner => partner.isPublished && partner.partnerLevel === "community-partner").sort((a, b) => a.displayOrder - b.displayOrder);
+const contributors = pridePartners.filter(partner => partner.isPublished && partner.partnerLevel === "event-contributor").sort((a, b) => a.displayOrder - b.displayOrder);
+
+export default function PridePartnersPage() {
+  return <main className={styles.page}>
+    <section className={styles.hero} aria-labelledby="pride-partners-title"><span className={styles.backdrop} aria-hidden="true">Together</span><div className={styles.wrap}><p className={styles.breadcrumb}>Home / Events / Pride Partners</p><p className={styles.eyebrow}>Pride Partners</p><h1 id="pride-partners-title">The people who helped<br /><em>Pride move forward.</em></h1><p className={styles.heroCopy}>Our Pride March was made possible through the generosity of people who believed in visibility, belonging, and a stronger community. We proudly recognize the partners whose support helped bring the celebration to life.</p><figure className={styles.heroImage}><Image src="/images/events/734896841_1747334810026168_6985617327012982623_n.jpg" alt="Ku-Ila members together during Pride Month" fill priority sizes="(max-width: 760px) 100vw, 92vw" /></figure></div></section>
+
+    <section className={styles.major}><div className={styles.wrap}><div className={styles.sectionHead}><div><p className={styles.eyebrow}>Major Partners</p><h2>Generosity that helped<br />make <em>Pride possible.</em></h2></div><p>We extend our deepest appreciation to the major partners whose support played an important role in bringing the Pride March to the community.</p></div><div className={styles.majorGrid}>{majorPartners.map((partner, index) => <article className={styles.majorEntry} key={partner.name}><span>0{index + 1}</span><div><p>Major Partner</p><h3>{partner.name}</h3><small>{partner.acknowledgment}</small></div><HeartHandshake aria-hidden="true" /></article>)}</div></div></section>
+
+    <section className={styles.quote}><div className={styles.wrap}><span aria-hidden="true" /><blockquote>Pride grows when people choose to stand beside the community. Every form of support—large or small—helped create a celebration where people could be <em>seen, heard, and welcomed.</em></blockquote><span aria-hidden="true" /></div></section>
+
+    <section className={styles.community}><div className={styles.wrap}><div className={styles.sectionHead}><div><p className={styles.eyebrow}>Community Partners</p><h2>Support rooted in<br /><em>shared purpose.</em></h2></div><p>These community partners stood with the organization and helped strengthen an event centered on inclusion, celebration, and belonging.</p></div><div className={styles.partnerRows}>{communityPartners.map((partner, index) => <article className={styles.partnerRow} key={partner.name}><span>0{index + 1}</span><div><h3>{partner.name}</h3><p>Community Partner</p></div><small>{partner.acknowledgment}</small><ArrowRight aria-hidden="true" /></article>)}</div></div></section>
+
+    <section className={styles.contributors}><div className={styles.wrap}><div className={styles.contributorCopy}><p className={styles.eyebrow}>Pride March Contributors</p><h2>Every contribution<br />carried <em>Pride further.</em></h2><div className={styles.shirtNote}><Shirt size={28}/><div><strong>Official T-Shirt Sponsors</strong><p>With appreciation for supporting the Pride March through the official event shirts worn by members and officers.</p></div></div></div><div className={styles.contributorNames}>{contributors.map((partner, index) => <article key={partner.name}><span>0{index + 1}</span><p>Official T-Shirt Sponsor</p><h3>{partner.name}</h3></article>)}</div></div></section>
+
+    <section className={styles.gallery}><div className={styles.wrap}><p className={styles.eyebrow}>Pride March memories</p><h2>The celebration their support<br />helped <em>bring to life.</em></h2><div className={styles.galleryGrid}><figure className={styles.galleryPrimary}><Image src="/images/events/734896841_1747334810026168_6985617327012982623_n.jpg" alt="Ku-Ila members at a Pride Month gathering" fill sizes="(max-width: 760px) 100vw, 58vw" /></figure><figure><Image src="/images/events/735205466_122099282751380675_3826971210084499359_n.jpg" alt="Ku-Ila group during Pride Month" fill sizes="(max-width: 760px) 100vw, 28vw" /></figure><figure><Image src="/images/events/736845534_122100813849380675_8484641132398570078_n.jpg" alt="Ku-Ila community gathering" fill sizes="(max-width: 760px) 100vw, 28vw" /></figure></div></div></section>
+
+    <section className={styles.cta}><div className={styles.wrap}><div><p className={styles.eyebrow}>Stand with Pride</p><h2>Help the next celebration<br />reach <em>even more people.</em></h2><p>Organizations, local leaders, businesses, and individuals are welcome to support future community programs and Pride celebrations.</p><div className={styles.actions}><SponsorshipInquiryForm /><Link href="/contact" className={styles.contactButton}>Start a Conversation <ArrowRight size={16}/></Link></div></div><aside><span>Community</span><strong>Kumintang Ilaya<br />Batangas City</strong><span>Email</span><a href="mailto:lgbtkuila@outlook.com">lgbtkuila@outlook.com</a></aside></div></section>
+  </main>;
+}

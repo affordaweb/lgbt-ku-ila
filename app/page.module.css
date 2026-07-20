@@ -195,7 +195,7 @@
 .leaderIntro { display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(55px, 8vw, 120px); align-items: end; }
 .sectionTagDark { color: var(--orange); }
 .leaders h2 { color: white; }
-@media (min-width: 681px) { .leaders h2 em { white-space: nowrap; } }
+@media (min-width: 681px) { .leaders h2 { font-size: clamp(2.7rem, 4vw, 4.2rem); white-space: nowrap; } .leaders h2 em { white-space: nowrap; } }
 .leaderIntro > div:last-child > p { max-width: 470px; color: rgba(255,255,255,.66); font-size: .98rem; line-height: 1.8; margin: 0 0 28px; }
 .outlineButtonLight { min-height: 50px; border: 1px solid rgba(255,255,255,.35); border-radius: 999px; color: white; }
 .outlineButtonLight:hover { color: var(--navy); background: white; transform: translateY(-2px); }

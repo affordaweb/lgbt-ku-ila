@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Fraunces, Inter, Pacifico } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import PwaServiceWorker from "@/components/PwaServiceWorker";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -24,6 +25,9 @@ const pacifico = Pacifico({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://lgbt-ku-ila.vercel.app"),
+  applicationName: "LGBTQIA++ SILBI Kumintang Ilaya",
+  manifest: "/manifest.webmanifest",
   title: {
     default: "LGBTQIA++ Kumintang Ilaya | Empowering the Community",
     template: "%s | LGBTQIA++ SILBI Kumintang Ilaya",
@@ -46,6 +50,15 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "LGBTQIA++ Kumintang Ilaya" }],
   creator: "LGBTQIA++ Kumintang Ilaya",
+  icons: {
+    icon: [{ url: "/icon", sizes: "512x512", type: "image/png" }],
+    apple: [{ url: "/apple-icon", sizes: "180x180", type: "image/png" }],
+  },
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "Ku-Ila",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -83,6 +96,13 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: "#0a1d4a",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -113,8 +133,6 @@ export default function RootLayout({
     >
       <head>
         <link rel="canonical" href="https://lgbt-ku-ila.vercel.app" />
-        <link rel="icon" href="/images/logo/731350583_10238772116515608_5057049016834242279_n.jpg" sizes="any" />
-        <link rel="apple-touch-icon" href="/images/logo/731350583_10238772116515608_5057049016834242279_n.jpg" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -124,6 +142,7 @@ export default function RootLayout({
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
+        <PwaServiceWorker />
       </body>
     </html>
   );
