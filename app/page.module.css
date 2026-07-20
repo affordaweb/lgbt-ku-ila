@@ -171,11 +171,11 @@
 .programRow:nth-child(3) { top: 133px; }
 .programRow:nth-child(4) { top: 147px; }
 .programRow:nth-child(5) { top: 161px; }
-.programRow::before { content: ""; position: absolute; inset: 0; z-index: -1; opacity: 0; background: linear-gradient(90deg, rgba(7,20,38,.95), rgba(7,20,38,.75)), url('/images/events/734685288_2070636003809521_4173291785777342497_n.jpg') center / cover; transition: opacity .4s; }
-.programRow:nth-child(2)::before { background-image: linear-gradient(90deg, rgba(7,20,38,.95), rgba(7,20,38,.75)), url('/images/events/734768224_2070636277142827_2921723697569089008_n.jpg'); }
-.programRow:nth-child(3)::before { background-image: linear-gradient(90deg, rgba(7,20,38,.95), rgba(7,20,38,.75)), url('/images/events/731788066_2070636043809517_8341410874233716056_n.jpg'); }
-.programRow:nth-child(4)::before { background-image: linear-gradient(90deg, rgba(7,20,38,.95), rgba(7,20,38,.75)), url('/images/events/734756136_2070636173809504_5831640839771367381_n.jpg'); }
-.programRow:nth-child(5)::before { background-image: linear-gradient(90deg, rgba(7,20,38,.95), rgba(7,20,38,.75)), url('/images/events/734896841_1747334810026168_6985617327012982623_n.jpg'); }
+.programRow::before { content: ""; position: absolute; inset: 0; z-index: -1; opacity: 0; background: linear-gradient(90deg, rgba(7,20,38,.95), rgba(7,20,38,.75)), url('/images/stock/program-community-support.jpg') center / cover; transition: opacity .4s; }
+.programRow:nth-child(2)::before { background-image: linear-gradient(90deg, rgba(7,20,38,.95), rgba(7,20,38,.75)), url('/images/stock/program-upcoming-events.jpg'); }
+.programRow:nth-child(3)::before { background-image: linear-gradient(90deg, rgba(7,20,38,.95), rgba(7,20,38,.75)), url('/images/stock/program-become-member.jpg'); }
+.programRow:nth-child(4)::before { background-image: linear-gradient(90deg, rgba(7,20,38,.95), rgba(7,20,38,.75)), url('/images/stock/program-support-us.jpg'); }
+.programRow:nth-child(5)::before { background-image: linear-gradient(90deg, rgba(7,20,38,.95), rgba(7,20,38,.75)), url('/images/stock/program-contact-us.jpg'); }
 .programRow:hover, .programFeatured { color: white; transform: translateY(-3px); }
 .programRow:hover::before, .programFeatured::before { opacity: 1; }
 .programNumber { color: var(--orange); font-family: var(--font-heading); font-size: 1.35rem; }

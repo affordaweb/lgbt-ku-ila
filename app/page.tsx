@@ -4,11 +4,9 @@ import Link from "next/link";
 import {
   ArrowRight,
   ExternalLink,
-  GraduationCap,
   HandHeart,
   HeartPulse,
   MapPin,
-  Scale,
   Users,
 } from "lucide-react";
 import { galleryImages, members, pastEvents } from "@/lib/data";
@@ -30,27 +28,27 @@ const programs = [
   },
   {
     icon: HeartPulse,
-    title: "Health & Well-being",
-    description: "Mental health support, wellness programs, and pathways to inclusive care for our community.",
-    href: "/support",
-  },
-  {
-    icon: Scale,
-    title: "Rights & Advocacy",
-    description: "Know-your-rights education and collective action for equality, dignity, and lasting change.",
-    href: "/about",
-  },
-  {
-    icon: GraduationCap,
-    title: "Education & Opportunity",
-    description: "Skills training, workshops, and learning opportunities that help every member move forward.",
+    title: "Upcoming Events",
+    description: "Find gatherings, celebrations, and activities that bring our community together.",
     href: "/events",
   },
   {
     icon: Users,
-    title: "Youth Leadership",
-    description: "Programs that nurture the next generation of compassionate and courageous community leaders.",
+    title: "Become a Member",
+    description: "Join Ku-Ila and help create a safer, kinder community for everyone.",
     href: "/become-member",
+  },
+  {
+    icon: HandHeart,
+    title: "Support Us",
+    description: "Help sustain community-led programs, advocacy, and safe spaces for LGBTQIA++ people.",
+    href: "/support",
+  },
+  {
+    icon: MapPin,
+    title: "Contact Us",
+    description: "Reach out for support, questions, partnerships, or a conversation with our team.",
+    href: "/contact",
   },
 ];
 
