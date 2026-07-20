@@ -188,26 +188,34 @@
 .programRow:hover .rowArrow, .programFeatured .rowArrow { color: var(--ink); background: white; }
 .rowArrow svg { width: 17px; }
 
-.leaders { width: min(100%, 1300px); margin-inline: auto; padding-block: 135px 125px; padding-inline: clamp(24px, 3.08vw, 40px); color: white; background: var(--navy); box-shadow: 0 0 0 100vmax var(--navy); clip-path: inset(0 -100vmax); }
+.leaders { --leadership-charcoal: #1e1e1e; width: min(100%, 1300px); margin-inline: auto; padding-block: 135px 125px; padding-inline: clamp(24px, 3.08vw, 40px); color: white; background: var(--leadership-charcoal); box-shadow: 0 0 0 100vmax var(--leadership-charcoal); clip-path: inset(0 -100vmax); }
 .leaderIntro { display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(55px, 8vw, 120px); align-items: end; }
 .sectionTagDark { color: var(--orange); }
 .leaders h2 { color: white; }
 .leaderIntro > div:last-child > p { max-width: 470px; color: rgba(255,255,255,.66); font-size: .98rem; line-height: 1.8; margin: 0 0 28px; }
 .outlineButtonLight { min-height: 50px; border: 1px solid rgba(255,255,255,.35); border-radius: 999px; color: white; }
 .outlineButtonLight:hover { color: var(--navy); background: white; transform: translateY(-2px); }
-.memberRail { margin-top: 78px; overflow: hidden; padding: 4px; }
-.memberTrack { width: max-content; display: flex; align-items: flex-start; gap: 24px; padding: 4px 0 20px; animation: memberLoop 50s linear infinite; will-change: transform; }
+.memberRail { margin-top: 78px; overflow: hidden; padding: 4px clamp(12px, 2vw, 30px); background: var(--leadership-charcoal); }
+.memberTrack { width: max-content; display: flex; align-items: flex-start; gap: clamp(24px, 3vw, 48px); padding: 4px 0 20px; background: var(--leadership-charcoal); animation: memberLoop 35s linear infinite; will-change: transform; }
 .memberRail:hover .memberTrack { animation-play-state: paused; }
-.memberCard { width: clamp(230px, 20.5vw, 285px); color: white; flex: none; display: flex; flex-direction: column; }
-.memberImage { position: relative; aspect-ratio: 3 / 4; overflow: hidden; background: var(--navy); border-radius: 18px; box-shadow: 0 18px 40px rgba(0,0,0,.27); }
-.memberImage img { object-fit: contain; filter: saturate(.9); transition: transform .65s cubic-bezier(.22, 1, .36, 1), filter .4s ease; }
-.memberCard:hover .memberImage img { transform: scale(1.045); filter: saturate(1.06); }
-.memberCaption { box-sizing: border-box; min-height: 102px; padding: 18px 5px; overflow-wrap: anywhere; }
-.memberCaption h3 { margin: 0; color: white; font-size: 1.13rem; font-weight: 500; letter-spacing: -.015em; }
+.memberCard { flex: 0 0 clamp(260px, 22vw, 330px); display: flex; flex-direction: column; color: white; background: var(--leadership-charcoal); }
+.memberImageLink { position: relative; display: block; overflow: hidden; border-radius: 18px; cursor: pointer; outline-offset: 5px; }
+.memberImageLink::after { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,0); transition: background .3s ease; pointer-events: none; }
+.memberImageLink:hover::after, .memberImageLink:focus-visible::after { background: rgba(0,0,0,.2); }
+.memberImage { position: relative; aspect-ratio: 3 / 4; overflow: hidden; border-radius: 18px; background: var(--leadership-charcoal); box-shadow: 0 12px 35px rgba(0,0,0,.18); }
+.memberImage img { object-fit: cover; object-position: center; border-radius: 18px; filter: saturate(.94); transition: transform .65s cubic-bezier(.22, 1, .36, 1), filter .4s ease; }
+.memberImageLink:hover .memberImage img, .memberImageLink:focus-visible .memberImage img { transform: scale(1.035); filter: saturate(1.04); }
+.profileLinkIcon { position: absolute; z-index: 2; right: 18px; bottom: 18px; width: 46px; height: 46px; display: grid; place-items: center; color: white; background: var(--orange); border-radius: 50%; opacity: 0; transform: translateY(10px) scale(.9); transition: opacity .3s ease, transform .3s ease; pointer-events: none; }
+.profileLinkIcon svg { width: 19px; }
+.memberImageLink:hover .profileLinkIcon, .memberImageLink:focus-visible .profileLinkIcon { opacity: 1; transform: translateY(0) scale(1); }
+.memberCaption { box-sizing: border-box; min-height: 112px; padding: 18px 5px; overflow-wrap: anywhere; }
+.memberName { margin: 0; color: white; font-size: clamp(1.18rem, 1.55vw, 1.45rem); line-height: 1.05; letter-spacing: -.02em; }
+.firstName { font-family: var(--font-heading), Georgia, serif; font-weight: 600; }
+.surname { color: var(--orange); font-family: var(--font-pacifico), cursive; font-size: .9em; font-weight: 400; }
 .memberCaption p { margin: 6px 0 0; color: rgba(255,255,255,.55); font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: .09em; line-height: 1.55; }
 .memberTextFirst .memberCaption { padding-top: 0; }
 .memberImageFirst .memberCaption { padding-bottom: 0; }
-@keyframes memberLoop { to { transform: translateX(calc(-50% - 12px)); } }
+@keyframes memberLoop { to { transform: translateX(calc(-50% - clamp(12px, 1.5vw, 24px))); } }
 
 .events { padding-block: 125px; }
 .textLinkDark { color: var(--ink); padding-bottom: 8px; border-bottom: 1px solid var(--orange); }
@@ -295,5 +303,6 @@
 
 @media (prefers-reduced-motion: reduce) {
   .page *, .page *::before, .page *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
-  .memberTrack, .galleryTrack { animation: none; }
+  .memberTrack { animation-play-state: paused; }
+  .galleryTrack { animation: none; }
 }

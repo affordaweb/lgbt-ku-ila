@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
+  ArrowUpRight,
   ExternalLink,
   HandHeart,
   HeartPulse,
@@ -54,39 +55,52 @@ const programs = [
 
 const leadershipMembers = [
   {
-    name: "Edmund Andal",
-    slug: "edmund-andal",
-    image: "/images/members/Edmund.webp",
-    role: "LGBTQIA++ Batangas City Board Member",
-    textFirst: true,
-  },
-  {
-    name: "Ariana Gamboa",
-    slug: "ariane-gamboa",
-    image: "/images/members/Ariane.webp",
-    role: "Former LGBTQIA++ Batangas City President",
-    textFirst: false,
-  },
-  {
-    name: "Ricson Cultura",
-    slug: "ricson-cultura",
-    image: "/images/members/Ricson.webp",
-    role: "LGBTQIA++ Kumintang Ilaya President",
-    textFirst: true,
-  },
-  {
-    name: "Donn Ramos",
-    slug: "donn-ramos",
-    image: "/images/members/Donn.webp",
-    role: "LGBTQIA++ Batangas City Board Member",
-    textFirst: false,
-  },
-  {
-    name: "Rey Anne Buenviaje",
-    slug: "reyann-buenviaje",
+    firstName: "Rey Anne",
+    surname: "Buenviaje",
+    profileSlug: "rey-anne-buenviaje",
     image: "/images/members/Rey Ann.webp",
     role: "LGBTQIA++ Batangas City Board Member",
     textFirst: true,
+  },
+  {
+    firstName: "Edmund",
+    surname: "Andal",
+    profileSlug: "edmund-andal",
+    image: "/images/members/Edmund.webp",
+    role: "LGBTQIA++ Batangas City Board Member",
+    textFirst: false,
+  },
+  {
+    firstName: "Ariana",
+    surname: "Gamboa",
+    profileSlug: "ariana-gamboa",
+    image: "/images/members/Ariane.webp",
+    role: "Former LGBTQIA++ Batangas City President",
+    textFirst: true,
+  },
+  {
+    firstName: "Ricson",
+    surname: "Cultura",
+    profileSlug: "ricson-cultura",
+    image: "/images/members/Ricson.webp",
+    role: "LGBTQIA++ Kumintang Ilaya President",
+    textFirst: false,
+  },
+  {
+    firstName: "Donn",
+    surname: "Ramos",
+    profileSlug: "donn-ramos",
+    image: "/images/members/Donn.webp",
+    role: "LGBTQIA++ Batangas City Board Member",
+    textFirst: true,
+  },
+  {
+    firstName: "Bela",
+    surname: "Cula",
+    profileSlug: "bela-cula",
+    image: "/images/members/Bela.webp",
+    role: "LGBTQIA++ Kumintang Ilaya Member",
+    textFirst: false,
   },
 ];
 const featuredEvent = pastEvents[0];
@@ -213,35 +227,44 @@ export default function HomePage() {
         </div>
         <div className={styles.memberRail} aria-label="Ku-Ila leadership">
           <div className={styles.memberTrack}>
-          {[...leadershipMembers, ...leadershipMembers].map((member, index) => (
-            <Link
-              href={`/members/${member.slug}`}
+          {[...leadershipMembers, ...leadershipMembers].map((member, index) => {
+            const name = `${member.firstName} ${member.surname}`;
+            const caption = (
+              <div className={styles.memberCaption}>
+                <h3 className={styles.memberName}>
+                  <span className={styles.firstName}>{member.firstName}</span>{" "}
+                  <span className={styles.surname}>{member.surname}</span>
+                </h3>
+                <p>{member.role}</p>
+              </div>
+            );
+
+            return (
+            <article
               className={`${styles.memberCard} ${member.textFirst ? styles.memberTextFirst : styles.memberImageFirst}`}
-              key={`${member.slug}-${index}`}
+              key={`${member.profileSlug}-${index}`}
             >
-              {member.textFirst && (
-                <div className={styles.memberCaption}>
-                  <h3>{member.name}</h3>
-                  <p>{member.role}</p>
-                </div>
-              )}
-              <div className={styles.memberImage}>
+              {member.textFirst && caption}
+              <Link
+                href={`/leadership/${member.profileSlug}`}
+                className={styles.memberImageLink}
+                aria-label={`View ${name}'s profile`}
+              >
+                <div className={styles.memberImage}>
                 <Image
                   src={member.image}
-                  alt={member.name}
+                  alt={name}
                   fill
                   sizes="(max-width: 700px) 72vw, 25vw"
                   className={styles.coverImage}
                 />
-              </div>
-              {!member.textFirst && (
-                <div className={styles.memberCaption}>
-                  <h3>{member.name}</h3>
-                  <p>{member.role}</p>
                 </div>
-              )}
-            </Link>
-          ))}
+                <span className={styles.profileLinkIcon} aria-hidden="true"><ArrowUpRight /></span>
+              </Link>
+              {!member.textFirst && caption}
+            </article>
+            );
+          })}
           </div>
         </div>
       </section>
