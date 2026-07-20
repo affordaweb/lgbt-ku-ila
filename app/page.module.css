@@ -188,28 +188,24 @@
 .programRow:hover .rowArrow, .programFeatured .rowArrow { color: var(--ink); background: white; }
 .rowArrow svg { width: 17px; }
 
-.leaders { width: min(100%, 1300px); margin-inline: auto; padding-block: 125px; padding-inline: clamp(24px, 3.08vw, 40px); color: white; background: var(--navy); box-shadow: 0 0 0 100vmax var(--navy); clip-path: inset(0 -100vmax); }
-.leaderIntro { display: grid; grid-template-columns: 1.2fr .8fr; gap: 90px; align-items: end; }
+.leaders { width: min(100%, 1300px); margin-inline: auto; padding-block: 135px 125px; padding-inline: clamp(24px, 3.08vw, 40px); color: white; background: var(--navy); box-shadow: 0 0 0 100vmax var(--navy); clip-path: inset(0 -100vmax); }
+.leaderIntro { display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(55px, 8vw, 120px); align-items: end; }
 .sectionTagDark { color: var(--orange); }
 .leaders h2 { color: white; }
-.leaderIntro > div:last-child > p { max-width: 510px; color: rgba(255,255,255,.63); line-height: 1.75; margin: 0 0 25px; }
+.leaderIntro > div:last-child > p { max-width: 470px; color: rgba(255,255,255,.66); font-size: .98rem; line-height: 1.8; margin: 0 0 28px; }
 .outlineButtonLight { min-height: 50px; border: 1px solid rgba(255,255,255,.35); border-radius: 999px; color: white; }
 .outlineButtonLight:hover { color: var(--navy); background: white; transform: translateY(-2px); }
-.memberRail { margin-top: 65px; overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
-.memberTrack { width: max-content; display: flex; gap: 22px; animation: memberLoop 42s linear infinite; }
+.memberRail { margin-top: 78px; overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent); mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent); }
+.memberTrack { width: max-content; display: flex; gap: 24px; padding: 4px 0 20px; animation: memberLoop 50s linear infinite; will-change: transform; }
 .memberRail:hover .memberTrack { animation-play-state: paused; }
-.memberCard { width: clamp(255px, 24vw, 310px); color: white; flex: none; }
-.memberTopline { min-height: 78px; padding: 0 5px 16px; }
-.memberTopline h3, .memberCaption h3 { margin: 0; font-size: 1.25rem; }
-.memberTopline p, .memberCaption p { margin: 5px 0 0; color: rgba(255,255,255,.54); font-size: 10px; text-transform: uppercase; letter-spacing: .12em; line-height: 1.45; }
-.memberCard:nth-child(odd) .memberTopline { visibility: hidden; }
-.memberCard:nth-child(even) .memberCaption { visibility: hidden; }
-.memberImage { position: relative; aspect-ratio: 3 / 4; overflow: hidden; background: var(--navy); border-radius: 22px; }
-.memberImage img { filter: saturate(.84); transition: transform .6s ease, filter .4s ease; }
-.memberCard:hover .memberImage img { transform: scale(1.035); filter: saturate(1); }
-.memberCaption { min-height: 78px; display: flex; justify-content: space-between; gap: 15px; padding: 18px 5px 0; }
-.memberCaption svg { width: 19px; color: var(--orange); }
-@keyframes memberLoop { to { transform: translateX(calc(-50% - 11px)); } }
+.memberCard { width: clamp(230px, 20.5vw, 285px); color: white; flex: none; }
+.memberImage { position: relative; aspect-ratio: 3 / 4; overflow: hidden; background: var(--navy); border-radius: 18px; box-shadow: 0 18px 40px rgba(0,0,0,.27); }
+.memberImage img { filter: saturate(.9); transition: transform .65s cubic-bezier(.22, 1, .36, 1), filter .4s ease; }
+.memberCard:hover .memberImage img { transform: scale(1.045); filter: saturate(1.06); }
+.memberCaption { min-height: 75px; padding: 18px 4px 0; }
+.memberCaption h3 { margin: 0; color: white; font-size: 1.13rem; font-weight: 500; letter-spacing: -.015em; }
+.memberCaption p { margin: 6px 0 0; color: rgba(255,255,255,.55); font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: .105em; line-height: 1.55; }
+@keyframes memberLoop { to { transform: translateX(calc(-50% - 12px)); } }
 
 .events { padding-block: 125px; }
 .textLinkDark { color: var(--ink); padding-bottom: 8px; border-bottom: 1px solid var(--orange); }
@@ -285,7 +281,9 @@
   .programRow p { grid-column: 2 / 5; }
   .rowArrow { width: 40px; height: 40px; }
   .memberRail { margin-inline: -24px; padding-inline: 24px; }
-  .memberCard { width: 76vw; }
+  .memberRail { overflow-x: auto; touch-action: pan-x; scrollbar-width: none; -webkit-mask-image: none; mask-image: none; }
+  .memberRail::-webkit-scrollbar { display: none; }
+  .memberCard { width: 72vw; max-width: 300px; }
   .storyRow { grid-template-columns: 110px 1fr; gap: 16px; }
   .featureStory { position: relative; top: auto; }
   .storyList { padding-bottom: 0; }

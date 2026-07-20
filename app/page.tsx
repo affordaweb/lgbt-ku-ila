@@ -9,7 +9,7 @@ import {
   MapPin,
   Users,
 } from "lucide-react";
-import { galleryImages, members, pastEvents } from "@/lib/data";
+import { galleryImages, pastEvents } from "@/lib/data";
 import AboutVisual from "@/components/AboutVisual";
 import styles from "./page.module.css";
 
@@ -52,7 +52,38 @@ const programs = [
   },
 ];
 
-const leaders = members.filter((member) => member.role !== "Member").slice(0, 6);
+const leadershipMembers = [
+  {
+    name: "Ricson Cultura",
+    slug: "ricson-cultura",
+    image: "/images/members/Ricson.webp",
+    role: "LGBTQIA++ Kumintang Ilaya President",
+  },
+  {
+    name: "Donn Ramos",
+    slug: "donn-ramos",
+    image: "/images/members/Donn.webp",
+    role: "LGBTQIA++ Batangas City Board Member",
+  },
+  {
+    name: "Rey Anne Buenviaje",
+    slug: "reyann-buenviaje",
+    image: "/images/members/Rey Ann.webp",
+    role: "LGBTQIA++ Batangas City Board Member",
+  },
+  {
+    name: "Edmund Andal",
+    slug: "edmund-andal",
+    image: "/images/members/Edmund.webp",
+    role: "LGBTQIA++ Batangas City Board Member",
+  },
+  {
+    name: "Ariana Gamboa",
+    slug: "ariane-gamboa",
+    image: "/images/members/Ariane.webp",
+    role: "Former LGBTQIA++ Batangas City President",
+  },
+];
 const featuredEvent = pastEvents[0];
 const eventList = pastEvents.slice(1, 4);
 const heroSlides = [
@@ -163,26 +194,22 @@ export default function HomePage() {
         <div className={styles.leaderIntro}>
           <div>
             <p className={styles.sectionTagDark}>People of Ku-Ila</p>
-            <h2>Leadership shaped by<br /><em>lived experience.</em></h2>
+            <h2>Leadership shaped by<br /><em>Lived experience.</em></h2>
           </div>
           <div>
             <p>
-              Meet the people who listen, organize, advocate, and make space
-              for our community to grow together.
+              Meet the people who listen, organize, advocate, and create safe
+              spaces for the LGBTQIA++ community in Batangas City.
             </p>
             <Link href="/members" className={styles.outlineButtonLight}>
-              Meet every member <ArrowRight aria-hidden="true" />
+              Meet Every Member <ArrowRight aria-hidden="true" />
             </Link>
           </div>
         </div>
         <div className={styles.memberRail} aria-label="Ku-Ila leadership">
           <div className={styles.memberTrack}>
-          {[...leaders, ...leaders].map((member, index) => (
+          {[...leadershipMembers, ...leadershipMembers].map((member, index) => (
             <Link href={`/members/${member.slug}`} className={styles.memberCard} key={`${member.slug}-${index}`}>
-              <div className={styles.memberTopline}>
-                <h3>{member.name}</h3>
-                <p>{member.role}</p>
-              </div>
               <div className={styles.memberImage}>
                 <Image
                   src={member.image}
@@ -193,8 +220,8 @@ export default function HomePage() {
                 />
               </div>
               <div className={styles.memberCaption}>
-                <div><h3>{member.name}</h3><p>{member.role}</p></div>
-                <ArrowRight aria-hidden="true" />
+                <h3>{member.name}</h3>
+                <p>{member.role}</p>
               </div>
             </Link>
           ))}
