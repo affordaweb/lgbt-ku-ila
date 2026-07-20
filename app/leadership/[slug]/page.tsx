@@ -3,6 +3,7 @@ import { notFound, redirect } from "next/navigation";
 const memberProfileSlugs: Record<string, string> = {
   "rey-anne-buenviaje": "reyann-buenviaje",
   "edmund-andal": "edmund-andal",
+  "ariane-gamboa": "ariane-gamboa",
   "ariana-gamboa": "ariane-gamboa",
   "ricson-cultura": "ricson-cultura",
   "donn-ramos": "donn-ramos",

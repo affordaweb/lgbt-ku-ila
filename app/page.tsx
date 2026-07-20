@@ -89,9 +89,9 @@ const leadershipMembers = [
     textFirst: true,
   },
   {
-    firstName: "Ariana",
+    firstName: "Ariane",
     surname: "Gamboa",
-    profileSlug: "ariana-gamboa",
+    profileSlug: "ariane-gamboa",
     image: "/images/members/Ariane.webp",
     role: "Former LGBTQIA++ Batangas City President",
     textFirst: false,
