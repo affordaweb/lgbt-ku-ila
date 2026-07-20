@@ -56,30 +56,6 @@ const programs = [
 
 const leadershipMembers = [
   {
-    firstName: "Rey Anne",
-    surname: "Buenviaje",
-    profileSlug: "rey-anne-buenviaje",
-    image: "/images/members/Rey Ann.webp",
-    role: "LGBTQIA++ Batangas City Board Member",
-    textFirst: true,
-  },
-  {
-    firstName: "Edmund",
-    surname: "Andal",
-    profileSlug: "edmund-andal",
-    image: "/images/members/Edmund.webp",
-    role: "LGBTQIA++ Batangas City Board Member",
-    textFirst: false,
-  },
-  {
-    firstName: "Ariana",
-    surname: "Gamboa",
-    profileSlug: "ariana-gamboa",
-    image: "/images/members/Ariane.webp",
-    role: "Former LGBTQIA++ Batangas City President",
-    textFirst: true,
-  },
-  {
     firstName: "Ricson",
     surname: "Cultura",
     profileSlug: "ricson-cultura",
@@ -96,12 +72,36 @@ const leadershipMembers = [
     textFirst: true,
   },
   {
+    firstName: "Rey Anne",
+    surname: "Buenviaje",
+    profileSlug: "rey-anne-buenviaje",
+    image: "/images/members/Rey Ann.webp",
+    role: "LGBTQIA++ Batangas City Board Member",
+    textFirst: false,
+  },
+  {
+    firstName: "Edmund",
+    surname: "Andal",
+    profileSlug: "edmund-andal",
+    image: "/images/members/Edmund.webp",
+    role: "LGBTQIA++ Batangas City Board Member",
+    textFirst: true,
+  },
+  {
+    firstName: "Ariana",
+    surname: "Gamboa",
+    profileSlug: "ariana-gamboa",
+    image: "/images/members/Ariane.webp",
+    role: "Former LGBTQIA++ Batangas City President",
+    textFirst: false,
+  },
+  {
     firstName: "Bela",
     surname: "Culla",
     profileSlug: "bela-culla",
     image: "/images/members/Bela.webp",
     role: "LGBTQIA++ Kumintang Ilaya Member",
-    textFirst: false,
+    textFirst: true,
   },
 ];
 const featuredEvent = pastEvents[0];

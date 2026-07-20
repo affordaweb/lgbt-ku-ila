@@ -1,353 +1,54 @@
 "use client";
 
-import { useState, FormEvent, useRef } from "react";
-import { Send, User, Mail, Phone, FileText, Upload, AlertCircle, Check } from "lucide-react";
+import { ChangeEvent, FormEvent, ReactNode, useRef, useState } from "react";
+import { AlertCircle, Check, ChevronLeft, ChevronRight, FileText, Send, Upload } from "lucide-react";
 import TurnstileField from "./TurnstileField";
 import { submitContactForm } from "@/lib/contactForm";
 
+const steps = ["Basic Information", "Identity and Pronouns", "Organization Role", "Work and Skills", "Biography and Contributions", "Photo and Files", "Contact and Social Links", "Membership and Review"];
+const orientations = ["Gay", "Lesbian", "Bisexual", "Pansexual", "Asexual", "Demisexual", "Queer", "Questioning", "Heterosexual / Straight", "Prefer Not to Say", "Self-Describe"];
+const identities = ["Woman", "Man", "Transgender Woman", "Transgender Man", "Nonbinary", "Genderfluid", "Genderqueer", "Agender", "Bigender", "Intersex", "Two-Spirit", "Questioning", "Prefer Not to Say", "Self-Describe"];
+
+function Field({ label, help, children, required = false }: { label: string; help?: string; children: ReactNode; required?: boolean }) {
+  return <label className="block mb-5"><span className="mb-2 block text-sm font-medium uppercase tracking-wider text-[#0a1d4a]">{label}{required ? " *" : ""}</span>{children}{help ? <small className="mt-1 block text-xs leading-relaxed text-[#0a1d4a]/55">{help}</small> : null}</label>;
+}
+
+function Checks({ name, options, onChange }: { name: string; options: string[]; onChange?: () => void }) {
+  return <div className="grid grid-cols-1 gap-2 rounded-xl border border-[#0a1d4a]/15 bg-white p-4 sm:grid-cols-2">{options.map(option => <label key={option} className="flex items-start gap-2 text-sm leading-snug text-[#0a1d4a]/75"><input type="checkbox" name={name} value={option} onChange={onChange} className="mt-1 accent-[#f15a24]" /><span>{option}</span></label>)}</div>;
+}
+
 export default function MembershipForm() {
-  const [loading, setLoading] = useState(false);
-  const [turnstileToken, setTurnstileToken] = useState("");
-  const [submitError, setSubmitError] = useState("");
-  const [submitted, setSubmitted] = useState(false);
-  const [gcashRef, setGcashRef] = useState("");
-  const [refError, setRefError] = useState("");
-  const [refChecking, setRefChecking] = useState(false);
-  const [refVerified, setRefVerified] = useState(false);
-  const [screenshotFile, setScreenshotFile] = useState<File | null>(null);
-  const [screenshotPreview, setScreenshotPreview] = useState<string | null>(null);
-  const fileInputRef = useRef<HTMLInputElement>(null);
+  const [step, setStep] = useState(0); const [loading, setLoading] = useState(false); const [turnstileToken, setTurnstileToken] = useState(""); const [submitError, setSubmitError] = useState(""); const [submitted, setSubmitted] = useState(false);
+  const [gcashRef, setGcashRef] = useState(""); const [refError, setRefError] = useState(""); const [refChecking, setRefChecking] = useState(false); const [refVerified, setRefVerified] = useState(false); const [screenshotFile, setScreenshotFile] = useState<File | null>(null); const [screenshotPreview, setScreenshotPreview] = useState<string | null>(null);
+  const [otherPronouns, setOtherPronouns] = useState(false); const [orientationOther, setOrientationOther] = useState(false); const [identityOther, setIdentityOther] = useState(false); const [photoSelected, setPhotoSelected] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null); const screenshotInput = useRef<HTMLInputElement>(null);
 
-  const checkReference = async (ref: string) => {
-    if (ref.length < 5) {
-      setRefError("");
-      setRefVerified(false);
-      return;
-    }
-    setRefChecking(true);
-    setRefError("");
-    try {
-      const res = await fetch("/api/gcash/check", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ reference: ref }),
-      });
-      const data = await res.json();
-      if (data.exists) {
-        setRefError("This reference number has already been used.");
-        setRefVerified(false);
-      } else {
-        setRefError("");
-        setRefVerified(true);
-      }
-    } catch {
-      setRefError("Unable to verify reference. Please try again.");
-      setRefVerified(false);
-    } finally {
-      setRefChecking(false);
-    }
+  const checkReference = async (reference: string) => { if (reference.length < 5) { setRefError(""); setRefVerified(false); return; } setRefChecking(true); setRefError(""); try { const response = await fetch("/api/gcash/check", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ reference }) }); const data = await response.json(); if (data.exists) { setRefError("This reference number has already been used."); setRefVerified(false); } else setRefVerified(true); } catch { setRefError("Unable to verify reference. Please try again."); setRefVerified(false); } finally { setRefChecking(false); } };
+  const changeReference = (value: string) => { setGcashRef(value); setRefVerified(false); setRefError(""); };
+  const changeScreenshot = (event: ChangeEvent<HTMLInputElement>) => { const file = event.target.files?.[0] ?? null; setScreenshotFile(file); if (!file) { setScreenshotPreview(null); return; } const reader = new FileReader(); reader.onloadend = () => setScreenshotPreview(String(reader.result)); reader.readAsDataURL(file); };
+  const selected = (name: string, value: string) => Boolean(formRef.current?.querySelector<HTMLInputElement>(`input[name="${name}"][value="${value}"]:checked`));
+  const next = () => { const active = formRef.current?.querySelector<HTMLElement>(`[data-membership-step="${step}"]`); const invalid = active?.querySelector<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>("[required]:invalid"); if (invalid) { invalid.focus(); invalid.reportValidity(); return; } if (step === 7 && (!screenshotFile || !refVerified)) { setSubmitError("Please provide a verified GCash reference number and payment screenshot."); return; } setSubmitError(""); setStep(current => Math.min(current + 1, steps.length - 1)); };
+
+  const submit = async (event: FormEvent<HTMLFormElement>) => { event.preventDefault(); const form = event.currentTarget; if (!form.checkValidity() || !screenshotFile || !refVerified) { form.reportValidity(); setSubmitError("Please complete the required fields and payment verification."); return; } const data = new FormData(form); const profilePhoto = data.get("profile_photo"); const supporting = data.getAll("supporting_files").filter((file): file is File => file instanceof File && file.size > 0); const photo = profilePhoto instanceof File && profilePhoto.size > 0 ? profilePhoto : null; if (photo && !data.get("photo_permission")) { setSubmitError("Please confirm you own the new profile photo or have permission to submit it."); return; } if ((photo && photo.size > 5 * 1024 * 1024) || supporting.some(file => file.size > (file.type === "application/pdf" ? 10 : 5) * 1024 * 1024) || supporting.length > 3) { setSubmitError("Images must be 5 MB or smaller, PDFs 10 MB or smaller, with a maximum of three supporting files."); return; }
+    setLoading(true); setSubmitError(""); const fields: Record<string, string> = {}; data.forEach((value, key) => { if (typeof value !== "string" || ["email", "_honeypot"].includes(key)) return; fields[key] = fields[key] ? `${fields[key]}\n${value}` : value; });
+    const result = await submitContactForm({ formType: "membership", subject: "New Membership Request — Ku-ila Website", name: String(data.get("full_name")), email: String(data.get("email")), message: `New membership application from ${String(data.get("full_name"))}. GCash reference: ${gcashRef.trim()}.`, turnstileToken, fields: { ...fields, gcash_reference: gcashRef.trim() }, files: [screenshotFile, ...(photo ? [photo] : []), ...supporting] });
+    if (!result.ok) { setLoading(false); setSubmitError(result.message); return; }
+    try { await fetch("/api/gcash/store", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ reference: gcashRef.trim(), name: data.get("full_name"), email: data.get("email") }) }); setSubmitted(true); } catch { setSubmitError("Your application was sent, but payment verification could not be saved. Please contact us with your GCash reference."); } finally { setLoading(false); }
   };
 
-  const handleRefChange = (value: string) => {
-    setGcashRef(value);
-    setRefVerified(false);
-    setRefError("");
-  };
+  if (submitted) return <div className="rounded-[18px] bg-[#f7f5f0] p-8 text-center" role="status"><Check className="mx-auto mb-3 text-[#f15a24]"/><h3 className="font-[family-name:var(--font-heading)] text-2xl text-[#0a1d4a]">Application received</h3><p className="mt-2 text-sm leading-relaxed text-[#0a1d4a]/65">Thank you. Your membership request and profile information will be reviewed after payment verification.</p></div>;
 
-  const handleRefBlur = () => {
-    if (gcashRef.length >= 5) {
-      checkReference(gcashRef);
-    }
-  };
-
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      setScreenshotFile(file);
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setScreenshotPreview(reader.result as string);
-      };
-      reader.readAsDataURL(file);
-    }
-  };
-
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    if (!screenshotFile) return;
-
-    setLoading(true);
-
-    const form = e.currentTarget;
-    const formData = new FormData(form);
-    setSubmitError("");
-
-    try {
-      const result = await submitContactForm({
-        formType: "membership",
-        subject: "New Membership Request — Ku-ila Website",
-        name: String(formData.get("full_name")),
-        email: String(formData.get("email")),
-        message: `Membership application from ${String(formData.get("full_name"))}. GCash reference: ${gcashRef.trim()}.`,
-        turnstileToken,
-        fields: { phone: String(formData.get("phone")), address: String(formData.get("address")), facebookUrl: String(formData.get("facebook_url")), gcashReference: gcashRef.trim() },
-        files: [screenshotFile],
-      });
-      if (!result.ok) { setSubmitError(result.message); return; }
-      await fetch("/api/gcash/store", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          reference: gcashRef.trim(),
-          name: formData.get("full_name"),
-          email: formData.get("email"),
-        }),
-      });
-
-      setSubmitted(true);
-    } catch {
-      setSubmitError("We could not send your request. Please try again shortly.");
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const canSubmit = screenshotFile !== null && gcashRef.trim().length >= 5 && refVerified && !refChecking && (!process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || Boolean(turnstileToken));
-
-  if (submitted) return <div className="rounded-[18px] bg-[#f7f5f0] p-8 text-center" role="status"><Check className="mx-auto mb-3 text-[#f15a24]"/><h3 className="font-[family-name:var(--font-heading)] text-2xl text-[#0a1d4a]">Application received</h3><p className="mt-2 text-sm leading-relaxed text-[#0a1d4a]/65">Thank you. Your membership request will be reviewed after payment verification.</p></div>;
-
-  return (
-    <>
-      <form onSubmit={handleSubmit} className="space-y-6">
-        <div className="sr-only" aria-hidden="true"><label>Leave this blank<input name="_honeypot" tabIndex={-1} autoComplete="off" /></label></div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div>
-            <label
-              htmlFor="fullName"
-              className="block text-sm font-medium text-[#3a3d44] mb-2 uppercase tracking-wider"
-            >
-              Full Name *
-            </label>
-            <div className="relative">
-              <User className="absolute left-3 top-3.5 w-4 h-4 text-[#787878]" />
-              <input
-                type="text"
-                id="fullName"
-                name="full_name"
-                required
-                className="input-luxury pl-10"
-                placeholder="Juan Dela Cruz"
-              />
-            </div>
-          </div>
-          <div>
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-[#3a3d44] mb-2 uppercase tracking-wider"
-            >
-              Email Address *
-            </label>
-            <div className="relative">
-              <Mail className="absolute left-3 top-3.5 w-4 h-4 text-[#787878]" />
-              <input
-                type="email"
-                id="email"
-                name="email"
-                required
-                className="input-luxury pl-10"
-                placeholder="your@email.com"
-              />
-            </div>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div>
-            <label
-              htmlFor="phone"
-              className="block text-sm font-medium text-[#3a3d44] mb-2 uppercase tracking-wider"
-            >
-              Phone Number *
-            </label>
-            <div className="relative">
-              <Phone className="absolute left-3 top-3.5 w-4 h-4 text-[#787878]" />
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
-                required
-                className="input-luxury pl-10"
-                placeholder="09XX XXX XXXX"
-              />
-            </div>
-          </div>
-          <div>
-            <label
-              htmlFor="address"
-              className="block text-sm font-medium text-[#3a3d44] mb-2 uppercase tracking-wider"
-            >
-              Address *
-            </label>
-            <input
-              type="text"
-              id="address"
-              name="address"
-              required
-              className="input-luxury"
-              placeholder="Barangay, City/Municipality"
-            />
-          </div>
-        </div>
-
-        <div>
-          <label
-            htmlFor="facebook"
-            className="block text-sm font-medium text-[#3a3d44] mb-2 uppercase tracking-wider"
-          >
-            Facebook Profile URL *
-          </label>
-          <input
-            type="url"
-            id="facebook"
-            name="facebook_url"
-            required
-            className="input-luxury"
-            placeholder="https://www.facebook.com/yourprofile"
-          />
-        </div>
-
-        <div>
-          <label
-            htmlFor="gcashRef"
-            className="block text-sm font-medium text-[#3a3d44] mb-2 uppercase tracking-wider"
-          >
-            GCash Reference Number *
-          </label>
-          <div className="relative">
-            <FileText className="absolute left-3 top-3.5 w-4 h-4 text-[#787878]" />
-            <input
-              type="text"
-              id="gcashRef"
-              name="gcash_reference"
-              required
-              value={gcashRef}
-              onChange={(e) => handleRefChange(e.target.value)}
-              onBlur={handleRefBlur}
-              className={`input-luxury pl-10 pr-10 ${
-                refError ? "border-red-400 focus:border-red-400 focus:shadow-red-100" : ""
-              } ${refVerified ? "border-green-400 focus:border-green-400" : ""}`}
-              placeholder="e.g. 1234567890123"
-            />
-            {refChecking && (
-              <div className="absolute right-3 top-3">
-                <div className="w-4 h-4 border-2 border-[#e85242] border-t-transparent rounded-full animate-spin" />
-              </div>
-            )}
-            {refVerified && !refChecking && (
-              <Check className="absolute right-3 top-3.5 w-4 h-4 text-green-500" />
-            )}
-            {refError && !refChecking && (
-              <AlertCircle className="absolute right-3 top-3.5 w-4 h-4 text-red-400" />
-            )}
-          </div>
-          {refError && (
-            <p className="mt-1 text-xs text-red-400">{refError}</p>
-          )}
-          {refVerified && (
-            <p className="mt-1 text-xs text-green-500">Reference number verified</p>
-          )}
-          <p className="mt-1 text-xs text-[#787878]">
-            Enter the reference number from your GCash payment confirmation
-          </p>
-        </div>
-
-        <div>
-          <label className="block text-sm font-medium text-[#3a3d44] mb-2 uppercase tracking-wider">
-            GCash Screenshot *
-          </label>
-          <div
-            onClick={() => fileInputRef.current?.click()}
-            className={`border-2 border-dashed p-8 text-center cursor-pointer transition-colors ${
-              screenshotFile
-                ? "border-green-300 bg-green-50/50"
-                : "border-[#e4e4e4] hover:border-[#e85242] bg-[#f7f7f7]"
-            }`}
-          >
-            {screenshotPreview ? (
-              <div className="space-y-3">
-                <img
-                  src={screenshotPreview}
-                  alt="GCash Screenshot Preview"
-                  className="max-h-48 mx-auto object-contain"
-                />
-                <p className="text-xs text-green-600 font-medium">
-                  Screenshot uploaded: {screenshotFile?.name}
-                </p>
-                <button
-                  type="button"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setScreenshotFile(null);
-                    setScreenshotPreview(null);
-                    if (fileInputRef.current) fileInputRef.current.value = "";
-                  }}
-                  className="text-xs text-red-400 hover:text-red-500 underline"
-                >
-                  Remove
-                </button>
-              </div>
-            ) : (
-              <div className="space-y-3">
-                <Upload className="w-10 h-10 text-[#787878] mx-auto" />
-                <p className="text-sm text-[#787878]">
-                  Click to upload your GCash payment screenshot
-                </p>
-                <p className="text-xs text-[#9CA3AF]">
-                  PNG, JPG or JPEG (max 5MB)
-                </p>
-              </div>
-            )}
-          </div>
-          <input
-            ref={fileInputRef}
-            type="file"
-            accept="image/png,image/jpeg,image/jpg"
-            onChange={handleFileChange}
-            className="hidden"
-          />
-        </div>
-
-        <div className="bg-[#f7f7f7] border border-[#e4e4e4] p-5">
-          <p className="text-sm text-[#3a3d44]">
-            <strong>Membership Fee:</strong> 300 PHP (one-time)
-          </p>
-          <p className="text-xs text-[#787878] mt-1">
-            After submitting this form, your application will be reviewed. Your membership will be activated once payment is verified.
-          </p>
-        </div>
-
-        <TurnstileField onToken={setTurnstileToken} />
-        {submitError ? <p role="alert" className="text-sm text-red-700">{submitError}</p> : null}
-
-        <button
-          type="submit"
-          disabled={loading || !canSubmit}
-          className={`btn-theme w-full disabled:opacity-40 disabled:cursor-not-allowed ${
-            canSubmit ? "btn-theme-primary" : "bg-gray-300 text-gray-500"
-          }`}
-        >
-          {loading ? (
-            "Submitting..."
-          ) : (
-            <>
-              Submit Application
-              <Send className="w-4 h-4" />
-            </>
-          )}
-        </button>
-      </form>
-    </>
-  );
+  return <form ref={formRef} onSubmit={submit} className="rounded-[18px] border border-[#0a1d4a]/10 bg-white p-5 shadow-[0_16px_36px_rgba(0,0,0,.06)] sm:p-8" encType="multipart/form-data" noValidate>
+    <div className="sr-only" aria-hidden="true"><label>Leave this blank<input name="_honeypot" tabIndex={-1} autoComplete="off" /></label></div>
+    <div className="mb-8"><p className="text-[10px] font-extrabold uppercase tracking-[.18em] text-[#f15a24]">Step {step + 1} of {steps.length}</p><h3 className="mt-2 font-[family-name:var(--font-heading)] text-2xl text-[#0a1d4a]">{steps[step]}</h3><div className="mt-4 h-1 overflow-hidden rounded-full bg-[#0a1d4a]/10"><span className="block h-full rounded-full bg-[#f15a24] transition-[width] duration-300" style={{ width: `${((step + 1) / steps.length) * 100}%` }} /></div></div>
+    <section data-membership-step="0" hidden={step !== 0}><p className="mb-6 text-sm leading-relaxed text-[#0a1d4a]/65">These details begin your member profile. They are reviewed before anything is published.</p><div className="grid gap-x-5 md:grid-cols-2"><Field label="Full Name" required help="Enter your complete name as you would like it to appear publicly."><input className="input-luxury" name="full_name" required placeholder="Juan Dela Cruz" /></Field><Field label="Contact Email" required help="Used only to reply about this application; it is not shown publicly."><input className="input-luxury" name="email" type="email" required placeholder="name@example.com" /></Field><Field label="Nickname / Also Known As"><input className="input-luxury" name="nickname" placeholder="Rics" /></Field><Field label="Name to Display Publicly"><input className="input-luxury" name="display_name" placeholder="Juan Cruz" /></Field><Field label="Phone Number" required><input className="input-luxury" name="phone" type="tel" required placeholder="+63 912 345 6789" /></Field><Field label="Address" required><input className="input-luxury" name="address" required placeholder="Barangay, City/Municipality" /></Field></div></section>
+    <section data-membership-step="1" hidden={step !== 1}><Field label="Pronouns" help="Optional. Only approved information will appear publicly."><select className="input-luxury" name="pronouns" onChange={event => setOtherPronouns(event.target.value === "Other")}><option value="">Choose an option</option>{["He/Him", "She/Her", "They/Them", "He/They", "She/They", "Any Pronouns", "Prefer Not to Say", "Other"].map(item => <option key={item}>{item}</option>)}</select></Field>{otherPronouns ? <Field label="Other Pronouns"><input className="input-luxury" name="other_pronouns" placeholder="They/She" /></Field> : null}<Field label="Sexual Orientation" help="Optional. Select any options that describe you; leave blank if you do not want it shown publicly."><Checks name="orientation" options={orientations} onChange={() => setOrientationOther(selected("orientation", "Self-Describe"))} />{orientationOther ? <input className="input-luxury mt-3" name="orientation_self_describe" placeholder="Self-describe" /> : null}</Field><Field label="Gender Identity" help="Optional. Only approved information should appear publicly."><Checks name="identity" options={identities} onChange={() => setIdentityOther(selected("identity", "Self-Describe"))} />{identityOther ? <input className="input-luxury mt-3" name="identity_self_describe" placeholder="Self-describe" /> : null}</Field><Field label="How would you like your identity or community affiliation described?" help="Use the wording you are comfortable displaying publicly."><textarea className="input-luxury min-h-28 resize-y" name="identity_description" placeholder="LGBTQIA++ advocate and community organizer" /></Field></section>
+    <section data-membership-step="2" hidden={step !== 2}><Field label="Current Role in the Organization"><input className="input-luxury" name="current_role" placeholder="LGBTQIA++ Kumintang Ilaya Member" /></Field><Field label="Previous Roles" help="Enter one role per line."><textarea className="input-luxury min-h-28 resize-y" name="previous_roles" placeholder={"Board Member\nEvents Committee Coordinator"} /></Field><div className="grid gap-x-5 md:grid-cols-2"><Field label="Organization / Chapter"><input className="input-luxury" name="chapter" placeholder="LGBTQIA++ SILBI Kumintang Ilaya" /></Field><Field label="Year Joined"><input className="input-luxury" name="year_joined" inputMode="numeric" pattern="[0-9]{4}" placeholder="2026" /></Field></div><Field label="Committees and Areas of Involvement" help="Enter one entry per line."><textarea className="input-luxury min-h-28 resize-y" name="committees" placeholder={"Community Outreach\nMembership\nEvents"} /></Field></section>
+    <section data-membership-step="3" hidden={step !== 3}><Field label="Currently Working As" help="Enter one occupation or profession per line."><textarea className="input-luxury min-h-28 resize-y" name="work" placeholder={"Makeup Artist\nFashion Designer"} /></Field><Field label="Skills and Talents" help="Enter one skill per line."><textarea className="input-luxury min-h-28 resize-y" name="skills" placeholder={"Hair and Makeup\nEvent Production\nPublic Speaking"} /></Field><div className="grid gap-x-5 md:grid-cols-2"><Field label="Business, Brand, or Professional Name"><input className="input-luxury" name="business_name" placeholder="Juan Cruz Makeup Artistry" /></Field><Field label="Website or Business Page"><input className="input-luxury" name="business_url" type="url" placeholder="https://example.com" /></Field></div></section>
+    <section data-membership-step="4" hidden={step !== 4}><Field label="Short Biography" help="Write two to four sentences about yourself."><textarea className="input-luxury min-h-32 resize-y" name="biography" placeholder="Share a short introduction about yourself." /></Field><Field label="Your Story" help="This may be edited for clarity before it appears publicly."><textarea className="input-luxury min-h-36 resize-y" name="story" placeholder="Share a short story about your journey and the people who inspired you." /></Field><Field label="Advocacy Interests" help="Enter one topic per line."><textarea className="input-luxury min-h-28 resize-y" name="advocacy" placeholder={"Equal rights\nMental health awareness\nYouth empowerment"} /></Field><Field label="Community Contributions" help="Enter one contribution per line."><textarea className="input-luxury min-h-28 resize-y" name="contributions" placeholder={"Organized local Pride activities\nSupported membership outreach"} /></Field><Field label="Achievements and Awards" help="Enter one achievement per line and include the year when available."><textarea className="input-luxury min-h-28 resize-y" name="achievements" placeholder={"Champion — Commercial Makeup Competition, 2026\nVolunteer Recognition Award, 2025"} /></Field><Field label="Favorite Quote or Personal Message"><textarea className="input-luxury min-h-28 resize-y" name="quote" placeholder="Be proud of who you are and help others feel safe doing the same." /></Field></section>
+    <section data-membership-step="5" hidden={step !== 5}><Field label="Upload New Profile Photo" help="JPG, JPEG, PNG, or WebP. Upload a clear portrait; it may be cropped to match the member directory style."><input className="block w-full rounded-xl border border-dashed border-[#0a1d4a]/30 bg-white p-3 text-sm" name="profile_photo" type="file" accept="image/jpeg,image/png,image/webp" onChange={event => setPhotoSelected(Boolean(event.target.files?.[0]))} /></Field>{photoSelected ? <label className="mb-5 flex items-start gap-2 text-sm leading-relaxed text-[#0a1d4a]/75"><input className="mt-1 accent-[#f15a24]" name="photo_permission" type="checkbox" required /> I confirm that I own this image or have permission to submit it for use on this website.</label> : null}<Field label="Photo credit or photographer name"><input className="input-luxury" name="photo_credit" placeholder="Juan Dela Cruz Photography" /></Field><Field label="Supporting Files" help="Optional: PDF, JPG, PNG, or WebP—such as certificates, appointment letters, or reference images. Files are never published automatically."><input className="block w-full rounded-xl border border-dashed border-[#0a1d4a]/30 bg-white p-3 text-sm" name="supporting_files" type="file" multiple accept="application/pdf,image/jpeg,image/png,image/webp" /></Field></section>
+    <section data-membership-step="6" hidden={step !== 6}><div className="grid gap-x-5 md:grid-cols-2"><Field label="Public Email Address"><input className="input-luxury" name="public_email" type="email" placeholder="name@example.com" /></Field><Field label="Contact Number"><input className="input-luxury" name="public_phone" type="tel" placeholder="+63 912 345 6789" /></Field></div><label className="mb-4 flex items-start gap-2 text-sm leading-relaxed text-[#0a1d4a]/75"><input className="mt-1 accent-[#f15a24]" name="email_permission" type="checkbox" /> I give permission for this email address to appear publicly.</label><label className="mb-5 flex items-start gap-2 text-sm leading-relaxed text-[#0a1d4a]/75"><input className="mt-1 accent-[#f15a24]" name="phone_permission" type="checkbox" /> I give permission for this phone number to appear publicly.</label><div className="grid gap-x-5 md:grid-cols-2">{["Facebook", "Instagram", "TikTok", "YouTube", "LinkedIn", "Other public profile"].map(network => <Field key={network} label={network}><input className="input-luxury" name={network.toLowerCase().replaceAll(" ", "_")} type="url" placeholder={`https://${network.toLowerCase().replaceAll(" ", "")}.com/username`} /></Field>)}</div></section>
+    <section data-membership-step="7" hidden={step !== 7}><Field label="Facebook Profile URL" required><input className="input-luxury" name="facebook_url" type="url" required placeholder="https://www.facebook.com/yourprofile" /></Field><Field label="GCash Reference Number" required help="Enter the reference number from your GCash payment confirmation."><div className="relative"><FileText className="absolute left-3 top-3.5 h-4 w-4 text-[#787878]" /><input className={`input-luxury pl-10 pr-10 ${refError ? "border-red-400" : ""} ${refVerified ? "border-green-400" : ""}`} name="gcash_reference" required value={gcashRef} onChange={event => changeReference(event.target.value)} onBlur={() => checkReference(gcashRef)} placeholder="e.g. 1234567890123" />{refChecking ? <span className="absolute right-3 top-3 h-4 w-4 animate-spin rounded-full border-2 border-[#f15a24] border-t-transparent" /> : null}{refVerified && !refChecking ? <Check className="absolute right-3 top-3.5 h-4 w-4 text-green-500" /> : null}{refError && !refChecking ? <AlertCircle className="absolute right-3 top-3.5 h-4 w-4 text-red-400" /> : null}</div>{refError ? <p className="mt-1 text-xs text-red-500">{refError}</p> : null}{refVerified ? <p className="mt-1 text-xs text-green-600">Reference number verified</p> : null}</Field><Field label="GCash Screenshot" required help="PNG, JPG, or JPEG, up to 5 MB."><div onClick={() => screenshotInput.current?.click()} className={`cursor-pointer rounded-xl border-2 border-dashed p-6 text-center ${screenshotFile ? "border-green-300 bg-green-50/50" : "border-[#e4e4e4] bg-[#f7f7f7] hover:border-[#f15a24]"}`}>{screenshotPreview ? <><img src={screenshotPreview} alt="GCash payment screenshot preview" className="mx-auto max-h-48 object-contain" /><p className="mt-3 text-xs font-medium text-green-700">Screenshot uploaded: {screenshotFile?.name}</p></> : <><Upload className="mx-auto h-9 w-9 text-[#787878]" /><p className="mt-3 text-sm text-[#787878]">Click to upload your GCash payment screenshot</p></>}</div><input ref={screenshotInput} type="file" accept="image/png,image/jpeg" onChange={changeScreenshot} className="hidden" /></Field><Field label="Anything else you would like us to know?"><textarea className="input-luxury min-h-28 resize-y" name="application_notes" placeholder="Share any details that will help us review your application." /></Field><div className="mb-6 rounded-xl border border-[#0a1d4a]/10 bg-[#f7f5f0] p-5 text-sm leading-relaxed text-[#0a1d4a]/70"><p><strong className="text-[#0a1d4a]">Membership Fee:</strong> ₱300 one-time.</p><p className="mt-1">Your application and complete profile information will be reviewed before your membership and profile are published.</p></div><label className="mb-3 flex items-start gap-2 text-sm leading-relaxed text-[#0a1d4a]/75"><input className="mt-1 accent-[#f15a24]" name="accurate" type="checkbox" required /> I confirm that the information I submitted is accurate.</label><label className="mb-3 flex items-start gap-2 text-sm leading-relaxed text-[#0a1d4a]/75"><input className="mt-1 accent-[#f15a24]" name="review_understood" type="checkbox" required /> I understand that this application and profile will be reviewed before publication.</label><label className="mb-6 flex items-start gap-2 text-sm leading-relaxed text-[#0a1d4a]/75"><input className="mt-1 accent-[#f15a24]" name="public_permission" type="checkbox" required /> I give permission for approved information to appear on my public member profile.</label><TurnstileField onToken={setTurnstileToken} /></section>
+    {submitError ? <p role="alert" className="mt-5 text-sm text-red-700">{submitError}</p> : null}<footer className="mt-8 flex flex-wrap items-center justify-between gap-3 border-t border-[#0a1d4a]/10 pt-6">{step > 0 ? <button type="button" className="btn-outline !px-5 !py-3 !text-xs" onClick={() => setStep(current => current - 1)}><ChevronLeft size={16} /> Back</button> : <span />}{step < steps.length - 1 ? <button type="button" className="btn-theme btn-theme-primary" onClick={next}>Continue <ChevronRight size={16} /></button> : <button type="submit" disabled={loading || !screenshotFile || !refVerified || (Boolean(process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY) && !turnstileToken)} className="btn-theme btn-theme-primary disabled:cursor-not-allowed disabled:opacity-40">{loading ? "Submitting…" : <>Submit Membership Application <Send size={16} /></>}</button>}</footer>
+  </form>;
 }
