@@ -315,7 +315,7 @@
 @media (max-width: 680px) {
   .hero { min-height: auto; }
   .heroContent { padding-block: 160px 70px; gap: 38px; }
-  .heroTitle { max-width: 100%; font-size: clamp(2.35rem, 10vw, 3.25rem); }
+  .heroTitle { max-width: 100%; font-size: clamp(2.1rem, 8.8vw, 2.8rem); }
   .heroGallery { min-height: 335px; }
   .heroSlide { width: min(90%, 380px); }
   .heroSlide img { border-radius: 14px; }
@@ -344,8 +344,8 @@
   .achievementLogoEntrance { left: -10px; bottom: 16px; }
   .achievementLogoMotion { width: 80px; }
   .achievementScrollDown, .achievementScrollUp { transform: none; }
-  .about h2, .sectionHeading h2, .leaders h2, .events h2, .preFooter h2 { font-size: clamp(2.1rem, 9.2vw, 2.85rem); }
-  .achievementIntro h2 { font-size: clamp(2.1rem, 9.5vw, 2.85rem); }
+  .about h2, .sectionHeading h2, .leaders h2, .events h2, .preFooter h2 { font-size: clamp(1.9rem, 8vw, 2.45rem); }
+  .achievementIntro h2 { font-size: clamp(1.9rem, 8vw, 2.45rem); }
   .achievementName { font-size: clamp(1.5rem, 7.8vw, 2.4rem); }
   .storyRow { grid-template-columns: 110px 1fr; gap: 16px; }
   .storyList { padding-bottom: 0; }
