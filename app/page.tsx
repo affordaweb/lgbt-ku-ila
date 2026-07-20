@@ -12,6 +12,7 @@ import {
   Users,
 } from "lucide-react";
 import { galleryImages, members, pastEvents } from "@/lib/data";
+import AboutVisual from "@/components/AboutVisual";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -126,21 +127,7 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-        <div className={styles.aboutVisual}>
-          <div className={styles.archImage}>
-            <Image
-              src={galleryImages[5]?.src || "/images/stock/stock-02.jpg"}
-              alt="Ku-Ila members sharing a community moment"
-              fill
-              sizes="(max-width: 900px) 90vw, 48vw"
-              className={styles.coverImage}
-            />
-          </div>
-          <div className={styles.impactCard}>
-            <strong>80%</strong>
-            <span>of belonging begins<br />with being seen</span>
-          </div>
-        </div>
+        <AboutVisual />
       </section>
 
       <section className={styles.programs}>
