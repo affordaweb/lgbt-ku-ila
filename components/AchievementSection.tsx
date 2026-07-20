@@ -8,6 +8,7 @@ import styles from "@/app/page.module.css";
 const slides = [
   {
     image: "/images/events/john-carlo-salvana-champion.jpeg",
+    aspectRatio: "768 / 1376",
     alt: "Congratulations poster for John Carlo Salvana, Champion in Commercial Makeup",
     firstName: "John Carlo",
     surname: "Salvana",
@@ -21,6 +22,7 @@ const slides = [
   },
   {
     image: "/images/events/angel-morales-fourth-placer.jpeg",
+    aspectRatio: "1054 / 1492",
     alt: "Congratulations poster for Angel Morales, 4th Placer in Commercial Makeup",
     firstName: "Angel",
     surname: "Morales",
@@ -115,20 +117,18 @@ export default function AchievementSection() {
             pointerStart.current = null;
           }}
         >
-          <div className={styles.achievementImageFrame}>
-            <div className={styles.achievementPosterStage}>
-              {slides.map((item, index) => (
-                <Image
-                  key={item.image}
-                  src={item.image}
-                  alt={item.alt}
-                  fill
-                  priority={index === 0}
-                  sizes="(max-width: 680px) 88vw, (max-width: 960px) 45vw, 560px"
-                  className={`${styles.achievementPoster} ${index === activeSlide ? styles.achievementPosterActive : ""}`}
-                />
-              ))}
-            </div>
+          <div className={styles.achievementImageFrame} style={{ aspectRatio: slide.aspectRatio }}>
+            {slides.map((item, index) => (
+              <Image
+                key={item.image}
+                src={item.image}
+                alt={item.alt}
+                fill
+                priority={index === 0}
+                sizes="(max-width: 680px) 88vw, (max-width: 960px) 45vw, 440px"
+                className={`${styles.achievementPoster} ${index === activeSlide ? styles.achievementPosterActive : ""}`}
+              />
+            ))}
           </div>
           <div className={styles.achievementLogoEntrance}>
             <div className={`${styles.achievementLogoMotion} ${scrollDirection === "down" ? styles.achievementScrollDown : scrollDirection === "up" ? styles.achievementScrollUp : ""}`}>
