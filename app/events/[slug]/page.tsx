@@ -53,13 +53,14 @@ export default async function EventPage({
       <section className="section-padding bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-12">
-            <div className="relative h-80 md:h-[480px] overflow-hidden">
-              <div className="absolute inset-0 border border-[#e85242]/20 z-10 m-5" />
+            <div className="overflow-hidden border border-[#e85242]/20 p-3 md:p-5">
               <Image
                 src={event.image}
                 alt={event.title}
-                fill
-                className="object-cover"
+                width={1200}
+                height={1200}
+                sizes="(max-width: 896px) 100vw, 896px"
+                className="h-auto w-full object-contain"
               />
             </div>
 
@@ -87,6 +88,19 @@ export default async function EventPage({
               <p className="text-[#787878] leading-relaxed text-lg">
                 {event.description}
               </p>
+
+              <dl className="mt-10 grid gap-5 border-t border-[#e4e4e4] pt-8 sm:grid-cols-2">
+                {event.details.map((detail) => (
+                  <div key={detail.label}>
+                    <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-[#e85242]">
+                      {detail.label}
+                    </dt>
+                    <dd className="mt-2 text-sm leading-relaxed text-[#787878]">
+                      {detail.value}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
             </div>
           </div>
 

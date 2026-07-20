@@ -58,49 +58,117 @@ export interface Event {
   slug: string;
   image: string;
   date: string;
+  category: string;
   description: string;
   location: string;
+  details: { label: string; value: string }[];
 }
 
 export const pastEvents: Event[] = [
   {
     id: 1,
-    title: "11th Batangan Pride Parade",
-    slug: "11th-batangan-pride-parade",
-    image: "/images/events/733802303_122101099587380675_4257770319116326264_n.jpg",
-    date: "June 16, 2026",
+    title: "Glow Beyond Limits: Hair & Makeup Competition",
+    slug: "glow-beyond-limits-hair-makeup-competition",
+    image: "/images/events/glow-beyond-limits.jpeg",
+    date: "June 29, 2026 · 10:00 AM",
+    category: "Pride Month",
     description:
-      "Sumali ang LGBTQIA++ Kumintang Ilaya sa 11th Batangan Pride Parade na ginanap sa Batangas Provincial Capitol. Isang masayang pagdiriwang ng pagkakaisa, pagmamahal, at pagtanggap sa lahi at kasarian.",
-    location: "Batangas Provincial Capitol",
+      "A Pride Month hair and makeup competition for amateur, aspiring, and professional SILBI artists.",
+    location: "Batangas City Convention Centre",
+    details: [
+      { label: "Date & time", value: "June 29, 2026 · 10:00 AM" },
+      { label: "Venue", value: "Batangas City Convention Centre" },
+      { label: "Who can join", value: "Amateur, aspiring, or professional SILBI artists." },
+      { label: "Mechanics", value: "Models and gowns will be provided by CSWDO; the contest will be on the spot; participants bring their own setup; theme: fresh makeup look." },
+      { label: "Contact", value: "Contact your Area President or any SILBI officer." },
+    ],
   },
   {
     id: 2,
-    title: "2nd Citywide Pride Celebration",
-    slug: "2nd-citywide-pride-celebration",
-    image: "/images/events/734768224_2070636277142827_2921723697569089008_n.jpg",
-    date: "June 29, 2026",
+    title: "Batangas City Queen: The Screening",
+    slug: "batangas-city-queen-screening",
+    image: "/images/events/batangas-city-queen-screening.jpeg",
+    date: "June 21, 2026 · 1:00 PM",
+    category: "Pride Month",
     description:
-      "Nakiisa ang Ku-Ila sa 2nd Citywide Pride Celebration na inorganisa ng LASO, SILBI, at CSWDO. Nagsimula sa Plaza Mabini at nagtapos sa Batangas City Convention Center.",
-    location: "Plaza Mabini to Batangas City Convention Center",
+      "Screening for trans queens joining the inaugural Batangas City Queen.",
+    location: "Sinsayan Lounge",
+    details: [
+      { label: "Screening", value: "June 21, 2026 · 1:00 PM" },
+      { label: "Venue", value: "Sinsayan Lounge" },
+      { label: "Eligibility", value: "Active SILBI member, 18–30 years old." },
+      { label: "Dress code", value: "White casual attire, light makeup, and heels." },
+      { label: "Bring", value: "Certificate of residency, government ID, and proof of SILBI membership." },
+    ],
   },
   {
     id: 3,
-    title: "Pride Month Kickoff Walk",
-    slug: "pride-month-kickoff-walk",
-    image: "/images/events/731788066_2070636043809517_8341410874233716056_n.jpg",
-    date: "June 11, 2026",
+    title: "Bandera! Banner Making Contest",
+    slug: "bandera-banner-making-contest",
+    image: "/images/events/bandera-banner-making-contest.jpeg",
+    date: "June 29, 2026 · 6:30 AM",
+    category: "Pride Month",
     description:
-      "Ang kauna-unahang Pride Month Celebration sa Batangas City na may temang 'Rampa Na: Kahit Ano Ka, Love Ka!' Mula Provincial Capitol patungo sa Batangas City Convention Center.",
-    location: "Provincial Capitol to Batangas City Convention Center",
+      "Create a unique banner for the Pride Parade using as much recyclable material as possible.",
+    location: "Assembly: Plaza Mabini",
+    details: [
+      { label: "Date & time", value: "June 29, 2026 · 6:30 AM" },
+      { label: "Assembly", value: "Plaza Mabini" },
+      { label: "Mechanics", value: "Create your own unique flag and use as much recyclable material as possible." },
+      { label: "Required size", value: "2 feet × 6 feet" },
+    ],
   },
   {
     id: 4,
-    title: "Hair & Makeup Competition",
-    slug: "hair-makeup-competition",
-    image: "/images/events/734756136_2070636173809504_5831640839771367381_n.jpg",
-    date: "June 11, 2026",
+    title: "King & Queen of Pride Parade",
+    slug: "king-queen-of-pride-parade",
+    image: "/images/events/king-and-queen-of-pride-parade.jpeg",
+    date: "June 29, 2026 · 6:30 AM",
+    category: "Pride Month",
     description:
-      "Nagpamalas ng talento ang mga miyembro ng Ku-Ila sa Hair and Makeup Competition na bahagi ng Pride Month Celebration sa Batangas City.",
-    location: "Batangas City Convention Center",
+      "Join the L.A.S.O. Pride Parade in your most unique and colorful outfit—anyone can join.",
+    location: "Assembly: Plaza Mabini · Route to Batangas City Convention Centre",
+    details: [
+      { label: "Date & time", value: "June 29, 2026 · 6:30 AM" },
+      { label: "Assembly", value: "Plaza Mabini" },
+      { label: "Parade route", value: "Batangas City Convention Centre" },
+      { label: "Participation", value: "Anyone can join. Wear your most unique and colorful outfit." },
+      { label: "Dress code", value: "Costume or gown—kahit ano pa ’yan, i-rampa mo ’yan!" },
+    ],
+  },
+  {
+    id: 5,
+    title: "Batangas City Queen",
+    slug: "batangas-city-queen",
+    image: "/images/events/batangas-city-queen.jpeg",
+    date: "June 21, 2026 · 1:00 PM",
+    category: "Pride Month",
+    description: "A screening for the first Batangas City Queen, with finals during the Pride celebration.",
+    location: "Sinsayan Lounge, Batangas City Coliseum",
+    details: [
+      { label: "Screening", value: "June 21, 2026 · 1:00 PM" },
+      { label: "Venue", value: "Sinsayan Lounge, Batangas City Coliseum" },
+      { label: "Eligibility", value: "Active SILBI member, 18–30 years old." },
+      { label: "Dress code", value: "White casual attire, light makeup, and heels." },
+      { label: "Bring", value: "Certificate of residency, any government ID, and proof of SILBI membership. Check with your Area President or SILBI officers." },
+      { label: "Finals night", value: "June 29, 2026, as part of the Pride Celebration." },
+    ],
+  },
+  {
+    id: 6,
+    title: "L.A.S.O. Photo Contest",
+    slug: "laso-photo-contest",
+    image: "/images/events/laso-photo-contest.jpeg",
+    date: "June 29, 2026 · 6:00 AM",
+    category: "Pride Month",
+    description: "Snap a photo at any City LED wall for a chance to be one of ten winners selected on Pride Celebration day.",
+    location: "Plaza Mabini to Batangas City Convention Centre",
+    details: [
+      { label: "Event", value: "L.A.S.O. Pride Celebration · June 29, 2026 · 6:00 AM · Open for all." },
+      { label: "Route", value: "Plaza Mabini to Batangas City Convention Centre" },
+      { label: "How to join", value: "Snap a photo at any City LED wall." },
+      { label: "Submission", value: "Post on Facebook, Instagram, or TikTok using #KahitAnoKaLOVEkaYear2." },
+      { label: "Winners", value: "Ten lucky winners will be selected during the Pride Celebration on June 29." },
+    ],
   },
 ];

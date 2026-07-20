@@ -291,10 +291,10 @@ export default function HomePage() {
                   className={styles.coverImage}
                 />
               </div>
-              <p className={styles.storyMeta}>{featuredEvent.date} · Community</p>
+              <p className={styles.storyMeta}>{featuredEvent.date} · {featuredEvent.category}</p>
               <h3>{featuredEvent.title}</h3>
               <p>{featuredEvent.description}</p>
-              <span className={styles.readLink}>View event <ArrowRight aria-hidden="true" /></span>
+              <span className={styles.readLink}>Read More <ArrowRight aria-hidden="true" /></span>
             </Link>
           )}
           <div className={styles.storyList}>
@@ -312,8 +312,9 @@ export default function HomePage() {
                 <div>
                   <p className={styles.storyMeta}>{event.date}</p>
                   <h3>{event.title}</h3>
-                  <p>{event.location}</p>
-                  <span className={styles.readLink}>View event <ArrowRight aria-hidden="true" /></span>
+                  <p className={styles.storyLocation}>{event.location}</p>
+                  <p className={styles.storySummary}>{event.description}</p>
+                  <span className={styles.readLink}>Read More <ArrowRight aria-hidden="true" /></span>
                 </div>
               </Link>
             ))}
