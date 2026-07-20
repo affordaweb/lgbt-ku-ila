@@ -54,34 +54,39 @@ const programs = [
 
 const leadershipMembers = [
   {
-    name: "Ricson Cultura",
-    slug: "ricson-cultura",
-    image: "/images/members/Ricson.webp",
-    role: "LGBTQIA++ Kumintang Ilaya President",
-  },
-  {
-    name: "Donn Ramos",
-    slug: "donn-ramos",
-    image: "/images/members/Donn.webp",
-    role: "LGBTQIA++ Batangas City Board Member",
-  },
-  {
-    name: "Rey Anne Buenviaje",
-    slug: "reyann-buenviaje",
-    image: "/images/members/Rey Ann.webp",
-    role: "LGBTQIA++ Batangas City Board Member",
-  },
-  {
     name: "Edmund Andal",
     slug: "edmund-andal",
     image: "/images/members/Edmund.webp",
     role: "LGBTQIA++ Batangas City Board Member",
+    textFirst: true,
   },
   {
     name: "Ariana Gamboa",
     slug: "ariane-gamboa",
     image: "/images/members/Ariane.webp",
     role: "Former LGBTQIA++ Batangas City President",
+    textFirst: false,
+  },
+  {
+    name: "Ricson Cultura",
+    slug: "ricson-cultura",
+    image: "/images/members/Ricson.webp",
+    role: "LGBTQIA++ Kumintang Ilaya President",
+    textFirst: true,
+  },
+  {
+    name: "Donn Ramos",
+    slug: "donn-ramos",
+    image: "/images/members/Donn.webp",
+    role: "LGBTQIA++ Batangas City Board Member",
+    textFirst: false,
+  },
+  {
+    name: "Rey Anne Buenviaje",
+    slug: "reyann-buenviaje",
+    image: "/images/members/Rey Ann.webp",
+    role: "LGBTQIA++ Batangas City Board Member",
+    textFirst: true,
   },
 ];
 const featuredEvent = pastEvents[0];
@@ -209,7 +214,17 @@ export default function HomePage() {
         <div className={styles.memberRail} aria-label="Ku-Ila leadership">
           <div className={styles.memberTrack}>
           {[...leadershipMembers, ...leadershipMembers].map((member, index) => (
-            <Link href={`/members/${member.slug}`} className={styles.memberCard} key={`${member.slug}-${index}`}>
+            <Link
+              href={`/members/${member.slug}`}
+              className={`${styles.memberCard} ${member.textFirst ? styles.memberTextFirst : styles.memberImageFirst}`}
+              key={`${member.slug}-${index}`}
+            >
+              {member.textFirst && (
+                <div className={styles.memberCaption}>
+                  <h3>{member.name}</h3>
+                  <p>{member.role}</p>
+                </div>
+              )}
               <div className={styles.memberImage}>
                 <Image
                   src={member.image}
@@ -219,10 +234,12 @@ export default function HomePage() {
                   className={styles.coverImage}
                 />
               </div>
-              <div className={styles.memberCaption}>
-                <h3>{member.name}</h3>
-                <p>{member.role}</p>
-              </div>
+              {!member.textFirst && (
+                <div className={styles.memberCaption}>
+                  <h3>{member.name}</h3>
+                  <p>{member.role}</p>
+                </div>
+              )}
             </Link>
           ))}
           </div>

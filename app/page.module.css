@@ -195,16 +195,18 @@
 .leaderIntro > div:last-child > p { max-width: 470px; color: rgba(255,255,255,.66); font-size: .98rem; line-height: 1.8; margin: 0 0 28px; }
 .outlineButtonLight { min-height: 50px; border: 1px solid rgba(255,255,255,.35); border-radius: 999px; color: white; }
 .outlineButtonLight:hover { color: var(--navy); background: white; transform: translateY(-2px); }
-.memberRail { margin-top: 78px; overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent); mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent); }
-.memberTrack { width: max-content; display: flex; gap: 24px; padding: 4px 0 20px; animation: memberLoop 50s linear infinite; will-change: transform; }
+.memberRail { margin-top: 78px; overflow: hidden; padding: 4px; }
+.memberTrack { width: max-content; display: flex; align-items: flex-start; gap: 24px; padding: 4px 0 20px; animation: memberLoop 50s linear infinite; will-change: transform; }
 .memberRail:hover .memberTrack { animation-play-state: paused; }
-.memberCard { width: clamp(230px, 20.5vw, 285px); color: white; flex: none; }
+.memberCard { width: clamp(230px, 20.5vw, 285px); color: white; flex: none; display: flex; flex-direction: column; }
 .memberImage { position: relative; aspect-ratio: 3 / 4; overflow: hidden; background: var(--navy); border-radius: 18px; box-shadow: 0 18px 40px rgba(0,0,0,.27); }
-.memberImage img { filter: saturate(.9); transition: transform .65s cubic-bezier(.22, 1, .36, 1), filter .4s ease; }
+.memberImage img { object-fit: contain; filter: saturate(.9); transition: transform .65s cubic-bezier(.22, 1, .36, 1), filter .4s ease; }
 .memberCard:hover .memberImage img { transform: scale(1.045); filter: saturate(1.06); }
-.memberCaption { min-height: 75px; padding: 18px 4px 0; }
+.memberCaption { box-sizing: border-box; min-height: 102px; padding: 18px 5px; overflow-wrap: anywhere; }
 .memberCaption h3 { margin: 0; color: white; font-size: 1.13rem; font-weight: 500; letter-spacing: -.015em; }
-.memberCaption p { margin: 6px 0 0; color: rgba(255,255,255,.55); font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: .105em; line-height: 1.55; }
+.memberCaption p { margin: 6px 0 0; color: rgba(255,255,255,.55); font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: .09em; line-height: 1.55; }
+.memberTextFirst .memberCaption { padding-top: 0; }
+.memberImageFirst .memberCaption { padding-bottom: 0; }
 @keyframes memberLoop { to { transform: translateX(calc(-50% - 12px)); } }
 
 .events { padding-block: 125px; }
