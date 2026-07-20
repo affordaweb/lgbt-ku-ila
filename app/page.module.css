@@ -138,28 +138,28 @@
 .location svg { width: 32px; height: 32px; padding: 8px; color: var(--orange); background: rgba(241,90,36,.1); border-radius: 50%; }
 .location strong { color: var(--ink); }
 .aboutVisual { position: relative; display: grid; min-height: 650px; place-items: center; }
-.illustratedMap { width: 100%; height: auto; overflow: visible; }
-.mapBoundary { fill: #fff; stroke: #f15a24; stroke-width: 2.5; stroke-linejoin: round; filter: drop-shadow(0 20px 28px rgba(7,20,38,.26)); }
-.mapConnections path { fill: none; stroke: rgba(10,29,74,.34); stroke-width: 1.45; stroke-linecap: round; }
+.illustratedMap { width: 112%; max-width: none; height: auto; overflow: visible; }
+.mapBoundary { fill: #fff; stroke: #f15a24; stroke-width: 2.5; stroke-linejoin: round; filter: drop-shadow(0 20px 28px rgba(7,20,38,.4)); }
+.mapConnections path { fill: none; stroke: rgba(10,29,74,.34); stroke-width: 1.45; stroke-linecap: round; stroke-dasharray: 4 6; }
+.mapTitle { font-family: var(--font-sans); font-size: 12px; font-weight: 800; letter-spacing: .2em; fill: var(--ink); text-anchor: middle; }
 .purokHotspot, .purokHub { transform-box: fill-box; transform-origin: center; }
-.purokHotspot > circle:last-child { fill: currentColor; stroke: white; stroke-width: 3; filter: drop-shadow(0 3px 8px rgba(0,0,0,.22)); }
-.mapPulseRing { fill: none; stroke: currentColor; stroke-width: 2; animation: hotspotRing 2.8s ease-out infinite; }
+.purokHotspot > circle { fill: currentColor; stroke: white; stroke-width: 3; filter: drop-shadow(0 3px 8px rgba(0,0,0,.22)); animation: dotPulse 2.8s ease-in-out infinite; }
 .purok1 { color: #f15a24; }
 .purok2 { color: #f6c445; }
 .purok3 { color: #df4a8b; }
 .purok4 { color: #19a7a8; }
 .purok5 { color: #8765d1; }
 .purok6 { color: #70b84c; }
-.purok2 .mapPulseRing { animation-delay: -.4s; }
-.purok3 .mapPulseRing { animation-delay: -.8s; }
-.purok4 .mapPulseRing { animation-delay: -1.2s; }
-.purok5 .mapPulseRing { animation-delay: -1.6s; }
-.purok6 .mapPulseRing { animation-delay: -2s; }
+.purok2 circle { animation-delay: -.4s; }
+.purok3 circle { animation-delay: -.8s; }
+.purok4 circle { animation-delay: -1.2s; }
+.purok5 circle { animation-delay: -1.6s; }
+.purok6 circle { animation-delay: -2s; }
 .flowDot { fill: currentColor; filter: drop-shadow(0 2px 3px rgba(0,0,0,.25)); }
 .purokHub > circle:last-child { fill: none; stroke: var(--orange); stroke-width: 3; filter: drop-shadow(0 3px 9px rgba(0,0,0,.25)); }
-.hubPulse { fill: none; stroke: var(--orange); stroke-width: 2; transform-box: fill-box; transform-origin: center; animation: hubPulse 2.5s ease-out infinite; }
-@keyframes hotspotRing { 0% { opacity: .75; transform: scale(.6); } 70%, 100% { opacity: 0; transform: scale(1.8); } }
-@keyframes hubPulse { 0%, 100% { opacity: .85; transform: scale(.72); } 70% { opacity: 0; transform: scale(1.5); } }
+.hubLogo { transform-box: fill-box; transform-origin: center; animation: logoPulse 2.5s ease-in-out infinite; }
+@keyframes dotPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.16); } }
+@keyframes logoPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
 
 .programs { padding-block: 125px 170px; }
 .sectionHeading { display: flex; justify-content: space-between; align-items: end; gap: 50px; margin-bottom: 55px; }
@@ -252,6 +252,7 @@
 
 @media (max-width: 960px) {
   .heroContent, .about, .programs, .events, .preFooterGrid { width: 100%; padding-inline: 24px; }
+  .illustratedMap { width: 100%; }
   .hero { min-height: auto; }
   .heroContent { grid-template-columns: 1fr; padding-block: 120px 90px; }
   .heroGallery { justify-self: center; width: min(100%, 580px); }

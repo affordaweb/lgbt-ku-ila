@@ -26,14 +26,15 @@ export default function AboutVisual() {
         <desc id="map-description">An illustrated outline of Kumintang Ilaya with seven colorful pulsing purok hotspots connected to a central hub.</desc>
         <path
           className={styles.mapBoundary}
-          d="M35 55 136 31 205 40 244 29 382 30 397 57 431 71 452 102 492 115 510 154 489 183 501 212 472 260 423 278 391 270 346 284 289 268 233 279 185 245 139 235 118 207 74 204 42 176 48 144 25 117Z"
+          d="M24 68 34 38 104 52 160 58 219 64 287 62 340 54 403 41 415 56 404 76 416 90 446 101 456 139 502 156 511 193 545 212 520 236 527 269 498 302 449 284 413 290 357 261 307 245 249 231 191 215 148 202 138 181 107 168 112 147 21 168 19 123 30 100Z"
         />
         <g className={styles.mapConnections}>
           {connections.map((path, index) => <path key={path} d={path} className={styles[`purok${index + 1}`]} />)}
         </g>
+        <text className={styles.mapTitle} x="286" y="126">KUMINTANG</text>
+        <text className={styles.mapTitle} x="286" y="142">ILAYA</text>
         {hotspots.map(([cx, cy], index) => (
           <g key={`${cx}-${cy}`} className={`${styles.purokHotspot} ${styles[`purok${index + 1}`]}`}>
-            <circle className={styles.mapPulseRing} cx={cx} cy={cy} r="10" />
             <circle cx={cx} cy={cy} r="8" />
           </g>
         ))}
@@ -43,8 +44,8 @@ export default function AboutVisual() {
           </circle>
         ))}
         <g className={styles.purokHub}>
-          <circle className={styles.hubPulse} cx="286" cy="160" r="19" />
           <image
+            className={styles.hubLogo}
             href="/images/logo/731350583_10238772116515608_5057049016834242279_n.jpg"
             x="271" y="145" width="30" height="30"
             preserveAspectRatio="xMidYMid slice"
