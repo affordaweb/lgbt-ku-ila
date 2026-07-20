@@ -1,18 +1,18 @@
 @import "tailwindcss";
 
 :root {
-  --color-primary: #F15A4A;
-  --color-secondary: #1E9CD7;
-  --color-accent: #2ECC71;
-  --color-dark: #1F2937;
-  --color-darker: #111827;
-  --color-text: #374151;
-  --color-heading: #1F2937;
-  --color-light-bg: #F8FAFC;
-  --color-border: #E5E7EB;
+  --color-primary: #F15A24;
+  --color-secondary: #F15A24;
+  --color-accent: #F15A24;
+  --color-dark: #0A1D4A;
+  --color-darker: #0A1D4A;
+  --color-text: #0A1D4A;
+  --color-heading: #0A1D4A;
+  --color-light-bg: #FFFFFF;
+  --color-border: rgba(10, 29, 74, 0.16);
   --color-white: #FFFFFF;
   --background: #FFFFFF;
-  --foreground: #374151;
+  --foreground: #0A1D4A;
 }
 
 @theme inline {
@@ -27,8 +27,8 @@
   --color-border: var(--color-border);
   --color-text: var(--color-text);
   --color-heading: var(--color-heading);
-  --font-sans: var(--font-outfit);
-  --font-heading: var(--font-cormorant);
+  --font-sans: var(--font-inter);
+  --font-heading: var(--font-fraunces);
 }
 
 html {
@@ -134,9 +134,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-primary:hover {
-  background-color: #d94a3a;
+  background-color: var(--color-primary);
   transform: translateY(-1px);
-  box-shadow: 0 8px 24px rgba(241, 90, 74, 0.25);
+  box-shadow: 0 8px 24px rgba(241, 90, 36, 0.25);
 }
 
 .btn-secondary {
@@ -183,7 +183,7 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--color-primary);
   color: white;
   transform: translateY(-1px);
-  box-shadow: 0 8px 24px rgba(241, 90, 74, 0.2);
+  box-shadow: 0 8px 24px rgba(241, 90, 36, 0.2);
 }
 
 .section-padding {
@@ -227,7 +227,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .text-gradient {
-  background: linear-gradient(135deg, var(--color-primary), #f97316);
+  background: var(--color-primary);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -259,9 +259,9 @@ h1, h2, h3, h4, h5, h6 {
 
 .input-luxury:focus {
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(241, 90, 74, 0.1);
+  box-shadow: 0 0 0 3px rgba(241, 90, 36, 0.1);
 }
 
 .input-luxury::placeholder {
-  color: #9CA3AF;
+  color: rgba(10, 29, 74, 0.45);
 }

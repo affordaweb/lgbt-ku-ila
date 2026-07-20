@@ -46,7 +46,7 @@ export default function ContactPage() {
 
       {/* Contact Info Cards */}
       <section className="bg-[#3a3d44] py-14">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[1300px] mx-auto px-6 lg:px-10">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {contactInfo.map((item) => {
               const Icon = item.icon;
@@ -98,7 +98,7 @@ export default function ContactPage() {
 
       {/* Contact Form Section */}
       <section className="section-padding bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[1300px] mx-auto px-6 lg:px-10">
           <div className="grid grid-cols-1 gap-16 lg:grid-cols-2">
             <div>
               <p className="text-[#e85242] text-xs uppercase tracking-[0.2em] mb-4 font-medium">Let&apos;s Talk</p>

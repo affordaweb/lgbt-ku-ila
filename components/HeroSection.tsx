@@ -26,7 +26,7 @@ export default function HeroSection({
         <div className="absolute inset-0 bg-gradient-to-r from-[#3a3d44]/90 via-[#3a3d44]/75 to-[#1f222b]/80" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
+      <div className="relative z-10 max-w-[1300px] mx-auto px-6 lg:px-10 py-20 w-full">
         {subtitle && (
           <p className="text-[#e85242] text-xs uppercase tracking-[0.2em] mb-4 font-medium">
             {subtitle}

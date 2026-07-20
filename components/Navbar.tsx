@@ -30,7 +30,7 @@ export default function Navbar() {
         scrolled ? "glass shadow-sm" : "bg-transparent"
       }`}
     >
-      <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1300px] mx-auto px-6 lg:px-10">
         <div className="flex items-center justify-between h-20 lg:h-24">
           <Link href="/" className="flex items-center gap-3">
             <Image
@@ -41,10 +41,10 @@ export default function Navbar() {
               className="rounded-full object-cover ring-2 ring-white/20"
             />
             <div className="flex flex-col">
-              <span className={`text-base font-semibold leading-tight tracking-tight transition-colors ${scrolled ? "text-[#1F2937]" : "text-white"}`}>
+              <span className={`text-base font-semibold leading-tight tracking-tight transition-colors ${scrolled ? "text-[#0A1D4A]" : "text-white"}`}>
                 LGBTQIA++ SILBI
               </span>
-              <span className="text-[10px] font-medium text-[#F15A4A] tracking-wider uppercase">
+              <span className="text-[10px] font-medium text-[#F15A24] tracking-wider uppercase">
                 Kumintang Ilaya
               </span>
             </div>
@@ -57,7 +57,7 @@ export default function Navbar() {
                 href={link.href}
                 className={`px-4 py-2 text-sm font-medium transition-colors tracking-wide ${
                   scrolled
-                    ? "text-[#374151] hover:text-[#F15A4A]"
+                    ? "text-[#0A1D4A] hover:text-[#F15A24]"
                     : "text-white/80 hover:text-white"
                 }`}
               >
@@ -66,7 +66,7 @@ export default function Navbar() {
             ))}
             <Link
               href="/support"
-              className="ml-4 inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold rounded-full bg-[#F15A4A] text-white hover:bg-[#d94a3a] transition-all hover:shadow-lg hover:shadow-[#F15A4A]/25"
+              className="ml-4 inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold rounded-full bg-[#F15A24] text-white transition-all hover:opacity-85"
             >
               Support Us
             </Link>
@@ -75,7 +75,7 @@ export default function Navbar() {
           <button
             onClick={() => setIsOpen(!isOpen)}
             className={`lg:hidden p-2 transition-colors ${
-              scrolled ? "text-[#1F2937]" : "text-white"
+              scrolled ? "text-[#0A1D4A]" : "text-white"
             }`}
             aria-label="Toggle navigation"
           >
@@ -85,14 +85,14 @@ export default function Navbar() {
       </div>
 
       {isOpen && (
-        <div className="lg:hidden bg-white border-t border-[#E5E7EB] shadow-xl">
+        <div className="lg:hidden bg-white border-t border-[#0A1D4A]/15 shadow-xl">
           <div className="px-4 py-4 space-y-1">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="block px-4 py-3 text-sm font-medium text-[#374151] hover:text-[#F15A4A] transition-colors tracking-wide rounded-lg hover:bg-[#F8FAFC]"
+                className="block px-4 py-3 text-sm font-medium text-[#0A1D4A] hover:text-[#F15A24] transition-colors tracking-wide rounded-lg hover:bg-[#0A1D4A]/5"
               >
                 {link.label}
               </Link>
@@ -100,7 +100,7 @@ export default function Navbar() {
             <Link
               href="/support"
               onClick={() => setIsOpen(false)}
-              className="block mt-3 px-4 py-3 text-sm font-semibold text-center rounded-full bg-[#F15A4A] text-white hover:bg-[#d94a3a] transition-colors"
+              className="block mt-3 px-4 py-3 text-sm font-semibold text-center rounded-full bg-[#F15A24] text-white hover:opacity-85 transition-opacity"
             >
               Support Us
             </Link>

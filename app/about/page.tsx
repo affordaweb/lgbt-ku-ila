@@ -42,7 +42,7 @@ export default function AboutPage() {
 
       {/* Mission & Vision */}
       <section className="section-padding bg-[#f7f7f7]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-8">
+        <div className="max-w-[1300px] mx-auto px-6 lg:px-10 grid md:grid-cols-2 gap-8">
           <div className="bg-white p-10 border border-[#e4e4e4] text-center card-hover">
             <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#e85242]/10 to-[#e85242]/10 flex items-center justify-center mx-auto mb-6">
               <Target className="w-8 h-8 text-[#e85242]" />
@@ -79,7 +79,7 @@ export default function AboutPage() {
 
       {/* About Section */}
       <section className="section-padding bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-16 items-center">
+        <div className="max-w-[1300px] mx-auto px-6 lg:px-10 grid md:grid-cols-2 gap-16 items-center">
           <div className="relative h-80 md:h-[440px] overflow-hidden">
             <div className="absolute inset-0 border border-[#e85242]/20 z-10 m-5" />
             <Image
@@ -120,7 +120,7 @@ export default function AboutPage() {
 
       {/* Values */}
       <section className="section-padding bg-[#f7f7f7]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[1300px] mx-auto px-6 lg:px-10">
           <div className="text-center mb-14">
             <p className="text-[#e85242] text-xs uppercase tracking-[0.2em] mb-4 font-medium">Our Values</p>
             <h2 className="section-heading section-heading-center text-3xl inline-block">

@@ -52,7 +52,7 @@ export default async function MemberPage({
       />
 
       <section className="section-padding bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[1300px] mx-auto px-6 lg:px-10">
           <div className="grid grid-cols-1 gap-16 lg:grid-cols-2">
             {/* Photo */}
             <div className="relative aspect-square lg:aspect-[4/5] overflow-hidden">
