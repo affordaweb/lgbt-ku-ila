@@ -24,6 +24,36 @@
   object-position: center;
 }
 
+/* Three matching 3:2 community photos keep this gallery full-bleed without
+   sacrificing faces or leaving empty colour around an image. */
+.galleryGrid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: none;
+  align-items: stretch;
+}
+
+.galleryGrid figure,
+.galleryPrimary {
+  aspect-ratio: 3 / 2;
+  grid-row: auto;
+}
+
+.galleryGrid figure img {
+  object-fit: cover;
+  object-position: center;
+}
+
+@media (max-width: 820px) {
+  .galleryGrid {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+  }
+
+  .galleryGrid figure {
+    aspect-ratio: 3 / 2;
+  }
+}
+
 /* A focused, editorial gratitude moment using the homepage's dark feature-section language. */
 .quote {
   position: relative;
