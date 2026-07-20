@@ -1,4 +1,5 @@
 import Image from "next/image";
+import styles from "./InnerHero.module.css";
 
 interface HeroSectionProps {
   title: string;
@@ -13,34 +14,29 @@ export default function HeroSection({
   description,
   backgroundImage = "/images/stock/stock-01.jpg",
 }: HeroSectionProps) {
+  const label = title === "About Us" ? "Our story" : title;
+  const supportingCopy = description ?? "A closer look at the people, stories, and possibilities that make our community stronger.";
   return (
-    <section className="relative min-h-[400px] flex items-center overflow-hidden">
-      <div className="absolute inset-0 z-0">
+    <section className={styles.hero}>
+      <div className={styles.shell}>
+        <div className={styles.copy}>
+          {subtitle && <p className={styles.crumb}>{subtitle}</p>}
+          <p className={styles.label}>{label}</p>
+          <h1 className={styles.title}>{title}</h1>
+          <p className={styles.description}>{supportingCopy}</p>
+        </div>
+        <div className={styles.visual}>
+          <div className={styles.image}>
         <Image
           src={backgroundImage}
           alt={title}
           fill
-          className="object-cover"
+          sizes="(max-width: 800px) 90vw, 42vw"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#3a3d44]/90 via-[#3a3d44]/75 to-[#1f222b]/80" />
-      </div>
-
-      <div className="relative z-10 max-w-[1300px] mx-auto px-6 lg:px-10 py-20 w-full">
-        {subtitle && (
-          <p className="text-[#e85242] text-xs uppercase tracking-[0.2em] mb-4 font-medium">
-            {subtitle}
-          </p>
-        )}
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-          {title}
-        </h1>
-        {description && (
-          <p className="text-white/60 text-base max-w-2xl leading-relaxed">
-            {description}
-          </p>
-        )}
-        <div className="w-20 h-0.5 bg-gradient-to-r from-[#e85242] to-transparent mt-6" />
+          </div>
+          <span className={styles.scroll}>Scroll to explore</span>
+        </div>
       </div>
     </section>
   );
