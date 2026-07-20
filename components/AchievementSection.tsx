@@ -13,9 +13,9 @@ const slides = [
     surname: "Salvana",
     award: "Champion — Commercial Makeup",
     badge: "Champion",
-    representation: "LGBT QIA SILBI Kumintang Ilaya",
+    representation: "LGBTQIA++ SILBI Kumintang Ilaya",
     paragraphs: [
-      "John Carlo Salvana proudly represented LGBT QIA SILBI Kumintang Ilaya and earned the Champion title in the Commercial Makeup category.",
+      "John Carlo Salvana proudly represented LGBTQIA++ SILBI Kumintang Ilaya and earned the Champion title in the Commercial Makeup category.",
       "His creativity, skill, and dedication brought pride to the organization and demonstrated the remarkable talent found within our community.",
     ],
   },
@@ -26,9 +26,9 @@ const slides = [
     surname: "Morales",
     award: "4th Placer — Commercial Makeup",
     badge: "4th Placer",
-    representation: "LGBT QIA SILBI Batangas City · LGBT QIA SILBI Kumintang Ilaya",
+    representation: "LGBTQIA++ SILBI Batangas City · LGBTQIA++ SILBI Kumintang Ilaya",
     paragraphs: [
-      "Angel Morales proudly represented LGBT QIA SILBI Batangas City and LGBT QIA SILBI Kumintang Ilaya, earning 4th Place in the Commercial Makeup category.",
+      "Angel Morales proudly represented LGBTQIA++ SILBI Batangas City and LGBTQIA++ SILBI Kumintang Ilaya, earning 4th Place in the Commercial Makeup category.",
       "This achievement reflects talent, hard work, and a strong commitment to creative expression.",
     ],
   },
@@ -116,17 +116,19 @@ export default function AchievementSection() {
           }}
         >
           <div className={styles.achievementImageFrame}>
-            {slides.map((item, index) => (
-              <Image
-                key={item.image}
-                src={item.image}
-                alt={item.alt}
-                fill
-                priority={index === 0}
-                sizes="(max-width: 680px) 88vw, (max-width: 960px) 45vw, 560px"
-                className={`${styles.achievementPoster} ${index === activeSlide ? styles.achievementPosterActive : ""}`}
-              />
-            ))}
+            <div className={styles.achievementPosterStage}>
+              {slides.map((item, index) => (
+                <Image
+                  key={item.image}
+                  src={item.image}
+                  alt={item.alt}
+                  fill
+                  priority={index === 0}
+                  sizes="(max-width: 680px) 88vw, (max-width: 960px) 45vw, 560px"
+                  className={`${styles.achievementPoster} ${index === activeSlide ? styles.achievementPosterActive : ""}`}
+                />
+              ))}
+            </div>
           </div>
           <div className={styles.achievementLogoEntrance}>
             <div className={`${styles.achievementLogoMotion} ${scrollDirection === "down" ? styles.achievementScrollDown : scrollDirection === "up" ? styles.achievementScrollUp : ""}`}>
