@@ -2,6 +2,13 @@ import Link from "next/link";
 import Image from "next/image";
 import { Mail, MapPin, Heart, ArrowRight } from "lucide-react";
 import FacebookIcon from "./FacebookIcon";
+import { pridePartners } from "@/lib/data";
+
+const partnerGroups = [
+  { label: "Major Partners", partners: pridePartners.filter(partner => partner.isPublished && partner.partnerLevel === "major-partner") },
+  { label: "Community Partners", partners: pridePartners.filter(partner => partner.isPublished && partner.partnerLevel === "community-partner") },
+  { label: "Pride March Contributors", partners: pridePartners.filter(partner => partner.isPublished && partner.partnerLevel === "event-contributor") },
+];
 
 export default function Footer() {
   return (
@@ -84,6 +91,19 @@ export default function Footer() {
             </ul>
           </div>
         </div>
+
+        <section className="mt-16 border-t border-white/15 pt-10" aria-labelledby="footer-pride-partners">
+          <div className="mb-8 flex flex-col justify-between gap-3 sm:flex-row sm:items-end">
+            <div>
+              <p className="mb-2 text-[10px] font-bold uppercase tracking-[.2em] text-[#F15A24]">With gratitude</p>
+              <h4 id="footer-pride-partners" className="font-[family-name:var(--font-heading)] text-2xl font-medium text-white">Pride Partners</h4>
+            </div>
+            <Link href="/pride-partners" className="inline-flex items-center gap-2 text-sm font-semibold text-white/75 transition-colors hover:text-[#F15A24]">See their story <ArrowRight className="h-4 w-4" /></Link>
+          </div>
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+            {partnerGroups.map(group => <div key={group.label}><h5 className="mb-4 text-[10px] font-bold uppercase tracking-[.16em] text-[#F4A137]">{group.label}</h5><ul className="space-y-2.5">{group.partners.map(partner => <li key={partner.name} className="text-sm leading-snug text-white/65">{partner.name}</li>)}</ul></div>)}
+          </div>
+        </section>
       </div>
 
       <div className="border-t border-white/15">
