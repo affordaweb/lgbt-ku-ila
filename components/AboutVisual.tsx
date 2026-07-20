@@ -35,6 +35,7 @@ export default function AboutVisual() {
         <text className={styles.mapTitle} x="286" y="142">ILAYA</text>
         {hotspots.map(([cx, cy], index) => (
           <g key={`${cx}-${cy}`} className={`${styles.purokHotspot} ${styles[`purok${index + 1}`]}`}>
+            <circle className={styles.mapPulseRing} cx={cx} cy={cy} r="11" />
             <circle cx={cx} cy={cy} r="8" />
           </g>
         ))}
@@ -44,16 +45,16 @@ export default function AboutVisual() {
           </circle>
         ))}
         <g className={styles.purokHub}>
+          <circle className={styles.hubPulse} cx="286" cy="160" r="24" />
           <image
             className={styles.hubLogo}
             href="/images/logo/731350583_10238772116515608_5057049016834242279_n.jpg"
-            x="271" y="145" width="30" height="30"
+            x="266" y="140" width="40" height="40"
             preserveAspectRatio="xMidYMid slice"
             clipPath="url(#hub-logo-clip)"
           />
-          <circle cx="286" cy="160" r="16" />
         </g>
-        <defs><clipPath id="hub-logo-clip"><circle cx="286" cy="160" r="15" /></clipPath></defs>
+        <defs><clipPath id="hub-logo-clip"><circle cx="286" cy="160" r="20" /></clipPath></defs>
       </svg>
     </div>
   );

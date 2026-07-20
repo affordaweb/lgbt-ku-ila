@@ -143,23 +143,24 @@
 .mapConnections path { fill: none; stroke: rgba(10,29,74,.34); stroke-width: 1.45; stroke-linecap: round; stroke-dasharray: 4 6; }
 .mapTitle { font-family: var(--font-sans); font-size: 12px; font-weight: 800; letter-spacing: .2em; fill: var(--ink); text-anchor: middle; }
 .purokHotspot, .purokHub { transform-box: fill-box; transform-origin: center; }
-.purokHotspot > circle { fill: currentColor; stroke: white; stroke-width: 3; filter: drop-shadow(0 3px 8px rgba(0,0,0,.22)); animation: dotPulse 2.8s ease-in-out infinite; }
+.purokHotspot > circle:last-child { fill: currentColor; stroke: white; stroke-width: 3; filter: drop-shadow(0 3px 8px rgba(0,0,0,.22)); }
+.mapPulseRing { fill: none; stroke: currentColor; stroke-width: 2; animation: hotspotGlow 2.6s ease-in-out infinite; }
 .purok1 { color: #f15a24; }
 .purok2 { color: #f6c445; }
 .purok3 { color: #df4a8b; }
 .purok4 { color: #19a7a8; }
 .purok5 { color: #8765d1; }
 .purok6 { color: #70b84c; }
-.purok2 circle { animation-delay: -.4s; }
-.purok3 circle { animation-delay: -.8s; }
-.purok4 circle { animation-delay: -1.2s; }
-.purok5 circle { animation-delay: -1.6s; }
-.purok6 circle { animation-delay: -2s; }
+.purok2 .mapPulseRing { animation-delay: -.4s; }
+.purok3 .mapPulseRing { animation-delay: -.8s; }
+.purok4 .mapPulseRing { animation-delay: -1.2s; }
+.purok5 .mapPulseRing { animation-delay: -1.6s; }
+.purok6 .mapPulseRing { animation-delay: -2s; }
 .flowDot { fill: currentColor; filter: drop-shadow(0 2px 3px rgba(0,0,0,.25)); }
-.purokHub > circle:last-child { fill: none; stroke: var(--orange); stroke-width: 3; filter: drop-shadow(0 3px 9px rgba(0,0,0,.25)); }
-.hubLogo { transform-box: fill-box; transform-origin: center; animation: logoPulse 2.5s ease-in-out infinite; }
-@keyframes dotPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.16); } }
-@keyframes logoPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+.hubPulse { fill: none; stroke: rgba(10,29,74,.48); stroke-width: 2; animation: hubGlow 2.5s ease-in-out infinite; }
+.hubLogo { filter: drop-shadow(0 3px 8px rgba(0,0,0,.26)); }
+@keyframes hotspotGlow { 0%, 100% { opacity: .28; stroke-width: 2; } 50% { opacity: .9; stroke-width: 4; } }
+@keyframes hubGlow { 0%, 100% { opacity: .22; stroke-width: 2; } 50% { opacity: .82; stroke-width: 5; } }
 
 .programs { padding-block: 125px 170px; }
 .sectionHeading { display: flex; justify-content: space-between; align-items: end; gap: 50px; margin-bottom: 55px; }
