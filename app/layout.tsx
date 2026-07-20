@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Fraunces, Inter } from "next/font/google";
+import { Fraunces, Inter, Pacifico } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import "./globals.css";
@@ -15,6 +15,12 @@ const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+});
+
+const pacifico = Pacifico({
+  variable: "--font-pacifico",
+  subsets: ["latin"],
+  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -103,7 +109,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${fraunces.variable} ${inter.variable} antialiased`}
+      className={`${fraunces.variable} ${inter.variable} ${pacifico.variable} antialiased`}
     >
       <head>
         <link rel="canonical" href="https://lgbt-ku-ila.vercel.app" />

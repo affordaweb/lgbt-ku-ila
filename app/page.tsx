@@ -74,7 +74,8 @@ export default function HomePage() {
         <div className={styles.heroContent}>
           <p className={styles.eyebrow}>Love · solidarity · belonging</p>
           <h1 id="hero-title" className={styles.heroTitle}>
-            A community where everyone can <em>belong.</em>
+            Kahit <span className={styles.scriptAccent}>ano</span> ka, {" "}
+            <span className={styles.scriptAccent}>Love</span> ka!
           </h1>
           <p className={styles.heroCopy}>
             Building a safer, kinder, and more inclusive Batangas—one voice,
