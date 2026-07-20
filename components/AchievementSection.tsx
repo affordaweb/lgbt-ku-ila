@@ -8,7 +8,6 @@ import styles from "@/app/page.module.css";
 const slides = [
   {
     image: "/images/events/john-carlo-salvana-champion.jpeg",
-    backdrop: "#210827",
     alt: "Congratulations poster for John Carlo Salvana, Champion in Commercial Makeup",
     firstName: "John Carlo",
     surname: "Salvana",
@@ -22,7 +21,6 @@ const slides = [
   },
   {
     image: "/images/events/angel-morales-fourth-placer.jpeg",
-    backdrop: "#1a1209",
     alt: "Congratulations poster for Angel Morales, 4th Placer in Commercial Makeup",
     firstName: "Angel",
     surname: "Morales",
@@ -117,7 +115,7 @@ export default function AchievementSection() {
             pointerStart.current = null;
           }}
         >
-          <div className={styles.achievementImageFrame} style={{ backgroundColor: slide.backdrop }}>
+          <div className={styles.achievementImageFrame}>
             <div className={styles.achievementPosterStage}>
               {slides.map((item, index) => (
                 <Image

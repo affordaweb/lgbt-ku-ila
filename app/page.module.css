@@ -240,14 +240,14 @@
 
 .achievements { width: min(100%, 1300px); margin-inline: auto; padding: 135px clamp(24px, 3.08vw, 40px); background: #f7f5f0; box-shadow: 0 0 0 100vmax #f7f5f0; clip-path: inset(0 -100vmax); }
 .achievementGrid { display: grid; grid-template-columns: minmax(0, .98fr) minmax(0, 1.02fr); align-items: center; gap: clamp(58px, 8vw, 125px); }
-.achievementImageColumn { position: relative; width: min(100%, 560px); justify-self: center; padding: 0 0 26px 24px; touch-action: pan-y; }
-.achievementImageFrame { position: relative; aspect-ratio: 4 / 5; border-radius: 48% 48% 28px 28px; background: transparent; }
-.achievementPosterStage { position: absolute; inset: 30px; overflow: hidden; border-radius: 20px; background: transparent; box-shadow: 0 28px 55px rgba(1,10,30,.38); }
+.achievementImageColumn { position: relative; width: min(100%, 440px); justify-self: center; padding: 0 0 20px 18px; touch-action: pan-y; }
+.achievementImageFrame { position: relative; aspect-ratio: 3 / 4; padding: 14px; overflow: hidden; border-radius: 18px; background: #fff; box-shadow: 0 18px 45px rgba(0,0,0,.14), 0 6px 18px rgba(0,0,0,.08); }
+.achievementPosterStage { position: absolute; inset: 14px; overflow: hidden; border-radius: 10px; background: transparent; }
 .achievementPoster { z-index: 0; object-fit: contain; opacity: 0; transform: translateX(18px); transition: opacity .65s ease, transform .65s cubic-bezier(.22, 1, .36, 1); }
 .achievementPosterActive { z-index: 1; opacity: 1; transform: translateX(0); }
-.achievementLogoEntrance { position: absolute; z-index: 3; left: -8px; bottom: 42px; opacity: 0; transform: translate3d(-10px, 14px, 0); transition: opacity .8s ease, transform .8s cubic-bezier(.22, 1, .36, 1); }
+.achievementLogoEntrance { position: absolute; z-index: 3; left: -20px; bottom: 18px; opacity: 0; transform: translate3d(-10px, 14px, 0); transition: opacity .8s ease, transform .8s cubic-bezier(.22, 1, .36, 1); }
 .achievementsVisible .achievementLogoEntrance { opacity: 1; transform: translate3d(0, 0, 0); }
-.achievementLogoMotion { width: clamp(95px, 11vw, 145px); aspect-ratio: 1; transition: transform .5s cubic-bezier(.22, 1, .36, 1); }
+.achievementLogoMotion { width: clamp(64px, 7vw, 86px); aspect-ratio: 1; transition: transform .5s cubic-bezier(.22, 1, .36, 1); }
 .achievementScrollDown { transform: translateX(14px); }
 .achievementScrollUp { transform: translateX(-10px); }
 .achievementLogo { width: 100%; height: 100%; display: block; object-fit: contain; padding: 14px; background: white; border-radius: 50%; box-shadow: 0 12px 30px rgba(0,0,0,.16), 0 4px 10px rgba(0,0,0,.08); }
@@ -338,9 +338,8 @@
   .achievementIntro { order: 1; }
   .achievementImageColumn { order: 2; width: min(100%, 420px); padding: 0 0 24px 16px; }
   .achievementDetails { order: 3; margin-top: 0; }
-  .achievementImageFrame { border-radius: 42% 42% 22px 22px; }
-  .achievementLogoEntrance { left: -4px; bottom: 34px; }
-  .achievementLogoMotion { width: 92px; }
+  .achievementLogoEntrance { left: -10px; bottom: 16px; }
+  .achievementLogoMotion { width: 64px; }
   .achievementScrollDown, .achievementScrollUp { transform: none; }
   .achievementIntro h2 { font-size: clamp(2.4rem, 11vw, 3.5rem); }
   .achievementName { font-size: clamp(1.5rem, 7.8vw, 2.4rem); }
