@@ -126,7 +126,7 @@
 .scrollCue { position: absolute; right: 22px; top: 50%; display: flex; align-items: center; gap: 14px; color: rgba(255,255,255,.65); text-transform: uppercase; letter-spacing: .2em; font-size: 9px; writing-mode: vertical-rl; }
 .scrollCue svg { width: 14px; }
 
-.about { padding-block: 130px; display: grid; grid-template-columns: .92fr 1.08fr; gap: clamp(60px, 8vw, 120px); align-items: center; background: white; box-shadow: 0 0 0 100vmax white; clip-path: inset(0 -100vmax); }
+.about { padding-block: 75px; display: grid; grid-template-columns: .92fr 1.08fr; gap: clamp(60px, 8vw, 120px); align-items: center; background: white; box-shadow: 0 0 0 100vmax white; clip-path: inset(0 -100vmax); }
 .sectionTag { color: var(--orange); }
 .about h2, .sectionHeading h2, .leaders h2, .events h2, .preFooter h2 { margin: 0; color: var(--ink); font-size: clamp(2.7rem, 4.4vw, 4.7rem); line-height: 1.03; letter-spacing: -.03em; }
 .about .lead { margin-top: 32px; color: var(--ink); font-size: 1.25rem; line-height: 1.65; }
@@ -162,7 +162,7 @@
 @keyframes hotspotGlow { 0%, 100% { opacity: .28; stroke-width: 2; } 50% { opacity: .9; stroke-width: 4; } }
 @keyframes hubGlow { 0%, 100% { opacity: .22; stroke-width: 2; } 50% { opacity: .82; stroke-width: 5; } }
 
-.programs { padding-block: 125px 170px; }
+.programs { padding-block: 75px; }
 .sectionHeading { display: flex; justify-content: space-between; align-items: end; gap: 50px; margin-bottom: 55px; }
 .sectionHeading > p { max-width: 430px; margin: 0 0 6px; color: rgba(10,29,74,.65); line-height: 1.7; }
 .programList { display: grid; gap: 26px; }
@@ -189,7 +189,7 @@
 .programRow:hover .rowArrow, .programFeatured .rowArrow { color: var(--ink); background: white; }
 .rowArrow svg { width: 17px; }
 
-.leaders { --leadership-charcoal: #1e1e1e; width: min(100%, 1300px); margin-inline: auto; padding-block: 135px 125px; padding-inline: clamp(24px, 3.08vw, 40px); color: white; background: var(--leadership-charcoal); box-shadow: 0 0 0 100vmax var(--leadership-charcoal); clip-path: inset(0 -100vmax); }
+.leaders { --leadership-charcoal: #1e1e1e; width: min(100%, 1300px); margin-inline: auto; padding-block: 75px; padding-inline: clamp(24px, 3.08vw, 40px); color: white; background: var(--leadership-charcoal); box-shadow: 0 0 0 100vmax var(--leadership-charcoal); clip-path: inset(0 -100vmax); }
 .leaderIntro { display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(55px, 8vw, 120px); align-items: end; }
 .sectionTagDark { color: var(--orange); }
 .leaders h2 { color: white; }
@@ -218,7 +218,7 @@
 .memberImageFirst .memberCaption { padding-bottom: 0; }
 @keyframes memberLoop { to { transform: translateX(calc(-50% - clamp(12px, 1.5vw, 24px))); } }
 
-.events { padding-block: 125px; }
+.events { padding-block: 75px; }
 .textLinkDark { color: var(--ink); padding-bottom: 8px; border-bottom: 1px solid var(--orange); }
 .editorialGrid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 45px; }
 .featureStory { position: sticky; top: 110px; align-self: start; color: var(--ink); }
@@ -239,7 +239,7 @@
 .storySummary { line-height: 1.55; }
 .storyRow .readLink { font-size: 11px; }
 
-.achievements { width: min(100%, 1300px); margin-inline: auto; padding: 135px clamp(24px, 3.08vw, 40px); background: #f7f5f0; box-shadow: 0 0 0 100vmax #f7f5f0; clip-path: inset(0 -100vmax); }
+.achievements { width: min(100%, 1300px); margin-inline: auto; padding: 75px clamp(24px, 3.08vw, 40px); background: #f7f5f0; box-shadow: 0 0 0 100vmax #f7f5f0; clip-path: inset(0 -100vmax); }
 .achievementGrid { display: grid; grid-template-columns: minmax(0, .98fr) minmax(0, 1.02fr); align-items: center; gap: clamp(58px, 8vw, 125px); }
 .achievementImageColumn { position: relative; width: min(100%, 440px); justify-self: center; padding: 0 0 20px 18px; touch-action: pan-y; }
 .achievementImageFrame { position: relative; padding: 0; margin: 0; overflow: visible; border: 0; background: transparent; box-shadow: none; }
@@ -284,7 +284,7 @@
 @keyframes galleryLoop { to { transform: translateX(calc(-50% - 9px)); } }
 
 .preFooter { position: relative; color: white; min-height: 620px; display: flex; align-items: center; background: #071426; }
-.preFooterGrid { padding-block: 110px; display: grid; grid-template-columns: 1.3fr .7fr; gap: 80px; align-items: center; }
+.preFooterGrid { padding-block: 75px; display: grid; grid-template-columns: 1.3fr .7fr; gap: 80px; align-items: center; }
 .preFooter h2 { color: white; max-width: 850px; }
 .preFooterGrid > div:first-child > p:not(.sectionTagDark) { max-width: 670px; color: rgba(255,255,255,.66); font-size: 1.05rem; line-height: 1.75; margin: 28px 0 35px; }
 .contactDetails { padding-left: 55px; border-left: 1px solid rgba(255,255,255,.18); display: grid; gap: 36px; }
@@ -317,14 +317,14 @@
   .heroSlide { width: min(90%, 380px); }
   .heroSlide img { border-radius: 14px; }
   .scrollCue { display: none; }
-  .about, .programs, .leaders, .events { padding-block: 82px; }
+  .about, .programs, .leaders, .events { padding-block: 60px; }
   .aboutVisual { min-height: 440px; }
   .archImage { inset: 0; }
   .impactCard { width: 150px; }
   .impactCard strong { font-size: 3rem; }
   .aboutFooter, .sectionHeading { align-items: flex-start; flex-direction: column; }
-  .programs { padding-bottom: 120px; }
-  .programRow { min-height: 260px; grid-template-columns: 36px 44px 1fr 42px; gap: 13px; padding: 24px 18px; border-radius: 18px; }
+  .programs { padding-bottom: 60px; }
+  .programRow { position: relative; top: auto; min-height: 260px; grid-template-columns: 36px 44px 1fr 42px; gap: 13px; padding: 24px 18px; border-radius: 18px; }
   .programIcon { width: 42px; height: 42px; }
   .programRow p { grid-column: 2 / 5; }
   .rowArrow { width: 40px; height: 40px; }
@@ -332,7 +332,7 @@
   .memberRail { overflow-x: auto; touch-action: pan-x; scrollbar-width: none; -webkit-mask-image: none; mask-image: none; }
   .memberRail::-webkit-scrollbar { display: none; }
   .memberCard { width: 72vw; max-width: 300px; }
-  .achievements { padding-block: 82px; }
+  .achievements { padding-block: 60px; }
   .achievementGrid { display: flex; flex-direction: column; align-items: stretch; gap: 34px; }
   .achievementContent { display: contents; }
   .achievementIntro { order: 1; }
