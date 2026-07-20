@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
-import { DM_Serif_Display, Outfit } from "next/font/google";
+import { Cormorant_Garamond, Outfit } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import "./globals.css";
 
-const dmSerifDisplay = DM_Serif_Display({
-  variable: "--font-dm-serif",
+const cormorantGaramond = Cormorant_Garamond({
+  variable: "--font-cormorant",
   subsets: ["latin"],
-  weight: ["400"],
+  weight: ["500", "600", "700"],
+  style: ["normal", "italic"],
 });
 
 const outfit = Outfit({
@@ -102,7 +103,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${dmSerifDisplay.variable} ${outfit.variable} antialiased`}
+      className={`${cormorantGaramond.variable} ${outfit.variable} antialiased`}
     >
       <head>
         <link rel="canonical" href="https://lgbt-ku-ila.vercel.app" />
