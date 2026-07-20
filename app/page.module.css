@@ -72,13 +72,12 @@
   width: min(88%, 460px);
   margin: auto;
   aspect-ratio: 1.16;
-  border: 9px solid rgba(255,255,255,.96);
   border-radius: 20px;
-  background: var(--paper);
+  background: transparent;
   box-shadow: 0 28px 55px rgba(1, 10, 30, .38);
   animation: heroSlideRotate 12s cubic-bezier(.65, 0, .35, 1) infinite;
 }
-.heroSlide img { object-fit: contain; background: #071426; }
+.heroSlide img { object-fit: contain; background: transparent; }
 .heroSlide:nth-child(1) { animation-delay: 0s; }
 .heroSlide:nth-child(2) { animation-delay: -8s; }
 .heroSlide:nth-child(3) { animation-delay: -4s; }
@@ -251,7 +250,7 @@
   .heroContent { padding-block: 110px 70px; gap: 38px; }
   .heroTitle { max-width: 12ch; font-size: clamp(3.1rem, 14vw, 4.2rem); }
   .heroGallery { min-height: 335px; }
-  .heroSlide { width: min(90%, 380px); border-width: 6px; border-radius: 14px; }
+  .heroSlide { width: min(90%, 380px); border-radius: 14px; }
   .scrollCue { display: none; }
   .about, .programs, .leaders, .events { padding-block: 82px; }
   .aboutVisual { min-height: 440px; }
