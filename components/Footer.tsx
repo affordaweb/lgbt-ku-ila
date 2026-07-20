@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <footer className="bg-[#0A1D4A] text-white">
       <div className="max-w-[1300px] mx-auto px-6 lg:px-10 py-16 lg:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-16">
           <div className="lg:col-span-1">
             <Link href="/" className="flex items-center gap-3 mb-5">
               <Image
@@ -38,7 +38,7 @@ export default function Footer() {
             </div>
           </div>
 
-          <div>
+          <div className="lg:col-span-2 lg:pl-16">
             <h4 className="text-sm font-semibold uppercase tracking-wider mb-6 text-white/80">Quick Links</h4>
             <ul className="space-y-3">
               {[
@@ -82,19 +82,6 @@ export default function Footer() {
                 <span>lgbtkuila@outlook.com</span>
               </li>
             </ul>
-            <div className="mt-6">
-              <h5 className="text-xs font-semibold uppercase tracking-wider text-white/80 mb-3">Newsletter</h5>
-              <div className="flex">
-                <input
-                  type="email"
-                  placeholder="Your email"
-                  className="bg-white/10 border border-white/25 text-sm px-4 py-2.5 rounded-l-full outline-none focus:border-[#F15A24] transition-colors w-full text-white placeholder:text-white/40"
-                />
-                <button className="bg-[#F15A24] px-4 rounded-r-full hover:opacity-85 transition-opacity shrink-0">
-                  <ArrowRight className="w-4 h-4" />
-                </button>
-              </div>
-            </div>
           </div>
         </div>
       </div>

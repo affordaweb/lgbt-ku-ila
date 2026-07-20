@@ -4,6 +4,7 @@ import Link from "next/link";
 import {
   ArrowDown,
   ArrowRight,
+  ExternalLink,
   GraduationCap,
   HandHeart,
   HeartPulse,
@@ -53,7 +54,7 @@ const programs = [
   },
 ];
 
-const leaders = members.filter((member) => member.role !== "Member").slice(0, 4);
+const leaders = members.filter((member) => member.role !== "Member").slice(0, 6);
 const featuredEvent = pastEvents[0];
 const eventList = pastEvents.slice(1, 4);
 
@@ -62,7 +63,7 @@ export default function HomePage() {
     <div className={styles.page}>
       <section className={styles.hero} aria-labelledby="hero-title">
         <Image
-          src={galleryImages[0]?.src || "/images/stock/stock-01.jpg"}
+          src={galleryImages[1]?.src || "/images/stock/stock-01.jpg"}
           alt="The LGBTQIA++ SILBI Kumintang Ilaya community gathered together"
           fill
           priority
@@ -73,8 +74,7 @@ export default function HomePage() {
         <div className={styles.heroContent}>
           <p className={styles.eyebrow}>Love · solidarity · belonging</p>
           <h1 id="hero-title" className={styles.heroTitle}>
-            A community where<br />
-            everyone can <em>belong.</em>
+            A community where everyone can <em>belong.</em>
           </h1>
           <p className={styles.heroCopy}>
             Building a safer, kinder, and more inclusive Batangas—one voice,
@@ -88,11 +88,6 @@ export default function HomePage() {
               Discover our story <ArrowRight aria-hidden="true" />
             </Link>
           </div>
-        </div>
-        <div className={styles.heroMeta} aria-label="Community highlights">
-          <span><strong>350+</strong> members</span>
-          <span><strong>25+</strong> programs</span>
-          <span><strong>15+</strong> events</span>
         </div>
         <a href="#about" className={styles.scrollCue} aria-label="Scroll to learn more">
           Scroll down <ArrowDown aria-hidden="true" />
@@ -124,7 +119,7 @@ export default function HomePage() {
         <div className={styles.aboutVisual}>
           <div className={styles.archImage}>
             <Image
-              src={galleryImages[1]?.src || "/images/stock/stock-02.jpg"}
+              src={galleryImages[5]?.src || "/images/stock/stock-02.jpg"}
               alt="Ku-Ila members sharing a community moment"
               fill
               sizes="(max-width: 900px) 90vw, 48vw"
@@ -132,8 +127,8 @@ export default function HomePage() {
             />
           </div>
           <div className={styles.impactCard}>
-            <strong>15+</strong>
-            <span>years of<br />community care</span>
+            <strong>80%</strong>
+            <span>of belonging begins<br />with being seen</span>
           </div>
         </div>
       </section>
@@ -185,9 +180,14 @@ export default function HomePage() {
             </Link>
           </div>
         </div>
-        <div className={styles.memberRail}>
-          {leaders.map((member, index) => (
-            <Link href={`/members/${member.slug}`} className={styles.memberCard} key={member.slug}>
+        <div className={styles.memberRail} aria-label="Ku-Ila leadership">
+          <div className={styles.memberTrack}>
+          {[...leaders, ...leaders].map((member, index) => (
+            <Link href={`/members/${member.slug}`} className={styles.memberCard} key={`${member.slug}-${index}`}>
+              <div className={styles.memberTopline}>
+                <h3>{member.name}</h3>
+                <p>{member.role}</p>
+              </div>
               <div className={styles.memberImage}>
                 <Image
                   src={member.image}
@@ -198,11 +198,12 @@ export default function HomePage() {
                 />
               </div>
               <div className={styles.memberCaption}>
-                <span>0{index + 1}</span>
                 <div><h3>{member.name}</h3><p>{member.role}</p></div>
+                <ArrowRight aria-hidden="true" />
               </div>
             </Link>
           ))}
+          </div>
         </div>
       </section>
 
@@ -258,15 +259,19 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className={styles.galleryBand} aria-label="Community gallery highlights">
+        <div className={styles.galleryFade} />
+        <div className={styles.galleryTrack}>
+          {[...galleryImages.slice(0, 8), ...galleryImages.slice(0, 8)].map((image, index) => (
+            <Link href="/gallery" className={styles.galleryTile} key={`${image.src}-${index}`}>
+              <Image src={image.src} alt={index < 8 ? image.alt : ""} fill sizes="320px" className={styles.coverImage} />
+              <span>View gallery <ExternalLink aria-hidden="true" /></span>
+            </Link>
+          ))}
+        </div>
+      </section>
+
       <section className={styles.preFooter}>
-        <Image
-          src={galleryImages[3]?.src || "/images/stock/stock-05.jpg"}
-          alt="Ku-Ila community celebration"
-          fill
-          sizes="100vw"
-          className={styles.preFooterImage}
-        />
-        <div className={styles.preFooterShade} />
         <div className={styles.preFooterGrid}>
           <div>
             <p className={styles.sectionTagDark}>Begin with belonging</p>
