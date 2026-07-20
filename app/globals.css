@@ -124,7 +124,9 @@ h1, h2, h3, h4, h5, h6 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: nowrap;
   gap: 8px;
+  white-space: nowrap;
   padding: 14px 32px;
   font-weight: 600;
   font-size: 14px;
@@ -147,7 +149,9 @@ h1, h2, h3, h4, h5, h6 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: nowrap;
   gap: 8px;
+  white-space: nowrap;
   padding: 14px 32px;
   font-weight: 600;
   font-size: 14px;
@@ -170,7 +174,9 @@ h1, h2, h3, h4, h5, h6 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: nowrap;
   gap: 8px;
+  white-space: nowrap;
   padding: 14px 32px;
   font-weight: 600;
   font-size: 14px;
@@ -189,6 +195,28 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateY(-1px);
   box-shadow: 0 8px 24px rgba(241, 90, 36, 0.2);
 }
+
+/* Form actions always keep their text and icon together. */
+.btn-theme {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 9px;
+  min-height: 49px;
+  padding: 0 22px;
+  border-radius: 999px;
+  font-size: .8rem;
+  font-weight: 800;
+  letter-spacing: .04em;
+  white-space: nowrap;
+  transition: background .25s ease, color .25s ease, transform .25s ease;
+}
+
+.btn-theme-primary { color: #fff; background: #0a1d4a; }
+.btn-theme-primary:hover:not(:disabled) { background: #f15a24; transform: translateY(-2px); }
+
+.btn-primary svg, .btn-secondary svg, .btn-outline svg, .btn-theme svg { flex: 0 0 auto; }
 
 .section-padding {
   padding-top: 75px;

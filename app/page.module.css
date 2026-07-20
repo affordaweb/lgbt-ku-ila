@@ -111,16 +111,18 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: nowrap;
   gap: 20px;
   padding: 0 28px;
   font-size: 14px;
   font-weight: 650;
+  white-space: nowrap;
   transition: transform .25s ease, background .25s ease, color .25s ease;
 }
 .primaryButton { color: white; background: var(--orange); border-radius: 999px; }
 .primaryButton:hover { background: var(--orange-deep); transform: translateY(-2px); }
-.primaryButton svg, .darkButton svg, .outlineButtonLight svg, .textLinkLight svg, .textLinkDark svg, .readLink svg { width: 16px; }
-.textLinkLight, .textLinkDark, .readLink { display: inline-flex; align-items: center; gap: 14px; font-weight: 600; }
+.primaryButton svg, .darkButton svg, .outlineButtonLight svg, .textLinkLight svg, .textLinkDark svg, .readLink svg { width: 16px; flex: 0 0 auto; }
+.textLinkLight, .textLinkDark, .readLink { display: inline-flex; align-items: center; flex-wrap: nowrap; gap: 14px; font-weight: 600; white-space: nowrap; }
 .textLinkLight { min-height: 52px; color: white; border: 1px solid rgba(255,255,255,.4); border-radius: 999px; padding: 0 24px; transition: background .25s, color .25s, transform .25s; }
 .textLinkLight:hover { color: var(--navy); background: white; transform: translateY(-2px); }
 .scrollCue { position: absolute; right: 22px; top: 50%; display: flex; align-items: center; gap: 14px; color: rgba(255,255,255,.65); text-transform: uppercase; letter-spacing: .2em; font-size: 9px; writing-mode: vertical-rl; }
