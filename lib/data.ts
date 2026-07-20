@@ -95,10 +95,10 @@ export interface PridePartner {
 }
 
 export const pridePartners: PridePartner[] = [
-  { name: "Malen Balina", partnerLevel: "major-partner", eventYear: 2026, acknowledgment: "With sincere appreciation for supporting a celebration of pride, visibility, and community.", displayOrder: 1, isPublished: true },
+  { name: "Mae Babao", partnerLevel: "major-partner", eventYear: 2026, acknowledgment: "With sincere appreciation for supporting a celebration of pride, visibility, and community.", displayOrder: 1, isPublished: true },
   { name: "Congresswoman Beverly Rose A. Dimacuha", partnerLevel: "major-partner", eventYear: 2026, acknowledgment: "With sincere appreciation for supporting a celebration of pride, visibility, and community.", displayOrder: 2, isPublished: true },
-  { name: "Raquel Bugtong", partnerLevel: "major-partner", eventYear: 2026, acknowledgment: "With sincere appreciation for supporting a celebration of pride, visibility, and community.", displayOrder: 3, isPublished: true },
-  { name: "Mae Babao", partnerLevel: "major-partner", eventYear: 2026, acknowledgment: "With sincere appreciation for supporting a celebration of pride, visibility, and community.", displayOrder: 4, isPublished: true },
+  { name: "Malen Balina", partnerLevel: "major-partner", eventYear: 2026, acknowledgment: "With sincere appreciation for supporting a celebration of pride, visibility, and community.", displayOrder: 3, isPublished: true },
+  { name: "Raquel Bugtong", partnerLevel: "major-partner", eventYear: 2026, acknowledgment: "With sincere appreciation for supporting a celebration of pride, visibility, and community.", displayOrder: 4, isPublished: true },
   { name: "Barangay Councilor Larry Furto", partnerLevel: "community-partner", eventYear: 2026, acknowledgment: "Thank you for standing with the community and supporting the Pride March celebration.", displayOrder: 1, isPublished: true },
   { name: "Barangay Councilor Monique Felipe", partnerLevel: "community-partner", eventYear: 2026, acknowledgment: "Thank you for standing with the community and supporting the Pride March celebration.", displayOrder: 2, isPublished: true },
   { name: "Mary Gabriel Hamilton", partnerLevel: "community-partner", eventYear: 2026, acknowledgment: "Thank you for standing with the community and supporting the Pride March celebration.", displayOrder: 3, isPublished: true },
