@@ -23,3 +23,125 @@
   object-fit: contain;
   object-position: center;
 }
+
+/* A focused, editorial gratitude moment using the homepage's dark feature-section language. */
+.quote {
+  position: relative;
+  overflow: hidden;
+  background: #071426;
+}
+
+.quote::before {
+  content: "";
+  position: absolute;
+  width: min(42vw, 560px);
+  aspect-ratio: 1;
+  right: -13vw;
+  top: -48%;
+  border: 1px solid rgba(241, 90, 36, .34);
+  border-radius: 50%;
+  box-shadow: 0 0 0 45px rgba(241, 90, 36, .035), 0 0 0 90px rgba(241, 90, 36, .025);
+}
+
+.quote .wrap {
+  position: relative;
+  z-index: 1;
+  display: block;
+}
+
+.quotePanel {
+  display: grid;
+  grid-template-columns: minmax(180px, .38fr) minmax(0, 1fr);
+  gap: clamp(35px, 8vw, 120px);
+  align-items: start;
+  padding-block: clamp(68px, 8vw, 112px);
+}
+
+.quoteAside {
+  display: grid;
+  gap: 25px;
+  padding-top: 16px;
+}
+
+.quoteAside .eyebrow {
+  color: #f4a137;
+}
+
+.quoteAside span {
+  width: auto;
+  height: auto;
+  color: rgba(255, 255, 255, .52);
+  background: transparent;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.quoteContent {
+  position: relative;
+  padding: 22px 0 0 clamp(16px, 3vw, 46px);
+  border-left: 1px solid rgba(255, 255, 255, .22);
+}
+
+.quoteMark {
+  position: absolute;
+  top: -39px;
+  left: clamp(16px, 3vw, 46px);
+  color: #f15a24;
+  font-family: var(--font-heading), Georgia, serif;
+  font-size: clamp(6rem, 10vw, 10rem);
+  line-height: 1;
+}
+
+.quote blockquote {
+  max-width: 940px;
+  color: #fff;
+  font-size: clamp(2.15rem, 4.05vw, 4.35rem);
+  line-height: 1.08;
+  text-align: left;
+}
+
+.quote blockquote em {
+  color: #f4a137;
+  font-family: var(--font-pacifico), cursive;
+  font-size: .8em;
+  font-style: italic;
+}
+
+.quoteContent > p {
+  max-width: 520px;
+  margin: 28px 0 0;
+  color: rgba(255, 255, 255, .62);
+  font-size: .96rem;
+  line-height: 1.7;
+}
+
+@media (max-width: 820px) {
+  .quotePanel {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .quoteAside {
+    padding-top: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .quotePanel {
+    padding-block: 65px;
+  }
+
+  .quoteContent {
+    padding-left: 22px;
+  }
+
+  .quoteMark {
+    left: 22px;
+  }
+
+  .quote blockquote {
+    font-size: clamp(1.85rem, 8.1vw, 2.45rem);
+  }
+}
