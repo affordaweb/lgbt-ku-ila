@@ -9,6 +9,7 @@ import ProfileUpdateRequestModal from "@/components/ProfileUpdateRequestModal";
 import styles from "@/components/InnerPage.module.css";
 import { members } from "@/lib/data";
 import { pageSeo } from "@/lib/seo";
+import { highlightLast } from "@/lib/highlight";
 
 export function generateStaticParams(){ return members.map(member => ({ slug: member.slug })); }
 export async function generateMetadata({params}:{params:Promise<{slug:string}>}):Promise<Metadata>{ const {slug}=await params; const member=members.find(item=>item.slug===slug); return member?pageSeo({title:member.profile?.displayName ?? member.name,description:`Learn more about ${member.name}, ${member.role} at LGBTQIA++ SILBI Kumintang Ilaya.`,path:`/members/${member.slug}`,image:member.image}):{title:"Member Not Found",robots:{index:false,follow:false}}; }
@@ -19,7 +20,7 @@ export default async function MemberPage({params}:{params:Promise<{slug:string}>
   const {slug}=await params; const member=members.find(item=>item.slug===slug); if(!member) notFound(); const profile=member.profile; const name=profile?.displayName ?? member.name;
   return <main>
     <section className={styles.memberHero}><span className={styles.memberHeroWord} aria-hidden="true"><span>{name}</span>{' '}<span>{name}</span></span><div className={styles.wrap}><div className={styles.memberHeroGrid}>
-      <div className={styles.memberHeroCopy}><p className={styles.eyebrow}>People of Ku-Ila</p><p className={styles.memberBreadcrumb}>Home / Members / {name}</p><h1>{name}</h1><p className={styles.memberRole}>{member.role}</p><p className={styles.memberLead}>{profile?.biography ?? "A member of the community helping make room for more voices, more stories, and more belonging."}</p><div className={styles.actions}><ProfileUpdateRequestModal member={{name, slug: member.slug, role: member.role, pageUrl: `/members/${member.slug}`}} /><Link href="/members" className={styles.secondaryButton}><ArrowLeft size={15}/> All members</Link></div></div>
+      <div className={styles.memberHeroCopy}><p className={styles.eyebrow}>People of Ku-Ila</p><p className={styles.memberBreadcrumb}>Home / Members / {name}</p><h1>{highlightLast(name)}</h1><p className={styles.memberRole}>{member.role}</p><p className={styles.memberLead}>{profile?.biography ?? "A member of the community helping make room for more voices, more stories, and more belonging."}</p><div className={styles.actions}><ProfileUpdateRequestModal member={{name, slug: member.slug, role: member.role, pageUrl: `/members/${member.slug}`}} /><Link href="/members" className={styles.secondaryButton}><ArrowLeft size={15}/> All members</Link></div></div>
       <div className={styles.memberHeroImage}><Image src={member.image} alt={name} fill priority sizes="(max-width:820px) 90vw, 43vw" /></div>
     </div></div></section>
     <section className={styles.section}><div className={styles.wrap}><div className={styles.profileLayout}>
