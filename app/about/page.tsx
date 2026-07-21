@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowRight, Equal, Eye, Heart, Target, Users } from "lucide-react";
 import HeroSection from "@/components/HeroSection";
 import InnerCta from "@/components/InnerCta";
+import ParallaxLogo from "@/components/ParallaxLogo";
 import styles from "@/components/InnerPage.module.css";
 import { pageSeo } from "@/lib/seo";
 
@@ -33,7 +34,7 @@ export default function AboutPage() {
       </div>
       <div className={styles.visual}>
         <div className={styles.primaryVisual}><Image src="/images/stock/stock-02.jpg" alt="Hands holding LGBTQIA++ letters" fill sizes="(max-width: 820px) 82vw, 520px" /></div>
-        <div className={styles.secondaryVisual}><Image src="/images/logo/731350583_10238772116515608_5057049016834242279_n.jpg" alt="LGBTQIA++ SILBI Kumintang Ilaya Logo" fill sizes="235px" /></div>
+        <ParallaxLogo />
       </div>
     </div></div></section>
 
