@@ -18,7 +18,7 @@ export default function HeroSection({
   const supportingCopy = description ?? "A closer look at the people, stories, and possibilities that make our community stronger.";
   return (
     <section className={styles.hero}>
-      <span className={styles.backdropWord} aria-hidden="true"><span>{title}</span><span>{title}</span></span>
+      <span className={styles.backdropWord} aria-hidden="true"><span>{title}</span>{' '}<span>{title}</span></span>
       <div className={styles.shell}>
         <div className={styles.copy}>
           {subtitle && <p className={styles.crumb}>{subtitle}</p>}
