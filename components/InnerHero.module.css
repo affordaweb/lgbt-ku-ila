@@ -6,7 +6,7 @@
 .label { display: flex; align-items: center; gap: 13px; margin: 0 0 20px; color: #f15a24; font-size: 10px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; }
 .label::before { content: ""; width: 32px; height: 1px; background: currentColor; }
 .title { max-width: 1040px; margin: 0; color: #0a1d4a; font-family: var(--font-heading), Georgia, serif; font-size: clamp(3.4rem, 7vw, 7.1rem); font-weight: 500; line-height: .92; letter-spacing: -.055em; animation: rise .7s cubic-bezier(.22,1,.36,1) both; }
-.title em { color: #f15a24; font-family: var(--font-pacifico), cursive; font-size: .72em; font-style: italic; font-weight: 400; letter-spacing: 0; }
+.title em { color: #f15a24; font-family: var(--font-pacifico), cursive; font-size: .72em; font-weight: 400; letter-spacing: 0; }
 .description { max-width: 610px; margin: 26px 0 0; color: rgba(10,29,74,.66); font-size: clamp(1rem, 1.35vw, 1.14rem); line-height: 1.75; animation: rise .7s .09s cubic-bezier(.22,1,.36,1) both; }
 .visual { position: relative; margin-top: clamp(44px, 6vw, 74px); }
 .image { position: relative; width: 100%; min-height: clamp(260px, 43vw, 560px); overflow: hidden; border-radius: 18px; box-shadow: 0 18px 42px rgba(0,0,0,.13), 0 6px 18px rgba(0,0,0,.07); animation: reveal .8s .12s cubic-bezier(.22,1,.36,1) both; }
