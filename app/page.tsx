@@ -148,6 +148,7 @@ export default function HomePage() {
                   height={image.height}
                   priority={index === 0}
                   sizes="(max-width: 960px) 90vw, 42vw"
+                  unoptimized
                 />
               </div>
             ))}
