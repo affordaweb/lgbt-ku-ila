@@ -4,6 +4,7 @@ import { ChangeEvent, FormEvent, ReactNode, useRef, useState } from "react";
 import { AlertCircle, Check, ChevronLeft, ChevronRight, FileText, Send, Upload } from "lucide-react";
 import TurnstileField from "./TurnstileField";
 import { submitContactForm } from "@/lib/contactForm";
+import { trackFormSubmission } from "@/lib/gtag";
 
 const steps = ["Basic Information", "Identity and Pronouns", "Organization Role", "Work and Skills", "Biography and Contributions", "Photo and Files", "Contact and Social Links", "Membership and Review"];
 const orientations = ["Gay", "Lesbian", "Bisexual", "Pansexual", "Asexual", "Demisexual", "Queer", "Questioning", "Heterosexual / Straight", "Prefer Not to Say", "Self-Describe"];
@@ -33,7 +34,7 @@ export default function MembershipForm() {
     setLoading(true); setSubmitError(""); const fields: Record<string, string> = {}; data.forEach((value, key) => { if (typeof value !== "string" || ["email", "_honeypot"].includes(key)) return; fields[key] = fields[key] ? `${fields[key]}\n${value}` : value; });
     const result = await submitContactForm({ formType: "membership", subject: "New Membership Request — Ku-ila Website", name: String(data.get("full_name")), email: String(data.get("email")), message: `New membership application from ${String(data.get("full_name"))}. GCash reference: ${gcashRef.trim()}.`, turnstileToken, fields: { ...fields, gcash_reference: gcashRef.trim() }, files: [screenshotFile, ...(photo ? [photo] : []), ...supporting] });
     if (!result.ok) { setLoading(false); setSubmitError(result.message); return; }
-    try { await fetch("/api/gcash/store", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ reference: gcashRef.trim(), name: data.get("full_name"), email: data.get("email") }) }); setSubmitted(true); } catch { setSubmitError("Your application was sent, but payment verification could not be saved. Please contact us with your GCash reference."); } finally { setLoading(false); }
+    try { await fetch("/api/gcash/store", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ reference: gcashRef.trim(), name: data.get("full_name"), email: data.get("email") }) }); trackFormSubmission("membership"); setSubmitted(true); } catch { setSubmitError("Your application was sent, but payment verification could not be saved. Please contact us with your GCash reference."); } finally { setLoading(false); }
   };
 
   if (submitted) return <div className="rounded-[18px] bg-[#f7f5f0] p-8 text-center" role="status"><Check className="mx-auto mb-3 text-[#f15a24]"/><h3 className="font-[family-name:var(--font-heading)] text-2xl text-[#0a1d4a]">Application received</h3><p className="mt-2 text-sm leading-relaxed text-[#0a1d4a]/65">Thank you. Your membership request and profile information will be reviewed after payment verification.</p></div>;

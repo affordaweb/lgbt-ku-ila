@@ -145,7 +145,7 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <Footer />
         <PwaServiceWorker />
-        {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ? <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} /> : null}
+        {process.env.NEXT_PUBLIC_GA_ID ? <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} /> : null}
       </body>
     </html>
   );
