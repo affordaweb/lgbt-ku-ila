@@ -33,7 +33,7 @@ export default function AboutPage() {
       </div>
       <div className={styles.visual}>
         <div className={styles.primaryVisual}><Image src="/images/stock/stock-02.jpg" alt="Hands holding LGBTQIA++ letters" fill sizes="(max-width: 820px) 82vw, 520px" /></div>
-        <div className={styles.secondaryVisual}><Image src="/images/logo/731350583_10238772116515608_5057049016834242279_n.jpg" alt="LGBTQIA++ SILBI Kumintang Ilaya Logo" fill sizes="235px" style={{ borderRadius: '50%', filter: 'drop-shadow(0 8px 16px rgba(0,0,0,.25))' }} /></div>
+        <div className={styles.secondaryVisual}><Image src="/images/logo/731350583_10238772116515608_5057049016834242279_n.jpg" alt="LGBTQIA++ SILBI Kumintang Ilaya Logo" fill sizes="235px" /></div>
       </div>
     </div></div></section>
 
