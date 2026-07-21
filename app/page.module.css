@@ -63,7 +63,7 @@
 .heroTitle em, .leaders h2 em, .preFooter h2 em, .about h2 em { color: var(--orange); font-family: var(--font-pacifico), cursive; font-weight: 400; }
 .heroCopy { max-width: 650px; margin: 30px 0 38px; color: rgba(255,255,255,.76); font-size: clamp(1rem, 1.35vw, 1.2rem); line-height: 1.7; }
 .heroActions, .preFooterActions { display: flex; flex-wrap: wrap; align-items: center; gap: 28px; }
-.heroGallery { position: relative; justify-self: end; width: min(100%, 550px); min-height: 470px; }
+.heroGallery { position: relative; justify-self: end; width: min(100%, 550px); min-height: 470px; aspect-ratio: 1.17; }
 .heroSlide {
   position: absolute;
   top: 50%;
@@ -72,13 +72,14 @@
   background: transparent;
   line-height: 0;
   animation: heroSlideRotate 12s cubic-bezier(.65, 0, .35, 1) infinite;
+  will-change: transform, opacity;
 }
 .heroSlide img {
   display: block;
   width: 100%;
   height: auto;
   border-radius: 20px;
-  box-shadow: 0 28px 55px rgba(1, 10, 30, .38);
+  box-shadow: 0 12px 28px rgba(1, 10, 30, .25);
 }
 .heroSlide:nth-child(1) { animation-delay: 0s; }
 .heroSlide:nth-child(2) { animation-delay: -8s; }
@@ -383,3 +384,4 @@
   .galleryTrack { animation: none; }
   .achievementPoster, .achievementDetails { animation: none; transition-duration: .01ms; }
 }
+.programs, .leaders, .events, .resources, .galleryBand { content-visibility: auto; contain-intrinsic-size: 800px; }

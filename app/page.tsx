@@ -108,8 +108,8 @@ const leadershipMembers = [
 const featuredEvent = pastEvents[0];
 const eventList = pastEvents.slice(1, 4);
 const heroSlides = [
-  { ...galleryImages[10]!, width: 2048, height: 1366 },
-  { ...galleryImages[11]!, width: 1198, height: 540 },
+  { ...galleryImages[10]!, width: 1000, height: 667 },
+  { ...galleryImages[11]!, width: 1000, height: 450 },
   { ...galleryImages[0]!, width: 791, height: 540 },
 ];
 
