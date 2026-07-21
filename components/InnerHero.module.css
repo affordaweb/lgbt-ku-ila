@@ -1,6 +1,7 @@
 .hero { position: relative; overflow: hidden; padding: clamp(118px, 12vw, 156px) 0 clamp(70px, 9vw, 124px); background: #f7f5f0; }
 .shell { position: relative; z-index: 1; width: min(100%, 1300px); margin: 0 auto; padding: 0 clamp(24px, 3.08vw, 40px); }
-.backdropWord { position: absolute; z-index: 0; top: clamp(108px, 10vw, 145px); left: max(16px, calc((100vw - 1300px) / 2)); color: rgba(10, 29, 74, .035); font-family: var(--font-heading), Georgia, serif; font-size: clamp(5.5rem, 15.5vw, 15rem); font-weight: 500; line-height: .8; letter-spacing: -.08em; white-space: nowrap; pointer-events: none; }
+.backdropWord { position: absolute; z-index: 0; top: clamp(108px, 10vw, 145px); left: max(16px, calc((100vw - 1300px) / 2)); color: rgba(10, 29, 74, .035); font-family: var(--font-heading), Georgia, serif; font-size: clamp(5.5rem, 15.5vw, 15rem); font-weight: 500; line-height: .8; letter-spacing: -.08em; white-space: nowrap; pointer-events: none; animation: marqueeLeft 30s linear infinite; }
+.backdropWord > span { display: inline-block; }
 .copy { max-width: 1040px; position: relative; }
 .crumb { margin: 0 0 24px; color: rgba(10,29,74,.56); font-size: 10px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
 .label { display: flex; align-items: center; gap: 13px; margin: 0 0 20px; color: #f15a24; font-size: 10px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; }
@@ -14,7 +15,8 @@
 .hero:hover .image img { transform: scale(1.025); }
 .scroll { position: absolute; right: 22px; bottom: 19px; display: flex; align-items: center; gap: 9px; color: #fff; font-size: 9px; font-weight: 700; letter-spacing: .18em; text-shadow: 0 1px 10px rgba(0,0,0,.35); text-transform: uppercase; }
 .scroll::before { content: ""; width: 28px; height: 1px; background: #f15a24; }
+@keyframes marqueeLeft { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes reveal { from { opacity: 0; transform: translateY(22px) scale(.985); } to { opacity: 1; transform: translateY(0) scale(1); } }
 @media (max-width: 800px) { .hero { padding-block: 112px 72px; } .backdropWord { top: 114px; font-size: clamp(4.8rem, 18vw, 8rem); } .title { max-width: 100%; font-size: clamp(2.1rem, 8.8vw, 2.85rem); } .image { min-height: 260px; } .scroll { display: none; } }
-@media (prefers-reduced-motion: reduce) { .title, .description, .image { animation: none; } .hero:hover .image img { transform: none; } }
+@media (prefers-reduced-motion: reduce) { .title, .description, .image, .backdropWord { animation: none; } .hero:hover .image img { transform: none; } }
