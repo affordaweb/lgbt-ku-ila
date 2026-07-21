@@ -8,7 +8,7 @@ import InnerCta from "@/components/InnerCta";
 import ProfileUpdateRequestModal from "@/components/ProfileUpdateRequestModal";
 import styles from "@/components/InnerPage.module.css";
 import { members } from "@/lib/data";
-import { pageSeo } from "@/lib/seo";
+import { pageSeo, breadcrumbJsonLd, personJsonLd, siteUrl } from "@/lib/seo";
 import { highlightLast } from "@/lib/highlight";
 
 export function generateStaticParams(){ return members.map(member => ({ slug: member.slug })); }
@@ -18,7 +18,11 @@ function List({ title, items, icon: Icon }: { title: string; items?: string[]; i
 
 export default async function MemberPage({params}:{params:Promise<{slug:string}>}) {
   const {slug}=await params; const member=members.find(item=>item.slug===slug); if(!member) notFound(); const profile=member.profile; const name=profile?.displayName ?? member.name;
+  const breadcrumb=breadcrumbJsonLd([{name:"Home",path:"/"},{name:"Members",path:"/members"},{name,path:`/members/${member.slug}`}]);
+  const person=personJsonLd({name,description:profile?.biography ?? `Member of LGBTQIA++ SILBI Kumintang Ilaya`,image:member.image,url:`${siteUrl}/members/${member.slug}`});
   return <main>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(breadcrumb)}}/>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(person)}}/>
     <section className={styles.memberHero}><span className={styles.memberHeroWord} aria-hidden="true"><span>{name}</span>{' '}<span>{name}</span></span><div className={styles.wrap}><div className={styles.memberHeroGrid}>
       <div className={styles.memberHeroCopy}><p className={styles.eyebrow}>People of Ku-Ila</p><p className={styles.memberBreadcrumb}>Home / Members / {name}</p><h1>{highlightLast(name)}</h1><p className={styles.memberRole}>{member.role}</p><p className={styles.memberLead}>{profile?.biography ?? "A member of the community helping make room for more voices, more stories, and more belonging."}</p><div className={styles.actions}><ProfileUpdateRequestModal member={{name, slug: member.slug, role: member.role, pageUrl: `/members/${member.slug}`}} /><Link href="/members" className={styles.secondaryButton}><ArrowLeft size={15}/> All members</Link></div></div>
       <div className={styles.memberHeroImage}><Image src={member.image} alt={name} fill priority sizes="(max-width:820px) 90vw, 43vw" /></div>

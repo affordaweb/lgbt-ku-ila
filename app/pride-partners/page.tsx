@@ -4,7 +4,7 @@ import Link from "next/link";
 import { ArrowRight, HeartHandshake, Shirt } from "lucide-react";
 import SponsorshipInquiryForm from "@/components/SponsorshipInquiryForm";
 import { pridePartners } from "@/lib/data";
-import { pageSeo } from "@/lib/seo";
+import { pageSeo, breadcrumbJsonLd } from "@/lib/seo";
 import styles from "./pride-partners.module.css";
 
 export const metadata: Metadata = pageSeo({ title: "Pride Partners", description: "Meet the community partners and contributors who helped bring the Pride March celebration to life in Batangas City.", path: "/pride-partners", image: "/images/events/734896841_1747334810026168_6985617327012982623_n.jpg" });
@@ -14,7 +14,9 @@ const communityPartners = pridePartners.filter(partner => partner.isPublished &&
 const contributors = pridePartners.filter(partner => partner.isPublished && partner.partnerLevel === "event-contributor").sort((a, b) => a.displayOrder - b.displayOrder);
 
 export default function PridePartnersPage() {
+  const breadcrumb=breadcrumbJsonLd([{name:"Home",path:"/"},{name:"Events",path:"/events"},{name:"Pride Partners",path:"/pride-partners"}]);
   return <main className={styles.page}>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(breadcrumb)}}/>
     <section className={styles.hero} aria-labelledby="pride-partners-title"><span className={styles.backdrop} aria-hidden="true">Together</span><div className={styles.wrap}><p className={styles.breadcrumb}>Home / Events / Pride Partners</p><p className={styles.eyebrow}>Pride Partners</p><h1 id="pride-partners-title">The people who helped<br /><em>Pride move forward.</em></h1><p className={styles.heroCopy}>Our Pride March was made possible through the generosity of people who believed in visibility, belonging, and a stronger community. We proudly recognize the partners whose support helped bring the celebration to life.</p><figure className={styles.heroImage}><Image src="/images/events/734896841_1747334810026168_6985617327012982623_n.jpg" alt="Ku-Ila members together during Pride Month" fill priority sizes="(max-width: 760px) 100vw, 92vw" /></figure></div></section>
 
     <section className={styles.major}><div className={styles.wrap}><div className={styles.sectionHead}><div><p className={styles.eyebrow}>Major Partners</p><h2>Generosity that helped<br />make <em>Pride possible.</em></h2></div><p>We extend our deepest appreciation to the major partners whose support played an important role in bringing the Pride March to the community.</p></div><div className={styles.majorGrid}>{majorPartners.map((partner, index) => <article className={styles.majorEntry} key={partner.name}><span>0{index + 1}</span><div><p>Major Partner</p><h3>{partner.name}</h3><small>{partner.acknowledgment}</small></div><HeartHandshake aria-hidden="true" /></article>)}</div></div></section>

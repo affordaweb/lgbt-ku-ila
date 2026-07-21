@@ -6,7 +6,7 @@ import HeroSection from "@/components/HeroSection";
 import InnerCta from "@/components/InnerCta";
 import ParallaxLogo from "@/components/ParallaxLogo";
 import styles from "@/components/InnerPage.module.css";
-import { pageSeo } from "@/lib/seo";
+import { pageSeo, breadcrumbJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = pageSeo({ title: "About LGBTQIA++ Kumintang Ilaya", description: "Learn about the mission, values, and community work of LGBTQIA++ SILBI Kumintang Ilaya in Batangas City.", path: "/about", image: "/images/stock/stock-01.jpg" });
 
@@ -17,7 +17,9 @@ const values = [
 ];
 
 export default function AboutPage() {
+  const breadcrumb=breadcrumbJsonLd([{name:"Home",path:"/"},{name:"About Us",path:"/about"}]);
   return <main>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(breadcrumb)}}/>
     <HeroSection title="About Us" subtitle="Home / About Us" description="A community-led home for dignity, connection, and the freedom to live truthfully in Kumintang Ilaya." backgroundImage="/images/stock/stock-01.jpg" />
 
     <section className={styles.section}><div className={styles.wrap}><div className={styles.intro}>
