@@ -22,13 +22,13 @@ export function pageSeo({ title, description, path, image = "/images/stock/stock
       title,
       description,
       siteName: "LGBTQIA++ SILBI Kumintang Ilaya",
-      images: [{ url: image, alt: title }],
+      images: [{ url: image.startsWith("http") ? image : siteUrl + image, alt: title }],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: [image],
+      images: [image.startsWith("http") ? image : siteUrl + image],
     },
   };
 }
