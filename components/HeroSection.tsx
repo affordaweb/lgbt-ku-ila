@@ -1,5 +1,6 @@
 import Image from "next/image";
 import styles from "./InnerHero.module.css";
+import { highlightLast } from "@/lib/highlight";
 
 interface HeroSectionProps {
   title: string;
@@ -23,7 +24,7 @@ export default function HeroSection({
         <div className={styles.copy}>
           {subtitle && <p className={styles.crumb}>{subtitle}</p>}
           <p className={styles.label}>{label}</p>
-          <h1 className={styles.title}>{title}</h1>
+          <h1 className={styles.title}>{highlightLast(title)}</h1>
           <p className={styles.description}>{supportingCopy}</p>
         </div>
         <div className={styles.visual}>
