@@ -128,6 +128,13 @@ export default function RootLayout({
       addressCountry: "PH",
     },
   };
+  const websiteJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "LGBTQIA++ Kumintang Ilaya",
+    alternateName: "Ku-Ila",
+    url: "https://lgbt-ku-ila.vercel.app",
+  };
 
   return (
     <html
@@ -138,6 +145,10 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
       </head>
       <body className="min-h-full flex flex-col">
