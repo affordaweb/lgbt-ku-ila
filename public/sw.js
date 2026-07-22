@@ -1,8 +1,11 @@
-const CACHE = "ku-ila-assets-v1";
+const CACHE = "ku-ila-assets-v2";
 const CACHEABLE_DESTINATIONS = new Set(["font", "image", "script", "style"]);
 
 self.addEventListener("install", () => self.skipWaiting());
-self.addEventListener("activate", event => event.waitUntil(self.clients.claim()));
+self.addEventListener("activate", event => event.waitUntil(Promise.all([
+  self.clients.claim(),
+  caches.keys().then(keys => Promise.all(keys.filter(key => key.startsWith("ku-ila-assets-") && key !== CACHE).map(key => caches.delete(key)))),
+])));
 
 self.addEventListener("fetch", event => {
   const request = event.request;
