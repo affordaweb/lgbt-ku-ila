@@ -6,6 +6,7 @@ import { ArrowLeft, ArrowUpRight, BriefcaseBusiness, HeartHandshake, Quote, Spar
 import FacebookIcon from "@/components/FacebookIcon";
 import InnerCta from "@/components/InnerCta";
 import ProfileUpdateRequestModal from "@/components/ProfileUpdateRequestModal";
+import ProfileLikeButton from "@/components/ProfileLikeButton";
 import styles from "@/components/InnerPage.module.css";
 import { members } from "@/lib/data";
 import { pageSeo, breadcrumbJsonLd, personJsonLd, siteUrl } from "@/lib/seo";
@@ -24,7 +25,7 @@ export default async function MemberPage({params}:{params:Promise<{slug:string}>
     <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(breadcrumb)}}/>
     <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(person)}}/>
     <section className={styles.memberHero}><span className={styles.memberHeroWord} aria-hidden="true"><span>{name}</span>{' '}<span>{name}</span></span><div className={styles.wrap}><div className={styles.memberHeroGrid}>
-      <div className={styles.memberHeroCopy}><p className={styles.eyebrow}>People of Ku-Ila</p><p className={styles.memberBreadcrumb}>Home / Members / {name}</p><h1>{highlightLast(name)}</h1><p className={styles.memberRole}>{member.role}</p><p className={styles.memberLead}>{profile?.biography ?? "A member of the community helping make room for more voices, more stories, and more belonging."}</p><div className={styles.actions}><ProfileUpdateRequestModal member={{name, slug: member.slug, role: member.role, pageUrl: `/members/${member.slug}`}} /><Link href="/members" className={styles.secondaryButton}><ArrowLeft size={15}/> All members</Link></div></div>
+      <div className={styles.memberHeroCopy}><p className={styles.eyebrow}>People of Ku-Ila</p><p className={styles.memberBreadcrumb}>Home / Members / {name}</p><h1>{highlightLast(name)}</h1><p className={styles.memberRole}>{member.role}</p><p className={styles.memberLead}>{profile?.biography ?? "A member of the community helping make room for more voices, more stories, and more belonging."}</p><div className={styles.actions}><ProfileLikeButton slug={member.slug} /><ProfileUpdateRequestModal member={{name, slug: member.slug, role: member.role, pageUrl: `/members/${member.slug}`}} /><Link href="/members" className={styles.secondaryButton}><ArrowLeft size={15}/> All members</Link></div></div>
       <div className={styles.memberHeroImage}><Image src={member.image} alt={name} fill priority sizes="(max-width:820px) 90vw, 43vw" /></div>
     </div></div></section>
     <section className={styles.section}><div className={styles.wrap}><div className={styles.profileLayout}>
