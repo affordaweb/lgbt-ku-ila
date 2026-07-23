@@ -10,7 +10,7 @@ import {
   MapPin,
   Users,
 } from "lucide-react";
-import { communityResources, galleryImages, pastEvents } from "@/lib/data";
+import { communityResources, galleryImages, members, pastEvents } from "@/lib/data";
 import AboutVisual from "@/components/AboutVisual";
 import AchievementSection from "@/components/AchievementSection";
 import styles from "./page.module.css";
@@ -55,88 +55,10 @@ const programs = [
   },
 ];
 
-const leadershipMembers = [
-  {
-    firstName: "Ricson",
-    surname: "Cultura",
-    profileSlug: "ricson-cultura",
-    image: "/images/members/Ricson.webp",
-    role: "LGBTQIA++ Kumintang Ilaya President",
-    textFirst: false,
-  },
-  {
-    firstName: "Donn",
-    surname: "Ramos",
-    profileSlug: "donn-ramos",
-    image: "/images/members/Donn.webp",
-    role: "LGBTQIA++ Batangas City Board Member",
-    textFirst: true,
-  },
-  {
-    firstName: "Rey Anne",
-    surname: "Buenviaje",
-    profileSlug: "rey-anne-buenviaje",
-    image: "/images/members/Rey Ann.webp",
-    role: "LGBTQIA++ Batangas City Board Member",
-    textFirst: false,
-  },
-  {
-    firstName: "Edmund",
-    surname: "Andal",
-    profileSlug: "edmund-andal",
-    image: "/images/members/Edmund.webp",
-    role: "LGBTQIA++ Batangas City Board Member",
-    textFirst: true,
-  },
-  {
-    firstName: "Ariane",
-    surname: "Gamboa",
-    profileSlug: "ariane-gamboa",
-    image: "/images/members/Ariane.webp",
-    role: "Former LGBTQIA++ Batangas City President",
-    textFirst: false,
-  },
-  {
-    firstName: "Bela",
-    surname: "Culla",
-    profileSlug: "bela-culla",
-    image: "/images/members/Bela.webp",
-    role: "LGBTQIA++ Kumintang Ilaya Member",
-    textFirst: true,
-  },
-  {
-    firstName: "Angel",
-    surname: "Morales",
-    profileSlug: "angel-morales",
-    image: "/images/members/Angel.webp",
-    role: "LGBTQIA++ Kumintang Ilaya Member",
-    textFirst: false,
-  },
-  {
-    firstName: "Raven",
-    surname: "Baylosis",
-    profileSlug: "raven-baylosis",
-    image: "/images/members/Raven.webp",
-    role: "LGBTQIA++ Kumintang Ilaya Member",
-    textFirst: true,
-  },
-  {
-    firstName: "Richiane",
-    surname: "Advincula",
-    profileSlug: "richiane-mira-advincula",
-    image: "/images/members/Richiane.webp",
-    role: "LGBTQIA++ Kumintang Ilaya Member",
-    textFirst: false,
-  },
-  {
-    firstName: "John",
-    surname: "Salvana",
-    profileSlug: "john-mores-salvana",
-    image: "/images/members/John Carlo.webp",
-    role: "LGBTQIA++ Kumintang Ilaya Member",
-    textFirst: true,
-  },
-];
+const leadershipMembers = members.map((member, index) => {
+  const [firstName, ...surnameParts] = member.name.split(" ");
+  return { firstName, surname: surnameParts.join(" "), profileSlug: member.slug, image: member.image, role: member.role, textFirst: index % 2 === 1 };
+});
 const featuredEvent = pastEvents[0];
 const eventList = pastEvents.slice(1, 4);
 const heroSlides = [
@@ -280,7 +202,7 @@ export default function HomePage() {
             >
               {member.textFirst && caption}
               <Link
-                href={`/leadership/${member.profileSlug}`}
+                href={`/members/${member.profileSlug}`}
                 className={styles.memberImageLink}
                 aria-label={`View ${name}'s profile`}
               >
