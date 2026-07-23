@@ -8,6 +8,10 @@ const memberProfileSlugs: Record<string, string> = {
   "ricson-cultura": "ricson-cultura",
   "donn-ramos": "donn-ramos",
   "bela-culla": "bela-culla",
+  "angel-morales": "angel-morales",
+  "raven-baylosis": "raven-baylosis",
+  "richiane-mira-advincula": "richiane-mira-advincula",
+  "john-mores-salvana": "john-mores-salvana",
   // Keep the original misspelled link working for anyone who already has it.
   "bela-cula": "bela-culla",
 };

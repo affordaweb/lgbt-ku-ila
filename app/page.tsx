@@ -104,6 +104,38 @@ const leadershipMembers = [
     role: "LGBTQIA++ Kumintang Ilaya Member",
     textFirst: true,
   },
+  {
+    firstName: "Angel",
+    surname: "Morales",
+    profileSlug: "angel-morales",
+    image: "/images/members/Angel.webp",
+    role: "LGBTQIA++ Kumintang Ilaya Member",
+    textFirst: false,
+  },
+  {
+    firstName: "Raven",
+    surname: "Baylosis",
+    profileSlug: "raven-baylosis",
+    image: "/images/members/Raven.webp",
+    role: "LGBTQIA++ Kumintang Ilaya Member",
+    textFirst: true,
+  },
+  {
+    firstName: "Richiane",
+    surname: "Advincula",
+    profileSlug: "richiane-mira-advincula",
+    image: "/images/members/Richiane.webp",
+    role: "LGBTQIA++ Kumintang Ilaya Member",
+    textFirst: false,
+  },
+  {
+    firstName: "John",
+    surname: "Salvana",
+    profileSlug: "john-mores-salvana",
+    image: "/images/members/John Carlo.webp",
+    role: "LGBTQIA++ Kumintang Ilaya Member",
+    textFirst: true,
+  },
 ];
 const featuredEvent = pastEvents[0];
 const eventList = pastEvents.slice(1, 4);
