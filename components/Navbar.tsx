@@ -7,7 +7,7 @@ import Image from "next/image";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { href: "/", label: "Home" }, { href: "/about", label: "About" }, { href: "/members", label: "Members" }, { href: "/events", label: "Events" }, { href: "/gallery", label: "Gallery" }, { href: "/contact", label: "Contact" },
+  { href: "/", label: "Home" }, { href: "/about", label: "About" }, { href: "/members", label: "Members" }, { href: "/member-center", label: "Member Center" }, { href: "/events", label: "Events" }, { href: "/gallery", label: "Gallery" }, { href: "/contact", label: "Contact" },
 ];
 
 export default function Navbar() {
